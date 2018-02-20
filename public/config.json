@@ -1,0 +1,24 @@
+{
+  "routes": [
+
+  ],
+
+  "narratives": [
+    {
+      "category": "People"
+      
+    },
+    {
+      "category": "Jobs"
+    },
+    {
+      "category": "Housing"
+    },
+  ],
+
+  "maps": [
+    {
+
+    }
+  ]
+}
