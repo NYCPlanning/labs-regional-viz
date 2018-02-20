@@ -1,0 +1,47 @@
+---
+narratives:
+- slug: jobs-narrative-1
+  title: Amazon to come here!
+  category: jobs
+  description: |
+    # Into the Woods
+
+    Once upon a time
+    In a far-off kingdom 
+    There lay a small village 
+    At the edge of the woods 
+    I wish 
+    And in this village 
+    More than anything 
+    Lived a young maiden
+
+  map: a-region-region
+- slug: people-narrative-2
+  category: people
+  title: JObs everywhere!
+  map: transit-oriented-viz
+- slug: housing-narrative-3
+  category: housing
+  title: Housing Productivity
+  map: transit-oriented-viz
+- slug: jobs-narrative-4
+  title: There are more ppl working!!
+  category: jobs
+  map: a-region-region
+- slug: people-narrative-5
+  category: people
+  title: JObs everywhere!
+  map: transit-oriented-viz
+- slug: housing-narrative-6
+  category: housing
+  title: Housing Productivity
+  map: transit-oriented-viz
+maps:
+- slug: a-region-region
+  title: Urban CDBs Biz
+  sources: []
+  layers: []
+- slug: transit-oriented-viz
+  title: Transit Oriented Viz
+  sources: []
+  layers: []
