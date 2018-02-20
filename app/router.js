@@ -7,6 +7,8 @@ const Router = EmberRouter.extend({
 });
 
 Router.map(function() {
+  this.route('narratives', { path: ':category/:slug' });
+  this.route('maps');
 });
 
 export default Router;
