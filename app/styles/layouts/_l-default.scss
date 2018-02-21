@@ -135,7 +135,7 @@ body {
   }
 
   @include breakpoint(large) {
-    padding: 4px 0 5px 8px;
+    padding: 4px 0 4px 8px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
     top: rem-calc(10);
@@ -152,6 +152,19 @@ body {
     margin-right: -8px;
     padding-right: 8px;
   }
+}
+
+.narrative-link {
+  @include button(false, $white, $light-gray, $primary-color, solid);
+
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 0;
+  padding-left: rem-calc(8);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
 }
 
 // .search {
