@@ -99,6 +99,8 @@ body {
   }
 }
 
+// Narrative
+// --------------------------------------------------
 .narrative-container {
   z-index: 2;
   min-height: calc(50vh - 6rem);
@@ -112,19 +114,30 @@ body {
   }
 }
 
+.narrative-title {
+  @include breakpoint(medium down){
+    margin-right: 1rem;
+  }
+}
+
 .narrative-toggle {
   @include button(false, $light-gray, $light-gray, $lu-red, solid);
+
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  z-index: 3;
+  font-size: rem-calc(20);
+  padding: 0.4em 0.5em;
+
   &:hover {
     color: darken($lu-red, 10%);
   }
 
   @include breakpoint(large) {
-    font-size: rem-calc(20);
     padding: 4px 0 5px 8px;
     border-top-right-radius: 0;
     border-bottom-right-radius: 0;
-    position: absolute;
-    z-index: 3;
     top: rem-calc(10);
     right: calc(41.66667% + 8px);
     box-shadow: 8px 0 0 0 $light-gray, 0 0 0 4px rgba(0,0,0,0.1);
@@ -166,10 +179,8 @@ body {
 }
 
 
+// Features
 // --------------------------------------------------
-// Module: Features
-// --------------------------------------------------
-
 .feature-image-cell {
 
   @include breakpoint(medium) {
