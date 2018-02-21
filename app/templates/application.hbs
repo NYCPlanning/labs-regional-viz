@@ -1,13 +1,5 @@
-{{link-to 'Application' 'application'}}
+{{site-header model=model}}
 
-Introduction!
-
-{{#each model.narratives as |narrative|}}
-  {{link-to narrative.category 'narratives' narrative.category narrative.slug}}
-{{/each}}
-
-{{#each model.maps as |map|}}
-  {{link-to map.title 'maps' map.slug}}
-{{/each}}
-
-{{outlet}}
+<div class="site-main grid-x">
+    {{outlet}}
+</div>

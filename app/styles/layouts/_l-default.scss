@@ -1,0 +1,216 @@
+// --------------------------------------------------
+// Default Layout
+// --------------------------------------------------
+
+body {
+  max-width: 100vw;
+  overflow-x: hidden;
+  overflow-y: auto;
+
+  html, & {
+    @include breakpoint(large) {
+      max-height: 100vh;
+      overflow: hidden;
+    }
+  }
+}
+
+.relative {
+  position: relative;
+}
+
+.site-header {
+  position: relative;
+  z-index: 2;
+}
+
+.site-main {
+  position: relative;
+  z-index: 2;
+  height: calc(100vh - 6rem);
+  background-color: $body-background;
+
+  @include breakpoint(large) {
+    z-index: 1;
+    overflow: hidden;
+  }
+
+  .overflow-y-grid {
+
+    @include breakpoint(large) {
+      @include xy-grid(vertical, true);
+      height: calc(100vh - 6rem);
+      overflow: hidden;
+
+      > .cell {
+        @include xy-cell-block($vertical:true);
+
+        &.shrink {
+          overflow: visible;
+          z-index: 2;
+        }
+      }
+    }
+  }
+}
+
+.menu--selector {
+  position: relative;
+  z-index: 3;
+  background-color: $white;
+  font-size: rem-calc(12);
+  font-weight: $global-weight-bold;
+  box-shadow: 0 4px 0 0 rgba(0,0,0,0.1);
+  overflow: hidden;
+
+  @include breakpoint(large) {
+    position: absolute;
+    top: rem-calc(58);
+    left: 50px;
+    background-color: $light-gray;
+    border-radius: 4px;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+
+    li:not(:last-child) {
+      border-right: 1px solid rgba(0,0,0,0.1);
+    }
+  }
+
+  a {
+    @include breakpoint(small only) {
+      padding-right: 0.75rem;
+      padding-left: 0.75rem;
+    }
+  }
+
+  li:hover {
+    background-color: rgba(0,0,0,0.03);
+  }
+}
+
+.map-container {
+  @include xy-cell-static(full,false,0);
+  position: relative;
+  z-index: 1;
+  height: 50vh;
+
+  &.no-narrative  {
+    height: 100%;
+  }
+
+  @include breakpoint(large) {
+    height: 100%;
+  }
+}
+
+// Narrative
+// --------------------------------------------------
+.narrative-container {
+  z-index: 2;
+  min-height: calc(50vh - 6rem);
+  background-color: $light-gray;
+  padding: $global-margin $global-margin $global-margin*2;
+  box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
+
+  @include breakpoint(large) {
+    box-shadow: -4px 0 0 0 rgba(0,0,0,0.1);
+    overflow: visible;
+  }
+}
+
+.narrative-title {
+  @include breakpoint(medium down){
+    margin-right: 1rem;
+  }
+}
+
+.narrative-toggle {
+  @include button(false, $light-gray, $light-gray, $lu-red, solid);
+
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  z-index: 3;
+  font-size: rem-calc(20);
+  padding: 0.4em 0.5em;
+
+  &:hover {
+    color: darken($lu-red, 10%);
+  }
+
+  @include breakpoint(large) {
+    padding: 4px 0 4px 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    top: rem-calc(10);
+    right: calc(41.66667% + 8px);
+    box-shadow: 8px 0 0 0 $light-gray, 0 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  @include breakpoint(xlarge) {
+    right: calc(33.333% + 8px);
+  }
+
+  > span {
+    display: inline-block;
+    margin-right: -8px;
+    padding-right: 8px;
+  }
+}
+
+.narrative-link {
+  @include button(false, $white, $light-gray, $primary-color, solid);
+
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  right: 0;
+  padding-left: rem-calc(8);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
+}
+
+// .search {
+//   position: relative;
+//   bottom: 50vh;
+//   left: -$global-margin;
+//   z-index: 100;
+//   margin-left: 50px;
+//   margin-bottom: rem-calc(-40);
+//
+//   @include breakpoint(large) {
+//     position: absolute;
+//     top: 0;
+//     bottom: auto;
+//     left: 0;
+//     width: rem-calc(300);
+//     margin-left: 0;
+//     margin-top: rem-calc(-92);
+//   }
+// }
+
+// HACK: dot and pulse misalign without this.
+.mapboxgl-user-location-dot {
+  box-sizing: initial;
+}
+
+
+// Features
+// --------------------------------------------------
+.feature-image-cell {
+
+  @include breakpoint(medium) {
+    padding-right: 1rem;
+  }
+}
+
+.feature-image {
+  max-width: 60%;
+  margin: 0 auto $global-margin;
+
+  @include breakpoint(medium) {
+    max-width: 100%;
+    margin-bottom: $global-margin*2;
+  }
+}

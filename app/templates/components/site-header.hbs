@@ -1,0 +1,25 @@
+<header role="banner">
+  <a href="https://planninglabs.nyc/" class="labs-beta-notice hide-for-print">A beta project of NYC Planning Labs</a>
+  <div class="grid-x grid-padding-x">
+    <div class="branding cell shrink large-auto">
+      <a class="dcp-link" href="http://www1.nyc.gov/site/planning/index.page"><img class="dcp-logo" src="https://raw.githubusercontent.com/NYCPlanning/logo/master/dcp_logo_772.png" alt="NYC Planning"></a>
+      {{#link-to 'index' classNames='site-name'}}Metro Mapper{{/link-to}}
+    </div>
+    <div class="cell auto hide-for-large text-right">
+      <button {{action (mut closed) (not closed)}} class="responsive-nav-toggler hide-for-print">Menu</button>
+    </div>
+    <div id="responsive-menu" class="cell large-shrink {{if closed 'show-for-large'}} hide-for-print">
+      <nav role="navigation">
+        <ul class="vertical large-horizontal menu">
+          {{#each model.narratives as |narrative|}}
+            <li>{{link-to narrative.category 'narrative' narrative.category narrative.slug}}</li>
+          {{/each}}
+          {{#each model.maps as |map|}}
+            <li>{{link-to map.title 'map' map.slug}}</li>
+          {{/each}}
+        </ul>
+      </nav>
+    </div>
+  </div>
+</header>
+{{yield}}

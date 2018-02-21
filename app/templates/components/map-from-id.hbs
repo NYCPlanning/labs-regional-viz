@@ -1,3 +1,16 @@
-{{id}}
+{{#jane-maps
+  id='map'
+  sources=sources
+  initOptions=(hash style='mapbox://styles/mapbox/light-v9'
+                    zoom=zoom
+                    center=center
+                    hash=true)
+  mapLoaded=(action 'handleMapLoad')
+  as |map|}}
+{{/jane-maps}}
+
+{{#if noNarrative}}
+<a class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}} {{fa-icon 'align-left'}}</a>
+{{/if}}
 
 {{yield}}
