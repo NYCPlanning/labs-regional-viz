@@ -1,13 +1,37 @@
+{{log 'MAPCONFIG' (await mapConfig.sources)}}
+
 {{#jane-maps
   id='map'
-  sources=sources
   initOptions=(hash style='mapbox://styles/mapbox/light-v9'
                     zoom=zoom
                     center=center
                     hash=true)
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
+
+  {{#each (await mapConfig.sources) as |source| }}
+    {{#map.source sourceId=source.id options=source }}
+      {{!-- only add layers after the last source is added --}}
+      {{#if (eq source.id mapConfig.sources._result.lastObject.id)}}
+        {{!-- this feels wrong ^^ --}}
+        {{log 'last'}}
+        {{#each mapConfig.layers as |layer| }}
+          {{log window.map}}
+          {{map.layer layer=layer}}
+        {{/each}}
+      {{/if}}
+    {{/map.source}}
+  {{/each}}
+
+
+
+
+
+
+
 {{/jane-maps}}
+
+
 
 {{#if noNarrative}}
 <a class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}} {{fa-icon 'align-left'}}</a>

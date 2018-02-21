@@ -7,12 +7,12 @@ narratives:
     # Into the Woods
 
     Once upon a time
-    In a far-off kingdom 
-    There lay a small village 
-    At the edge of the woods 
-    I wish 
-    And in this village 
-    More than anything 
+    In a far-off kingdom
+    There lay a small village
+    At the edge of the woods
+    I wish
+    And in this village
+    More than anything
     Lived a young maiden
 
   map: a-region-region
@@ -37,11 +37,28 @@ narratives:
   title: Housing Productivity
   map: transit-oriented-viz
 maps:
-- slug: a-region-region
-  title: Urban CDBs Biz
-  sources: []
-  layers: []
+- slug: population-change
+  title: Population Change 2010-2016
+  sources:
+  - id: population-change
+    type: cartovector
+    source-layers:
+    - id: population-change-counties
+      sql: SELECT the_geom_webmercator FROM region_counties_v0
+  layers:
+  - id: selected-fill
+    type: fill
+    source: population-change
+    source-layer: population-change-counties
+    paint:
+      fill-opacity: 1
+      fill-color: rgba(59, 101, 216, 1)
 - slug: transit-oriented-viz
   title: Transit Oriented Viz
-  sources: []
+  sources:
+  - id: transit-oriented
+    type: cartovector
+    source-layers:
+    - id: transit-oriented-subway
+      sql: SELECT the_geom_webmercator FROM support_trans_mta_subway_routes
   layers: []
