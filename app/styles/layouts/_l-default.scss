@@ -101,6 +101,13 @@ body {
 
 .narrative-container {
   padding: $global-margin $global-margin $global-margin*2;
+  z-index: 2;
+  box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
+  min-height: calc(50vh - 6rem);
+
+  @include breakpoint(large) {
+    box-shadow: -4px 0 0 0 rgba(0,0,0,0.1);
+  }
 }
 
 
