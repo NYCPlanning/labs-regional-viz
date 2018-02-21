@@ -1,13 +1,13 @@
-{{link-to 'Application' 'application'}}
+{{site-header}}
 
-Introduction!
+<div class="site-main">
+  {{#each model.narratives as |narrative|}}
+    {{link-to narrative.category 'narratives' narrative.category narrative.slug}}
+  {{/each}}
 
-{{#each model.narratives as |narrative|}}
-  {{link-to narrative.category 'narratives' narrative.category narrative.slug}}
-{{/each}}
+  {{#each model.maps as |map|}}
+    {{link-to map.title 'maps' map.slug}}
+  {{/each}}
 
-{{#each model.maps as |map|}}
-  {{link-to map.title 'maps' map.slug}}
-{{/each}}
-
-{{outlet}}
+  {{outlet}}
+</div>
