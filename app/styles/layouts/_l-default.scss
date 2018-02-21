@@ -26,30 +26,16 @@ body {
 
 .site-main {
   position: relative;
-  z-index: 2;
+  z-index: 1;
   height: calc(100vh - 6rem);
   background-color: $body-background;
 
   @include breakpoint(large) {
-    z-index: 1;
     overflow: hidden;
-  }
 
-  .overflow-y-grid {
-
-    @include breakpoint(large) {
-      @include xy-grid(vertical, true);
-      height: calc(100vh - 6rem);
-      overflow: hidden;
-
-      > .cell {
-        @include xy-cell-block($vertical:true);
-
-        &.shrink {
-          overflow: visible;
-          z-index: 2;
-        }
-      }
+    > .cell {
+      @include xy-cell-block($vertical:true);
+      overflow-x: hidden;
     }
   }
 }
