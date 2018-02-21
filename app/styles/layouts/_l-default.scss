@@ -133,6 +133,12 @@ body {
   @include breakpoint(xlarge) {
     right: calc(33.333% + 8px);
   }
+
+  > span {
+    display: inline-block;
+    margin-right: -8px;
+    padding-right: 8px;
+  }
 }
 
 // .search {
