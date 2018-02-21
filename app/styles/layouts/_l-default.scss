@@ -94,6 +94,10 @@ body {
   z-index: 1;
   height: 50vh;
 
+  &.no-narrative  {
+    height: 100%;
+  }
+
   @include breakpoint(large) {
     height: 100%;
   }
