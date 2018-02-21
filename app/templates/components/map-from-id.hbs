@@ -1,3 +1,14 @@
+{{#jane-maps
+  id='map'
+  sources=sources
+  initOptions=(hash style='mapbox://styles/mapbox/light-v9'
+                    zoom=zoom
+                    center=center
+                    hash=true)
+  mapLoaded=(action 'handleMapLoad')
+  as |map|}}
+{{/jane-maps}}
+
 {{id}}
 
 {{yield}}

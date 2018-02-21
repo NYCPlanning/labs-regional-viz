@@ -1,27 +1,5 @@
-{{site-header}}
+{{site-header model=model}}
 
-<div class="site-main">
-  <div class="map-container">
-
-    {{#jane-maps
-      id='map'
-      sources=sources
-      initOptions=(hash style='mapbox://styles/mapbox/light-v9'
-                        zoom=zoom
-                        center=center
-                        hash=true)
-      mapLoaded=(action 'handleMapLoad')
-      as |map|}}
-      {{/jane-maps}}
-
-      {{#each model.narratives as |narrative|}}
-        {{link-to narrative.category 'narratives' narrative.category narrative.slug}}
-      {{/each}}
-
-      {{#each model.maps as |map|}}
-        {{link-to map.title 'maps' map.slug}}
-      {{/each}}
-
+<div class="site-main grid-x">
     {{outlet}}
-  </div>
 </div>

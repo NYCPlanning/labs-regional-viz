@@ -6,12 +6,17 @@
       {{#link-to 'index' classNames='site-name'}}Metro Mapper{{/link-to}}
     </div>
     <div class="cell auto hide-for-large text-right">
-      <button {{action (mut closed) (not closed)}} class="responsive-nav-toggler hide-for-print" data-toggle="responsive-menu">Menu</button>
+      <button {{action (mut closed) (not closed)}} class="responsive-nav-toggler hide-for-print">Menu</button>
     </div>
-    <div id="responsive-menu" class="cell large-shrink {{if closed 'show-for-large'}} hide-for-print" data-toggler=".show-for-large">
+    <div id="responsive-menu" class="cell large-shrink {{if closed 'show-for-large'}} hide-for-print">
       <nav role="navigation">
         <ul class="vertical large-horizontal menu">
-
+          {{#each model.narratives as |narrative|}}
+            <li>{{link-to narrative.category 'narrative' narrative.category narrative.slug}}</li>
+          {{/each}}
+          {{#each model.maps as |map|}}
+            <li>{{link-to map.title 'maps' map.slug}}</li>
+          {{/each}}
         </ul>
       </nav>
     </div>

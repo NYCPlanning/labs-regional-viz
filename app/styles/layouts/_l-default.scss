@@ -99,172 +99,33 @@ body {
   }
 }
 
-.profile-map-container {
-  height: 30vh;
-  width: 100%;
-  border: 1px solid $medium-gray;
-
-  @include breakpoint(large) {
-    height: 100%;
-  }
+.narrative-container {
+  padding: $global-margin $global-margin $global-margin*2;
 }
 
-.edit-selection-button {
-  position: absolute;
-  z-index: 2;
-  top: rem-calc(10);
-  right: rem-calc(10);
-  font-size: rem-calc(12);
 
-  span {
-    background-color: transparentize($white, 0.2);
-    padding: rem-calc(5) rem-calc(8);
-    border-radius: $global-radius;
-    box-shadow: 0 0 0 4px rgba(0,0,0,0.1);
-    display: inline-block;
-  }
-
-  @include breakpoint(large) {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    span {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: $global-weight-bold;
-      padding: 0.75rem 1rem;
-    }
-
-    &:hover {
-      background-color: transparentize($light-gray, 0.3);
-
-      span {
-        display: block;
-      }
-    }
-  }
-}
-
-.map-utility-box {
-  background-color: $white;
-  padding: $global-margin;
-  position: relative;
-
-  @include breakpoint(large) {
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    z-index: 4;
-    padding-bottom: 0;
-    margin-top: rem-calc(92);
-    width: rem-calc(330);
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
-  }
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  .button--clear-selection {
-    margin: 0 0 0 $global-margin;
-  }
-}
-
-.search {
-  position: relative;
-  bottom: 50vh;
-  left: -$global-margin;
-  z-index: 100;
-  margin-left: 50px;
-  margin-bottom: rem-calc(-40);
-
-  @include breakpoint(large) {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-    left: 0;
-    width: rem-calc(300);
-    margin-left: 0;
-    margin-top: rem-calc(-92);
-  }
-}
-
-.call-to-action {
-  margin-bottom: $global-margin;
-
-  .medium-shrink {
-    @include breakpoint(medium) {
-      padding-left: rem-calc(10);
-    }
-  }
-}
-
-.advanced-options {
-  background-color: $light-gray;
-  margin-right: -$global-margin;
-  margin-left: -$global-margin;
-  border-top: 1px solid $medium-gray;
-  transition: all 0.2s;
-
-  &.closed {
-    display: none;
-  }
-
-  @include breakpoint(large) {
-    height: 100vh;
-    max-height: calc(100vh - #{rem-calc(472)});
-    min-height: rem-calc(200);
-    overflow: auto;
-
-    &.closed {
-      display: block;
-      max-height: 0;
-      min-height: 0;
-    }
-  }
-}
-
-#profile-content {
-  padding-bottom: 4rem;
-}
-
-.profile-footer {
-  padding: 3rem 0;
-  text-align: center;
-
-  a {
-    display: inline-block;
-    color: $medium-gray;
-    font-size: rem-calc(12);
-    font-weight: $global-weight-bold;
-
-    &:hover {
-      color: $dcp-orange
-    }
-  }
-}
+// .search {
+//   position: relative;
+//   bottom: 50vh;
+//   left: -$global-margin;
+//   z-index: 100;
+//   margin-left: 50px;
+//   margin-bottom: rem-calc(-40);
+//
+//   @include breakpoint(large) {
+//     position: absolute;
+//     top: 0;
+//     bottom: auto;
+//     left: 0;
+//     width: rem-calc(300);
+//     margin-left: 0;
+//     margin-top: rem-calc(-92);
+//   }
+// }
 
 // HACK: dot and pulse misalign without this.
 .mapboxgl-user-location-dot {
   box-sizing: initial;
-}
-
-.no-bookmarks {
-  @include breakpoint(large) {
-    color: $dark-gray;
-    height: 100%;
-    display: flex;
-  }
-}
-
-
-.sticky-element--sticky {
-  overflow: hidden;
 }
 
 
