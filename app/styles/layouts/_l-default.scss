@@ -100,16 +100,40 @@ body {
 }
 
 .narrative-container {
-  padding: $global-margin $global-margin $global-margin*2;
   z-index: 2;
-  box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
   min-height: calc(50vh - 6rem);
+  background-color: $light-gray;
+  padding: $global-margin $global-margin $global-margin*2;
+  box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
 
   @include breakpoint(large) {
     box-shadow: -4px 0 0 0 rgba(0,0,0,0.1);
+    overflow: visible;
   }
 }
 
+.narrative-toggle {
+  @include button(false, $light-gray, $light-gray, $lu-red, solid);
+  &:hover {
+    color: darken($lu-red, 10%);
+  }
+
+  @include breakpoint(large) {
+    font-size: rem-calc(20);
+    padding: 4px 0 5px 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    position: absolute;
+    z-index: 3;
+    top: rem-calc(10);
+    right: calc(41.66667% + 8px);
+    box-shadow: 8px 0 0 0 $light-gray, 0 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  @include breakpoint(xlarge) {
+    right: calc(33.333% + 8px);
+  }
+}
 
 // .search {
 //   position: relative;
