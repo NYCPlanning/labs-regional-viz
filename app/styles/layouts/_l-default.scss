@@ -94,184 +94,110 @@ body {
   z-index: 1;
   height: 50vh;
 
-  @include breakpoint(large) {
+  &.no-narrative  {
     height: 100%;
   }
-}
-
-.profile-map-container {
-  height: 30vh;
-  width: 100%;
-  border: 1px solid $medium-gray;
 
   @include breakpoint(large) {
     height: 100%;
   }
 }
 
-.edit-selection-button {
+// Narrative
+// --------------------------------------------------
+.narrative-container {
+  z-index: 2;
+  min-height: calc(50vh - 6rem);
+  background-color: $light-gray;
+  padding: $global-margin $global-margin $global-margin*2;
+  box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
+
+  @include breakpoint(large) {
+    box-shadow: -4px 0 0 0 rgba(0,0,0,0.1);
+    overflow: visible;
+  }
+}
+
+.narrative-title {
+  @include breakpoint(medium down){
+    margin-right: 1rem;
+  }
+}
+
+.narrative-toggle {
+  @include button(false, $light-gray, $light-gray, $lu-red, solid);
+
+  position: absolute;
+  top: 50vh;
+  right: 0;
+  z-index: 3;
+  font-size: rem-calc(20);
+  padding: 0.4em 0.5em;
+
+  &:hover {
+    color: darken($lu-red, 10%);
+  }
+
+  @include breakpoint(large) {
+    padding: 4px 0 4px 8px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    top: rem-calc(10);
+    right: calc(41.66667% + 8px);
+    box-shadow: 8px 0 0 0 $light-gray, 0 0 0 4px rgba(0,0,0,0.1);
+  }
+
+  @include breakpoint(xlarge) {
+    right: calc(33.333% + 8px);
+  }
+
+  > span {
+    display: inline-block;
+    margin-right: -8px;
+    padding-right: 8px;
+  }
+}
+
+.narrative-link {
+  @include button(false, $white, $light-gray, $primary-color, solid);
+
   position: absolute;
   z-index: 2;
-  top: rem-calc(10);
-  right: rem-calc(10);
-  font-size: rem-calc(12);
-
-  span {
-    background-color: transparentize($white, 0.2);
-    padding: rem-calc(5) rem-calc(8);
-    border-radius: $global-radius;
-    box-shadow: 0 0 0 4px rgba(0,0,0,0.1);
-    display: inline-block;
-  }
-
-  @include breakpoint(large) {
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-
-    span {
-      display: none;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      font-weight: $global-weight-bold;
-      padding: 0.75rem 1rem;
-    }
-
-    &:hover {
-      background-color: transparentize($light-gray, 0.3);
-
-      span {
-        display: block;
-      }
-    }
-  }
+  top: 10px;
+  right: 0;
+  padding-left: rem-calc(8);
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  box-shadow: 0px 0px 0px 2px rgba(0,0,0,0.1);
 }
 
-.map-utility-box {
-  background-color: $white;
-  padding: $global-margin;
-  position: relative;
-
-  @include breakpoint(large) {
-    position: absolute;
-    top: 10px;
-    left: 50px;
-    z-index: 4;
-    padding-bottom: 0;
-    margin-top: rem-calc(92);
-    width: rem-calc(330);
-    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
-  }
-
-  > :last-child {
-    margin-bottom: 0;
-  }
-
-  .button--clear-selection {
-    margin: 0 0 0 $global-margin;
-  }
-}
-
-.search {
-  position: relative;
-  bottom: 50vh;
-  left: -$global-margin;
-  z-index: 100;
-  margin-left: 50px;
-  margin-bottom: rem-calc(-40);
-
-  @include breakpoint(large) {
-    position: absolute;
-    top: 0;
-    bottom: auto;
-    left: 0;
-    width: rem-calc(300);
-    margin-left: 0;
-    margin-top: rem-calc(-92);
-  }
-}
-
-.call-to-action {
-  margin-bottom: $global-margin;
-
-  .medium-shrink {
-    @include breakpoint(medium) {
-      padding-left: rem-calc(10);
-    }
-  }
-}
-
-.advanced-options {
-  background-color: $light-gray;
-  margin-right: -$global-margin;
-  margin-left: -$global-margin;
-  border-top: 1px solid $medium-gray;
-  transition: all 0.2s;
-
-  &.closed {
-    display: none;
-  }
-
-  @include breakpoint(large) {
-    height: 100vh;
-    max-height: calc(100vh - #{rem-calc(472)});
-    min-height: rem-calc(200);
-    overflow: auto;
-
-    &.closed {
-      display: block;
-      max-height: 0;
-      min-height: 0;
-    }
-  }
-}
-
-#profile-content {
-  padding-bottom: 4rem;
-}
-
-.profile-footer {
-  padding: 3rem 0;
-  text-align: center;
-
-  a {
-    display: inline-block;
-    color: $medium-gray;
-    font-size: rem-calc(12);
-    font-weight: $global-weight-bold;
-
-    &:hover {
-      color: $dcp-orange
-    }
-  }
-}
+// .search {
+//   position: relative;
+//   bottom: 50vh;
+//   left: -$global-margin;
+//   z-index: 100;
+//   margin-left: 50px;
+//   margin-bottom: rem-calc(-40);
+//
+//   @include breakpoint(large) {
+//     position: absolute;
+//     top: 0;
+//     bottom: auto;
+//     left: 0;
+//     width: rem-calc(300);
+//     margin-left: 0;
+//     margin-top: rem-calc(-92);
+//   }
+// }
 
 // HACK: dot and pulse misalign without this.
 .mapboxgl-user-location-dot {
   box-sizing: initial;
 }
 
-.no-bookmarks {
-  @include breakpoint(large) {
-    color: $dark-gray;
-    height: 100%;
-    display: flex;
-  }
-}
 
-
-.sticky-element--sticky {
-  overflow: hidden;
-}
-
-
+// Features
 // --------------------------------------------------
-// Module: Features
-// --------------------------------------------------
-
 .feature-image-cell {
 
   @include breakpoint(medium) {
