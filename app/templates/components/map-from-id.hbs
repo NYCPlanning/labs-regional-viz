@@ -9,25 +9,12 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-  {{#each (await mapConfig.sources) as |source| }}
-    {{#map.source sourceId=source.id options=source }}
-      {{!-- only add layers after the last source is added --}}
-      {{#if (eq source.id mapConfig.sources._result.lastObject.id)}}
-        {{!-- this feels wrong ^^ --}}
-        {{log 'last'}}
-        {{#each mapConfig.layers as |layer| }}
-          {{log window.map}}
-          {{map.layer layer=layer}}
-        {{/each}}
-      {{/if}}
-    {{/map.source}}
+
+  {{#each builtLayers as |layer| }}
+    {{log layer}}
+
+    {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
-
-
-
-
-
-
 
 {{/jane-maps}}
 

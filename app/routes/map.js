@@ -29,7 +29,12 @@ export default Route.extend({
           }));
       });
 
-    mapConfig.sources = Promise.all(cartoSourcePromises)
-    return mapConfig;
+    // mapConfig.sources = Promise.all(cartoSourcePromises)
+
+    return Promise.all(cartoSourcePromises)
+      .then(cartoPromises => {
+        mapConfig.sources = cartoPromises;
+        return mapConfig;
+      });
   }
 });
