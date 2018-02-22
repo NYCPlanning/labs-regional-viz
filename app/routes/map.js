@@ -10,6 +10,7 @@ export default Route.extend({
     const { maps = [] } = this
       .modelFor('application');
 
+<<<<<<< HEAD
     const mapConfig = maps.findBy('slug', slug);
 
     const { sources } = mapConfig;
@@ -36,5 +37,9 @@ export default Route.extend({
         mapConfig.sources = cartoPromises;
         return mapConfig;
       });
+=======
+    return maps
+      .findBy('slug', slug);
+>>>>>>> develop
   }
 });

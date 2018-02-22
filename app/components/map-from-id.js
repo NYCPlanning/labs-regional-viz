@@ -29,10 +29,7 @@ function buildPaint({ property, colors, breaks, opacity }) {
 }
 
 export default Component.extend({
-  // object with sources and layers
-  mapConfig: {},
-
-  classNameBindings: ['noNarrative:no-narrative'],
+  classNameBindings: ['narrativeVisible:narrative-visible'],
   classNames: 'map-container cell large-auto',
   zoom: 6.8,
   center: [-73.869324, 40.815888],
