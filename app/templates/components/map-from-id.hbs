@@ -9,8 +9,8 @@
   as |map|}}
 {{/jane-maps}}
 
-{{#if noNarrative}}
-<a class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}} {{fa-icon 'align-left'}}</a>
-{{/if}}
+{{#unless narrativeVisible}}
+  <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
+{{/unless}}
 
 {{yield}}
