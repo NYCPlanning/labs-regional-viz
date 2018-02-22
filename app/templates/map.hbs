@@ -1,7 +1,10 @@
+
+{{log "MODEL" model}}
 {{map-from-id
   id=model.map
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
+  mapConfig=model
 }}
 
 {{#if narrativeVisible}}

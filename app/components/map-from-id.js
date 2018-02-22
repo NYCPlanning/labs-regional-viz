@@ -56,6 +56,7 @@ export default Component.extend({
 
   actions: {
     handleMapLoad(map) {
+      console.log('mapConfig', this.get('mapConfig'))
       const sources = this.get('mapConfig.sources');
 
       if (window) {
