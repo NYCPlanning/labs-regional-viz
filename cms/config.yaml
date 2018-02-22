@@ -1,47 +1,73 @@
 ---
-narratives:
-- slug: jobs-narrative-1
-  title: Amazon to come here!
-  category: jobs
-  description: |
-    # Into the Woods
 
-    Once upon a time
-    In a far-off kingdom 
-    There lay a small village 
-    At the edge of the woods 
-    I wish 
-    And in this village 
-    More than anything 
-    Lived a young maiden
+pages:
 
-  map: a-region-region
-- slug: people-narrative-2
-  category: people
-  title: JObs everywhere!
-  map: transit-oriented-viz
-- slug: housing-narrative-3
-  category: housing
-  title: Housing Productivity
-  map: transit-oriented-viz
-- slug: jobs-narrative-4
-  title: There are more ppl working!!
-  category: jobs
-  map: a-region-region
-- slug: people-narrative-5
-  category: people
-  title: JObs everywhere!
-  map: transit-oriented-viz
-- slug: housing-narrative-6
-  category: housing
-  title: Housing Productivity
-  map: transit-oriented-viz
+- slug: about
+  title: About
+  content: |
+    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
 maps:
-- slug: a-region-region
-  title: Urban CDBs Biz
-  sources: []
-  layers: []
-- slug: transit-oriented-viz
-  title: Transit Oriented Viz
-  sources: []
-  layers: []
+
+# Jobs
+# ----------
+- slug: jobs-1
+  category: Jobs
+  title: Into the Woods
+  content: |
+    # Once upon a time
+
+    In a far-off kingdom
+    There lay a small village
+    At the edge of the woods
+    I wish
+    And in this village
+    More than anything
+    Lived a young maiden
+  map:
+  - sources:
+    layers:
+
+- slug: jobs-2
+  category: Jobs
+  title: Look at all these!
+  content:
+  map:
+  - sources:
+    layers:
+
+# People
+# ----------
+- slug: people-1
+  category: People
+  title: Jobs everywhere!
+  content:
+  map:
+  - sources:
+    layers:
+
+- slug: people-2
+  category: People
+  title: Jobs are for the people!
+  content:
+  map:
+  - sources:
+    layers:
+
+# Housing
+# ----------
+- slug: housing-1
+  category: Housing
+  title: Housing Productivity
+  content:
+  map:
+  - sources:
+    layers:
+
+- slug: housing-2
+  category: Housing
+  title: Housing Productivity
+  content:
+  map:
+  - sources:
+    layers:

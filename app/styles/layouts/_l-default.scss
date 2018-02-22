@@ -80,13 +80,20 @@ body {
   z-index: 1;
   height: 50vh;
 
-  &.no-narrative  {
+  &:not(.narrative-visible)  {
     height: 100%;
   }
 
   @include breakpoint(large) {
     height: 100%;
   }
+}
+
+
+// Static Pages
+// --------------------------------------------------
+.page-container {
+  padding: $global-margin $global-margin $global-margin*2;
 }
 
 // Narrative

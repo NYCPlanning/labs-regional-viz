@@ -2,10 +2,10 @@ import Route from '@ember/routing/route';
 
 export default Route.extend({
   model({ slug }) {
-    const { narratives = [] } = this
+    const { pages = [] } = this
       .modelFor('application');
 
-    return narratives
+    return pages
       .findBy('slug', slug);
   }
 });
