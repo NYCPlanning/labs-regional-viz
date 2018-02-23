@@ -7,15 +7,21 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-
   {{#each builtLayers as |layer| }}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 
+  {{#if highlightedFeature}}
+    {{#map.source sourceId='highlighted-feature' options=highlightedFeatureSource as |source|}}
+      {{map.layer layer=highlightedFeatureLayer}}
+    {{/map.source}}
+  {{/if}}
+
+  {{map.on 'mousemove' (action 'handleMouseMove')}}
 {{/jane-maps}}
 
 {{#unless narrativeVisible}}
   <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
 {{/unless}}
-
+<div>Hello</div>
 {{yield}}
