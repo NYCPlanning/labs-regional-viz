@@ -35,12 +35,22 @@ export default Component.extend({
 
   highlightedFeature: null,
 
+  popup: new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  }),
+
   @computed('highlightedFeature')
   highlightedFeatureSource(feature) {
     return {
       type: 'geojson',
       data: feature,
     };
+  },
+
+  @computed('highlightedFeature')
+  popupData(feature) {
+    return feature.properties
   },
 
   highlightedFeatureLayer: {
@@ -99,15 +109,19 @@ export default Component.extend({
     },
 
     handleMouseMove(e) {
-      // set to pointer if the layer-group is also clickable
-
-
       const layers = this.get('mapConfig.layers').map(d => d.id)
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
+      const popup = this.get('popup');
 
       if (feature) {
         console.log(feature.properties.name, feature.properties.value)
         this.set('highlightedFeature', feature)
+        popup.setLngLat(e.lngLat)
+          .setHTML(`${feature.properties.name} ${feature.properties.value}`)
+          .addTo(this.get('map'));
+      } else {
+        this.set('highlightedFeature', null)
+        popup.remove();
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
