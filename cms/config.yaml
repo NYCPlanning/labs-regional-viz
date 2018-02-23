@@ -107,19 +107,17 @@ maps:
         opacity: 0.6
         property: houps1016
         colors:
-        - "#d76423"
-        - "#ffa555"
         - "#ffffe0"
-        - "#b3e4ff"
-        - "#5ab4ff"
-        - "#004da8"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
         breaks:
-        - -0.025
-        - -0.01
-        - .01
-        - .025
-        - .05
-        - 1
+        - 3000
+        - 7500
+        - 15000
+        - 30000
+        - 1000000
 - slug: housing-1
   category: Housing
   title: Housing Productivity
