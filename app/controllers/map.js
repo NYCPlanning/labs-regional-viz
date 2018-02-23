@@ -2,6 +2,13 @@ import Ember from 'ember';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
+  queryParams: [
+    {
+      narrativeVisible: {
+        scope: 'controller',
+      },
+    },
+  ],
   narrativeVisible: true,
 
   actions: {
@@ -10,6 +17,6 @@ export default Controller.extend({
       Ember.run.next(function() {
         window.dispatchEvent(new Event('resize'));
       });
-    }
+    },
   },
 });
