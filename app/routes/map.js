@@ -10,7 +10,7 @@ export default Route.extend({
   model({ slug }) {
     const { maps = {} } = this
       .modelFor('application');
-    const mapNarrative = get(maps, slug);
+    const mapNarrative = get(maps, slug.camelize());
 
     const mapConfig = mapNarrative.map;
     const { sources } = mapConfig;
