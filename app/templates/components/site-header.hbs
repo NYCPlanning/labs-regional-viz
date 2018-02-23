@@ -10,13 +10,25 @@
     </div>
     <div id="responsive-menu" class="cell large-shrink {{if closed 'show-for-large'}} hide-for-print">
       <nav role="navigation">
-        <ul class="vertical large-horizontal menu">
-          {{#each model.maps as |map|}}
-            <li>{{link-to map.title 'map' map.category map.slug}}</li>
-          {{/each}}
+        <ul class="dropdown menu">
+          {{#each-in (group-by "category" model.maps) as |category maps|}}
+            {{#zf-dropdown-menu class="horizontal"}}
+              <li>
+                <a>{{category}}</a>
+                <ul class="menu">
+                  {{#each maps as |map|}}
+                    <li>
+                      {{link-to map.title 'map' map.category map.slug}}
+                    </li>
+                  {{/each}}
+                </ul>
+              </li>
+            {{/zf-dropdown-menu}}
+          {{/each-in}}
         </ul>
       </nav>
     </div>
   </div>
 </header>
+
 {{yield}}

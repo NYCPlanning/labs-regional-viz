@@ -3065,6 +3065,13 @@ ember-composability-tools@0.0.8:
     ember-getowner-polyfill "1.1.1"
     ember-wormhole "0.5.1"
 
+ember-composable-helpers@2.1.0:
+  version "2.1.0"
+  resolved "https://registry.yarnpkg.com/ember-composable-helpers/-/ember-composable-helpers-2.1.0.tgz#71f75ab2de1c696d21939b5f9dcc62eaf2c947e5"
+  dependencies:
+    broccoli-funnel "^1.0.1"
+    ember-cli-babel "^6.6.0"
+
 ember-data@~2.17.0:
   version "2.17.0"
   resolved "https://registry.yarnpkg.com/ember-data/-/ember-data-2.17.0.tgz#d952cf98d7461abf41ed6d248cf2a5836c623276"
