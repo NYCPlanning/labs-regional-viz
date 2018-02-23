@@ -69,6 +69,11 @@ export default Component.extend({
   },
 
   @computed('mapConfig.layers')
+  layerTitle(layers = []) {
+    return layers[0].title;
+  },
+
+  @computed('mapConfig.layers')
   builtLayers(layers = []) {
     return layers.map((layer) => {
       if (layer.type === 'choropleth') {
@@ -116,7 +121,7 @@ export default Component.extend({
       }
 
       breaksArray.push({
-        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
+        label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
         color: colors[i],
       });
     }
