@@ -28,9 +28,9 @@ export default Route.extend({
       });
 
     return Promise.all(cartoSourcePromises)
-      .then(cartoPromises => {
+      .then((cartoPromises) => {
         mapConfig.sources = cartoPromises;
         return mapConfig;
       });
-  }
+  },
 });

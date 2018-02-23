@@ -25,16 +25,16 @@ maps:
     More than anything
     Lived a young maiden
   map:
-  - sources:
-    layers:
+  - sources: []
+    layers: []
 
 - slug: jobs-2
   category: Jobs
   title: Look at all these!
   content:
   map:
-  - sources:
-    layers:
+  - sources: []
+    layers: []
 
 # People
 # ----------
@@ -79,8 +79,8 @@ maps:
   title: Jobs are for the people!
   content:
   map:
-  - sources:
-    layers:
+  - sources: []
+    layers: []
 
 # Housing
 # ----------
@@ -125,13 +125,13 @@ maps:
   title: Housing Productivity
   content:
   map:
-  - sources:
-    layers:
+  - sources: []
+    layers: []
 
 - slug: housing-2
   category: Housing
   title: Housing Productivity
   content:
   map:
-  - sources:
-    layers:
+  - sources: []
+    layers: []
