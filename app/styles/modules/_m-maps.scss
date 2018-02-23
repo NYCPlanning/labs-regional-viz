@@ -86,6 +86,36 @@
   }
 }
 
+
+// Map Legend
+.legend {
+  position: absolute;
+  z-index: 2;
+  bottom: 30px;
+  right: 10px;
+  font-size: rem-calc(10);
+  background-color: rgba(255,255,255,0.8);
+  padding: rem-calc(6) rem-calc(10);
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+
+  .legend-title {
+    font-size: rem-calc(11);
+    margin-bottom: rem-calc(4);
+    max-width: 10em;
+  }
+
+  .legend-item {
+    border-top: 1px solid $light-gray;
+    padding: rem-calc(2) 0;
+
+    .legend-color {
+      margin: 0 rem-calc(4) 0 0;
+    }
+  }
+}
+
+
 // Drawing
 #measurement-text {
   // position: absolute;
