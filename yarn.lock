@@ -2867,6 +2867,13 @@ ember-cli-normalize-entity-name@^1.0.0:
   dependencies:
     silent-error "^1.0.0"
 
+ember-cli-numeral@^1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-cli-numeral/-/ember-cli-numeral-1.0.0.tgz#52b5655f882d0f0d2eb247155ecae01842af34bf"
+  dependencies:
+    ember-cli-babel "^6.8.2"
+    numeral "2.0.6"
+
 ember-cli-path-utils@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/ember-cli-path-utils/-/ember-cli-path-utils-1.0.0.tgz#4e39af8b55301cddc5017739b77a804fba2071ed"
@@ -3359,7 +3366,7 @@ ember-yaml-cms@0.0.2:
     broccoli-yaml "0.0.3"
     ember-cli-babel "^5.1.7"
 
-ember@1.0.3:
+ember@^1.0.3:
   version "1.0.3"
   resolved "https://registry.yarnpkg.com/ember/-/ember-1.0.3.tgz#783670495ce15fc5f4a36534b2f50e7fec60c0b0"
 
@@ -6275,6 +6282,10 @@ number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
 
+numeral@2.0.6, numeral@^2.0.6:
+  version "2.0.6"
+  resolved "https://registry.yarnpkg.com/numeral/-/numeral-2.0.6.tgz#4ad080936d443c2561aed9f2197efffe25f4e506"
+
 oauth-sign@~0.8.1, oauth-sign@~0.8.2:
   version "0.8.2"
   resolved "https://registry.yarnpkg.com/oauth-sign/-/oauth-sign-0.8.2.tgz#46a6ab7f0aead8deae9ec0565780b7d4efeb9d43"
@@ -7194,6 +7205,10 @@ rx-lite@*, rx-lite@^4.0.8:
 rx@^4.1.0:
   version "4.1.0"
   resolved "https://registry.yarnpkg.com/rx/-/rx-4.1.0.tgz#a5f13ff79ef3b740fe30aa803fb09f98805d4782"
+
+s@^0.1.1:
+  version "0.1.1"
+  resolved "https://registry.yarnpkg.com/s/-/s-0.1.1.tgz#6df7775d2ab2176ff131913f427eddb4302fac0c"
 
 safe-buffer@5.1.1, safe-buffer@^5.0.1, safe-buffer@^5.1.1, safe-buffer@~5.1.0, safe-buffer@~5.1.1:
   version "5.1.1"
