@@ -1,4 +1,4 @@
-import Ember from 'ember';
+import { next } from '@ember/runloop';
 import Controller from '@ember/controller';
 
 export default Controller.extend({
@@ -14,7 +14,8 @@ export default Controller.extend({
   actions: {
     toggleNarrative() {
       this.toggleProperty('narrativeVisible');
-      Ember.run.next(function() {
+
+      next(function() {
         window.dispatchEvent(new Event('resize'));
       });
     },
