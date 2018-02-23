@@ -1,5 +1,3 @@
-
-{{log "MODEL" model}}
 {{map-from-id
   id=model.map
   narrativeVisible=narrativeVisible
@@ -8,12 +6,14 @@
 }}
 
 {{#if narrativeVisible}}
-<a {{action 'toggleNarrative'}} class="narrative-toggle"><span>{{fa-icon 'times'}}</span></a>
-<div class="cell large-5 xlarge-4 narrative-container">
-  <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
-  {{md-text text = model.content}}
-  {{outlet}}
-</div>
+  <a {{action 'toggleNarrative'}} class="narrative-toggle">
+    <span>{{fa-icon 'times'}}</span>
+  </a>
+  <div class="cell large-5 xlarge-4 narrative-container">
+    <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
+    {{md-text text = model.content}}
+    {{outlet}}
+  </div>
 {{/if}}
 
 {{outlet}}

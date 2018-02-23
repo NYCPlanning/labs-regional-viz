@@ -7,26 +7,14 @@ const { Promise } = Ember.RSVP;
 
 export default Route.extend({
   model({ slug }) {
-    console.log('MODEL')
     const { maps = [] } = this
       .modelFor('application');
-
-
-
-    const mapConfig = maps.findBy('slug', slug).map[0];
-
-    console.log('mapconfig', mapConfig)
-
-
+    const [mapConfig] = maps.findBy('slug', slug).map;
     const { sources } = mapConfig;
 
-    console.log('sources', sources)
-
-
-    const cartoSourcePromises = Object.keys(sources)
+    const cartoSourcePromises = Object.keys(sources || {})
       .filter(key => sources[key].type === 'cartovector')
       .map((key) => {
-        console.log(key)
         const source = sources[key];
         const { minzoom = 0 } = source;
 
@@ -38,8 +26,6 @@ export default Route.extend({
             minzoom,
           }));
       });
-
-    // mapConfig.sources = Promise.all(cartoSourcePromises)
 
     return Promise.all(cartoSourcePromises)
       .then(cartoPromises => {

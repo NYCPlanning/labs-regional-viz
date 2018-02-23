@@ -1,5 +1,3 @@
-{{log 'MAPCONFIG' (await mapConfig.sources)}}
-
 {{#jane-maps
   id='map'
   initOptions=(hash style='mapbox://styles/mapbox/light-v9'
@@ -11,8 +9,6 @@
 
 
   {{#each builtLayers as |layer| }}
-    {{log layer}}
-
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 

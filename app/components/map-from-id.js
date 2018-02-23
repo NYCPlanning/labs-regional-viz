@@ -24,7 +24,6 @@ function buildPaint({ property, colors, breaks, opacity }) {
 
   colorArray.push('#FFF')
 
-  console.log('PAINT', paint)
   return paint;
 }
 
@@ -37,10 +36,8 @@ export default Component.extend({
   @computed('mapConfig.layers')
   builtLayers(layers) {
     return layers.map(layer => {
-      console.log('layer', layer)
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
-        console.log('here', id, source)
         return {
           id,
           type: 'fill',
@@ -56,7 +53,6 @@ export default Component.extend({
 
   actions: {
     handleMapLoad(map) {
-      console.log('mapConfig', this.get('mapConfig'))
       const sources = this.get('mapConfig.sources');
 
       if (window) {
