@@ -84,6 +84,42 @@ maps:
 
 # Housing
 # ----------
+- slug: housing-units-permitted
+  category: Housing
+  title: Housing Units Permitted by County, 2010-2016
+  content:
+  map:
+  - sources:
+    - id: housing-units-permitted
+      type: cartovector
+      source-layers:
+      - id: housing-units-permitted-counties
+        sql: >
+          SELECT a.the_geom_webmercator, a.name, b.houps1016 FROM region_counties_v0 a
+          LEFT JOIN region_counties_attributes_v0 b
+          ON a.geoid = to_char(b.stcoid, 'FM00000')
+    layers:
+    - id: housing-units-permitted-counties
+      type: choropleth
+      source: housing-units-permitted
+      source-layer: housing-units-permitted-counties
+      paintConfig:
+        opacity: 0.6
+        property: houps1016
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#b3e4ff"
+        - "#5ab4ff"
+        - "#004da8"
+        breaks:
+        - -0.025
+        - -0.01
+        - .01
+        - .025
+        - .05
+        - 1
 - slug: housing-1
   category: Housing
   title: Housing Productivity

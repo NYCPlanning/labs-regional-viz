@@ -51,9 +51,19 @@ export default Component.extend({
     });
   },
 
+  didUpdateAttrs() {
+    console.log('didupdate', this.get('mapConfig.sources'))
+    const map = this.get('map');
+    const sources = this.get('mapConfig.sources');
+    sources.forEach(source => {
+      map.addSource(source.id, source)
+    });
+  },
+
   actions: {
     handleMapLoad(map) {
       const sources = this.get('mapConfig.sources');
+      this.set('map', map);
 
       if (window) {
         window.map = map;
