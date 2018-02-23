@@ -9,7 +9,7 @@ function buildPaint({ property, colors, breaks, opacity }) {
       ['step'],
       [
         'number',
-        ['get', property],
+        ['get', 'value'],
         1,
       ],
     ],
@@ -33,6 +33,36 @@ export default Component.extend({
   zoom: 6.8,
   center: [-73.869324, 40.815888],
 
+  highlightedFeature: null,
+
+  popup: new mapboxgl.Popup({
+    closeButton: false,
+    closeOnClick: false
+  }),
+
+  @computed('highlightedFeature')
+  highlightedFeatureSource(feature) {
+    return {
+      type: 'geojson',
+      data: feature,
+    };
+  },
+
+  @computed('highlightedFeature')
+  popupData(feature) {
+    return feature.properties
+  },
+
+  highlightedFeatureLayer: {
+    id: 'highlighted-feature',
+    type: 'fill',
+    source: 'highlighted-feature',
+    paint: {
+      'fill-opacity': 0.2,
+      'fill-color': '#999999',
+    },
+  },
+
   @computed('mapConfig.layers')
   builtLayers(layers = []) {
     return layers.map((layer) => {
@@ -47,7 +77,7 @@ export default Component.extend({
         };
       }
 
-      return layer;
+      return layer
     });
   },
 
@@ -76,6 +106,25 @@ export default Component.extend({
       sources.forEach((source) => {
         map.addSource(source.id, source);
       });
+    },
+
+    handleMouseMove(e) {
+      const layers = this.get('mapConfig.layers').map(d => d.id)
+      const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
+      const popup = this.get('popup');
+
+      if (feature) {
+        console.log(feature.properties.name, feature.properties.value)
+        this.set('highlightedFeature', feature)
+        popup.setLngLat(e.lngLat)
+          .setHTML(`${feature.properties.name} ${feature.properties.value}`)
+          .addTo(this.get('map'));
+      } else {
+        this.set('highlightedFeature', null)
+        popup.remove();
+      }
+
+      map.getCanvas().style.cursor = feature ? 'pointer' : '';
     },
   },
 });
