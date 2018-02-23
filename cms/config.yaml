@@ -7,89 +7,171 @@ pages:
   content: |
     Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-maps:
+# maps:
 
-# Jobs
-# ----------
-- slug: jobs-1
-  category: Jobs
-  title: Into the Woods
-  content: |
-    # Once upon a time
+# # Jobs
+# # ----------
+# - slug: jobs-1
+#   category: Jobs
+#   title: Into the Woods
+#   content: |
+#     # Once upon a time
 
-    In a far-off kingdom
-    There lay a small village
-    At the edge of the woods
-    I wish
-    And in this village
-    More than anything
-    Lived a young maiden
-  map:
-    sources: []
-    layers: []
+#     In a far-off kingdom
+#     There lay a small village
+#     At the edge of the woods
+#     I wish
+#     And in this village
+#     More than anything
+#     Lived a young maiden
+#   map:
+#     sources: []
+#     layers: []
 
-- slug: jobs-2
-  category: Jobs
-  title: Look at all these!
-  content:
-  map:
-    sources: []
-    layers: []
+# - slug: jobs-2
+#   category: Jobs
+#   title: Look at all these!
+#   content:
+#   map:
+#     sources: []
+#     layers: []
 
-# People
-# ----------
-- slug: population-change
-  category: People
-  title: Population Change 2010-2016
-  content:
-  map:
-    sources:
-    - id: population-change
-      type: cartovector
-      source-layers:
-      - id: population-change-counties
-        sql: >
-          SELECT a.the_geom_webmercator, a.name, b.popp1016 as value FROM region_counties_v0 a
-          LEFT JOIN region_counties_attributes_v0 b
-          ON a.geoid = to_char(b.stcoid, 'FM00000')
-    layers:
-    - id: population-change-counties
-      type: choropleth
-      source: population-change
-      source-layer: population-change-counties
-      paintConfig:
-        opacity: 0.6
-        property: popp1016
-        colors:
-        - "#d76423"
-        - "#ffa555"
-        - "#ffffe0"
-        - "#b3e4ff"
-        - "#5ab4ff"
-        - "#004da8"
-        breaks:
-        - -0.025
-        - -0.01
-        - .01
-        - .025
-        - .05
-        - 1
-- slug: people-2
-  category: People
-  title: Jobs are for the people!
-  content:
-  map:
-    sources: []
-    layers: []
+# # People
+# # ----------
+# - slug: population-change
+#   category: People
+#   title: Population Change 2010-2016
+#   content:
+#   map:
+#     sources:
+#     - id: population-change
+#       type: cartovector
+#       source-layers:
+#       - id: population-change-counties
+#         sql: >
+#           SELECT a.the_geom_webmercator, a.name, b.popp1016 as value FROM region_counties_v0 a
+#           LEFT JOIN region_counties_attributes_v0 b
+#           ON a.geoid = to_char(b.stcoid, 'FM00000')
+#     layers:
+#     - id: population-change-counties
+#       type: choropleth
+#       source: population-change
+#       source-layer: population-change-counties
+#       paintConfig:
+#         opacity: 0.6
+#         property: popp1016
+#         colors:
+#         - "#d76423"
+#         - "#ffa555"
+#         - "#ffffe0"
+#         - "#b3e4ff"
+#         - "#5ab4ff"
+#         - "#004da8"
+#         breaks:
+#         - -0.025
+#         - -0.01
+#         - .01
+#         - .025
+#         - .05
+#         - 1
 
-# Housing
-# ----------
-- slug: housing-units-permitted
-  category: Housing
-  title: Housing Units Permitted by County, 2010-2016
-  content:
-  map:
-    sources:
+# - slug: people-2
+#   category: People
+#   title: Jobs are for the people!
+#   content:
+#   map:
+#     sources: []
+#     layers: []
+
+# # Housing
+# # ----------
+# - slug: housing-units-permitted
+#   category: Housing
+#   title: Housing Units Permitted by County, 2010-2016
+#   content:
+#   map:
+#     sources:
+#     - id: housing-units-permitted
+#       type: cartovector
+#       source-layers:
+#       - id: housing-units-permitted-counties
+#         sql: >
+#           SELECT a.the_geom_webmercator, a.name, b.houps1016 as value FROM region_counties_v0 a
+#           LEFT JOIN region_counties_attributes_v0 b
+#           ON a.geoid = to_char(b.stcoid, 'FM00000')
+#     layers:
+#     - id: housing-units-permitted-counties
+#       type: choropleth
+#       source: housing-units-permitted
+#       source-layer: housing-units-permitted-counties
+#       paintConfig:
+#         opacity: 0.6
+#         colors:
+#         - "#ffffe0"
+#         - "#ffffbe"
+#         - "#ffd37f"
+#         - "#ffaa00"
+#         - "#ff5500"
+#         breaks:
+#         - 3000
+#         - 7500
+#         - 15000
+#         - 30000
+#         - 1000000
+
+# - slug: housing-units-permitted
+#   category: Housing
+#   title: Housing Units Permitted by County, 2010-2016
+#   content:
+#   map:
+#   - sources:
+#     - id: housing-units-permitted
+#       type: cartovector
+#       source-layers:
+#       - id: housing-units-permitted-counties
+#         sql: >
+#           SELECT a.the_geom_webmercator, a.name, b.houps1016 FROM region_counties_v0 a
+#           LEFT JOIN region_counties_attributes_v0 b
+#           ON a.geoid = to_char(b.stcoid, 'FM00000')
+#     layers:
+#     - id: housing-units-permitted-counties
+#       type: choropleth
+#       source: housing-units-permitted
+#       source-layer: housing-units-permitted-counties
+#       paintConfig:
+#         opacity: 0.6
+#         property: houps1016
+#         colors:
+#         - "#ffffe0"
+#         - "#ffffbe"
+#         - "#ffd37f"
+#         - "#ffaa00"
+#         - "#ff5500"
+#         breaks:
+#         - 3000
+#         - 7500
+#         - 15000
+#         - 30000
+#         - 1000000
+
+# - slug: housing-1
+#   category: Housing
+#   title: Housing Productivity
+#   content:
+#   map:
+#     sources: []
+#     layers: []
+
+# - slug: housing-2
+#   category: Housing
+#   title: Housing Productivity
+#   content:
+#   map:
+#     sources: []
+#     layers: []
+
+basemaps: 
+  - sources:
     - id: housing-units-permitted
       type: cartovector
       source-layers:
@@ -117,53 +199,3 @@ maps:
         - 15000
         - 30000
         - 1000000
-
-- slug: housing-units-permitted
-  category: Housing
-  title: Housing Units Permitted by County, 2010-2016
-  content:
-  map:
-  - sources:
-    - id: housing-units-permitted
-      type: cartovector
-      source-layers:
-      - id: housing-units-permitted-counties
-        sql: >
-          SELECT a.the_geom_webmercator, a.name, b.houps1016 FROM region_counties_v0 a
-          LEFT JOIN region_counties_attributes_v0 b
-          ON a.geoid = to_char(b.stcoid, 'FM00000')
-    layers:
-    - id: housing-units-permitted-counties
-      type: choropleth
-      source: housing-units-permitted
-      source-layer: housing-units-permitted-counties
-      paintConfig:
-        opacity: 0.6
-        property: houps1016
-        colors:
-        - "#ffffe0"
-        - "#ffffbe"
-        - "#ffd37f"
-        - "#ffaa00"
-        - "#ff5500"
-        breaks:
-        - 3000
-        - 7500
-        - 15000
-        - 30000
-        - 1000000
-- slug: housing-1
-  category: Housing
-  title: Housing Productivity
-  content:
-  map:
-    sources: []
-    layers: []
-
-- slug: housing-2
-  category: Housing
-  title: Housing Productivity
-  content:
-  map:
-    sources: []
-    layers: []
