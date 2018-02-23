@@ -18,4 +18,16 @@
   <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
 {{/unless}}
 
+<ul class="menu geography-selector">
+  <li class="{{if (eq geographyLevel 'municipality') 'active'}} explode-block">
+    <a {{action handleGeographyLevelToggle 'municipality'}}>Municipality</a>
+  </li>
+  <li class="{{if (eq geographyLevel 'county') 'active'}} explode-tract">
+    <a {{action handleGeographyLevelToggle 'county'}}>County</a>
+  </li>
+  <li class="{{if (eq geographyLevel 'subregion') 'active'}} explode-nta">
+    <a {{action handleGeographyLevelToggle 'subregion'}}>Subregion</a>
+  </li>
+</ul>
+
 {{yield}}

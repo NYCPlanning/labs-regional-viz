@@ -86,6 +86,32 @@
   }
 }
 
+
+// Geography Selector
+.geography-selector {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 50px;
+
+  font-size: rem-calc(11);
+  font-weight: $global-weight-bold;
+  overflow: hidden;
+
+  background-color: $light-gray;
+  border-radius: 4px;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+
+  li:not(:last-child) {
+    border-right: 1px solid rgba(0,0,0,0.1);
+  }
+
+  li:hover {
+    background-color: rgba(0,0,0,0.03);
+  }
+}
+
+
 // Drawing
 #measurement-text {
   // position: absolute;
