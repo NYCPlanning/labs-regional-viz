@@ -1,8 +1,13 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
+import numeral from 'numeral';
 
-function buildPaint({ property, colors, breaks, opacity }) {
+function buildPaint({
+  colors,
+  breaks,
+  opacity,
+}) {
   const paint = {
     'fill-color': [
       'curve',
@@ -37,7 +42,7 @@ export default Component.extend({
 
   popup: new mapboxgl.Popup({
     closeButton: false,
-    closeOnClick: false
+    closeOnClick: false,
   }),
 
   @computed('highlightedFeature')
@@ -50,7 +55,7 @@ export default Component.extend({
 
   @computed('highlightedFeature')
   popupData(feature) {
-    return feature.properties
+    return feature.properties;
   },
 
   highlightedFeatureLayer: {
@@ -77,8 +82,45 @@ export default Component.extend({
         };
       }
 
-      return layer
+      return layer;
     });
+  },
+
+  @computed('mapConfig')
+  breaks(mapConfig) {
+    // return an array of objects, each with a display-ready range and color
+    const config = mapConfig.layers[0].paintConfig;
+    const { isPercent, breaks, colors } = config;
+
+    const format = (value) => { // eslint-disable-line
+      return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
+    };
+
+    const breaksArray = [];
+
+    for (let i = breaks.length - 1; i >= 0; i -= 1) {
+      if (i === breaks.length - 1) {
+        breaksArray.push({
+          label: `${format(breaks[breaks.length - 2])} or more`,
+          color: colors[breaks.length - 1],
+        });
+        continue;
+      }
+
+      if (i === 0) {
+        breaksArray.push({
+          label: isPercent ? `Less than ${format(breaks[0])}` : `Under ${format(breaks[0])}`,
+          color: colors[0],
+        });
+        continue;
+      }
+
+      breaksArray.push({
+        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
+        color: colors[i],
+      });
+    }
+    return breaksArray;
   },
 
   didUpdateAttrs() {
@@ -109,18 +151,21 @@ export default Component.extend({
     },
 
     handleMouseMove(e) {
-      const layers = this.get('mapConfig.layers').map(d => d.id)
+      const layers = this.get('mapConfig.layers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
+      const map = this.get('map');
 
       if (feature) {
-        console.log(feature.properties.name, feature.properties.value)
-        this.set('highlightedFeature', feature)
+        // set the highlighted feature
+        this.set('highlightedFeature', feature);
+
+        // configure the popup
         popup.setLngLat(e.lngLat)
-          .setHTML(`${feature.properties.name} ${feature.properties.value}`)
+          .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
           .addTo(this.get('map'));
       } else {
-        this.set('highlightedFeature', null)
+        this.set('highlightedFeature', null);
         popup.remove();
       }
 

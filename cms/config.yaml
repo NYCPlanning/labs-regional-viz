@@ -11,22 +11,41 @@ maps:
 
 # Jobs
 # ----------
-- slug: jobs-1
+- slug: private-employment-change
   category: Jobs
-  title: Into the Woods
-  content: |
-    # Once upon a time
-
-    In a far-off kingdom
-    There lay a small village
-    At the edge of the woods
-    I wish
-    And in this village
-    More than anything
-    Lived a young maiden
+  title: Private Employment Change 2000-2016
+  content:
   map:
-    sources: []
-    layers: []
+    sources:
+    - id: private-employment-change
+      type: cartovector
+      source-layers:
+      - id: private-employment-change-counties
+        sql: >
+          SELECT a.the_geom_webmercator, a.name, b.empr0016 as value FROM region_counties_v0 a
+          LEFT JOIN region_counties_attributes_v0 b
+          ON a.geoid = to_char(b.stcoid, 'FM00000')
+    layers:
+    - id: private-employment-change-counties
+      type: choropleth
+      source: private-employment-change
+      source-layer: private-employment-change-counties
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#b3e4ff"
+        - "#5ab4ff"
+        - "#004da8"
+        breaks:
+        - -10000
+        - -2500
+        - 2500
+        - 10000
+        - 20000
+        - 10000000
 
 - slug: jobs-2
   category: Jobs
@@ -40,7 +59,7 @@ maps:
 # ----------
 - slug: population-change
   category: People
-  title: Population Change 2010-2016
+  title: "% Population Change 2010-2016"
   content:
   map:
     sources:
@@ -49,7 +68,7 @@ maps:
       source-layers:
       - id: population-change-counties
         sql: >
-          SELECT a.the_geom_webmercator, a.name, b.popp1016 as value FROM region_counties_v0 a
+          SELECT a.the_geom_webmercator, a.name, b.popp1016 as value, b.pop1016 as actual FROM region_counties_v0 a
           LEFT JOIN region_counties_attributes_v0 b
           ON a.geoid = to_char(b.stcoid, 'FM00000')
     layers:
@@ -58,8 +77,8 @@ maps:
       source: population-change
       source-layer: population-change-counties
       paintConfig:
+        isPercent: true
         opacity: 0.6
-        property: popp1016
         colors:
         - "#d76423"
         - "#ffa555"
@@ -74,6 +93,7 @@ maps:
         - .025
         - .05
         - 1
+
 - slug: people-2
   category: People
   title: Jobs are for the people!
@@ -95,7 +115,7 @@ maps:
       source-layers:
       - id: housing-units-permitted-counties
         sql: >
-          SELECT a.the_geom_webmercator, a.name, b.houps1016 as value FROM region_counties_v0 a
+          SELECT a.the_geom_webmercator, a.name, b.houp1016 as value FROM region_counties_v0 a
           LEFT JOIN region_counties_attributes_v0 b
           ON a.geoid = to_char(b.stcoid, 'FM00000')
     layers:
