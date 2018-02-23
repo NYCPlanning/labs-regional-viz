@@ -111,11 +111,6 @@ export default Component.extend({
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
-
-    }
-  }
-=======
     },
   },
->>>>>>> cw-simple-hover
 });
