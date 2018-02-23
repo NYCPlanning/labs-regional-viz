@@ -25,7 +25,7 @@ maps:
     More than anything
     Lived a young maiden
   map:
-  - sources: []
+    sources: []
     layers: []
 
 - slug: jobs-2
@@ -33,7 +33,7 @@ maps:
   title: Look at all these!
   content:
   map:
-  - sources: []
+    sources: []
     layers: []
 
 # People
@@ -43,7 +43,7 @@ maps:
   title: Population Change 2010-2016
   content:
   map:
-  - sources:
+    sources:
     - id: population-change
       type: cartovector
       source-layers:
@@ -79,7 +79,7 @@ maps:
   title: Jobs are for the people!
   content:
   map:
-  - sources: []
+    sources: []
     layers: []
 
 # Housing
@@ -89,7 +89,7 @@ maps:
   title: Housing Units Permitted by County, 2010-2016
   content:
   map:
-  - sources:
+    sources:
     - id: housing-units-permitted
       type: cartovector
       source-layers:
@@ -125,7 +125,7 @@ maps:
   title: Housing Productivity
   content:
   map:
-  - sources: []
+    sources: []
     layers: []
 
 - slug: housing-2
@@ -133,5 +133,5 @@ maps:
   title: Housing Productivity
   content:
   map:
-  - sources: []
+    sources: []
     layers: []
