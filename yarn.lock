@@ -6091,7 +6091,11 @@ mute-stream@0.0.7:
   version "0.0.7"
   resolved "https://registry.yarnpkg.com/mute-stream/-/mute-stream-0.0.7.tgz#3075ce93bc21b8fab43e1bc4da7e8115ed1e7bab"
 
-nan@^2.3.0, nan@^2.3.2:
+nan@^2.3.0:
+  version "2.9.2"
+  resolved "https://registry.yarnpkg.com/nan/-/nan-2.9.2.tgz#f564d75f5f8f36a6d9456cca7a6c4fe488ab7866"
+
+nan@^2.3.2:
   version "2.9.1"
   resolved "https://registry.yarnpkg.com/nan/-/nan-2.9.1.tgz#af88fcaee5292992c5b755121ceeaa74536fc228"
 
@@ -7505,8 +7509,8 @@ sort-object@^0.3.2:
     sort-desc "^0.1.1"
 
 sort-package-json@^1.4.0:
-  version "1.8.0"
-  resolved "https://registry.yarnpkg.com/sort-package-json/-/sort-package-json-1.8.0.tgz#57f290b25602c5219ed4ffbe53a9de0d61dcbd19"
+  version "1.11.0"
+  resolved "https://registry.yarnpkg.com/sort-package-json/-/sort-package-json-1.11.0.tgz#b7b59ebdfaf3f8719ec0bc2056264e937868cbfb"
   dependencies:
     sort-object-keys "^1.1.1"
 

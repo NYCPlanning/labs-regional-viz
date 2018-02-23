@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 
 function buildPaint({ property, colors, breaks, opacity }) {
-  const paint =  {
+  const paint = {
     'fill-color': [
       'curve',
       ['step'],
@@ -11,18 +11,18 @@ function buildPaint({ property, colors, breaks, opacity }) {
         'number',
         ['get', property],
         1,
-      ]
+      ],
     ],
-    'fill-opacity': opacity
+    'fill-opacity': opacity,
   };
   const colorArray = paint['fill-color'];
 
   colors.forEach((color, i) => {
     colorArray.push(colors[i]);
     colorArray.push(breaks[i]);
-  })
+  });
 
-  colorArray.push('#FFF')
+  colorArray.push('#FFF');
 
   return paint;
 }
@@ -34,8 +34,8 @@ export default Component.extend({
   center: [-73.869324, 40.815888],
 
   @computed('mapConfig.layers')
-  builtLayers(layers) {
-    return layers.map(layer => {
+  builtLayers(layers = []) {
+    return layers.map((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
         return {
@@ -44,16 +44,27 @@ export default Component.extend({
           source,
           'source-layer': layer['source-layer'],
           paint: buildPaint(paintConfig),
-        }
+        };
       }
 
-      return layer
+      return layer;
+    });
+  },
+
+  didUpdateAttrs() {
+    const map = this.get('map');
+    const sources = this.get('mapConfig.sources');
+    sources.forEach((source) => {
+      if (!map.getSource(source.id)) {
+        map.addSource(source.id, source);
+      }
     });
   },
 
   actions: {
     handleMapLoad(map) {
       const sources = this.get('mapConfig.sources');
+      this.set('map', map);
 
       if (window) {
         window.map = map;
@@ -62,9 +73,9 @@ export default Component.extend({
       map.addControl(new mapboxgl.NavigationControl(), 'top-left');
       map.addControl(new mapboxgl.ScaleControl({ unit: 'imperial' }), 'bottom-left');
 
-      sources.forEach(source => {
-        map.addSource(source.id, source)
+      sources.forEach((source) => {
+        map.addSource(source.id, source);
       });
-    }
-  }
+    },
+  },
 });
