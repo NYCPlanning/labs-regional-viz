@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 
 function buildPaint({ property, colors, breaks, opacity }) {
-  const paint =  {
+  const paint = {
     'fill-color': [
       'curve',
       ['step'],
@@ -11,20 +11,19 @@ function buildPaint({ property, colors, breaks, opacity }) {
         'number',
         ['get', 'value'],
         1,
-      ]
+      ],
     ],
-    'fill-opacity': opacity
+    'fill-opacity': opacity,
   };
   const colorArray = paint['fill-color'];
 
   colors.forEach((color, i) => {
     colorArray.push(colors[i]);
     colorArray.push(breaks[i]);
-  })
+  });
 
-  colorArray.push('#FFF')
+  colorArray.push('#FFF');
 
-  console.log('PAINT', paint)
   return paint;
 }
 
@@ -55,43 +54,37 @@ export default Component.extend({
   },
 
   @computed('mapConfig.layers')
-  builtLayers(layers) {
-    return layers.map(layer => {
-<<<<<<< Updated upstream
-      console.log('layer', layer)
-=======
->>>>>>> Stashed changes
+  builtLayers(layers = []) {
+    return layers.map((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
-        console.log('here', id, source)
         return {
           id,
           type: 'fill',
           source,
           'source-layer': layer['source-layer'],
           paint: buildPaint(paintConfig),
-        }
+        };
       }
 
       return layer
-<<<<<<< Updated upstream
-=======
     });
   },
 
   didUpdateAttrs() {
     const map = this.get('map');
     const sources = this.get('mapConfig.sources');
-    sources.forEach(source => {
-      map.addSource(source.id, source)
->>>>>>> Stashed changes
+    sources.forEach((source) => {
+      if (!map.getSource(source.id)) {
+        map.addSource(source.id, source);
+      }
     });
   },
 
   actions: {
     handleMapLoad(map) {
-      console.log('mapConfig', this.get('mapConfig'))
       const sources = this.get('mapConfig.sources');
+      this.set('map', map);
 
       if (window) {
         window.map = map;
@@ -100,11 +93,9 @@ export default Component.extend({
       map.addControl(new mapboxgl.NavigationControl(), 'top-left');
       map.addControl(new mapboxgl.ScaleControl({ unit: 'imperial' }), 'bottom-left');
 
-      sources.forEach(source => {
-        map.addSource(source.id, source)
+      sources.forEach((source) => {
+        map.addSource(source.id, source);
       });
-<<<<<<< Updated upstream
-=======
     },
 
     handleMouseMove(e) {
@@ -121,7 +112,10 @@ export default Component.extend({
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
 
->>>>>>> Stashed changes
     }
   }
+=======
+    },
+  },
+>>>>>>> cw-simple-hover
 });
