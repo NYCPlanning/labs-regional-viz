@@ -25,8 +25,6 @@ function buildPaint({
     colorArray.push(colors[i + 1]);
   });
 
-
-  console.log('paint', paint)
   return paint;
 }
 
@@ -156,7 +154,7 @@ export default Component.extend({
         map.addSource(source.id, source);
       });
 
-      map.addSource('highlighted-feature', this.get('highlightedFeatureSource'))
+      map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
     },
 
     handleMouseMove(e) {
