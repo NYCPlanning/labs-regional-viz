@@ -10,6 +10,5 @@ test('it renders', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   this.render(hbs`{{map-from-id}}`);
-
-  assert.equal(this.$().text().trim(), 'Missing Mapbox GL JS CSS');
+  assert.equal(!!this.$('#map'), true);
 });
