@@ -96,9 +96,10 @@ body {
   padding: $global-margin $global-margin $global-margin*2;
 }
 
-// Narrative
+// Narratives
 // --------------------------------------------------
 .narrative-container {
+  position: relative;
   z-index: 2;
   min-height: calc(50vh - 6rem);
   background-color: $light-gray;
@@ -115,6 +116,28 @@ body {
   @include breakpoint(medium down){
     margin-right: 1rem;
   }
+}
+
+.narrative-navigation {
+
+  @include breakpoint(large) {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: calc(41.66667%);
+    background-color: $white;
+    box-shadow: 0 -2px 0 0 rgba(0,0,0,0.1);
+    padding: $global-margin/2;
+
+    .pagination {
+      margin: 0;
+    }
+  }
+
+  @include breakpoint(xlarge) {
+    width: calc(33.333%);
+  }
+
 }
 
 .narrative-toggle {

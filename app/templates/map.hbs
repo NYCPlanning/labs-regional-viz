@@ -13,6 +13,14 @@
     <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
     {{md-text text = model.content}}
     {{outlet}}
+
+    <nav aria-label="Pagination" class="narrative-navigation">
+      <ul class="pagination text-center">
+        <li class="pagination-previous disabled">Previous</li>
+        <li class="pagination-next"><a href="#" aria-label="Next page">Next</a></li>
+      </ul>
+    </nav>
+
   </div>
 {{/if}}
 
