@@ -7,7 +7,10 @@ jobs:
   build:
     docker:
       # specify the version you desire here
-      - image: circleci/node:7.10
+      - image: circleci/node:7.10-browsers
+      # - image: circleci/node:6-browsers
+        environment:
+            CHROME_BIN: "/usr/bin/google-chrome"
       
       # Specify service dependencies here if necessary
       # CircleCI maintains a library of pre-built images
@@ -27,6 +30,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
+      - run: sudo yarn global add bower
       - run: bower install
 
       - save_cache:

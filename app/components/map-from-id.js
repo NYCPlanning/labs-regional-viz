@@ -33,6 +33,13 @@ function buildPaint({
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
   classNames: 'map-container cell large-auto',
+
+  // noop for passed context
+  toggleNarrative() {
+
+  },
+  mapConfig: {},
+
   zoom: 6.8,
   center: [-73.869324, 40.815888],
 
@@ -87,8 +94,15 @@ export default Component.extend({
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
+<<<<<<< HEAD
     const config = mapConfig.layers[0].paintConfig;
     const { isPercent, breaks, colors } = config;
+=======
+    const { layers = [] } = mapConfig;
+    const [firstLayer = {}] = layers;
+    const { paintConfig: config = {} } = firstLayer;
+    const { isPercent, breaks = [], colors = [] } = config;
+>>>>>>> develop
 
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
@@ -102,7 +116,7 @@ export default Component.extend({
           label: `${format(breaks[breaks.length - 2])} or more`,
           color: colors[breaks.length - 1],
         });
-        continue;
+        continue; // eslint-disable-line
       }
 
       if (i === 0) {
@@ -110,7 +124,7 @@ export default Component.extend({
           label: isPercent ? `Less than ${format(breaks[0])}` : `Under ${format(breaks[0])}`,
           color: colors[0],
         });
-        continue;
+        continue; // eslint-disable-line
       }
 
       breaksArray.push({

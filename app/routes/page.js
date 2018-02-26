@@ -7,5 +7,5 @@ export default Route.extend({
 
     return pages
       .findBy('slug', slug);
-  }
+  },
 });
