@@ -42,6 +42,7 @@
     "ember-export-application-global": "^2.0.0",
     "ember-fetch": "3.4.4",
     "ember-font-awesome": "^4.0.0-rc.2",
+    "ember-freestyle": "0.7.0",
     "ember-jane-maps": "0.0.9",
     "ember-load-initializers": "^1.0.0",
     "ember-remarkable": "3.6.1",

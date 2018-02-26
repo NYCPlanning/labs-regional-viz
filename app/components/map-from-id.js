@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
+import { get } from '@ember/object';
 import numeral from 'numeral';
 
 function buildPaint({
@@ -69,8 +70,8 @@ export default Component.extend({
   },
 
   @computed('mapConfig.layers')
-  layerTitle(layers = []) {
-    return layers[0].title;
+  layerTitle([firstLayer = {}] = []) {
+    return get(firstLayer, 'title');
   },
 
   @computed('mapConfig.layers')
@@ -94,8 +95,10 @@ export default Component.extend({
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-    const config = mapConfig.layers[0].paintConfig;
-    const { isPercent, breaks, colors } = config;
+    const { layers } = mapConfig;
+    const [firstLayer = {}] = layers;
+    const { paintConfig: config = {} } = firstLayer;
+    const { isPercent, breaks = [], colors = [] } = config;
 
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
