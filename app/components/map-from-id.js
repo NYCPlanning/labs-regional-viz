@@ -94,15 +94,10 @@ export default Component.extend({
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-<<<<<<< HEAD
-    const config = mapConfig.layers[0].paintConfig;
-    const { isPercent, breaks, colors } = config;
-=======
     const { layers = [] } = mapConfig;
     const [firstLayer = {}] = layers;
     const { paintConfig: config = {} } = firstLayer;
     const { isPercent, breaks = [], colors = [] } = config;
->>>>>>> develop
 
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
