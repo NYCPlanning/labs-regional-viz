@@ -27,8 +27,12 @@ body {
 .site-main {
   position: relative;
   z-index: 1;
-  height: calc(100vh - 6rem);
+  height: calc(100vh - 5rem);
   background-color: $body-background;
+
+  @include breakpoint(medium) {
+    height: calc(100vh - 6rem);
+  }
 
   @include breakpoint(large) {
     overflow: hidden;
@@ -103,7 +107,7 @@ body {
   z-index: 2;
   min-height: calc(50vh - 6rem);
   background-color: $light-gray;
-  padding: $global-margin $global-margin $global-margin*2;
+  padding: $global-margin $global-margin $global-margin*4;
   box-shadow: 0 -4px 0 0 rgba(0,0,0,0.1);
 
   @include breakpoint(large) {
@@ -127,7 +131,7 @@ body {
     width: calc(41.66667%);
     background-color: $white;
     box-shadow: 0 -2px 0 0 rgba(0,0,0,0.1);
-    padding: $global-margin/2;
+    padding: rem-calc(12);
 
     .pagination {
       margin: 0;
