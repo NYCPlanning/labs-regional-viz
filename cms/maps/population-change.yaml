@@ -2,7 +2,7 @@
 # ----------
 slug: population-change
 category: People
-title: Population Change 2010-2016
+title: "% Population Change 2010-2016"
 content:
 map:
   sources:
@@ -11,17 +11,18 @@ map:
     source-layers:
     - id: population-change-counties
       sql: >
-        SELECT a.the_geom_webmercator, a.name, b.popp1016 as value FROM region_counties_v0 a
+        SELECT a.the_geom_webmercator, a.name, b.popp1016 as value, b.pop1016 as actual FROM region_counties_v0 a
         LEFT JOIN region_counties_attributes_v0 b
         ON a.geoid = to_char(b.stcoid, 'FM00000')
   layers:
   - id: population-change-counties
+    title: "% Population Change 2010-2016"
     type: choropleth
     source: population-change
     source-layer: population-change-counties
     paintConfig:
+      isPercent: true
       opacity: 0.6
-      property: popp1016
       colors:
       - "#d76423"
       - "#ffa555"

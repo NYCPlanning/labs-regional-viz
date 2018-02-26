@@ -11,11 +11,12 @@ map:
     source-layers:
     - id: housing-units-permitted-counties
       sql: >
-        SELECT a.the_geom_webmercator, a.name, b.houps1016 as value FROM region_counties_v0 a
+        SELECT a.the_geom_webmercator, a.name, b.houp1016 as value FROM region_counties_v0 a
         LEFT JOIN region_counties_attributes_v0 b
         ON a.geoid = to_char(b.stcoid, 'FM00000')
   layers:
   - id: housing-units-permitted-counties
+    title: Housing Units Permitted by County, 2010-2016
     type: choropleth
     source: housing-units-permitted
     source-layer: housing-units-permitted-counties
