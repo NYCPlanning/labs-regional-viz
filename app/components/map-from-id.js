@@ -40,6 +40,8 @@ export default Component.extend({
   center: [-73.869324, 40.815888],
 
   highlightedFeature: null,
+  railVisible: false,
+  aerialVisible: false,
 
   popup: new mapboxgl.Popup({
     closeButton: false,
@@ -178,6 +180,14 @@ export default Component.extend({
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
+    },
+
+    toggleRail() {
+      this.toggleProperty('railVisible');
+    },
+
+    toggleAerial() {
+      this.toggleProperty('aerialVisible');
     },
   },
 });

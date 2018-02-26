@@ -34,4 +34,12 @@
   {{/each}}
 </div>
 
+<div class="supporting-layers">
+  {{fa-icon 'clone'}}
+  <ul class="supporting-layers-list">
+    <li {{action 'toggleRail'}}>{{#if railVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Rail Lines</li>
+    <li {{action 'toggleAerial'}}>{{#if aerialVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Aerials</li>
+  </ul>
+</div>
+
 {{yield}}
