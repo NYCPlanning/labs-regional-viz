@@ -6,7 +6,7 @@ const Router = EmberRouter.extend({
   rootURL: config.rootURL,
 });
 
-Router.map(function() {
+Router.map(function() { // eslint-disable-line
   this.route('page', { path: '/:slug' });
   this.route('map', { path: ':category/:slug' });
 });

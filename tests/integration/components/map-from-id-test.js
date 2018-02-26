@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{map-from-id}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#map-from-id}}
-      template block text
-    {{/map-from-id}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$().text().trim(), 'Missing Mapbox GL JS CSS');
 });

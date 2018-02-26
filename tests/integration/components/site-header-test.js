@@ -11,14 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{site-header}}`);
 
-  assert.equal(this.$().text().trim(), '');
-
-  // Template block usage:
-  this.render(hbs`
-    {{#site-header}}
-      template block text
-    {{/site-header}}
-  `);
-
-  assert.equal(this.$().text().trim(), 'template block text');
+  assert.equal(this.$('.site-name').text().trim(), 'Metro Mapper');
 });
