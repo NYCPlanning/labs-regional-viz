@@ -146,6 +146,8 @@ export default Component.extend({
       sources.forEach((source) => {
         map.addSource(source.id, source);
       });
+
+      map.addSource('highlighted-feature', this.get('highlightedFeatureSource'))
     },
 
     handleMouseMove(e) {
@@ -157,6 +159,7 @@ export default Component.extend({
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
+        map.getSource('highlighted-feature').setData(feature);
 
         // configure the popup
         popup.setLngLat(e.lngLat)
