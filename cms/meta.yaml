@@ -1,0 +1,21 @@
+order:
+  - id: housing-1
+    narrative: true
+
+  - id: housing-units-permitted
+    narrative: true
+
+  - id: housing-2
+    narrative: false
+
+  - id: private-employment-change
+    narrative: true
+
+  - id: jobs-2
+    narrative: true
+
+  - id: people-2
+    narrative: true
+
+  - id: population-change
+    narrative: true

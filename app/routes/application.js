@@ -7,8 +7,8 @@ export default Route.extend({
       .then(blob => blob.json())
       .then((json) => {
         const mutatedJson = json;
-        const keys = Object.keys(mutatedJson);
-
+        // console.log(mutatedJson);
+        const keys = Object.keys(mutatedJson).filter(key => key !== 'meta');
         keys.forEach((key) => {
           mutatedJson[key] = Object.values(mutatedJson[key]);
         });
