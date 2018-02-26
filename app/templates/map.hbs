@@ -12,8 +12,16 @@
     <span>{{fa-icon 'times'}}</span>
   </a>
   <div class="cell large-5 xlarge-4 narrative-container">
+
     <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
+
     {{md-text text = model.content}}
+
+    {{#if model.source}}
+      <hr>
+      <p class="text-small dark-gray">{{model.source}}</p>
+    {{/if}}
+
     {{outlet}}
 
     <nav aria-label="Pagination" class="narrative-navigation">
