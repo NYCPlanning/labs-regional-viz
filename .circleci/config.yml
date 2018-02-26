@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-      - run: yarn add bower
+      - run: sudo yarn global add bower
       - run: bower install
 
       - save_cache:
