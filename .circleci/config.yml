@@ -27,7 +27,7 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-      - run: yarn install -g bower
+      - run: yarn global add bower
       - run: bower install
 
       - save_cache:
