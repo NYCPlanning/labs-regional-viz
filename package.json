@@ -59,7 +59,7 @@
   },
   "dependencies": {
     "babel-eslint": "8.2.2",
-    "ember-jane-maps": "0.0.10",
+    "ember-jane-maps": "0.0.11",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-import": "2.9.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
