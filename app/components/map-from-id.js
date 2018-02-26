@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
-import { get } from '@ember/object';
 import numeral from 'numeral';
 
 function buildPaint({
@@ -11,25 +10,23 @@ function buildPaint({
 }) {
   const paint = {
     'fill-color': [
-      'curve',
-      ['step'],
-      [
-        'number',
-        ['get', 'value'],
-        1,
-      ],
+      'step',
+      ['get', 'value'],
     ],
     'fill-opacity': opacity,
   };
   const colorArray = paint['fill-color'];
 
-  colors.forEach((color, i) => {
-    colorArray.push(colors[i]);
+  // there will always be 1 more color than breaks
+  colorArray.push(colors[0]);
+
+  breaks.forEach((color, i) => {
     colorArray.push(breaks[i]);
+    colorArray.push(colors[i + 1]);
   });
 
-  colorArray.push('#FFF');
 
+  console.log('paint', paint)
   return paint;
 }
 
@@ -70,11 +67,6 @@ export default Component.extend({
   },
 
   @computed('mapConfig.layers')
-  layerTitle([firstLayer = {}] = []) {
-    return get(firstLayer, 'title');
-  },
-
-  @computed('mapConfig.layers')
   builtLayers(layers = []) {
     return layers.map((layer) => {
       if (layer.type === 'choropleth') {
@@ -95,10 +87,8 @@ export default Component.extend({
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-    const { layers } = mapConfig;
-    const [firstLayer = {}] = layers;
-    const { paintConfig: config = {} } = firstLayer;
-    const { isPercent, breaks = [], colors = [] } = config;
+    const config = mapConfig.layers[0].paintConfig;
+    const { isPercent, breaks, colors } = config;
 
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
@@ -124,7 +114,7 @@ export default Component.extend({
       }
 
       breaksArray.push({
-        label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
+        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
         color: colors[i],
       });
     }
