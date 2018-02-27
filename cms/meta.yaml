@@ -1,0 +1,22 @@
+orderings:
+  maps:
+    - id: housing-1
+      hasNarrative: true
+
+    - id: housing-units-permitted
+      hasNarrative: true
+
+    - id: housing-2
+      hasNarrative: false
+
+    - id: private-employment-change
+      hasNarrative: true
+
+    - id: jobs-2
+      hasNarrative: true
+
+    - id: people-2
+      hasNarrative: true
+
+    - id: population-change
+      hasNarrative: true

@@ -2,19 +2,53 @@
   id=model.map
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
-  mapConfig=model
   geographyLevel=geographyLevel
   handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
+  mapConfig=model.map
 }}
+
+{{log previousNarrative}}
 
 {{#if narrativeVisible}}
   <a {{action 'toggleNarrative'}} class="narrative-toggle">
     <span>{{fa-icon 'times'}}</span>
   </a>
   <div class="cell large-5 xlarge-4 narrative-container">
+
     <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
+
     {{md-text text = model.content}}
+
+    {{#if model.source}}
+      <hr>
+      <p class="text-small dark-gray">{{model.source}}</p>
+    {{/if}}
+
     {{outlet}}
+
+    <nav aria-label="Pagination" class="narrative-navigation">
+      <ul class="pagination text-center">
+        <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
+          {{#if previousNarrative}}
+            {{#link-to 'map' previousNarrative.category previousNarrative.slug}}
+              {{fa-icon 'arrow-left'}}&nbsp;Previous
+            {{/link-to}}
+          {{else}}
+            {{fa-icon 'arrow-left'}}&nbsp;Previous
+          {{/if}}
+        </li>
+        <li class="pagination-next {{unless nextNarrative 'disabled'}}">
+          {{#if nextNarrative}}
+            {{#link-to 'map' nextNarrative.category nextNarrative.slug}}
+              Next&nbsp;{{fa-icon 'arrow-right'}}
+            {{/link-to}}
+          {{else}}
+            Next&nbsp;{{fa-icon 'arrow-right'}}
+          {{/if}}
+        </li>
+      </ul>
+    </nav>
+
   </div>
 {{/if}}
 
