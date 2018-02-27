@@ -15,6 +15,14 @@
     {{map.layer layer=highlightedFeatureLayer}}
   {{/if}}
 
+
+  {{#if (and railVisible railSource)}}
+    {{#map.source sourceId='rail' options=railSource}}
+      {{map.layer layer=railConfig.lines}}
+      {{map.layer layer=railConfig.stops}}
+    {{/map.source}}
+  {{/if}}
+
   {{map.on 'mousemove' (action 'handleMouseMove')}}
 {{/jane-maps}}
 

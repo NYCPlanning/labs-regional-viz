@@ -2,6 +2,9 @@ import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 import numeral from 'numeral';
+import carto from 'ember-jane-maps/utils/carto';
+
+import railConfig from '../supporting-layers/rail';
 
 function buildPaint({
   colors,
@@ -43,6 +46,9 @@ export default Component.extend({
 
   highlightedFeature: null,
   railVisible: false,
+  railConfig,
+  railSource: null,
+
   aerialVisible: false,
 
   popup: new mapboxgl.Popup({
@@ -201,6 +207,21 @@ export default Component.extend({
     },
 
     toggleRail() {
+      // set railSource if user is toggling rails on.
+      if (!this.get('railVisible')) {
+        const source = this.get('railConfig.source');
+        carto.getVectorTileTemplate(source['source-layers'])
+          .then(template => ({
+            id: source.id,
+            type: 'vector',
+            tiles: [template],
+          }))
+          .then((builtSource) => {
+            this.set('railSource', builtSource);
+          });
+      }
+
+
       this.toggleProperty('railVisible');
     },
 
