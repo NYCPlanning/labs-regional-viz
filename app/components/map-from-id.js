@@ -2,6 +2,11 @@ import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 import numeral from 'numeral';
+import carto from 'ember-jane-maps/utils/carto';
+
+import railConfig from '../supporting-layers/rail';
+import aerialsConfig from '../supporting-layers/aerials';
+
 
 function buildPaint({
   colors,
@@ -42,6 +47,12 @@ export default Component.extend({
   center: [-73.869324, 40.815888],
 
   highlightedFeature: null,
+  railVisible: false,
+  railConfig,
+  aerialsConfig,
+  railSource: null,
+
+  aerialVisible: false,
 
   popup: new mapboxgl.Popup({
     closeButton: false,
@@ -73,20 +84,38 @@ export default Component.extend({
 
   @computed('mapConfig.layers')
   builtLayers(layers = []) {
-    return layers.map((layer) => {
+    const builtLayers = [];
+
+    layers.forEach((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
-        return {
+
+        builtLayers.push({
           id,
           type: 'fill',
           source,
           'source-layer': layer['source-layer'],
           paint: buildPaint(paintConfig),
-        };
-      }
+        });
 
-      return layer;
+        // for choropleth fill layers, push an outlines line layer as well
+        builtLayers.push({
+          id: `${id}-line`,
+          type: 'line',
+          source,
+          'source-layer': layer['source-layer'],
+          paint: {
+            'line-color': 'rgba(131, 131, 131, 1)',
+            'line-width': 0.5,
+          },
+        });
+      } else {
+        // no building necessary if not type choropleth
+        builtLayers.push(layer);
+      }
     });
+
+    return builtLayers;
   },
 
   @computed('mapConfig')
@@ -178,6 +207,29 @@ export default Component.extend({
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
+    },
+
+    toggleRail() {
+      // set railSource if user is toggling rails on.
+      if (!this.get('railVisible')) {
+        const source = this.get('railConfig.source');
+        carto.getVectorTileTemplate(source['source-layers'])
+          .then(template => ({
+            id: source.id,
+            type: 'vector',
+            tiles: [template],
+          }))
+          .then((builtSource) => {
+            this.set('railSource', builtSource);
+          });
+      }
+
+
+      this.toggleProperty('railVisible');
+    },
+
+    toggleAerial() {
+      this.toggleProperty('aerialVisible');
     },
   },
 });

@@ -119,6 +119,52 @@
   }
 }
 
+.supporting-layers {
+  position: absolute;
+  z-index: 2;
+  bottom: 70px;
+  left: 10px;
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background-color: $white;
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  border-radius: 4px;
+  text-align: center;
+
+  .supporting-layers-list {
+    display: none;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    list-style: none;
+    text-align: left;
+    line-height: $paragraph-lineheight;
+    margin: 0;
+    background-color: $white;
+    box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+    border-radius: 4px;
+    padding: rem-calc(6) rem-calc(10);
+
+    li {
+      white-space: nowrap;
+
+      &:hover {
+        cursor: pointer;
+        color: $primary-color;
+      }
+    }
+  }
+
+  &:hover {
+    box-shadow: none;
+
+    .supporting-layers-list {
+      display: block;
+    }
+  }
+}
+
 
 // Drawing
 #measurement-text {
