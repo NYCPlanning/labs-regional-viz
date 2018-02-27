@@ -15,7 +15,7 @@
       <div class="cell page-sidebar large-4 xlarge-3">
         {{md-text text = model.sidebar.content}}
         {{#if model.sidebar.button}}
-          <a href="{{model.sidebar.button}}" class="button">Download All Data <small>(CSV)</small></a>
+          <a href="{{model.sidebar.button}}" class="button">{{if model.sidebar.buttontext model.sidebar.buttontext model.sidebar.button}}</a>
         {{/if}}
       </div>
 
