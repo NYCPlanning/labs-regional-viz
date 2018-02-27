@@ -38,12 +38,7 @@ export default Component.extend({
   classNames: 'map-container cell large-auto',
 
   // noop for passed context
-  toggleNarrative() {
-
-  },
-  handleGeographyLevelToggle() {
-
-  },
+  toggleNarrative() {},
   mapConfig: {},
 
   zoom: 6.8,
