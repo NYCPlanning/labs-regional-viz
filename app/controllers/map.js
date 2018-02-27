@@ -19,7 +19,7 @@ export default Controller.extend({
     const mapNarratives = maps.filter(map => map.hasNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
-    return maps[currentPosition - 1];
+    return mapNarratives[currentPosition - 1];
   },
 
   @computed('application.model.maps', 'model.slug')
@@ -27,7 +27,7 @@ export default Controller.extend({
     const mapNarratives = maps.filter(map => map.hasNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
-    return maps[currentPosition + 1];
+    return mapNarratives[currentPosition + 1];
   },
 
   actions: {
