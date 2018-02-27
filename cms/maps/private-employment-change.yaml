@@ -12,8 +12,7 @@ map:
     type: cartovector
     source-layers:
     - id: private-employment-change-counties
-      sql: >
-        SELECT the_geom_webmercator, name, empr0016 as value FROM region_counties_v0
+      sql: SELECT the_geom_webmercator, name, empr0016 as value FROM region_counties_v0
   layers:
   - id: private-employment-change-counties
     title: Private Employment Change 2000-2016

@@ -12,8 +12,7 @@ map:
     type: cartovector
     source-layers:
     - id: housing-units-permitted-counties
-      sql: >
-        SELECT the_geom_webmercator, name, houp1016 as value FROM region_counties_v0
+      sql: SELECT the_geom_webmercator, name, houp1016 as value FROM region_counties_v0
   layers:
   - id: housing-units-permitted-counties
     title: Housing Units Permitted by County, 2010-2016
