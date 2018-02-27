@@ -1,7 +1,34 @@
-<div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2 page-container">
+<div class="cell">
 
-  <h1 class="header-xlarge">{{model.title}}</h1>
-  {{md-text text = model.content}}
+  <div class="page-container grid-x grid-padding-x">
+
+    <div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2">
+      <h1>{{model.title}}</h1>
+    </div>
+
+    {{#if (or model.sidebar.content model.sidebar.button)}}
+
+      <div class="cell large-6 large-offset-1 xlarge-5 xlarge-offset-2">
+        {{md-text text = model.content}}
+      </div>
+
+      <div class="cell page-sidebar large-4 xlarge-3">
+        {{md-text text = model.sidebar.content}}
+        {{#if model.sidebar.button}}
+          <a href="{{model.sidebar.button}}" class="button">Download All Data <small>(CSV)</small></a>
+        {{/if}}
+      </div>
+
+    {{else}}
+
+      <div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2">
+        {{md-text text = model.content}}
+      </div>
+
+    {{/if}}
+
+  </div>
+
   {{outlet}}
 
 </div>
