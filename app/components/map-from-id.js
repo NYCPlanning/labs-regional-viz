@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
-import { get } from '@ember/object';
 import numeral from 'numeral';
 
 function buildPaint({
@@ -11,24 +10,20 @@ function buildPaint({
 }) {
   const paint = {
     'fill-color': [
-      'curve',
-      ['step'],
-      [
-        'number',
-        ['get', 'value'],
-        1,
-      ],
+      'step',
+      ['get', 'value'],
     ],
     'fill-opacity': opacity,
   };
   const colorArray = paint['fill-color'];
 
-  colors.forEach((color, i) => {
-    colorArray.push(colors[i]);
-    colorArray.push(breaks[i]);
-  });
+  // there will always be 1 more color than breaks
+  colorArray.push(colors[0]);
 
-  colorArray.push('#FFF');
+  breaks.forEach((color, i) => {
+    colorArray.push(breaks[i]);
+    colorArray.push(colors[i + 1]);
+  });
 
   return paint;
 }
@@ -74,11 +69,6 @@ export default Component.extend({
       'fill-opacity': 0.2,
       'fill-color': '#999999',
     },
-  },
-
-  @computed('mapConfig.layers')
-  layerTitle([firstLayer = {}] = []) {
-    return get(firstLayer, 'title');
   },
 
   @computed('mapConfig.layers')
@@ -131,7 +121,7 @@ export default Component.extend({
       }
 
       breaksArray.push({
-        label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
+        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
         color: colors[i],
       });
     }
@@ -163,6 +153,8 @@ export default Component.extend({
       sources.forEach((source) => {
         map.addSource(source.id, source);
       });
+
+      map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
     },
 
     handleMouseMove(e) {
@@ -174,6 +166,7 @@ export default Component.extend({
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
+        map.getSource('highlighted-feature').setData(feature);
 
         // configure the popup
         popup.setLngLat(e.lngLat)
