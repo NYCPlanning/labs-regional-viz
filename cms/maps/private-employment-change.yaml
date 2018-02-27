@@ -37,4 +37,10 @@ map:
       - 2500
       - 10000
       - 20000
-      - 10000000
+  - id: county-outlines
+    type: line
+    source: private-employment-change
+    source-layer: private-employment-change-counties
+    paint:
+      line-color: rgba(131, 131, 131, 1)
+      line-width: 0.5

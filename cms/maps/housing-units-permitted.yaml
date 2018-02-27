@@ -35,4 +35,10 @@ map:
       - 7500
       - 15000
       - 30000
-      - 1000000
+  - id: county-outlines
+    type: line
+    source: housing-units-permitted
+    source-layer: housing-units-permitted-counties
+    paint:
+      line-color: rgba(131, 131, 131, 1)
+      line-width: 0.5
