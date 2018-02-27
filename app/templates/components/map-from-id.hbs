@@ -12,9 +12,7 @@
   {{/each}}
 
   {{#if highlightedFeature}}
-    {{#map.source sourceId='highlighted-feature' options=highlightedFeatureSource as |source|}}
-      {{map.layer layer=highlightedFeatureLayer}}
-    {{/map.source}}
+    {{map.layer layer=highlightedFeatureLayer}}
   {{/if}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}

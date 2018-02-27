@@ -3,17 +3,16 @@
 slug: private-employment-change
 category: Jobs
 title: Private Employment Change 2000-2016
-content:
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
 map:
   sources:
   - id: private-employment-change
     type: cartovector
     source-layers:
     - id: private-employment-change-counties
-      sql: >
-        SELECT a.the_geom_webmercator, a.name, b.empr0016 as value FROM region_counties_v0 a
-        LEFT JOIN region_counties_attributes_v0 b
-        ON a.geoid = to_char(b.stcoid, 'FM00000')
+      sql: SELECT the_geom_webmercator, name, empr0016 as value FROM region_counties_v0
   layers:
   - id: private-employment-change-counties
     title: Private Employment Change 2000-2016
@@ -35,4 +34,3 @@ map:
       - 2500
       - 10000
       - 20000
-      - 10000000

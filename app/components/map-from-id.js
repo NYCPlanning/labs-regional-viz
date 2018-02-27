@@ -1,7 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
-import { get } from '@ember/object';
 import numeral from 'numeral';
 
 function buildPaint({
@@ -11,24 +10,20 @@ function buildPaint({
 }) {
   const paint = {
     'fill-color': [
-      'curve',
-      ['step'],
-      [
-        'number',
-        ['get', 'value'],
-        1,
-      ],
+      'step',
+      ['get', 'value'],
     ],
     'fill-opacity': opacity,
   };
   const colorArray = paint['fill-color'];
 
-  colors.forEach((color, i) => {
-    colorArray.push(colors[i]);
-    colorArray.push(breaks[i]);
-  });
+  // there will always be 1 more color than breaks
+  colorArray.push(colors[0]);
 
-  colorArray.push('#FFF');
+  breaks.forEach((color, i) => {
+    colorArray.push(breaks[i]);
+    colorArray.push(colors[i + 1]);
+  });
 
   return paint;
 }
@@ -36,6 +31,13 @@ function buildPaint({
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
   classNames: 'map-container cell large-auto',
+
+  // noop for passed context
+  toggleNarrative() {
+
+  },
+  mapConfig: {},
+
   zoom: 6.8,
   center: [-73.869324, 40.815888],
 
@@ -72,32 +74,45 @@ export default Component.extend({
   },
 
   @computed('mapConfig.layers')
-  layerTitle([firstLayer = {}] = []) {
-    return get(firstLayer, 'title');
-  },
-
-  @computed('mapConfig.layers')
   builtLayers(layers = []) {
-    return layers.map((layer) => {
+    const builtLayers = [];
+
+    layers.forEach((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
-        return {
+
+        builtLayers.push({
           id,
           type: 'fill',
           source,
           'source-layer': layer['source-layer'],
           paint: buildPaint(paintConfig),
-        };
-      }
+        });
 
-      return layer;
+        // for choropleth fill layers, push an outlines line layer as well
+        builtLayers.push({
+          id: `${id}-line`,
+          type: 'line',
+          source,
+          'source-layer': layer['source-layer'],
+          paint: {
+            'line-color': 'rgba(131, 131, 131, 1)',
+            'line-width': 0.5,
+          },
+        });
+      } else {
+        // no building necessary if not type choropleth
+        builtLayers.push(layer);
+      }
     });
+
+    return builtLayers;
   },
 
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-    const { layers } = mapConfig;
+    const { layers = [] } = mapConfig;
     const [firstLayer = {}] = layers;
     const { paintConfig: config = {} } = firstLayer;
     const { isPercent, breaks = [], colors = [] } = config;
@@ -114,7 +129,7 @@ export default Component.extend({
           label: `${format(breaks[breaks.length - 2])} or more`,
           color: colors[breaks.length - 1],
         });
-        continue;
+        continue; // eslint-disable-line
       }
 
       if (i === 0) {
@@ -122,11 +137,11 @@ export default Component.extend({
           label: isPercent ? `Less than ${format(breaks[0])}` : `Under ${format(breaks[0])}`,
           color: colors[0],
         });
-        continue;
+        continue; // eslint-disable-line
       }
 
       breaksArray.push({
-        label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
+        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
         color: colors[i],
       });
     }
@@ -158,6 +173,8 @@ export default Component.extend({
       sources.forEach((source) => {
         map.addSource(source.id, source);
       });
+
+      map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
     },
 
     handleMouseMove(e) {
@@ -169,6 +186,7 @@ export default Component.extend({
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
+        map.getSource('highlighted-feature').setData(feature);
 
         // configure the popup
         popup.setLngLat(e.lngLat)

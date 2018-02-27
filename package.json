@@ -17,7 +17,6 @@
   },
   "devDependencies": {
     "@ember-decorators/babel-transforms": "^2.0.0",
-    "ember-cli-foundation-6-sass": "^0.0.24",
     "broccoli-asset-rev": "^2.4.5",
     "broccoli-clean-css": "~1.1.0",
     "ember": "^1.0.3",
@@ -27,6 +26,7 @@
     "ember-cli-babel": "^6.6.0",
     "ember-cli-dependency-checker": "^2.0.0",
     "ember-cli-eslint": "^4.2.1",
+    "ember-cli-foundation-6-sass": "^0.0.24",
     "ember-cli-htmlbars": "^2.0.1",
     "ember-cli-htmlbars-inline-precompile": "^1.0.0",
     "ember-cli-inject-live-reload": "^1.4.1",
@@ -43,7 +43,6 @@
     "ember-fetch": "3.4.4",
     "ember-font-awesome": "^4.0.0-rc.2",
     "ember-freestyle": "0.7.0",
-    "ember-jane-maps": "0.0.9",
     "ember-load-initializers": "^1.0.0",
     "ember-remarkable": "3.6.1",
     "ember-resolver": "^4.0.0",
@@ -51,15 +50,16 @@
     "ember-truth-helpers": "^2.0.0",
     "ember-welcome-page": "^3.0.0",
     "ember-yaml-cms": "0.0.2",
+    "foundation-sites": "^6.3.1",
     "install": "0.10.4",
-    "loader.js": "^4.2.3",
-    "foundation-sites": "^6.3.1"
+    "loader.js": "^4.2.3"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
     "babel-eslint": "8.2.2",
+    "ember-jane-maps": "0.0.13",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-import": "2.9.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
