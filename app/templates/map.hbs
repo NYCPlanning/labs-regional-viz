@@ -5,6 +5,8 @@
   mapConfig=model.map
 }}
 
+{{log previousNarrative}}
+
 {{#if narrativeVisible}}
   <a {{action 'toggleNarrative'}} class="narrative-toggle">
     <span>{{fa-icon 'times'}}</span>
@@ -21,6 +23,29 @@
     {{/if}}
 
     {{outlet}}
+
+    <nav aria-label="Pagination" class="narrative-navigation">
+      <ul class="pagination text-center">
+        <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
+          {{#if previousNarrative}}
+            {{#link-to 'map' previousNarrative.category previousNarrative.slug}}
+              {{fa-icon 'arrow-left'}}&nbsp;Previous
+            {{/link-to}}
+          {{else}}
+            {{fa-icon 'arrow-left'}}&nbsp;Previous
+          {{/if}}
+        </li>
+        <li class="pagination-next {{unless nextNarrative 'disabled'}}">
+          {{#if nextNarrative}}
+            {{#link-to 'map' nextNarrative.category nextNarrative.slug}}
+              Next&nbsp;{{fa-icon 'arrow-right'}}
+            {{/link-to}}
+          {{else}}
+            Next&nbsp;{{fa-icon 'arrow-right'}}
+          {{/if}}
+        </li>
+      </ul>
+    </nav>
 
   </div>
 {{/if}}
