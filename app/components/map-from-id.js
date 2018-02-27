@@ -73,20 +73,38 @@ export default Component.extend({
 
   @computed('mapConfig.layers')
   builtLayers(layers = []) {
-    return layers.map((layer) => {
+    const builtLayers = [];
+
+    layers.forEach((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
-        return {
+
+        builtLayers.push({
           id,
           type: 'fill',
           source,
           'source-layer': layer['source-layer'],
           paint: buildPaint(paintConfig),
-        };
-      }
+        });
 
-      return layer;
+        // for choropleth fill layers, push an outlines line layer as well
+        builtLayers.push({
+          id: `${id}-line`,
+          type: 'line',
+          source,
+          'source-layer': layer['source-layer'],
+          paint: {
+            'line-color': 'rgba(131, 131, 131, 1)',
+            'line-width': 0.5,
+          },
+        });
+      } else {
+        // no building necessary if not type choropleth
+        builtLayers.push(layer);
+      }
     });
+
+    return builtLayers;
   },
 
   @computed('mapConfig')

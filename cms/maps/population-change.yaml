@@ -12,10 +12,7 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-counties
-      sql: >
-        SELECT a.the_geom_webmercator, a.name, b.popp1016 as value, b.pop1016 as actual FROM region_counties_v0 a
-        LEFT JOIN region_counties_attributes_v0 b
-        ON a.geoid = to_char(b.stcoid, 'FM00000')
+      sql: SELECT the_geom_webmercator, name, popp1016 as value, pop1016 as actual FROM region_counties_v0
   layers:
   - id: population-change-counties
     title: "% Population Change 2010-2016"
@@ -38,10 +35,3 @@ map:
       - .01
       - .025
       - .05
-  - id: county-outlines
-    type: line
-    source: population-change
-    source-layer: population-change-counties
-    paint:
-      line-color: rgba(131, 131, 131, 1)
-      line-width: 0.5
