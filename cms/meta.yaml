@@ -1,5 +1,9 @@
 orderings:
   maps:
+    - id: intro
+      hasNarrative: true
+      hideFromMenu: true
+
     - id: housing-1
       hasNarrative: true
 
@@ -20,3 +24,6 @@ orderings:
 
     - id: population-change
       hasNarrative: true
+
+    - id: population-change-subregion
+      hasNarrative: false
