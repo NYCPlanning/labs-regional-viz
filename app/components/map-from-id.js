@@ -5,6 +5,8 @@ import numeral from 'numeral';
 import carto from 'ember-jane-maps/utils/carto';
 
 import railConfig from '../supporting-layers/rail';
+import aerialsConfig from '../supporting-layers/aerials';
+
 
 function buildPaint({
   colors,
@@ -47,6 +49,7 @@ export default Component.extend({
   highlightedFeature: null,
   railVisible: false,
   railConfig,
+  aerialsConfig,
   railSource: null,
 
   aerialVisible: false,

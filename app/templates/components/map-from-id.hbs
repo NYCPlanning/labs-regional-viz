@@ -12,14 +12,20 @@
   {{/each}}
 
   {{#if highlightedFeature}}
-    {{map.layer layer=highlightedFeatureLayer}}
+    {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
   {{/if}}
 
 
   {{#if (and railVisible railSource)}}
     {{#map.source sourceId='rail' options=railSource}}
-      {{map.layer layer=railConfig.lines}}
-      {{map.layer layer=railConfig.stops}}
+      {{map.layer layer=railConfig.lines before='waterway-label'}}
+      {{map.layer layer=railConfig.stops before='waterway-label'}}
+    {{/map.source}}
+  {{/if}}
+
+  {{#if aerialVisible}}
+    {{#map.source sourceId='aerials' options=aerialsConfig.source}}
+      {{map.layer layer=aerialsConfig.layer before='admin-2-boundaries-dispute'}}
     {{/map.source}}
   {{/if}}
 
