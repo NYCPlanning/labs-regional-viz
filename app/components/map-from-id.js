@@ -1,37 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
-import numeral from 'numeral';
-import carto from 'ember-jane-maps/utils/carto';
-
-import railConfig from '../supporting-layers/rail';
-import aerialsConfig from '../supporting-layers/aerials';
-
-
-function buildPaint({
-  colors,
-  breaks,
-  opacity,
-}) {
-  const paint = {
-    'fill-color': [
-      'step',
-      ['get', 'value'],
-    ],
-    'fill-opacity': opacity,
-  };
-  const colorArray = paint['fill-color'];
-
-  // there will always be 1 more color than breaks
-  colorArray.push(colors[0]);
-
-  breaks.forEach((color, i) => {
-    colorArray.push(breaks[i]);
-    colorArray.push(colors[i + 1]);
-  });
-
-  return paint;
-}
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -45,12 +14,6 @@ export default Component.extend({
   center: [-73.869324, 40.815888],
 
   highlightedFeature: null,
-  railVisible: false,
-  railConfig,
-  aerialsConfig,
-  railSource: null,
-
-  aerialVisible: false,
 
   popup: new mapboxgl.Popup({
     closeButton: false,
@@ -97,82 +60,6 @@ export default Component.extend({
 
     return layers
       .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
-  },
-
-  @computed('visibleLayers')
-  builtLayers(visibleLayers) {
-    const builtLayers = [];
-    const mutatedLayers = visibleLayers;
-
-    mutatedLayers.forEach((layer) => {
-      if (layer.type === 'choropleth') {
-        const { id, source, paintConfig } = layer;
-
-        builtLayers.push({
-          id,
-          type: 'fill',
-          source,
-          'source-layer': layer['source-layer'],
-          paint: buildPaint(paintConfig),
-        });
-
-        // for choropleth fill layers, push an outlines line layer as well
-        builtLayers.push({
-          id: `${id}-line`,
-          type: 'line',
-          source,
-          'source-layer': layer['source-layer'],
-          paint: {
-            'line-color': 'rgba(131, 131, 131, 1)',
-            'line-width': 0.5,
-          },
-        });
-      } else {
-        // no building necessary if not type choropleth
-        builtLayers.push(layer);
-      }
-    });
-
-    return builtLayers;
-  },
-
-  @computed('mapConfig')
-  breaks(mapConfig) {
-    // return an array of objects, each with a display-ready range and color
-    const { layers = [] } = mapConfig;
-    const [firstLayer = {}] = layers;
-    const { paintConfig: config = {} } = firstLayer;
-    const { isPercent, breaks = [], colors = [] } = config;
-
-    const format = (value) => { // eslint-disable-line
-      return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
-    };
-
-    const breaksArray = [];
-
-    for (let i = breaks.length - 1; i >= 0; i -= 1) {
-      if (i === breaks.length - 1) {
-        breaksArray.push({
-          label: `${format(breaks[breaks.length - 2])} or more`,
-          color: colors[breaks.length - 1],
-        });
-        continue; // eslint-disable-line
-      }
-
-      if (i === 0) {
-        breaksArray.push({
-          label: isPercent ? `Less than ${format(breaks[0])}` : `Under ${format(breaks[0])}`,
-          color: colors[0],
-        });
-        continue; // eslint-disable-line
-      }
-
-      breaksArray.push({
-        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
-        color: colors[i],
-      });
-    }
-    return breaksArray;
   },
 
   didUpdateAttrs() {
@@ -225,29 +112,6 @@ export default Component.extend({
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
-    },
-
-    toggleRail() {
-      // set railSource if user is toggling rails on.
-      if (!this.get('railVisible')) {
-        const source = this.get('railConfig.source');
-        carto.getVectorTileTemplate(source['source-layers'])
-          .then(template => ({
-            id: source.id,
-            type: 'vector',
-            tiles: [template],
-          }))
-          .then((builtSource) => {
-            this.set('railSource', builtSource);
-          });
-      }
-
-
-      this.toggleProperty('railVisible');
-    },
-
-    toggleAerial() {
-      this.toggleProperty('aerialVisible');
     },
   },
 });
