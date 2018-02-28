@@ -28,6 +28,14 @@ map:
     - id: total-units-municipality
       sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0
 
+  popupValues:
+  - id: subregion
+    value: houa16
+  - id: county
+    value: houa16
+  - id: municipality
+    value: hou16
+
   layers:
   - id: total-units-subregion
     title: "Total Housing Units, 2012-2016 Avg"
