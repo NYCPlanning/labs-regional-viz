@@ -149,8 +149,8 @@ export default Component.extend({
 
     const breaksArray = [];
 
-    for (let i = breaks.length - 1; i >= 0; i -= 1) {
-      if (i === breaks.length - 1) {
+    for (let i = breaks.length; i >= 0; i -= 1) {
+      if (i === breaks.length) {
         breaksArray.push({
           label: `${format(breaks[breaks.length - 2])} or more`,
           color: colors[breaks.length - 1],
