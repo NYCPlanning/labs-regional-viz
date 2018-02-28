@@ -6,32 +6,7 @@ import carto from 'ember-jane-maps/utils/carto';
 
 import railConfig from '../supporting-layers/rail';
 import aerialsConfig from '../supporting-layers/aerials';
-
-
-function buildPaint({
-  colors,
-  breaks,
-  opacity,
-}) {
-  const paint = {
-    'fill-color': [
-      'step',
-      ['get', 'value'],
-    ],
-    'fill-opacity': opacity,
-  };
-  const colorArray = paint['fill-color'];
-
-  // there will always be 1 more color than breaks
-  colorArray.push(colors[0]);
-
-  breaks.forEach((color, i) => {
-    colorArray.push(breaks[i]);
-    colorArray.push(colors[i + 1]);
-  });
-
-  return paint;
-}
+import buildPaint from '../utils/build-mapbox-paint-object';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
