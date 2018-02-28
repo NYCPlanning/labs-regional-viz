@@ -20,9 +20,9 @@ map:
     type: cartovector
     source-layers:
     - id: prime-labor-force-gain-subregion
-      sql: SELECT the_geom_webmercator, name, lfpw0016 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value FROM region_subregion_v0
     - id: prime-labor-force-gain-county
-      sql: SELECT the_geom_webmercator, name, lfpw0016 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value FROM region_county_v0
 
   layers:
   - id: prime-labor-force-gain-subregion

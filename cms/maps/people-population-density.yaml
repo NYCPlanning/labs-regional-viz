@@ -22,11 +22,11 @@ map:
     type: cartovector
     source-layers:
     - id: population-density-subregion
-      sql: SELECT the_geom_webmercator, name, popepd16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, popepd16 as value FROM region_subregion_v0
     - id: population-density-county
-      sql: SELECT the_geom_webmercator, name, popepd16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, popepd16 as value FROM region_county_v0
     - id: population-density-municipality
-      sql: SELECT the_geom_webmercator, name, popaden16 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, popaden16 as value FROM region_municipality_v0
 
   layers:
   - id: population-density-subregion

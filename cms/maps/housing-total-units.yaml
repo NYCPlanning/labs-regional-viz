@@ -22,11 +22,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-units-subregion
-      sql: SELECT the_geom_webmercator, name, houa16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, houa16 as value FROM region_subregion_v0
     - id: total-units-county
-      sql: SELECT the_geom_webmercator, name, houa16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, houa16 as value FROM region_county_v0
     - id: total-units-municipality
-      sql: SELECT the_geom_webmercator, name, hou16 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0
 
   layers:
   - id: total-units-subregion

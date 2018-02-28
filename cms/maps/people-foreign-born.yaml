@@ -22,11 +22,11 @@ map:
     type: cartovector
     source-layers:
     - id: foreign-born-subregion
-      sql: SELECT the_geom_webmercator, name, popfbp16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, popfbp16 as value FROM region_subregion_v0
     - id: foreign-born-county
-      sql: SELECT the_geom_webmercator, name, popfbp16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, popfbp16 as value FROM region_county_v0
     - id: foreign-born-municipality
-      sql: SELECT the_geom_webmercator, name, popfbp16 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, popfbp16 as value FROM region_municipality_v0
 
   layers:
   - id: foreign-born-subregion

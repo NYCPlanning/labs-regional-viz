@@ -22,11 +22,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, name, popep16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, popep16 as value FROM region_subregion_v0
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, name, popep16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, popep16 as value FROM region_county_v0
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, name, popa16 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, popa16 as value FROM region_municipality_v0
 
   layers:
   - id: total-population-subregion

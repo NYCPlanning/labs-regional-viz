@@ -20,9 +20,9 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, name, popp1016 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_subregion_v0
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, name, popp1016 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_county_v0
 
   layers:
   - id: population-change-subregion
