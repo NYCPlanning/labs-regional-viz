@@ -35,16 +35,6 @@
   <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
 {{/unless}}
 
-<div class="legend">
-  <h5 class="legend-title">{{layerTitle}}</h5>
-  {{#each breaks as |break|}}
-    <div class="legend-item">
-      <span class="legend-color" style="color:{{break.color}};">{{fa-icon 'square'}}</span>
-      {{break.label}}
-    </div>
-  {{/each}}
-</div>
-
 <div class="supporting-layers">
   {{fa-icon 'clone'}}
   <ul class="supporting-layers-list">
@@ -53,7 +43,7 @@
   </ul>
 </div>
 
-{{yield (hash 
-  breaks=breaks 
-  layerTitle=layerTitle 
+{{yield (hash
+  breaks=breaks
+  layerTitle=layerTitle
   geographyLevel=geographyLevel)}}

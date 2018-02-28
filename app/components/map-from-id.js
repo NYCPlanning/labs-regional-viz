@@ -130,6 +130,11 @@ export default Component.extend({
     return builtLayers;
   },
 
+  @computed('visibleLayers')
+  layerTitle(visibleLayers) {
+    return visibleLayers[0].title;
+  },
+
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
