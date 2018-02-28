@@ -1,0 +1,65 @@
+# Housing
+# ----------
+slug: private-employment-change
+category: Jobs
+categorySlug: jobs
+title: "Post-recession, NYC accounted for 80% of the region's private employment gains"
+menuTitle: "Private Employment Change, 2008-2016"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+map:
+  toggles:
+  - layerId: private-employment-change-subregion
+    type: subregion
+  - layerId: private-employment-change-county
+    type: county
+
+  sources:
+  - id: private-employment-change
+    type: cartovector
+    source-layers:
+    - id: private-employment-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, empr0816 as value FROM region_subregion_v0
+    - id: private-employment-change-county
+      sql: SELECT the_geom_webmercator, geoid, empr0816 as value FROM region_county_v0
+
+  layers:
+  - id: private-employment-change-subregion
+    title: "Private Employment Change, 2008-2016"
+    type: choropleth
+    source: private-employment-change
+    source-layer: private-employment-change-subregion
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#ffa555"
+      - "#ffffe0"
+      - "#89dfa4"
+      - "#127723"
+      - "#193f1f"
+      breaks:
+      - 500000
+      - 750000
+      - 1000000
+      - 2000000
+  - id: private-employment-change-county
+    title: "Private Employment Change, 2008-2016"
+    type: choropleth
+    source: private-employment-change
+    source-layer: private-employment-change-county
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#ffa555"
+      - "#ffffe0"
+      - "#89dfa4"
+      - "#127723"
+      - "#193f1f"
+      breaks:
+      - -2500
+      - 2500
+      - 15000
+      - 35000
