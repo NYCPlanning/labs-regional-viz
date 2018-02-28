@@ -171,11 +171,15 @@ export default Component.extend({
   didUpdateAttrs() {
     const map = this.get('map');
     const sources = this.get('mapConfig.sources');
+    const popup = this.get('popup');
+
     sources.forEach((source) => {
       if (!map.getSource(source.id)) {
         map.addSource(source.id, source);
       }
     });
+
+    popup.remove();
   },
 
   actions: {
