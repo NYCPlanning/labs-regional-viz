@@ -132,7 +132,7 @@ export default Component.extend({
 
   @computed('visibleLayers')
   layerTitle(visibleLayers) {
-    return visibleLayers[0].title;
+    return visibleLayers[0] ? visibleLayers[0].title : 'No Title';
   },
 
   @computed('mapConfig')
