@@ -1,0 +1,66 @@
+# People
+# ----------
+slug: prime-labor-force-gain
+category: people
+title: "NYC gain of prime labor force (participants age 25 to 54) outpaced the regional net gain from 2000-2016."
+menuTitle: "Net Population Change, 2010 - 2016"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+map:
+  toggles:
+  - layerId: prime-labor-force-gain-subregion
+    type: subregion
+  - layerId: prime-labor-force-gain-county
+    type: county
+
+  sources:
+  - id: prime-labor-force-gain
+    type: cartovector
+    source-layers:
+    - id: prime-labor-force-gain-subregion
+      sql: SELECT the_geom_webmercator, name, lfpw0016 as value FROM region_subregion_v0
+    - id: prime-labor-force-gain-county
+      sql: SELECT the_geom_webmercator, name, lfpw0016 as value FROM region_county_v0
+
+  layers:
+  - id: prime-labor-force-gain-subregion
+    title: "Net Population Change, 2010 - 2016"
+    type: choropleth
+    source: prime-labor-force-gain
+    source-layer: prime-labor-force-gain-subregion
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#d76423"
+      - "#ffa555"
+      - "#ffffe0"
+      - "#b3e4ff"
+      - "#5ab4ff"
+      breaks:
+      - -25000
+      - -10000
+      - 10000
+      - 100000
+  - id: prime-labor-force-gain-county
+    title: "Net Population Change, 2010 - 2016"
+    type: choropleth
+    source: prime-labor-force-gain
+    source-layer: prime-labor-force-gain-county
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#d76423"
+      - "#ffa555"
+      - "#ffffe0"
+      - "#b3e4ff"
+      - "#5ab4ff"
+      - "#002673"
+      breaks:
+      - -15000
+      - -2500
+      - 2500
+      - 15000
+      - 75000
