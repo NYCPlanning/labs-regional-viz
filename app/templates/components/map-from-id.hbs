@@ -7,14 +7,13 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-  {{#each builtLayers as |layer| }}
+  {{#each builtLayers key='@index' as |layer|}}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 
   {{#if highlightedFeature}}
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
   {{/if}}
-
 
   {{#if (and railVisible railSource)}}
     {{#map.source sourceId='rail' options=railSource}}
@@ -35,18 +34,6 @@
 {{#unless narrativeVisible}}
   <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
 {{/unless}}
-
-<ul class="menu geography-selector">
-  <li class="{{if (eq geographyLevel 'municipality') 'active'}} explode-block">
-    <a {{action handleGeographyLevelToggle 'municipality'}}>Municipality</a>
-  </li>
-  <li class="{{if (eq geographyLevel 'county') 'active'}} explode-tract">
-    <a {{action handleGeographyLevelToggle 'county'}}>County</a>
-  </li>
-  <li class="{{if (eq geographyLevel 'subregion') 'active'}} explode-nta">
-    <a {{action handleGeographyLevelToggle 'subregion'}}>Subregion</a>
-  </li>
-</ul>
 
 <div class="legend">
   <h5 class="legend-title">{{layerTitle}}</h5>

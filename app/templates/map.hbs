@@ -3,7 +3,6 @@
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
   geographyLevel=geographyLevel
-  handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
   mapConfig=model.map
   as |map|
 }}
@@ -14,8 +13,6 @@
     toggles=model.map.toggles
     geographyLevel=geographyLevel}}
 {{/map-from-id}}
-
-{{log previousNarrative}}
 
 {{#if narrativeVisible}}
   <a {{action 'toggleNarrative'}} class="narrative-toggle">

@@ -80,7 +80,7 @@ export default Component.extend({
     },
   },
 
-  @computed('mapConfig.layers')
+  @computed('mapConfig.layers', 'geographyLevel')
   builtLayers(layers = []) {
     const builtLayers = [];
 
