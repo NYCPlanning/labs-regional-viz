@@ -135,6 +135,11 @@ export default Component.extend({
     return builtLayers;
   },
 
+  @computed('visibleLayers')
+  layerTitle(visibleLayers) {
+    return visibleLayers[0] ? visibleLayers[0].title : 'No Title';
+  },
+
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
@@ -149,8 +154,8 @@ export default Component.extend({
 
     const breaksArray = [];
 
-    for (let i = breaks.length - 1; i >= 0; i -= 1) {
-      if (i === breaks.length - 1) {
+    for (let i = breaks.length; i >= 0; i -= 1) {
+      if (i === breaks.length) {
         breaksArray.push({
           label: `${format(breaks[breaks.length - 2])} or more`,
           color: colors[breaks.length - 1],

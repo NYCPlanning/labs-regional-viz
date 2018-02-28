@@ -9,7 +9,7 @@
   {{map-utility-box
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
     breaks=map.breaks
-    layerTitle=layerTitle
+    layerTitle=map.layerTitle
     toggles=model.map.toggles
     geographyLevel=geographyLevel}}
 {{/map-from-id}}
@@ -35,7 +35,7 @@
       <ul class="pagination text-center">
         <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
           {{#if previousNarrative}}
-            {{#link-to 'map' previousNarrative.category previousNarrative.slug}}
+            {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug}}
               {{fa-icon 'arrow-left'}}&nbsp;Previous
             {{/link-to}}
           {{else}}
@@ -44,7 +44,7 @@
         </li>
         <li class="pagination-next {{unless nextNarrative 'disabled'}}">
           {{#if nextNarrative}}
-            {{#link-to 'map' nextNarrative.category nextNarrative.slug}}
+            {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug}}
               Next&nbsp;{{fa-icon 'arrow-right'}}
             {{/link-to}}
           {{else}}

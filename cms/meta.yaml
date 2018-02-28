@@ -8,26 +8,20 @@ orderings:
       hasNarrative: true
       hideFromMenu: true
 
-    - id: housing-1
+    - id: foreign-born
       hasNarrative: true
 
-    - id: housing-units-permitted
-      hasNarrative: true
-
-    - id: housing-2
-      hasNarrative: false
-
-    - id: private-employment-change
-      hasNarrative: true
-
-    - id: jobs-2
-      hasNarrative: true
-
-    - id: people-2
+    - id: net-population-change
       hasNarrative: true
 
     - id: population-change
       hasNarrative: true
 
-    - id: population-change-subregion
-      hasNarrative: false
+    - id: population-density
+      hasNarrative: true
+
+    - id: prime-labor-force-gain
+      hasNarrative: true
+
+    - id: total-population
+      hasNarrative: true
