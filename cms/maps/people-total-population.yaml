@@ -1,0 +1,86 @@
+# People
+# ----------
+slug: total-population
+category: people
+title: "NYC represents 37% of the region's population of 22.8 Million"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+map:
+  toggles:
+  - layerId: total-population-subregion
+    type: subregion
+  - layerId: total-population-county
+    type: county
+  - layerId: total-population-municipality
+    type: municipality
+
+  sources:
+  - id: total-population
+    type: cartovector
+    source-layers:
+    - id: total-population-subregion
+      sql: SELECT the_geom_webmercator, name, popep16 as value FROM region_subregion_v0
+    - id: total-population-county
+      sql: SELECT the_geom_webmercator, name, popep16 as value FROM region_county_v0
+    - id: total-population-municipality
+      sql: SELECT the_geom_webmercator, name, popa16 as value FROM region_municipality_v0
+
+  layers:
+  - id: total-population-subregion
+    title: "Total Population"
+    type: choropleth
+    source: total-population
+    source-layer: total-population-subregion
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#d4f3f7"
+      - "#73efff"
+      - "#0094ff"
+      - "#0058ee"
+      - "#002673"
+      breaks:
+      - 1000000
+      - 2000000
+      - 5000000
+      - 7500000
+  - id: total-population-county
+    title: "Total Population"
+    type: choropleth
+    source: total-population
+    source-layer: total-population-county
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#d4f3f7"
+      - "#73efff"
+      - "#0094ff"
+      - "#0058ee"
+      - "#002673"
+      breaks:
+      - 250000
+      - 500000
+      - 750000
+      - 1250000
+  - id: total-population-municipality
+    title: "Total Population"
+    type: choropleth
+    source: total-population
+    source-layer: total-population-municipality
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#d4f3f7"
+      - "#73efff"
+      - "#0094ff"
+      - "#0058ee"
+      - "#002673"
+      breaks:
+      - 10000
+      - 50000
+      - 100000
+      - 200000
