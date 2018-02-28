@@ -233,10 +233,13 @@ export default Component.extend({
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
 
+
+
       if (feature) {
         // configure the popup
         popup.setLngLat(e.lngLat)
-          .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
+          .setHTML(feature.properties.geoid)
+          // .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
           .addTo(this.get('map'));
       } else {
         popup.remove();
