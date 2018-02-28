@@ -1,5 +1,4 @@
 {{#map-from-id
-  id=model.map
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
   geographyLevel=geographyLevel
@@ -12,6 +11,8 @@
     layerTitle=layerTitle
     toggles=model.map.toggles
     geographyLevel=geographyLevel}}
+
+  {{supporting-layers map=map.map}}
 {{/map-from-id}}
 
 {{#if narrativeVisible}}
