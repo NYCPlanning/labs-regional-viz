@@ -1,0 +1,19 @@
+<div class="legend">
+  <h5 class="legend-title">{{layerTitle}}</h5>
+  {{#each breaks as |break|}}
+    <div class="legend-item">
+      <span class="legend-color" style="color:{{break.color}};">{{fa-icon 'square'}}</span>
+      {{break.label}}
+    </div>
+  {{/each}}
+</div>
+
+<ul class="menu geography-selector">
+  {{#each toggles as |toggle|}}
+    <li class="{{if (eq geographyLevel toggle.type) 'active'}} explode-block toggle-list-item">
+      <a {{action handleGeographyLevelToggle toggle.type}}>
+        {{capitalize toggle.type}}
+      </a>
+    </li>
+  {{/each}}
+</ul>

@@ -38,9 +38,7 @@ export default Component.extend({
   classNames: 'map-container cell large-auto',
 
   // noop for passed context
-  toggleNarrative() {
-
-  },
+  toggleNarrative() {},
   mapConfig: {},
 
   zoom: 6.8,
@@ -82,11 +80,25 @@ export default Component.extend({
     },
   },
 
-  @computed('mapConfig.layers')
-  builtLayers(layers = []) {
-    const builtLayers = [];
+  @computed('mapConfig', 'geographyLevel')
+  visibleLayers({ layers = [], toggles = [] }, selectedGeographyLevel) {
+    // find toggle-able layers to hide
+    // 1. find which toggle-ables are not selected
+    // 2. grab those from the layers
+    const hiddenLayersIDs = toggles
+      .filter(toggle => toggle.type !== selectedGeographyLevel)
+      .mapBy('layerId');
 
-    layers.forEach((layer) => {
+    return layers
+      .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+  },
+
+  @computed('visibleLayers')
+  builtLayers(visibleLayers) {
+    const builtLayers = [];
+    const mutatedLayers = visibleLayers;
+
+    mutatedLayers.forEach((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
 
@@ -187,7 +199,7 @@ export default Component.extend({
     },
 
     handleMouseMove(e) {
-      const layers = this.get('mapConfig.layers').map(d => d.id);
+      const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
       const map = this.get('map');

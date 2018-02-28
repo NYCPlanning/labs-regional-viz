@@ -1,9 +1,18 @@
-{{map-from-id
+{{#map-from-id
   id=model.map
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
+  geographyLevel=geographyLevel
   mapConfig=model.map
+  as |map|
 }}
+  {{map-utility-box
+    handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
+    breaks=map.breaks
+    layerTitle=layerTitle
+    toggles=model.map.toggles
+    geographyLevel=geographyLevel}}
+{{/map-from-id}}
 
 {{#if narrativeVisible}}
   <a {{action 'toggleNarrative'}} class="narrative-toggle">

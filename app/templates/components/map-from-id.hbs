@@ -7,14 +7,13 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-  {{#each builtLayers as |layer| }}
+  {{#each builtLayers key='id' as |layer|}}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 
   {{#if highlightedFeature}}
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
   {{/if}}
-
 
   {{#if (and railVisible railSource)}}
     {{#map.source sourceId='rail' options=railSource}}
@@ -54,4 +53,7 @@
   </ul>
 </div>
 
-{{yield}}
+{{yield (hash 
+  breaks=breaks 
+  layerTitle=layerTitle 
+  geographyLevel=geographyLevel)}}
