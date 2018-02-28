@@ -4,16 +4,15 @@ import numeral from 'numeral';
 
 export default Component.extend({
   handleGeographyLevelToggle() {},
+  mapConfig: {},
 
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-    const { layers = [] } = mapConfig;
-    console.log(layers);
-    const [firstLayer = {}] = layers;
+    const { legends = [] } = mapConfig;
+    const [firstLayer = {}] = legends;
     const { paintConfig: config = {} } = firstLayer;
     const { isPercent, breaks = [], colors = [] } = config;
-    console.log(breaks);
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
     };

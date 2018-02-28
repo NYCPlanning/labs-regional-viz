@@ -46,7 +46,6 @@ export default Route.extend({
         layers.forEach((layer) => {
           if (layer.type === 'choropleth') {
             const { id, source, paintConfig } = layer;
-
             builtLayers.push({
               id,
               type: 'fill',
@@ -73,7 +72,7 @@ export default Route.extend({
         });
 
         set(enrichedMapNarrative, 'map.layers', builtLayers);
-        console.log(enrichedMapNarrative);
+        set(enrichedMapNarrative, 'map.legends', layers);
         return enrichedMapNarrative;
       });
   },
