@@ -1,4 +1,4 @@
-export default function buildPaint({ colors, breaks, opacity }) {
+export default function buildPaint({ colors = [], breaks = [], opacity = [] } = {}) {
   const paint = {
     'fill-color': [
       'step',

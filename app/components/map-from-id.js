@@ -6,7 +6,6 @@ import carto from 'ember-jane-maps/utils/carto';
 
 import railConfig from '../supporting-layers/rail';
 import aerialsConfig from '../supporting-layers/aerials';
-import buildPaint from '../utils/build-mapbox-paint-object';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -66,43 +65,6 @@ export default Component.extend({
 
     return layers
       .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
-  },
-
-  @computed('visibleLayers')
-  builtLayers(visibleLayers) {
-    const builtLayers = [];
-    const mutatedLayers = visibleLayers;
-
-    mutatedLayers.forEach((layer) => {
-      if (layer.type === 'choropleth') {
-        const { id, source, paintConfig } = layer;
-
-        builtLayers.push({
-          id,
-          type: 'fill',
-          source,
-          'source-layer': layer['source-layer'],
-          paint: buildPaint(paintConfig),
-        });
-
-        // for choropleth fill layers, push an outlines line layer as well
-        builtLayers.push({
-          id: `${id}-line`,
-          type: 'line',
-          source,
-          'source-layer': layer['source-layer'],
-          paint: {
-            'line-color': 'rgba(131, 131, 131, 1)',
-            'line-width': 0.5,
-          },
-        });
-      } else {
-        // no building necessary if not type choropleth
-        builtLayers.push(layer);
-      }
-    });
-
-    return builtLayers;
   },
 
   @computed('mapConfig')
