@@ -25,3 +25,12 @@ orderings:
 
     - id: total-population
       hasNarrative: true
+
+    - id: total-employment
+      hasNarrative: true
+
+    - id: total-units-permitted
+      hasNarrative: true
+
+    - id: total-units
+      hasNarrative: true
