@@ -7,13 +7,13 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-  {{#each builtLayers key='@index' as |layer|}}
+  {{#each builtLayers key='id' as |layer|}}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 
-  {{#if highlightedFeature}}
+{{!--   {{#if highlightedFeature}}
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
-  {{/if}}
+  {{/if}} --}}
 
   {{#if (and railVisible railSource)}}
     {{#map.source sourceId='rail' options=railSource}}
@@ -28,7 +28,7 @@
     {{/map.source}}
   {{/if}}
 
-  {{map.on 'mousemove' (action 'handleMouseMove')}}
+  {{!-- {{map.on 'mousemove' (action 'handleMouseMove')}} --}}
 {{/jane-maps}}
 
 {{#unless narrativeVisible}}

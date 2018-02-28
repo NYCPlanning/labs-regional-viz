@@ -80,11 +80,22 @@ export default Component.extend({
     },
   },
 
-  @computed('mapConfig.layers', 'geographyLevel')
-  builtLayers(layers = []) {
+  @computed('mapConfig', 'geographyLevel')
+  builtLayers({ layers = [], toggles = [] }, selectedGeographyLevel) {
     const builtLayers = [];
+    let mutatedLayers = layers;
 
-    layers.forEach((layer) => {
+    // find toggle-able layers to hide
+    // 1. find which toggle-ables are not selected
+    // 2. grab those from the layers
+    const hiddenLayersIDs = toggles
+      .filter(toggle => toggle.type !== selectedGeographyLevel)
+      .mapBy('layerId');
+
+    mutatedLayers = mutatedLayers
+      .filter(layer => hiddenLayersIDs.any(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+
+    mutatedLayers.forEach((layer) => {
       if (layer.type === 'choropleth') {
         const { id, source, paintConfig } = layer;
 
