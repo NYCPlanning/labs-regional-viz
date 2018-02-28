@@ -1,0 +1,86 @@
+# Housing
+# ----------
+slug: units-permitted
+category: Housing
+categorySlug: housing
+title: "NYC accounted for about 40% of housing units permitted since 2010"
+menuTitle: "Housing Units Permitted, 2010-2016"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+map:
+  toggles:
+  - layerId: units-permitted-subregion
+    type: subregion
+  - layerId: units-permitted-county
+    type: county
+  - layerId: units-permitted-municipality
+    type: municipality
+  sources:
+  - id: units-permitted
+    type: cartovector
+    source-layers:
+    - id: units-permitted-subregion
+      sql: SELECT the_geom_webmercator, name, houp1016 as value FROM region_subregion_v0
+    - id: units-permitted-county
+      sql: SELECT the_geom_webmercator, name, houp1016 as value FROM region_county_v0
+    - id: units-permitted-municipality
+      sql: SELECT the_geom_webmercator, name, houp1016 as value FROM region_municipality_v0
+  layers:
+  - id: units-permitted-subregion
+    title: "Housing Units Permitted, 2010-2016"
+    type: choropleth
+    source: units-permitted
+    source-layer: units-permitted-subregion
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#ffffbe"
+      - "#ffd37f"
+      - "#ffaa00"
+      - "#ff5500"
+      breaks:
+      - 10000
+      - 20000
+      - 50000
+      - 100000
+  - id: units-permitted-county
+    title: "Housing Units Permitted, 2010-2016"
+    type: choropleth
+    source: units-permitted
+    source-layer: units-permitted-county
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#ffffbe"
+      - "#ffd37f"
+      - "#ffaa00"
+      - "#ff5500"
+      breaks:
+      - 3000
+      - 7500
+      - 15000
+      - 30000
+  - id: units-permitted-municipality
+    title: "Housing Units Permitted, 2010-2016"
+    type: choropleth
+    source: units-permitted
+    source-layer: units-permitted-municipality
+    paintConfig:
+      isPercent: false
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#ffffbe"
+      - "#ffd37f"
+      - "#ffaa00"
+      - "#ff5500"
+      breaks:
+      - 500
+      - 1000
+      - 2500
+      - 5000
