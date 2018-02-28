@@ -93,7 +93,9 @@ export default Component.extend({
       .mapBy('layerId');
 
     mutatedLayers = mutatedLayers
-      .filter(layer => hiddenLayersIDs.any(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+      .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+
+    console.log(mutatedLayers, layers);
 
     mutatedLayers.forEach((layer) => {
       if (layer.type === 'choropleth') {
