@@ -11,6 +11,7 @@
     <div id="responsive-menu" class="cell large-shrink {{if closed 'show-for-large'}} hide-for-print">
       <nav role="navigation">
         {{#zf-dropdown-menu class="vertical large-horizontal"}}
+
           {{#each-in (group-by "category" filteredMapLinks) as |category maps|}}
             <li>
               <a>{{category}}</a>
@@ -23,6 +24,11 @@
               </ul>
             </li>
           {{/each-in}}
+
+          {{#each model.pages as |page|}}
+            <li>{{link-to page.menutitle 'page' page.slug}}</li>
+          {{/each}}
+
         {{/zf-dropdown-menu}}
       </nav>
     </div>
