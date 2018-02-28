@@ -1,4 +1,8 @@
 orderings:
+
+  pages:
+    - id: about
+
   maps:
     - id: intro
       hasNarrative: true
