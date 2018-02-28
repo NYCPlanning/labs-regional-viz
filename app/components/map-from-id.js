@@ -53,7 +53,6 @@ export default Component.extend({
   aerialVisible: false,
 
   popup: new mapboxgl.Popup({
-    closeButton: false,
     closeOnClick: false,
   }),
 
