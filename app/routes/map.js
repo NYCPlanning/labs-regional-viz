@@ -1,7 +1,10 @@
 import Ember from 'ember';
 
 import Route from '@ember/routing/route';
+import { set } from '@ember/object';
+
 import carto from 'ember-jane-maps/utils/carto';
+import buildPaint from '../utils/build-mapbox-paint-object';
 
 const { Promise } = Ember.RSVP;
 
@@ -35,6 +38,42 @@ export default Route.extend({
       .then((cartoPromises) => {
         mapConfig.sources = cartoPromises;
         return mapNarrative;
+      })
+      .then((enrichedMapNarrative) => {
+        const { map: { layers } } = enrichedMapNarrative;
+        const builtLayers = [];
+
+        layers.forEach((layer) => {
+          if (layer.type === 'choropleth') {
+            const { id, source, paintConfig } = layer;
+            builtLayers.push({
+              id,
+              type: 'fill',
+              source,
+              'source-layer': layer['source-layer'],
+              paint: buildPaint(paintConfig),
+            });
+
+            // for choropleth fill layers, push an outlines line layer as well
+            builtLayers.push({
+              id: `${id}-line`,
+              type: 'line',
+              source,
+              'source-layer': layer['source-layer'],
+              paint: {
+                'line-color': 'rgba(131, 131, 131, 1)',
+                'line-width': 0.5,
+              },
+            });
+          } else {
+            // no building necessary if not type choropleth
+            builtLayers.push(layer);
+          }
+        });
+
+        set(enrichedMapNarrative, 'map.layers', builtLayers);
+        set(enrichedMapNarrative, 'map.legends', layers);
+        return enrichedMapNarrative;
       });
   },
 });
