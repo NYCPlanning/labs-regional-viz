@@ -20,12 +20,17 @@ map:
   - id: units-permitted
     type: cartovector
     source-layers:
+<<<<<<< Updated upstream
     - id: units-permitted-subregion
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_subregion_v0
     - id: units-permitted-county
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_county_v0
     - id: units-permitted-municipality
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0
+=======
+    - id: housing-units-permitted-counties
+      sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_county_v0
+>>>>>>> Stashed changes
   layers:
   - id: units-permitted-subregion
     title: "Housing Units Permitted, 2010-2016"
