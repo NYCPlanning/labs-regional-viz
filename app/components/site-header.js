@@ -11,6 +11,6 @@ export default Component.extend({
 
   @computed('model.maps')
   filteredMapLinks(maps) {
-    return maps.filter(map => map.hasNarrative);
+    return maps.filter(map => !map.hideFromMenu);
   },
 });
