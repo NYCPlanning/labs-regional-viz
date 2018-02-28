@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
+import carto from 'ember-jane-maps/utils/carto';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -115,14 +116,39 @@ export default Component.extend({
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
 
-
-
       if (feature) {
-        // configure the popup
-        popup.setLngLat(e.lngLat)
-          .setHTML(feature.properties.geoid)
-          // .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
-          .addTo(this.get('map'));
+
+        const { geoid } = feature.properties;
+
+        const SQL = `
+          WITH municipality AS (
+            SELECT 'municipality' as geomtype, namelsad as name, countyfp, statefp, subregid, houp1016 as value FROM planninglabs.region_municipality_v0
+            WHERE geoid = '${geoid}'
+          )
+
+          SELECT 'subregion' as geomtype, a.name, houp1016 as value FROM planninglabs.region_subregion_v0 a, municipality
+          WHERE geoid = municipality.subregid
+
+          UNION ALL
+
+          SELECT 'county' as geomtype, a.name, houp1016 as value FROM planninglabs.region_county_v0 a, municipality
+          WHERE geoid = (municipality.statefp || municipality.countyfp)
+
+          UNION ALL
+
+          SELECT geomtype::text, name, value FROM municipality
+        `;
+
+        carto.SQL(SQL)
+          .then((data) => {
+            console.log(data)
+            // configure the popup
+            popup.setLngLat(e.lngLat)
+              .setHTML(`${data[0].value} ${data[1].value} ${data[2].value}`)
+              // .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
+              .addTo(this.get('map'));
+          });
+
       } else {
         popup.remove();
       }

@@ -29,5 +29,8 @@
 {{/mapbox-gl}}
 
 {{#unless narrativeVisible}}
-  <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
+  <a {{action toggleNarrative}} class="narrative-link">
+    <span class="hide-for-large">{{fa-icon 'chevron-up'}}</span>
+    <span class="show-for-large">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</span>
+  </a>
 {{/unless}}
