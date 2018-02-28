@@ -81,10 +81,7 @@ export default Component.extend({
   },
 
   @computed('mapConfig', 'geographyLevel')
-  builtLayers({ layers = [], toggles = [] }, selectedGeographyLevel) {
-    const builtLayers = [];
-    let mutatedLayers = layers;
-
+  visibleLayers({ layers = [], toggles = [] }, selectedGeographyLevel) {
     // find toggle-able layers to hide
     // 1. find which toggle-ables are not selected
     // 2. grab those from the layers
@@ -92,10 +89,14 @@ export default Component.extend({
       .filter(toggle => toggle.type !== selectedGeographyLevel)
       .mapBy('layerId');
 
-    mutatedLayers = mutatedLayers
+    return layers
       .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+  },
 
-    console.log(mutatedLayers, layers);
+  @computed('visibleLayers')
+  builtLayers(visibleLayers) {
+    const builtLayers = [];
+    const mutatedLayers = visibleLayers;
 
     mutatedLayers.forEach((layer) => {
       if (layer.type === 'choropleth') {
@@ -198,7 +199,7 @@ export default Component.extend({
     },
 
     handleMouseMove(e) {
-      const layers = this.get('mapConfig.layers').map(d => d.id);
+      const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
       const map = this.get('map');
