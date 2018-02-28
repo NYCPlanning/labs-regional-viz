@@ -17,7 +17,7 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-counties
-      sql: SELECT the_geom_webmercator, name, popp1016 as value, pop1016 as actual FROM region_counties_v0
+      sql: SELECT the_geom_webmercator, name, popp1016 as value, pop1016 as actual FROM region_county_v0
   layers:
   - id: population-change-counties
     title: "% Population Change 2010-2016"
