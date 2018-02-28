@@ -1,4 +1,8 @@
 orderings:
+
+  pages:
+    - id: about
+
   maps:
     - id: housing-1
       hasNarrative: true
