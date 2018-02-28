@@ -71,11 +71,17 @@ export default Component.extend({
 
   highlightedFeatureLayer: {
     id: 'highlighted-feature',
-    type: 'fill',
+    type: 'line',
     source: 'highlighted-feature',
     paint: {
-      'fill-opacity': 0.2,
-      'fill-color': '#999999',
+      'line-color': '#555555',
+      'line-opacity': 0.8,
+      'line-width': {
+        stops: [
+          [8, 2],
+          [11, 4],
+        ],
+      },
     },
   },
 
