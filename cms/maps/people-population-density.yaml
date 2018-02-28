@@ -28,7 +28,7 @@ map:
 
   layers:
   - id: population-density-subregion
-    title: "Population Density"
+    title: "Population Density (Pop/sq. mile) 2016"
     type: choropleth
     source: population-density
     source-layer: population-density-subregion
@@ -47,7 +47,7 @@ map:
       - 2000
       - 3000
   - id: population-density-county
-    title: "Population Density"
+    title: "Population Density (Pop/sq. mile) 2016"
     type: choropleth
     source: population-density
     source-layer: population-density-county
@@ -66,7 +66,7 @@ map:
       - 5000
       - 10000
   - id: population-density-municipality
-    title: "Population Density"
+    title: "Population Density (Pop/sq. mile) 2016"
     type: choropleth
     source: population-density
     source-layer: population-density-municipality

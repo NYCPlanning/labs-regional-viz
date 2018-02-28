@@ -28,7 +28,7 @@ map:
 
   layers:
   - id: total-population-subregion
-    title: "Total Population"
+    title: "Total Population 2016"
     type: choropleth
     source: total-population
     source-layer: total-population-subregion
@@ -47,7 +47,7 @@ map:
       - 5000000
       - 7500000
   - id: total-population-county
-    title: "Total Population"
+    title: "Total Population 2016"
     type: choropleth
     source: total-population
     source-layer: total-population-county
@@ -66,7 +66,7 @@ map:
       - 750000
       - 1250000
   - id: total-population-municipality
-    title: "Total Population"
+    title: "Total Population 2016"
     type: choropleth
     source: total-population
     source-layer: total-population-municipality
