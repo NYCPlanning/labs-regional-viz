@@ -1,0 +1,22 @@
+{{#if (and railVisible railSource)}}
+  {{#map.source sourceId='rail' options=railSource}}
+    {{map.layer layer=railConfig.lines before='waterway-label'}}
+    {{map.layer layer=railConfig.stops before='waterway-label'}}
+  {{/map.source}}
+{{/if}}
+
+{{#if aerialVisible}}
+  {{#map.source sourceId='aerials' options=aerialsConfig.source}}
+    {{map.layer layer=aerialsConfig.layer before='admin-2-boundaries-dispute'}}
+  {{/map.source}}
+{{/if}}
+
+<div class="supporting-layers">
+  {{fa-icon 'clone'}}
+  <ul class="supporting-layers-list">
+    <li {{action 'toggleRail'}}>{{#if railVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Rail Lines</li>
+    <li {{action 'toggleAerial'}}>{{#if aerialVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Aerials</li>
+  </ul>
+</div>
+
+{{yield}}

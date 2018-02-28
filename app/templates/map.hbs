@@ -1,17 +1,18 @@
 {{#map-from-id
-  id=model.map
   narrativeVisible=narrativeVisible
   toggleNarrative=(action 'toggleNarrative')
   geographyLevel=geographyLevel
   mapConfig=model.map
   as |map|
 }}
-  {{map-utility-box
+
+  {{!-- Legends and Breaks --}}
+  {{map.map-utility-box
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
-    breaks=map.breaks
-    layerTitle=map.layerTitle
-    toggles=model.map.toggles
+    layerTitle=layerTitle
     geographyLevel=geographyLevel}}
+
+  {{supporting-layers map=map.mapboxGl}}
 {{/map-from-id}}
 
 {{#if narrativeVisible}}

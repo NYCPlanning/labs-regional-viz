@@ -1,4 +1,4 @@
-{{#jane-maps
+{{#mapbox-gl
   id='map'
   initOptions=(hash style='mapbox://styles/mapbox/light-v9'
                     zoom=zoom
@@ -7,44 +7,27 @@
   mapLoaded=(action 'handleMapLoad')
   as |map|}}
 
-  {{#each builtLayers key='id' as |layer|}}
+  {{!-- Main Layers --}}
+  {{#each visibleLayers key='id' as |layer|}}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
 
+  {{!-- Highlighted Layer Handling --}}
   {{#if highlightedFeature}}
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
   {{/if}}
 
-  {{#if (and railVisible railSource)}}
-    {{#map.source sourceId='rail' options=railSource}}
-      {{map.layer layer=railConfig.lines before='waterway-label'}}
-      {{map.layer layer=railConfig.stops before='waterway-label'}}
-    {{/map.source}}
-  {{/if}}
-
-  {{#if aerialVisible}}
-    {{#map.source sourceId='aerials' options=aerialsConfig.source}}
-      {{map.layer layer=aerialsConfig.layer before='admin-2-boundaries-dispute'}}
-    {{/map.source}}
-  {{/if}}
+  {{yield (hash
+    breaks=breaks
+    layerTitle=layerTitle
+    geographyLevel=geographyLevel
+    map-utility-box=(component 'map-utility-box' mapConfig=mapConfig toggles=mapConfig.toggles)
+    mapboxGl=map)}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}
   {{map.on 'click' (action 'handleMouseClick')}}
-{{/jane-maps}}
+{{/mapbox-gl}}
 
 {{#unless narrativeVisible}}
   <a {{action toggleNarrative}} class="narrative-link">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</a>
 {{/unless}}
-
-<div class="supporting-layers">
-  {{fa-icon 'clone'}}
-  <ul class="supporting-layers-list">
-    <li {{action 'toggleRail'}}>{{#if railVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Rail Lines</li>
-    <li {{action 'toggleAerial'}}>{{#if aerialVisible}}{{fa-icon 'check-square-o' fixedWidth=true}}{{else}}{{fa-icon 'square-o' fixedWidth=true}}{{/if}} Aerials</li>
-  </ul>
-</div>
-
-{{yield (hash
-  breaks=breaks
-  layerTitle=layerTitle
-  geographyLevel=geographyLevel)}}
