@@ -29,6 +29,7 @@
   {{/if}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}
+  {{map.on 'click' (action 'handleMouseClick')}}
 {{/jane-maps}}
 
 {{#unless narrativeVisible}}
@@ -53,7 +54,7 @@
   </ul>
 </div>
 
-{{yield (hash 
-  breaks=breaks 
-  layerTitle=layerTitle 
+{{yield (hash
+  breaks=breaks
+  layerTitle=layerTitle
   geographyLevel=geographyLevel)}}

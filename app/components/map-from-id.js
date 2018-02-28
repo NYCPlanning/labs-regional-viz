@@ -201,24 +201,32 @@ export default Component.extend({
     handleMouseMove(e) {
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
-      const popup = this.get('popup');
       const map = this.get('map');
 
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
         map.getSource('highlighted-feature').setData(feature);
+      } else {
+        this.set('highlightedFeature', null);
+      }
 
+      map.getCanvas().style.cursor = feature ? 'pointer' : '';
+    },
+
+    handleMouseClick(e) {
+      const layers = this.get('visibleLayers').map(d => d.id);
+      const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
+      const popup = this.get('popup');
+
+      if (feature) {
         // configure the popup
         popup.setLngLat(e.lngLat)
           .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
           .addTo(this.get('map'));
       } else {
-        this.set('highlightedFeature', null);
         popup.remove();
       }
-
-      map.getCanvas().style.cursor = feature ? 'pointer' : '';
     },
 
     toggleRail() {
