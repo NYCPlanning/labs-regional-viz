@@ -5,14 +5,12 @@
   mapConfig=model.map
   as |map|
 }}
-  {{map-utility-box
+  {{map.map-utility-box
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
-    breaks=map.breaks
     layerTitle=layerTitle
-    toggles=model.map.toggles
     geographyLevel=geographyLevel}}
 
-  {{supporting-layers map=map.map}}
+  {{supporting-layers map=map.mapboxGl}}
 {{/map-from-id}}
 
 {{#if narrativeVisible}}

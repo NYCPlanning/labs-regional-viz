@@ -73,7 +73,7 @@ export default Route.extend({
         });
 
         set(enrichedMapNarrative, 'map.layers', builtLayers);
-
+        console.log(enrichedMapNarrative);
         return enrichedMapNarrative;
       });
   },

@@ -21,7 +21,8 @@
     breaks=breaks 
     layerTitle=layerTitle 
     geographyLevel=geographyLevel
-    map=map)}}
+    map-utility-box=(component 'map-utility-box' mapConfig=mapConfig toggles=mapConfig.toggles)
+    mapboxGl=map)}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}
 {{/mapbox-gl}}
