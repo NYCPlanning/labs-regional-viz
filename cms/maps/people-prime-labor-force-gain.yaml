@@ -1,7 +1,8 @@
 # People
 # ----------
 slug: prime-labor-force-gain
-category: people
+category: People
+categorySlug: people
 title: "NYC gain of prime labor force (participants age 25 to 54) outpaced the regional net gain from 2000-2016."
 menuTitle: "Net Population Change, 2010 - 2016"
 content: |

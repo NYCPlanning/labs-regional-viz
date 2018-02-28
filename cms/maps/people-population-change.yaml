@@ -1,7 +1,8 @@
 # People
 # ----------
 slug: population-change
-category: people
+category: People
+categorySlug: people
 title: "Since 2010, population gains have recentralized, with outer counties losing population"
 menuTitle: "% Population Change, 2010-2016"
 content: |

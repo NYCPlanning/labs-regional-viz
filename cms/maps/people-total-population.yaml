@@ -1,7 +1,8 @@
 # People
 # ----------
 slug: total-population
-category: people
+category: People
+categorySlug: people
 title: "NYC represents 37% of the region's population of 22.8 Million"
 menuTitle: "Total Population 2016"
 content: |

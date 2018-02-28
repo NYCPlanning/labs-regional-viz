@@ -1,7 +1,8 @@
 # People
 # ----------
 slug: foreign-born
-category: people
+category: People
+categorySlug: people
 title: "Foreign-born residents are a significant share of the population in growing parts of the region."
 menuTitle: "Foreign Born as Share of Total Population, 2012-2016 Avg"
 content: |

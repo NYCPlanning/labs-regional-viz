@@ -1,7 +1,8 @@
 # People
 # ----------
 slug: population-density
-category: people
+category: People
+categorySlug: people
 title: "The region is densest at the core"
 menuTitle: "Population Density (Pop/sq. mile) 2016"
 content: |
