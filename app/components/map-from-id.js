@@ -72,6 +72,7 @@ export default Component.extend({
 
   didUpdateAttrs() {
     const map = this.get('map');
+    if (!map) return;
     const sources = this.get('mapConfig.sources');
     const popup = this.get('popup');
 
