@@ -9,8 +9,8 @@ export default Component.extend({
   @computed('mapConfig')
   breaks(mapConfig) {
     // return an array of objects, each with a display-ready range and color
-    const { legends = [] } = mapConfig;
-    const [firstLayer = {}] = legends;
+    const { layers = [] } = mapConfig;
+    const [firstLayer = {}] = layers;
     const { paintConfig: config = {} } = firstLayer;
     const { isPercent, breaks = [], colors = [] } = config;
     const format = (value) => { // eslint-disable-line
