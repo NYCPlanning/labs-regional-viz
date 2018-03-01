@@ -31,3 +31,5 @@ orderings:
     # Jobs
     - id: total-employment
       hasNarrative: true
+    - id: private-employment-change
+      hasNarrative: true
