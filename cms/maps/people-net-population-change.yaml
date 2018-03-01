@@ -40,6 +40,8 @@ map:
   - id: municipality
     value: popa1016
 
+  isPercent: false
+
   layers:
   - id: net-population-change-subregion
     title: "Net Population Change, 2010 - 2016"
@@ -47,7 +49,6 @@ map:
     source: net-population-change
     source-layer: net-population-change-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffa555"
@@ -66,7 +67,6 @@ map:
     source: net-population-change
     source-layer: net-population-change-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d76423"

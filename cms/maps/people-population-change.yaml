@@ -33,6 +33,8 @@ map:
   - id: county
     value: popp1016
 
+  isPercent: true
+
   layers:
   - id: population-change-subregion
     title: "% Population Change, 2010-2016"
@@ -40,7 +42,6 @@ map:
     source: population-change
     source-layer: population-change-subregion
     paintConfig:
-      isPercent: true
       opacity: 0.6
       colors:
       - "#ffa555"
@@ -59,7 +60,6 @@ map:
     source: population-change
     source-layer: population-change-county
     paintConfig:
-      isPercent: true
       opacity: 0.6
       colors:
       - "#d76423"

@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 import { get } from '@ember/object';
 import carto from 'ember-jane-maps/utils/carto';
+import numeral from 'numeral';
 import getPopupSQL from '../utils/get-popup-sql';
-
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -136,17 +136,30 @@ export default Component.extend({
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
+      const isPercent = this.get('mapConfig.isPercent');
 
+      // Add the popup with a spinner before loading its data
+      popup.setLngLat(e.lngLat)
+        .setHTML('<i aria-hidden="true" class="fa fa-spinner fa-spin medium-gray fa-3x fa-fw"></i>')
+        .addTo(this.get('map'));
+
+      // Add data to the popup
       if (feature) {
-        const SQL = getPopupSQL(e.lngLat, this.get('mapConfig'));
+        const SQL = getPopupSQL(e.lngLat, this.get('mapConfig'), this.get('geographyLevel'));
+
         carto.SQL(SQL)
           .then((data) => {
-            const rowStrings = data.map(d => `${d.name}: ${d.value}`);
-            // configure the popup
+            let rowStrings = data.map(d => `
+              <tr>
+                <td><h6 class="dark-gray no-margin">${d.name}</h6></td>
+                <td class="text-right">${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}</td>
+              </tr>
+            `);
+
+            rowStrings = rowStrings.join('');
+
             popup.setLngLat(e.lngLat)
-              .setHTML(rowStrings.join('<br/>'))
-              // .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
-              .addTo(this.get('map'));
+              .setHTML(`<table class="popup-table"><tbody>${rowStrings}</tbody></table>`);
           });
       } else {
         popup.remove();

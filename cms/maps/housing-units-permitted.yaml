@@ -39,6 +39,8 @@ map:
   - id: municipality
     value: houp1016
 
+  isPercent: false
+
   layers:
   - id: units-permitted-subregion
     title: "Housing Units Permitted, 2010-2016"
@@ -46,7 +48,6 @@ map:
     source: units-permitted
     source-layer: units-permitted-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"
@@ -65,7 +66,6 @@ map:
     source: units-permitted
     source-layer: units-permitted-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"
@@ -84,7 +84,6 @@ map:
     source: units-permitted
     source-layer: units-permitted-municipality
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"

@@ -34,6 +34,8 @@ map:
   - id: county
     value: lfpw0016
 
+  isPercent: false
+
   layers:
   - id: prime-labor-force-gain-subregion
     title: "Net Population Change, 2010 - 2016"
@@ -41,7 +43,6 @@ map:
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d76423"
@@ -60,7 +61,6 @@ map:
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d76423"
