@@ -23,7 +23,6 @@ export default Component.extend({
 
   @computed('mapConfig.layers')
   layerTitle([firstLayer = {}] = []) {
-    console.log(firstLayer);
     return get(firstLayer, 'title');
   },
 
