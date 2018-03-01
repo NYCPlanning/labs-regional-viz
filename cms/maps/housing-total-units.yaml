@@ -18,6 +18,8 @@ map:
   - layerId: total-units-municipality
     type: municipality
 
+  defaultGeographyLevel: municipality
+
   sources:
   - id: total-units
     type: cartovector

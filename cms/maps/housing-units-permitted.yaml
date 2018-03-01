@@ -18,6 +18,8 @@ map:
   - layerId: units-permitted-municipality
     type: municipality
 
+  defaultGeographyLevel: county
+
   sources:
   - id: units-permitted
     type: cartovector

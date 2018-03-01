@@ -18,6 +18,8 @@ map:
   - layerId: population-density-municipality
     type: municipality
 
+  defaultGeographyLevel: municipality
+
   sources:
   - id: population-density
     type: cartovector

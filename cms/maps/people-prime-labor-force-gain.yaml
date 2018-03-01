@@ -16,6 +16,9 @@ map:
   - layerId: prime-labor-force-gain-county
     type: county
 
+  defaultGeographyLevel: county
+  # TODO: change defaultGeographyLevel to municipality once dot density is in
+
   sources:
   - id: prime-labor-force-gain
     type: cartovector
@@ -72,3 +75,4 @@ map:
       - 2500
       - 15000
       - 75000
+  # TODO: add dot density layer config
