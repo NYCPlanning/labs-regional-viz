@@ -11,7 +11,7 @@
   {{#each visibleLayers key='id' as |layer|}}
     {{map.layer layer=layer before='waterway-label'}}
   {{/each}}
-  {{log layerTitle}}
+
   {{!-- Highlighted Layer Handling --}}
   {{#if highlightedFeature}}
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
