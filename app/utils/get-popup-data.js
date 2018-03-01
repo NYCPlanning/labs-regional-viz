@@ -1,14 +1,15 @@
-export default function getPopupData(lngLat = { lng: 0, lat: 0 }, mapConfig = { popupValues: [] }) {
+import carto from 'ember-jane-maps/utils/carto';
+
+export default function getPopupData(lngLat, mapConfig) {
   const { lng, lat } = lngLat;
 
   const { popupValues } = mapConfig;
 
   function getPopupValue(geomType) {
-    const foundPopupValue = popupValues.find(d => d.id === geomType) || {};
-    return foundPopupValue.value;
+    return popupValues.find(d => d.id === geomType).value;
   }
 
-  return `
+  const SQL = `
     SELECT 'municipality' as geomtype, namelsad as name, ${getPopupValue('municipality')} as value
     FROM region_municipality_v0
     WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
@@ -29,4 +30,6 @@ export default function getPopupData(lngLat = { lng: 0, lat: 0 }, mapConfig = { 
 
     SELECT 'region' as geomtype, 'NYC region' as name, 100000 as value
   `;
+
+  return carto.SQL(SQL)
 }

@@ -1,10 +1,9 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
-import carto from 'ember-jane-maps/utils/carto';
 import { computed } from 'ember-decorators/object';
 import { get } from '@ember/object';
 
-import generatePopupQuery from '../utils/get-popup-data';
+import getPopupData from '../utils/get-popup-data';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -123,12 +122,12 @@ export default Component.extend({
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
-      const mapConfig = this.get('mapConfig');
 
       if (feature) {
-        carto.SQL(generatePopupQuery(e.lngLat, mapConfig))
+        getPopupData(e.lngLat, this.get('mapConfig'))
           .then((data) => {
-            const rowStrings = data.map(d => `${d.name}: ${d.value}`);
+            console.log('POPUP DATA', data)
+            const rowStrings = data.map(d => `${d.name}: ${d.value}`)
             // configure the popup
             popup.setLngLat(e.lngLat)
               .setHTML(rowStrings.join('<br/>'))
