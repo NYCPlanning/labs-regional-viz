@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
+import { get } from '@ember/object';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -19,6 +20,12 @@ export default Component.extend({
     closeButton: false,
     closeOnClick: false,
   }),
+
+  @computed('mapConfig.layers')
+  layerTitle([firstLayer = {}] = []) {
+    console.log(firstLayer);
+    return get(firstLayer, 'title');
+  },
 
   @computed('highlightedFeature')
   highlightedFeatureSource(feature) {
@@ -50,7 +57,7 @@ export default Component.extend({
   },
 
   @computed('mapConfig', 'geographyLevel')
-  visibleLayers({ layers = [], toggles = [] }, selectedGeographyLevel) {
+  visibleLayers({ mapboxLayers: layers = [], toggles = [] }, selectedGeographyLevel) {
     // find toggle-able layers to hide
     // 1. find which toggle-ables are not selected
     // 2. grab those from the layers
