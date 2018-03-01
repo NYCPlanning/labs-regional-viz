@@ -71,8 +71,8 @@ export default Route.extend({
           }
         });
 
-        set(enrichedMapNarrative, 'map.layers', builtLayers);
-        set(enrichedMapNarrative, 'map.legends', layers);
+        set(enrichedMapNarrative, 'map.mapboxLayers', builtLayers);
+        // set(enrichedMapNarrative, 'map.legends', layers);
         return enrichedMapNarrative;
       });
   },
