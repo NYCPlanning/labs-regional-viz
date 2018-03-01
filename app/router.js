@@ -8,7 +8,7 @@ const Router = EmberRouter.extend({
 
 Router.map(function() { // eslint-disable-line
   this.route('page', { path: '/:slug' });
-  this.route('map', { path: ':category/:slug' });
+  this.route('map', { path: ':categorySlug/:slug' });
 });
 
 export default Router;
