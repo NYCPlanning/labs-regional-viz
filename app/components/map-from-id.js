@@ -1,6 +1,7 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
+import getPopupData from '../utils/get-popup-data';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -16,7 +17,6 @@ export default Component.extend({
   highlightedFeature: null,
 
   popup: new mapboxgl.Popup({
-    closeButton: false,
     closeOnClick: false,
   }),
 
@@ -65,11 +65,15 @@ export default Component.extend({
   didUpdateAttrs() {
     const map = this.get('map');
     const sources = this.get('mapConfig.sources');
+    const popup = this.get('popup');
+
     sources.forEach((source) => {
       if (!map.getSource(source.id)) {
         map.addSource(source.id, source);
       }
     });
+
+    popup.remove();
   },
 
   actions: {
@@ -94,24 +98,38 @@ export default Component.extend({
     handleMouseMove(e) {
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
-      const popup = this.get('popup');
       const map = this.get('map');
 
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
         map.getSource('highlighted-feature').setData(feature);
-
-        // configure the popup
-        popup.setLngLat(e.lngLat)
-          .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
-          .addTo(this.get('map'));
       } else {
         this.set('highlightedFeature', null);
-        popup.remove();
       }
 
       map.getCanvas().style.cursor = feature ? 'pointer' : '';
+    },
+
+    handleMouseClick(e) {
+      const layers = this.get('visibleLayers').map(d => d.id);
+      const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
+      const popup = this.get('popup');
+
+      if (feature) {
+        getPopupData(e.lngLat, this.get('mapConfig'))
+          .then((data) => {
+            console.log('POPUP DATA', data)
+            const rowStrings = data.map(d => `${d.name}: ${d.value}`)
+            // configure the popup
+            popup.setLngLat(e.lngLat)
+              .setHTML(rowStrings.join('<br/>'))
+              // .setHTML(`${feature.properties.name} ${feature.properties.value} ${feature.properties.actual ? feature.properties.actual : ''}`)
+              .addTo(this.get('map'));
+          });
+      } else {
+        popup.remove();
+      }
     },
   },
 });

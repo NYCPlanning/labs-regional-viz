@@ -1,0 +1,67 @@
+# People
+# ----------
+slug: population-change
+category: People
+categorySlug: people
+title: "Since 2010, population gains have recentralized, with outer counties losing population"
+menuTitle: "% Population Change, 2010-2016"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+map:
+  toggles:
+  - layerId: population-change-subregion
+    type: subregion
+  - layerId: population-change-county
+    type: county
+
+  sources:
+  - id: population-change
+    type: cartovector
+    source-layers:
+    - id: population-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_subregion_v0
+    - id: population-change-county
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_county_v0
+
+  layers:
+  - id: population-change-subregion
+    title: "% Population Change, 2010-2016"
+    type: choropleth
+    source: population-change
+    source-layer: population-change-subregion
+    paintConfig:
+      isPercent: true
+      opacity: 0.6
+      colors:
+      - "#ffa555"
+      - "#ffffe0"
+      - "#73efff"
+      - "#0058ee"
+      - "#002673"
+      breaks:
+      - 0
+      - 0.005
+      - 0.01
+      - 0.03
+  - id: population-change-county
+    title: "% Population Change, 2010-2016"
+    type: choropleth
+    source: population-change
+    source-layer: population-change-county
+    paintConfig:
+      isPercent: true
+      opacity: 0.6
+      colors:
+      - "#d76423"
+      - "#ffa555"
+      - "#ffffe0"
+      - "#73efff"
+      - "#0058ee"
+      - "#002673"
+      breaks:
+      - -0.025
+      - -0.01
+      - 0.01
+      - 0.025
+      - 0.05
