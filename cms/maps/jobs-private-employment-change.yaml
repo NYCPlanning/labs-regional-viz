@@ -31,6 +31,8 @@ map:
   - id: county
     value: empr0816
 
+  isPercent: false
+
   layers:
   - id: private-employment-change-subregion
     title: "Private Employment Change, 2008-2016"
@@ -38,7 +40,6 @@ map:
     source: private-employment-change
     source-layer: private-employment-change-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffa555"
@@ -57,7 +58,6 @@ map:
     source: private-employment-change
     source-layer: private-employment-change-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffa555"

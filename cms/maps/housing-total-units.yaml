@@ -37,6 +37,8 @@ map:
   - id: municipality
     value: hou16
 
+  isPercent: false
+
   layers:
   - id: total-units-subregion
     title: "Total Housing Units, 2012-2016 Avg"
@@ -44,7 +46,6 @@ map:
     source: total-units
     source-layer: total-units-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"
@@ -63,7 +64,6 @@ map:
     source: total-units
     source-layer: total-units-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"
@@ -82,7 +82,6 @@ map:
     source: total-units
     source-layer: total-units-municipality
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#ffffe0"

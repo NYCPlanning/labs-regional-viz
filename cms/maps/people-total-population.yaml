@@ -37,6 +37,8 @@ map:
   - id: municipality
     value: popa16
 
+  isPercent: false
+
   layers:
   - id: total-population-subregion
     title: "Total Population 2016"
@@ -44,7 +46,6 @@ map:
     source: total-population
     source-layer: total-population-subregion
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d4f3f7"
@@ -63,7 +64,6 @@ map:
     source: total-population
     source-layer: total-population-county
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d4f3f7"
@@ -82,7 +82,6 @@ map:
     source: total-population
     source-layer: total-population-municipality
     paintConfig:
-      isPercent: false
       opacity: 0.6
       colors:
       - "#d4f3f7"
