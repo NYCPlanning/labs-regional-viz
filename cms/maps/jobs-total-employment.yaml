@@ -8,6 +8,7 @@ menuTitle: "Total Employment 2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
+
 map:
   toggles:
   - layerId: total-employment-subregion
@@ -27,6 +28,14 @@ map:
       sql: SELECT the_geom_webmercator, geoid, emtot16 as value FROM region_county_v0
     - id: total-employment-municipality
       sql: SELECT the_geom_webmercator, geoid, emtot15 as value FROM region_municipality_v0
+
+  popupValues:
+  - id: subregion
+    value: emtot16
+  - id: county
+    value: emtot16
+  - id: municipality
+    value: emtot15
 
   layers:
   - id: total-employment-subregion

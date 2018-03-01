@@ -8,6 +8,7 @@ menuTitle: "Housing Units Permitted, 2010-2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
+
 map:
   toggles:
   - layerId: units-permitted-subregion
@@ -16,6 +17,7 @@ map:
     type: county
   - layerId: units-permitted-municipality
     type: municipality
+
   sources:
   - id: units-permitted
     type: cartovector
@@ -26,6 +28,15 @@ map:
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_county_v0
     - id: units-permitted-municipality
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0
+
+  popupValues:
+  - id: subregion
+    value: houp1016
+  - id: county
+    value: houp1016
+  - id: municipality
+    value: houp1016
+
   layers:
   - id: units-permitted-subregion
     title: "Housing Units Permitted, 2010-2016"

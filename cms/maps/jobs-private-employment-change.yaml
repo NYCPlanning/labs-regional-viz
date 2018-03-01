@@ -8,6 +8,7 @@ menuTitle: "Private Employment Change, 2008-2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
+
 map:
   toggles:
   - layerId: private-employment-change-subregion
@@ -23,6 +24,12 @@ map:
       sql: SELECT the_geom_webmercator, geoid, empr0816 as value FROM region_subregion_v0
     - id: private-employment-change-county
       sql: SELECT the_geom_webmercator, geoid, empr0816 as value FROM region_county_v0
+
+  popupValues:
+  - id: subregion
+    value: empr0816
+  - id: county
+    value: empr0816
 
   layers:
   - id: private-employment-change-subregion

@@ -8,6 +8,7 @@ menuTitle: "Net Population Change, 2010 - 2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
+
 map:
   toggles:
   - layerId: prime-labor-force-gain-subregion
@@ -23,6 +24,12 @@ map:
       sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value FROM region_subregion_v0
     - id: prime-labor-force-gain-county
       sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value FROM region_county_v0
+
+  popupValues:
+  - id: subregion
+    value: lfpw0016
+  - id: county
+    value: lfpw0016
 
   layers:
   - id: prime-labor-force-gain-subregion
