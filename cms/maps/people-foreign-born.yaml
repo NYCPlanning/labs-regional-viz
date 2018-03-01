@@ -18,6 +18,8 @@ map:
   - layerId: foreign-born-municipality
     type: municipality
 
+  defaultGeographyLevel: municipality
+
   sources:
   - id: foreign-born
     type: cartovector

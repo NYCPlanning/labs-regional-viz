@@ -15,8 +15,11 @@ map:
     type: subregion
   - layerId: net-population-change-county
     type: county
-  - layerId: net-population-change-municipality
-    type: municipality
+  # - layerId: net-population-change-municipality
+  #   type: municipality
+
+  defaultGeographyLevel: county
+  # TODO: change defaultGeographyLevel to municipality once dot density is in
 
   sources:
   - id: net-population-change

@@ -17,12 +17,15 @@
     {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
   {{/if}}
 
-  {{yield (hash
-    breaks=breaks
-    layerTitle=layerTitle
-    geographyLevel=geographyLevel
-    map-utility-box=(component 'map-utility-box' mapConfig=mapConfig toggles=mapConfig.toggles)
-    mapboxGl=map)}}
+  {{!-- Legends --}}
+  {{map-utility-box
+    mapConfig=mapConfig
+    toggles=mapConfig.toggles
+    handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
+    layerTitle=map.layerTitle
+    geographyLevel=geographyLevel}}
+
+  {{yield (hash mapboxGl=map)}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}
   {{map.on 'click' (action 'handleMouseClick')}}

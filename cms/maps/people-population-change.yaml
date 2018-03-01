@@ -16,6 +16,8 @@ map:
   - layerId: population-change-county
     type: county
 
+  defaultGeographyLevel: county
+
   sources:
   - id: population-change
     type: cartovector

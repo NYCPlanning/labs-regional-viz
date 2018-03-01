@@ -16,6 +16,9 @@ map:
   - layerId: private-employment-change-county
     type: county
 
+  defaultGeographyLevel: county
+  # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
+
   sources:
   - id: private-employment-change
     type: cartovector
