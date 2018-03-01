@@ -9,6 +9,7 @@ import getPopupSQL from '../utils/get-popup-sql';
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
   classNames: 'map-container cell large-auto',
+  toggledGeographyLevel: null,
 
   // noop for passed context
   toggleNarrative() {},
@@ -23,6 +24,15 @@ export default Component.extend({
     closeOnClick: false,
   }),
 
+  @computed('mapConfig', 'toggledGeographyLevel')
+  geographyLevel(defaultGeographyLevel = 'county', toggledGeographyLevel = null) {
+    if (toggledGeographyLevel) {
+      return toggledGeographyLevel;
+    }
+    return get(defaultGeographyLevel, 'defaultGeographyLevel');
+  },
+
+  // TODO: Don't use firstLayer. Nix this when making legends update on geographyLevel change.
   @computed('mapConfig.layers')
   layerTitle([firstLayer = {}] = []) {
     return get(firstLayer, 'title');
@@ -75,6 +85,8 @@ export default Component.extend({
     if (!map) return;
     const sources = this.get('mapConfig.sources');
     const popup = this.get('popup');
+
+    this.set('toggledGeographyLevel', null);
 
     sources.forEach((source) => {
       if (!map.getSource(source.id)) {
@@ -152,6 +164,10 @@ export default Component.extend({
       } else {
         popup.remove();
       }
+    },
+
+    handleGeographyLevelToggle(geog) {
+      this.set('toggledGeographyLevel', geog);
     },
   },
 });

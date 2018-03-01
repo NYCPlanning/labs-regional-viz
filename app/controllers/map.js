@@ -13,7 +13,6 @@ export default Controller.extend({
 
   application: inject(),
   narrativeVisible: true,
-  geographyLevel: 'county',
 
   @computed('application.model.maps', 'model.slug')
   previousNarrative(maps, currentSlug) {
@@ -38,9 +37,6 @@ export default Controller.extend({
       next(function() {
         window.dispatchEvent(new Event('resize'));
       });
-    },
-    handleGeographyLevelToggle(geog) {
-      this.set('geographyLevel', geog);
     },
   },
 });

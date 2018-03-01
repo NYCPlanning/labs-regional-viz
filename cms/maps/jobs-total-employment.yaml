@@ -18,6 +18,8 @@ map:
   - layerId: total-employment-municipality
     type: municipality
 
+  defaultGeographyLevel: subregion
+
   sources:
   - id: total-employment
     type: cartovector

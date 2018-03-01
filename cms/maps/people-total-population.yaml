@@ -18,6 +18,8 @@ map:
   - layerId: total-population-municipality
     type: municipality
 
+  defaultGeographyLevel: subregion
+
   sources:
   - id: total-population
     type: cartovector
