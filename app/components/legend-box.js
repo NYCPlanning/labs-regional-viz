@@ -4,16 +4,21 @@ import numeral from 'numeral';
 
 export default Component.extend({
   handleGeographyLevelToggle() {},
+  currentLayerConfig: {},
   mapConfig: {},
 
-  @computed('mapConfig')
-  breaks(mapConfig) {
+  // TODO: Don't use firstLayer. Nix this when making legends update on geographyLevel change.
+  @computed('currentLayerConfig')
+  layerTitle({ title = '' } = {}) {
+    return title;
+  },
+
+  @computed('currentLayerConfig', 'isPercent')
+  breaks(layerConfig, isPercent) {
     // return an array of objects, each with a display-ready range and color
-    const { layers = [] } = mapConfig;
-    const [firstLayer = {}] = layers;
-    const { paintConfig: config = {} } = firstLayer;
+    const { paintConfig: config = {} } = layerConfig || {};
     const { breaks = [], colors = [] } = config;
-    const { isPercent } = mapConfig;
+
     const format = (value) => { // eslint-disable-line
       return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
     };
@@ -23,8 +28,8 @@ export default Component.extend({
     for (let i = breaks.length; i >= 0; i -= 1) {
       if (i === breaks.length) {
         breaksArray.push({
-          label: `${format(breaks[breaks.length - 2])} or more`,
-          color: colors[breaks.length - 1],
+          label: `${format(breaks[breaks.length - 1])} or more`,
+          color: colors[breaks.length],
         });
         continue; // eslint-disable-line
       }

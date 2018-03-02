@@ -27,6 +27,10 @@ orderings:
       hasNarrative: true
     - id: units-permitted
       hasNarrative: true
+    - id: renter-owner
+      hasNarrative: true
+    - id: multifamily-permitted
+      hasNarrative: true
 
     # Jobs
     - id: total-employment

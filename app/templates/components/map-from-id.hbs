@@ -18,12 +18,18 @@
   {{/if}}
 
   {{!-- Legends --}}
-  {{map-utility-box
-    mapConfig=mapConfig
-    toggles=mapConfig.toggles
+  {{legend-box
+    currentLayerConfig=currentLayerConfig
+    isPercent=mapConfig.map.isPercent
+  }}
+
+  {{!-- Geometry toggle --}}
+  {{geometry-toggle
+    geographyLevel=geographyLevel
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
-    layerTitle=map.layerTitle
-    geographyLevel=geographyLevel}}
+    toggles=mapConfig.toggles
+  }}
+
 
   {{yield (hash mapboxGl=map)}}
 
