@@ -23,8 +23,8 @@ export default Component.extend({
     for (let i = breaks.length; i >= 0; i -= 1) {
       if (i === breaks.length) {
         breaksArray.push({
-          label: `${format(breaks[breaks.length - 2])} or more`,
-          color: colors[breaks.length - 1],
+          label: `${format(breaks[breaks.length - 1])} or more`,
+          color: colors[breaks.length],
         });
         continue; // eslint-disable-line
       }
