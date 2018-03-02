@@ -15,8 +15,8 @@ map:
     type: subregion
   - layerId: net-population-change-county
     type: county
-  # - layerId: net-population-change-municipality
-  #   type: municipality
+  - layerId: net-population-change-municipality
+    type: municipality
 
   defaultGeographyLevel: county
   # TODO: change defaultGeographyLevel to municipality once dot density is in
@@ -30,7 +30,7 @@ map:
     - id: net-population-change-county
       sql: SELECT the_geom_webmercator, geoid, pop1016 as value FROM region_county_v0
     - id: net-population-change-municipality
-      sql: SELECT the_geom_webmercator, geoid, popa1016 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, popa1016, popa1016si as value FROM region_popa1016_dotdensity_v0
 
   popupValues:
   - id: subregion
@@ -81,3 +81,23 @@ map:
       - 15000
       - 50000
   # TODO: add dot density layer config
+  - id: net-population-change-municipality
+    title: "Net Population Change, 2010 - 2016"
+    type: circle
+    source: net-population-change
+    source-layer: net-population-change-municipality
+    paint:
+      circle-color:
+      - step
+      - - get
+        - popa1016
+      - "#ff7900"
+      - 0
+      - "#00aacc"
+      circle-radius:
+        stops:
+        - - 7
+          - 1.5
+        - - 11
+          - 2
+      circle-opacity: 0.6
