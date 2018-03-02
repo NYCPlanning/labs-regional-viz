@@ -11,7 +11,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
   const SQLArray = [];
 
   SQLArray.push(`
-    SELECT 'region' as geomtype, 'NYC region' as name, 100000 as value
+    SELECT 'region' as geomtype, 'NYC region' as name, XXX,XXX as value
   `);
 
   if (getPopupValue('subregion')) {
