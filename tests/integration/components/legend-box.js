@@ -1,7 +1,7 @@
 import { moduleForComponent, test } from 'ember-qunit';
 import hbs from 'htmlbars-inline-precompile';
 
-moduleForComponent('map-utility-box', 'Integration | Component | map utility box', {
+moduleForComponent('legend-box', 'Integration | Component | map utility box', {
   integration: true
 });
 
@@ -9,7 +9,7 @@ test('it renders', function(assert) {
   // Set any properties with this.set('myProperty', 'value');
   // Handle any actions with this.on('myAction', function(val) { ... });
 
-  this.render(hbs`{{map-utility-box}}`);
+  this.render(hbs`{{legend-box}}`);
 
   assert.equal(!!this.$(), true);
 });
@@ -27,7 +27,7 @@ test('it displays legend', function(assert) {
   ];
 
   this.set('breaks', breaks);
-  this.render(hbs`{{map-utility-box breaks=breaks}}`);
+  this.render(hbs`{{legend-box breaks=breaks}}`);
 
   assert.equal(this.$('.legend-item').length, 6);
 });
@@ -43,7 +43,7 @@ test('it displays toggle from data', function(assert) {
   ];
 
   this.set('toggles', toggles);
-  this.render(hbs`{{map-utility-box toggles=toggles}}`);
+  this.render(hbs`{{legend-box toggles=toggles}}`);
 
   assert.equal(this.$('.toggle-list-item').length, 3);
 });

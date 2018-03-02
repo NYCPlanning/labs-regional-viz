@@ -32,10 +32,13 @@ export default Component.extend({
     return get(defaultGeographyLevel, 'defaultGeographyLevel');
   },
 
-  // TODO: Don't use firstLayer. Nix this when making legends update on geographyLevel change.
-  @computed('mapConfig.layers')
-  layerTitle([firstLayer = {}] = []) {
-    return get(firstLayer, 'title');
+  @computed('mapConfig', 'geographyLevel')
+  currentLayerConfig(mapConfig, geographyLevel) {
+    const { toggles = [] } = mapConfig;
+    const foundLayer = toggles.find(d => d.type === geographyLevel) || {};
+    const { layerId: currentLayerId } = foundLayer;
+
+    return mapConfig.layers.find(d => d.id === currentLayerId);
   },
 
   @computed('highlightedFeature')
