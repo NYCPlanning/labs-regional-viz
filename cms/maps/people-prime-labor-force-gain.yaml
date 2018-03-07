@@ -84,9 +84,9 @@ map:
     type: circle
     legend:
     - color: "#ff7900"
-      label: "50 people lost"
+      label: "Loss of 50 people"
     - color: "#00aacc"
-      label: "50 people gained"
+      label: "Gain of 50 people"
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-municipality
     paint:
