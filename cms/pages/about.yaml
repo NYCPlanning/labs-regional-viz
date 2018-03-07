@@ -19,7 +19,18 @@ content: |
 sidebar:
   content: |
     ### Get the data...
+
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-  button: http://example.org/
-  buttontext: Download All Data (CSV)
+    **Region Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=SHP),  [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=CSV)
+
+    **Subregion Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=CSV)
+
+    **County Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=CSV)
+
+    **Municipality Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=CSV)
+
+    **Census Tract Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=CSV)
+
+  button:
+  buttontext:
