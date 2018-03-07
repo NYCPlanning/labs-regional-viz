@@ -1,10 +1,10 @@
 {{#unless (eq layerTitle '')}}
   <div class="legend">
     <h5 class="legend-title">{{layerTitle}}</h5>
-    {{#each breaks as |break|}}
+    {{#each rows as |row|}}
       <div class="legend-item">
-        <span class="legend-color" style="color:{{break.color}};">{{fa-icon 'square'}}</span>
-        {{break.label}}
+        <span class="legend-color" style="color:{{row.color}};">{{fa-icon icon}}</span>
+        {{row.label}}
       </div>
     {{/each}}
   </div>
