@@ -33,6 +33,8 @@ map:
 
 
   popupValues:
+  - id: region
+    value: emtot16
   - id: subregion
     value: emtot16
   - id: county
