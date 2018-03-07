@@ -23,6 +23,7 @@ export default Component.extend({
 
       let formatter = '0.0a';
       if (isPercent) formatter = '0.0%';
+      if (isChangeMeasurement) formatter = '+0.0';
       if (isPercent && isChangeMeasurement) formatter = '+0.0%';
 
       return numeral(value).format(formatter);

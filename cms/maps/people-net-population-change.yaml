@@ -41,6 +41,7 @@ map:
     value: popa1016
 
   isPercent: false
+  isChangeMeasurement: true
 
   layers:
   - id: net-population-change-subregion

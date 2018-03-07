@@ -38,6 +38,7 @@ map:
     value: lfpw0016
 
   isPercent: false
+  isChangeMeasurement: true
 
   layers:
   - id: prime-labor-force-gain-subregion
