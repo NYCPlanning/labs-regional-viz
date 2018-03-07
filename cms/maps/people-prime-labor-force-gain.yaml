@@ -38,6 +38,7 @@ map:
     value: lfpw0016
 
   isPercent: false
+  isChangeMeasurement: true
 
   layers:
   - id: prime-labor-force-gain-subregion
@@ -81,6 +82,11 @@ map:
   - id: prime-labor-force-gain-municipality
     title: "Prime Labor Force Change, 2000-2016"
     type: circle
+    legend:
+    - color: "#ff7900"
+      label: "Loss of 50 people"
+    - color: "#00aacc"
+      label: "Gain of 50 people"
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-municipality
     paint:

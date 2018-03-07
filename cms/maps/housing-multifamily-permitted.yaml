@@ -81,6 +81,11 @@ map:
   - id: multifamily-permitted-municipality
     title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
     type: circle
+    legend:
+    - color: "#fc8d59"
+      label: "50 Single-family Units"
+    - color: "#91bfdb"
+      label: "50 Multi-family Units"
     source: multifamily-permitted
     source-layer: multifamily-permitted-municipality
     paint:
