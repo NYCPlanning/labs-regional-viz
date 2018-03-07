@@ -39,6 +39,11 @@ map:
     type: circle
     source: renter-owner
     source-layer: renter-owner-municipality
+    legend:
+    - color: "#fc8d59"
+      label: "50 Owner-occupied Units"
+    - color: "#91bfdb"
+      label: "50 Renter-occupied Units"
     paint:
       circle-color:
       - match
