@@ -82,6 +82,11 @@ map:
   - id: prime-labor-force-gain-municipality
     title: "Prime Labor Force Change, 2000-2016"
     type: circle
+    legend:
+    - color: "#ff7900"
+      label: "50 people lost"
+    - color: "#00aacc"
+      label: "50 people gained"
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-municipality
     paint:

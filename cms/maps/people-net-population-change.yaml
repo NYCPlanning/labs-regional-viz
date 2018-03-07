@@ -85,6 +85,11 @@ map:
   - id: net-population-change-municipality
     title: "Net Population Change, 2010 - 2016"
     type: circle
+    legend:
+    - color: "#ff7900"
+      label: "50 people lost"
+    - color: "#00aacc"
+      label: "50 people gained"
     source: net-population-change
     source-layer: net-population-change-municipality
     paint:
