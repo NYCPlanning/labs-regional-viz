@@ -29,7 +29,8 @@ map:
     - id: total-units-county
       sql: SELECT the_geom_webmercator, geoid, houa16 as value FROM region_county_v0
     - id: total-units-municipality
-      sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+
 
   popupValues:
   - id: region

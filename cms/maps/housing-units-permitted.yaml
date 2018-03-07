@@ -29,7 +29,7 @@ map:
     - id: units-permitted-county
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_county_v0
     - id: units-permitted-municipality
-      sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0
+      sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0 WHERE houptest <> 'N'
 
   popupValues:
   - id: region
