@@ -28,6 +28,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_county_v0
 
   popupValues:
+  - id: region
+    value: popp1016
   - id: subregion
     value: popp1016
   - id: county

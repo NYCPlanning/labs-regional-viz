@@ -32,6 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0
 
   popupValues:
+  - id: region
+    value: houa16
   - id: subregion
     value: houa16
   - id: county

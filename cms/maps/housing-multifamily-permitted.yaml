@@ -32,6 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, random_value FROM region_unittype_dotdensity_v2
 
   popupValues:
+  - id: region
+    value: houps1016
   - id: subregion
     value: houps1016
   - id: county
