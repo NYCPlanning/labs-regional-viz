@@ -25,9 +25,9 @@ orderings:
     # Housing
     - id: total-units
       hasNarrative: true
-    - id: units-permitted
-      hasNarrative: true
     - id: renter-owner
+      hasNarrative: true
+    - id: units-permitted
       hasNarrative: true
     - id: multifamily-permitted
       hasNarrative: true
