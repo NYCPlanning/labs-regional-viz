@@ -13,14 +13,19 @@ export default Component.extend({
     return title;
   },
 
-  @computed('currentLayerConfig', 'isPercent')
-  breaks(layerConfig, isPercent) {
+  @computed('currentLayerConfig', 'isPercent', 'isChangeMeasurement')
+  breaks(layerConfig, isPercent, isChangeMeasurement) {
     // return an array of objects, each with a display-ready range and color
     const { paintConfig: config = {} } = layerConfig || {};
     const { breaks = [], colors = [] } = config;
 
     const format = (value) => { // eslint-disable-line
-      return isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
+
+      let formatter = '0.0a';
+      if (isPercent) formatter = '0.0%';
+      if (isPercent && isChangeMeasurement) formatter = '+0.0%';
+
+      return numeral(value).format(formatter);
     };
 
     const breaksArray = [];
@@ -43,7 +48,7 @@ export default Component.extend({
       }
 
       breaksArray.push({
-        label: `${format(breaks[i - 1])} - ${format(breaks[i])}`,
+        label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
         color: colors[i],
       });
     }
