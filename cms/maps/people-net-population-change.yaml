@@ -4,7 +4,7 @@ slug: net-population-change
 category: People
 categorySlug: people
 title: "Most noticeable gains outside of NYC are in select municipalities along regional rail corridors and in North NJ"
-menuTitle: "Net Population Change, 2010 - 2016"
+menuTitle: "Net Population Change"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
@@ -33,6 +33,8 @@ map:
       sql: SELECT the_geom_webmercator, popa1016, popa1016si as value FROM region_popa1016_dotdensity_v0
 
   popupValues:
+  - id: region
+    value: pop1016
   - id: subregion
     value: pop1016
   - id: county

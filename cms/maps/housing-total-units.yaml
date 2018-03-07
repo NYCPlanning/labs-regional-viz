@@ -4,7 +4,7 @@ slug: total-units
 category: Housing
 categorySlug: housing
 title: "NYC has 38% of the region's 9 million housing units"
-menuTitle: "Total Housing Units, 2012-2016 Avg"
+menuTitle: "Total Housing Units"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
@@ -32,6 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, hou16 as value FROM region_municipality_v0
 
   popupValues:
+  - id: region
+    value: houa16
   - id: subregion
     value: houa16
   - id: county
