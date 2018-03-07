@@ -41,6 +41,7 @@ map:
     value: popa1016
 
   isPercent: false
+  isChangeMeasurement: true
 
   layers:
   - id: net-population-change-subregion
@@ -84,6 +85,11 @@ map:
   - id: net-population-change-municipality
     title: "Net Population Change, 2010 - 2016"
     type: circle
+    legend:
+    - color: "#ff7900"
+      label: "Loss of 50 people"
+    - color: "#00aacc"
+      label: "Gain of 50 people"
     source: net-population-change
     source-layer: net-population-change-municipality
     paint:

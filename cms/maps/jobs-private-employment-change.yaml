@@ -35,6 +35,7 @@ map:
     value: empr0816
 
   isPercent: false
+  isChangeMeasurement: true
 
   layers:
   - id: private-employment-change-subregion
