@@ -4,7 +4,7 @@ slug: prime-labor-force-gain
 category: People
 categorySlug: people
 title: "NYC gain of prime labor force (participants age 25 to 54) outpaced the regional net gain from 2000-2016."
-menuTitle: "Prime Labor Force Change"
+menuTitle: "Prime Labor Force Change, 2000-2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
@@ -32,15 +32,12 @@ map:
       sql: SELECT the_geom_webmercator, lfpw0016, lfpw0016si as value FROM region_lfpw0016_dotdensity_v0
 
   popupValues:
-  - id: region
-    value: lfpw0016
   - id: subregion
     value: lfpw0016
   - id: county
     value: lfpw0016
 
   isPercent: false
-  isChangeMeasurement: true
 
   layers:
   - id: prime-labor-force-gain-subregion
@@ -84,11 +81,6 @@ map:
   - id: prime-labor-force-gain-municipality
     title: "Prime Labor Force Change, 2000-2016"
     type: circle
-    legend:
-    - color: "#ff7900"
-      label: "Loss of 50 people"
-    - color: "#00aacc"
-      label: "Gain of 50 people"
     source: prime-labor-force-gain
     source-layer: prime-labor-force-gain-municipality
     paint:

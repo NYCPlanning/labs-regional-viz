@@ -122,25 +122,24 @@
   bottom: 40px;
   right: 10px;
   font-size: rem-calc(10);
-  background-color: rgba(255,255,255,0.9);
+  background-color: rgba(255,255,255,0.8);
   padding: rem-calc(6) rem-calc(10);
   border-radius: 4px;
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
-  max-width: calc(50% - 10px);
 
-  @include breakpoint(medium) {
+  @include breakpoint(large) {
     bottom: 30px;
-    max-width: rem-calc(160);
   }
 
   .legend-title {
     font-size: rem-calc(11);
     margin-bottom: rem-calc(4);
+    max-width: 10em;
   }
 
   .legend-item {
-    border-top: 1px solid rgba(235,235,235,0.7);
-    padding: 0;
+    border-top: 1px solid $light-gray;
+    padding: rem-calc(2) 0;
 
     .legend-color {
       margin: 0 rem-calc(4) 0 0;

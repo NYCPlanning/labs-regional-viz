@@ -1,7 +1,7 @@
 {{#if (and railVisible railSource)}}
   {{#map.source sourceId='rail' options=railSource}}
-    {{map.layer layer=railConfig.lines before='poi-scalerank3'}}
-    {{map.layer layer=railConfig.stops before='poi-scalerank3'}}
+    {{map.layer layer=railConfig.lines before='waterway-label'}}
+    {{map.layer layer=railConfig.stops before='waterway-label'}}
   {{/map.source}}
 {{/if}}
 

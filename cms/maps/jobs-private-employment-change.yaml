@@ -29,15 +29,12 @@ map:
       sql: SELECT the_geom_webmercator, geoid, empr0816 as value FROM region_county_v0
 
   popupValues:
-  - id: region
-    value: empr0816
   - id: subregion
     value: empr0816
   - id: county
     value: empr0816
 
   isPercent: false
-  isChangeMeasurement: true
 
   layers:
   - id: private-employment-change-subregion
@@ -54,10 +51,10 @@ map:
       - "#127723"
       - "#193f1f"
       breaks:
-      - 500000
-      - 750000
-      - 1000000
-      - 2000000
+      - 10000
+      - 50000
+      - 100000
+      - 300000
   - id: private-employment-change-county
     title: "Private Employment Change, 2008-2016"
     type: choropleth
@@ -66,13 +63,17 @@ map:
     paintConfig:
       opacity: 0.6
       colors:
+      - "#d76423"
       - "#ffa555"
       - "#ffffe0"
       - "#89dfa4"
       - "#127723"
       - "#193f1f"
+      - "#031c0d"
       breaks:
+      - -10000
       - -2500
       - 2500
       - 15000
       - 35000
+      - 100000
