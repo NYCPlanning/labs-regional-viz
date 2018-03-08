@@ -42,8 +42,8 @@ export default Component.extend({
   },
 
   @computed('currentLayerConfig')
-  mapTitle({ title }) {
-    return title;
+  mapTitle(layerConfig) {
+    return layerConfig ? layerConfig.title : '';
   },
 
   @computed('highlightedFeature')
