@@ -1,52 +1,52 @@
 # Jobs
 # ----------
-slug: total-employment
+slug: office-employment
 category: Jobs
-categorySlug: jobs
-title: "NYC accounts for 42% of regional employment"
-menuTitle: "Total Employment 2016"
+categorySlug: officejobs
+title: "NYC accounts for 50% of the region's private office employment"
+menuTitle: "Private Office Employment 2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
 
 map:
   toggles:
-  - layerId: total-employment-subregion
+  - layerId: office-employment-subregion
     type: subregion
-  - layerId: total-employment-county
+  - layerId: office-employment-county
     type: county
-  - layerId: total-employment-municipality
+  - layerId: office-employment-municipality
     type: municipality
 
   defaultGeographyLevel: subregion
 
   sources:
-  - id: total-employment
+  - id: office-employment
     type: cartovector
     source-layers:
-    - id: total-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value FROM region_subregion_v0
-    - id: total-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value FROM region_county_v0
-    - id: total-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot15 as value FROM region_municipality_v0
+    - id: office-employment-subregion
+      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_subregion_v0
+    - id: office-employment-county
+      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_county_v0
+    - id: office-employment-municipality
+      sql: SELECT the_geom_webmercator, geoid, emoff15 as value FROM region_municipality_v0
 
   popupValues:
   - id: subregion
-    value: emtot16
+    value: emoff16
   - id: county
-    value: emtot16
+    value: emoff16
   - id: municipality
-    value: emtot15
+    value: emoff15
 
   isPercent: false
 
   layers:
-  - id: total-employment-subregion
-    title: "Total Employment 2016"
+  - id: office-employment-subregion
+    title: "Private Office Employment 2016"
     type: choropleth
-    source: total-employment
-    source-layer: total-employment-subregion
+    source: office-employment
+    source-layer: office-employment-subregion
     paintConfig:
       opacity: 0.6
       colors:
@@ -60,11 +60,11 @@ map:
       - 750000
       - 1000000
       - 2500000
-  - id: total-employment-county
-    title: "Total Employment 2016"
+  - id: office-employment-county
+    title: "Private Office Employment 2016"
     type: choropleth
-    source: total-employment
-    source-layer: total-employment-county
+    source: office-employment
+    source-layer: office-employment-county
     paintConfig:
       opacity: 0.6
       colors:
@@ -78,11 +78,11 @@ map:
       - 250000
       - 500000
       - 750000
-  - id: total-employment-municipality
-    title: "Total Employment 2016"
+  - id: office-employment-municipality
+    title: "Private Office Employment 2015"
     type: choropleth
-    source: total-employment
-    source-layer: total-employment-municipality
+    source: office-employment
+    source-layer: office-employment-municipality
     paintConfig:
       opacity: 0.6
       colors:
