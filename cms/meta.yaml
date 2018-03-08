@@ -37,3 +37,7 @@ orderings:
       hasNarrative: true
     - id: private-employment-change
       hasNarrative: true
+
+    # Balance
+    - id: housjobs-balance00
+      hasNarrative: true
