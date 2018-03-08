@@ -62,7 +62,7 @@ map:
     paintConfig:
       opacity: 0.6
       colors:
-      - "#d76423"
+      - "#000000"
       - "#ffa555"
       - "#ffffe0"
       - "#73efff"
