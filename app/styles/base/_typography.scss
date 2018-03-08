@@ -146,10 +146,22 @@ button {
   tbody {
     border: 0;
 
-    tr + tr { border-top: $hr-border; }
-    tr:nth-child(even) { background-color: transparent; }
-    td:first-child { padding-left: 0; }
-    td:last-child { padding-right: 0; }
+    tr + tr {
+      border-top: $hr-border;
+    }
+
+    tr:nth-child(even) {
+      background-color: transparent;
+    }
+
+    tr.highlighted {
+      background-color: transparentize($a11y-yellow, 0.5);
+      font-weight: bold;
+
+      h6 {
+        color: inherit;
+      }
+    }
   }
 }
 

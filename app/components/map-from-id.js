@@ -158,15 +158,19 @@ export default Component.extend({
       // Add data to the popup
       if (feature) {
         const SQL = getPopupSQL(e.lngLat, this.get('mapConfig'), this.get('geographyLevel'));
+        const geographyLevel = this.get('geographyLevel');
 
         carto.SQL(SQL)
           .then((data) => {
-            let rowStrings = data.map(d => `
-              <tr>
-                <td><h6 class="dark-gray no-margin">${d.name}</h6></td>
-                <td class="text-right">${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}</td>
-              </tr>
-            `);
+            let rowStrings = data.map((d) => {
+              const isHighlighted = geographyLevel === d.geomtype ? 'highlighted' : '';
+              return (`
+                <tr class="${isHighlighted}">
+                  <td><h6 class="dark-gray no-margin">${d.name}</h6></td>
+                  <td class="text-right">${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}</td>
+                </tr>
+              `);
+            });
 
             rowStrings = rowStrings.join('');
 
