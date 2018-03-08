@@ -25,19 +25,19 @@ map:
     type: cartovector
     source-layers:
     - id: multifamily-permitted-subregion
-      sql: SELECT the_geom_webmercator, geoid, houps1016 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, houpm1016 as value FROM region_subregion_v0
     - id: multifamily-permitted-county
-      sql: SELECT the_geom_webmercator, geoid, houps1016 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, houpm1016 as value FROM region_county_v0
     - id: multifamily-permitted-municipality
       sql: SELECT the_geom_webmercator, random_value FROM region_unittype_dotdensity_v2
 
   popupValues:
   - id: subregion
-    value: houps1016
+    value: houpm1016
   - id: county
-    value: houps1016
+    value: houpm1016
   - id: municipality
-    value: houps1016
+    value: houpm1016
 
   isPercent: false
 
