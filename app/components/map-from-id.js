@@ -183,6 +183,9 @@ export default Component.extend({
     },
 
     handleGeographyLevelToggle(geog) {
+      const popup = this.get('popup');
+
+      popup.remove();
       this.set('toggledGeographyLevel', geog);
     },
   },
