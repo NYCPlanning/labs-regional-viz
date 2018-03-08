@@ -22,7 +22,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
     `);
   }
 
-  if (geographyLevel === 'subregion') return SQLArray.join(' UNION ALL ');
+  if (geographyLevel === 'subregion') return SQLArray.reverse().join(' UNION ALL ');
 
   if (getPopupValue('county')) {
     SQLArray.push(`
@@ -32,7 +32,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
     `);
   }
 
-  if (geographyLevel === 'county') return SQLArray.join(' UNION ALL ');
+  if (geographyLevel === 'county') return SQLArray.reverse().join(' UNION ALL ');
 
   if (getPopupValue('municipality')) {
     SQLArray.push(`
@@ -42,5 +42,5 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
     `);
   }
 
-  return SQLArray.join(' UNION ALL ');
+  return SQLArray.reverse().join(' UNION ALL ');
 }
