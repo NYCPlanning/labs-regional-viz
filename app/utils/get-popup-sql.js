@@ -16,7 +16,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
 
   if (getPopupValue('subregion')) {
     SQLArray.push(`
-      SELECT 'county' as geomtype, name as name, ${getPopupValue('subregion')} as value
+      SELECT 'subregion' as geomtype, name as name, ${getPopupValue('subregion')} as value
       FROM region_subregion_v0
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
