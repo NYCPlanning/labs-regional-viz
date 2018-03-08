@@ -156,12 +156,35 @@ button {
 
     tr.highlighted {
       background-color: transparentize($a11y-yellow, 0.5);
-      font-weight: bold;
-
-      h6 {
-        color: inherit;
-      }
+      font-weight: $global-weight-bold;
+      color: $black;
     }
+  }
+
+  .geom {
+    color: $dark-gray;
+    line-height: 1;
+  }
+  tr.highlighted .geom {
+    color: $black;
+  }
+
+  .geom-type {
+    display: block;
+    font-size: rem-calc(8);
+    text-transform: uppercase;
+    font-weight: $global-weight-normal;
+    opacity: 0.7;
+    position: relative;
+    top: -2px;
+  }
+
+  .geom-name {
+    display: block;
+  }
+
+  .value {
+    font-size: 1rem;
   }
 }
 

@@ -166,8 +166,13 @@ export default Component.extend({
               const isHighlighted = geographyLevel === d.geomtype ? 'highlighted' : '';
               return (`
                 <tr class="${isHighlighted}">
-                  <td><h6 class="dark-gray no-margin">${d.name}</h6></td>
-                  <td class="text-right">${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}</td>
+                  <td class="geom">
+                    <small class="geom-type">${d.geomtype}</small>
+                    <span class="geom-name">${d.name}</span>
+                  </td>
+                  <td class="value text-right">
+                    ${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}
+                  </td>
                 </tr>
               `);
             });
