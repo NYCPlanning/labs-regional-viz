@@ -1,6 +1,6 @@
 # Balance
 # ----------
-slug: housjobs-balance16
+slug: balance-housjobs16
 category: Balance
 categorySlug: balance
 title: "Something about the relationship between housing and jobs in 2016"
@@ -11,21 +11,21 @@ source: This maps show data from some source.
 
 map:
   toggles:
-  - layerId: housjobs-balance16-subregion
+  - layerId: balance-housjobs16-subregion
     type: subregion
-  - layerId: housjobs-balance16-county
+  - layerId: balance-housjobs16-county
     type: county
 
   defaultGeographyLevel: county
   # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
 
   sources:
-  - id: housjobs-balance16
+  - id: balance-housjobs16
     type: cartovector
     source-layers:
-    - id: housjobs-balance16-subregion
+    - id: balance-housjobs16-subregion
       sql: SELECT the_geom_webmercator, geoid, balhj16 as value FROM region_subregion_v0
-    - id: housjobs-balance16-county
+    - id: balance-housjobs16-county
       sql: SELECT the_geom_webmercator, geoid, balhj16 as value FROM region_county_v0
 
   popupValues:
@@ -40,11 +40,11 @@ map:
   isChangeMeasurement: false
 
   layers:
-  - id: housjobs-balance16-subregion
+  - id: balance-housjobs16-subregion
     title: "Housing Units/Total Employment 2016"
     type: choropleth
-    source: housjobs-balance16
-    source-layer: housjobs-balance16-subregion
+    source: balance-housjobs16
+    source-layer: balance-housjobs16-subregion
     paintConfig:
       opacity: 0.6
       colors:
@@ -58,11 +58,11 @@ map:
       - 0.850
       - 0.9
       - 0.95
-  - id: housjobs-balance16-county
+  - id: balance-housjobs16-county
     title: "Housing Units/Total Employment 2016"
     type: choropleth
-    source: housjobs-balance16
-    source-layer: housjobs-balance16-county
+    source: balance-housjobs16
+    source-layer: balance-housjobs16-county
     paintConfig:
       opacity: 0.6
       colors:

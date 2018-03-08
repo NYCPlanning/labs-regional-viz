@@ -39,7 +39,7 @@ orderings:
       hasNarrative: true
 
     # Balance
-    - id: housjobs-balance00
+    - id: balance-housjobs00
       hasNarrative: true
-    - id: housjobs-balance16
+    - id: balance-housjobs16
       hasNarrative: true
