@@ -41,6 +41,11 @@ export default Component.extend({
     return mapConfig.layers.find(d => d.id === currentLayerId);
   },
 
+  @computed('currentLayerConfig')
+  mapTitle({ title }) {
+    return title;
+  },
+
   @computed('highlightedFeature')
   highlightedFeatureSource(feature) {
     return {
