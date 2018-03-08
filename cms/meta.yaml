@@ -9,25 +9,25 @@ orderings:
       hideFromMenu: true
 
     # People
-    - id: total-population
-      hasNarrative: true
-    - id: population-density
-      hasNarrative: true
-    - id: population-change
+    - id: foreign-born
       hasNarrative: true
     - id: net-population-change
       hasNarrative: true
-    - id: foreign-born
+    - id: population-change
+      hasNarrative: true
+    - id: population-density
       hasNarrative: true
     - id: prime-labor-force-gain
+      hasNarrative: true
+    - id: total-population
       hasNarrative: true
 
     # Housing
     - id: total-units
       hasNarrative: true
-    - id: renter-owner
-      hasNarrative: true
     - id: units-permitted
+      hasNarrative: true
+    - id: renter-owner
       hasNarrative: true
     - id: multifamily-permitted
       hasNarrative: true
