@@ -83,13 +83,22 @@ export default Component.extend({
       .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
   },
 
+  didReceiveAttrs() {
+    const previousNarrativeVisible = this.get('previousNarrativeVisible');
+    const narrativeVisible = this.get('narrativeVisible');
+
+    if (previousNarrativeVisible === narrativeVisible) {
+      this.set('toggledGeographyLevel', null);
+    }
+
+    this.set('previousNarrativeVisible', narrativeVisible);
+  },
+
   didUpdateAttrs() {
     const map = this.get('map');
     if (!map) return;
     const sources = this.get('mapConfig.sources');
     const popup = this.get('popup');
-
-    this.set('toggledGeographyLevel', null);
 
     sources.forEach((source) => {
       if (!map.getSource(source.id)) {

@@ -4,7 +4,7 @@ slug: renter-owner
 category: Housing
 categorySlug: housing
 title: "The region is roughly split between owner- (XX%) and renter-occupied (XX%) housing units"
-menuTitle: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
+menuTitle: "Housing Units, Owner- vs. Renter-Occupied"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
@@ -24,6 +24,8 @@ map:
       sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0
 
   popupValues:
+  - id: region
+    value: houa16
   - id: subregion
     value: houa16
   - id: county
@@ -39,6 +41,11 @@ map:
     type: circle
     source: renter-owner
     source-layer: renter-owner-municipality
+    legend:
+    - color: "#fc8d59"
+      label: "50 Owner-occupied Units"
+    - color: "#91bfdb"
+      label: "50 Renter-occupied Units"
     paint:
       circle-color:
       - match
