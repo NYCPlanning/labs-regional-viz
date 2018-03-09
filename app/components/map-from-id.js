@@ -171,9 +171,14 @@ export default Component.extend({
                 const isLarge = popupColumns
                   .find(d => d.id === id).large;
 
+                let formattedValue = 'N/A';
+                if (value !== null) {
+                  formattedValue = isPercent ? numeral(value).format('0,0%') : numeral(value).format('0.0a');
+                }
+
                 return (`
                   <td class="${isLarge ? 'large' : ''} text-right">
-                    ${isPercent ? numeral(value).format('0,0%') : numeral(value).format('0.0a')}
+                    ${formattedValue}
                   </td>
                 `);
               }).join('');
