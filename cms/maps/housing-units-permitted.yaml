@@ -31,15 +31,18 @@ map:
     - id: units-permitted-municipality
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0 WHERE houptest <> 'N'
 
-  popupValues:
-  - id: region
-    value: houp1016
-  - id: subregion
-    value: houp1016
-  - id: county
-    value: houp1016
-  - id: municipality
-    value: houp1016
+  popupColumns:
+  - title: units
+    large: true
+    values:
+    - geomType: region
+      columnName: houp1016
+    - geomType: subregion
+      columnName: houp1016
+    - geomType: county
+      columnName: houp1016
+    - geomType: municipality
+      columnName: houp1016
 
   isPercent: false
 

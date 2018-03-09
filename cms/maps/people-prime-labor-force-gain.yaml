@@ -31,13 +31,16 @@ map:
     - id: prime-labor-force-gain-municipality
       sql: SELECT the_geom_webmercator, lfpw0016, lfpw0016si as value FROM region_lfpw0016_dotdensity_v0
 
-  popupValues:
-  - id: region
-    value: lfpw0016
-  - id: subregion
-    value: lfpw0016
-  - id: county
-    value: lfpw0016
+  popupColumns:
+  - title: population
+    large: true
+    values:
+    - geomType: region
+      columnName: lfpw0016
+    - geomType: subregion
+      columnName: lfpw0016
+    - geomType: county
+      columnName: lfpw0016
 
   isPercent: false
   isChangeMeasurement: true
