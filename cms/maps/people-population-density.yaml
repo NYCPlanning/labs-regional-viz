@@ -33,7 +33,7 @@ map:
 
   popupColumns:
   - id: popdens
-    title: Density
+    title: Pop/sq. mile
     large: true
     values:
     - geomType: region

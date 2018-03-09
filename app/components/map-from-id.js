@@ -173,7 +173,11 @@ export default Component.extend({
 
                 let formattedValue = 'N/A';
                 if (value !== null) {
-                  formattedValue = isPercent ? numeral(value).format('0,0%') : numeral(value).format('0.0a');
+                  if (value >= 10000) {
+                    formattedValue = numeral(value).format('0.0a');
+                  } else {
+                    formattedValue = isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
+                  }
                 }
 
                 return (`
