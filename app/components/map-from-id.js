@@ -196,9 +196,9 @@ export default Component.extend({
             rowStrings = rowStrings.join('');
 
             // create table header cells
-            const headerCells = popupColumns.map((d) => {
-              return (`<td class="text-right">${d.title}</td>`);
-            }).join('');
+            const headerCells = popupColumns.map(d => (
+              `<td class="text-right">${d.title}</td>`
+            )).join('');
 
             // put the table rows into the popup
             popup.setLngLat(e.lngLat)
