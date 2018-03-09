@@ -148,7 +148,7 @@ export default Component.extend({
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
-      const isPercent = this.get('mapConfig.isPercent');
+      const { isPercent, popupColumns } = this.get('mapConfig');
 
       // Add the popup with a spinner before loading its data
       popup.setLngLat(e.lngLat)
@@ -162,17 +162,36 @@ export default Component.extend({
 
         carto.SQL(SQL)
           .then((data) => {
-            let rowStrings = data.map((d) => {
-              const isHighlighted = geographyLevel === d.geomtype ? 'highlighted' : '';
+            console.log(data)
+            let rowStrings = data.map((rowData) => {
+              const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
+              const columnTitles = popupColumns.map(d => d.title);
+
+              const columns = columnTitles.map((title) => {
+                const { columnName } = popupColumns
+                  .find(d => d.title === title).values // filter for matching columns
+                  .find(d => d.geomType === rowData.geomtype); // filter for matching geomType
+
+                console.log(rowData, columnName)
+                // use the columnName to look up the corresponding value in the data
+                const value = rowData[title];
+
+                return (`
+                  <td class="value text-right">
+                    ${isPercent ? numeral(value).format('0,0%') : numeral(value).format('0.0a')}
+                  </td>
+                `);
+              }).join('');
+
+
+              // build a row with a column for each columntitle
               return (`
                 <tr class="${isHighlighted}">
                   <td class="geom">
-                    <small class="geom-type">${d.geomtype}</small>
-                    <span class="geom-name">${d.name}</span>
+                    <small class="geom-type">${rowData.geomtype}</small>
+                    <span class="geom-name">${rowData.name}</span>
                   </td>
-                  <td class="value text-right">
-                    ${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}
-                  </td>
+                  ${columns}
                 </tr>
               `);
             });
