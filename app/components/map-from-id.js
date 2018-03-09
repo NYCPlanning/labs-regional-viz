@@ -162,10 +162,10 @@ export default Component.extend({
 
         carto.SQL(SQL)
           .then((data) => {
+            // create rows for the table body
             let rowStrings = data.map((rowData) => {
               const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
               const columnTitles = popupColumns.map(d => d.title);
-
               const columns = columnTitles.map((title) => {
                 const value = rowData[title];
                 const isLarge = popupColumns
@@ -178,7 +178,6 @@ export default Component.extend({
                 `);
               }).join('');
 
-              // build a row with a column for each columntitle
               return (`
                 <tr class="${isHighlighted}">
                   <td class="geom">
@@ -189,11 +188,21 @@ export default Component.extend({
                 </tr>
               `);
             });
-
             rowStrings = rowStrings.join('');
 
+            // create table header cells
+            const headerCells = popupColumns.map((d) => {
+              return (`<td class="text-right">${d.title}</td>`);
+            }).join('');
+
+            // put the table rows into the popup
             popup.setLngLat(e.lngLat)
-              .setHTML(`<table class="popup-table"><tbody>${rowStrings}</tbody></table>`);
+              .setHTML(`
+                <table class="popup-table">
+                  <thead><td></td>${headerCells}</thead>
+                  <tbody>${rowStrings}</tbody>
+                </table>
+              `);
           });
       } else {
         popup.remove();
