@@ -32,7 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, random_value FROM region_unittype_dotdensity_v2
 
   popupColumns:
-  - title: units
+  - id: houps
+    title: Units
     large: true
     values:
     - geomType: region

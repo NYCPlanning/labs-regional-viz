@@ -24,7 +24,8 @@ map:
       sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0
 
   popupColumns:
-  - title: units
+  - id: hou
+    title: Units
     large: true
     values:
     - geomType: region

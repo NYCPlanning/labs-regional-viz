@@ -28,7 +28,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_county_v0
 
   popupColumns:
-  - title: change
+  - id: change
+    title: Change
     large: true
     values:
     - geomType: region

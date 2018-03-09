@@ -165,11 +165,11 @@ export default Component.extend({
             // create rows for the table body
             let rowStrings = data.map((rowData) => {
               const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
-              const columnTitles = popupColumns.map(d => d.title);
-              const columns = columnTitles.map((title) => {
-                const value = rowData[title];
+              const columnTitles = popupColumns.map(d => d.id);
+              const columns = columnTitles.map((id) => {
+                const value = rowData[id];
                 const isLarge = popupColumns
-                  .find(d => d.title === title).large;
+                  .find(d => d.id === id).large;
 
                 return (`
                   <td class="${isLarge ? 'large' : ''} text-right">

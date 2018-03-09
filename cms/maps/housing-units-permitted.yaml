@@ -32,7 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, houp1016 as value FROM region_municipality_v0 WHERE houptest <> 'N'
 
   popupColumns:
-  - title: units
+  - id: houp
+    title: Units
     large: true
     values:
     - geomType: region

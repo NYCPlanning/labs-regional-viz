@@ -33,7 +33,8 @@ map:
       sql: SELECT the_geom_webmercator, popa1016, popa1016si as value FROM region_popa1016_dotdensity_v0
 
   popupColumns:
-  - title: change
+  - id: change
+    title: Change
     large: true
     values:
     - geomType: region

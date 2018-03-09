@@ -32,7 +32,8 @@ map:
       sql: SELECT the_geom_webmercator, lfpw0016, lfpw0016si as value FROM region_lfpw0016_dotdensity_v0
 
   popupColumns:
-  - title: population
+  - id: pop
+    title: Population
     large: true
     values:
     - geomType: region
