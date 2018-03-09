@@ -162,27 +162,21 @@ export default Component.extend({
 
         carto.SQL(SQL)
           .then((data) => {
-            console.log(data)
             let rowStrings = data.map((rowData) => {
               const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
               const columnTitles = popupColumns.map(d => d.title);
 
               const columns = columnTitles.map((title) => {
-                const { columnName } = popupColumns
-                  .find(d => d.title === title).values // filter for matching columns
-                  .find(d => d.geomType === rowData.geomtype); // filter for matching geomType
-
-                console.log(rowData, columnName)
-                // use the columnName to look up the corresponding value in the data
                 const value = rowData[title];
+                const isLarge = popupColumns
+                  .find(d => d.title === title).large;
 
                 return (`
-                  <td class="value text-right">
+                  <td class="${isLarge ? 'large' : ''} text-right">
                     ${isPercent ? numeral(value).format('0,0%') : numeral(value).format('0.0a')}
                   </td>
                 `);
               }).join('');
-
 
               // build a row with a column for each columntitle
               return (`

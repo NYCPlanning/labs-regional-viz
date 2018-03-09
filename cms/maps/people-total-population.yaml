@@ -34,28 +34,9 @@ map:
         FROM region_municipality_v0
         WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
-  # popupValues:
-  # - id: region
-  #   value: popep16
-  # - id: subregion
-  #   value: popep16
-  # - id: county
-  #   value: popep16
-  # - id: municipality
-  #   value: popa16
-
   popupColumns:
-  - title: foo
-    values:
-    - geomType: region
-      columnName: popep16
-    - geomType: subregion
-      columnName: popep16
-    - geomType: county
-      columnName: popep16
-    - geomType: municipality
-      columnName: popa16
-  - title: bar
+  - title: population
+    large: true
     values:
     - geomType: region
       columnName: popep16
