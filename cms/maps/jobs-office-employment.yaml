@@ -1,0 +1,96 @@
+# Jobs
+# ----------
+slug: office-employment
+category: Jobs
+categorySlug: jobs
+title: "NYC accounts for nearly 50% of the region's 2.69 million office-based jobs"
+menuTitle: "Office-based Employment"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+map:
+  toggles:
+  - layerId: office-employment-subregion
+    type: subregion
+  - layerId: office-employment-county
+    type: county
+  - layerId: office-employment-municipality
+    type: municipality
+
+  defaultGeographyLevel: subregion
+
+  sources:
+  - id: office-employment
+    type: cartovector
+    source-layers:
+    - id: office-employment-subregion
+      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_subregion_v0
+    - id: office-employment-county
+      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_county_v0
+    - id: office-employment-municipality
+      sql: SELECT the_geom_webmercator, geoid, emoff15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+
+
+  popupValues:
+  - id: region
+    value: emoff16
+  - id: subregion
+    value: emoff16
+  - id: county
+    value: emoff16
+  - id: municipality
+    value: emoff15
+
+  isPercent: false
+
+  layers:
+  - id: office-employment-subregion
+    title: "Office-based Private Employment 2016"
+    type: choropleth
+    source: office-employment
+    source-layer: office-employment-subregion
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ccffff"
+      - "#00ffff"
+      - "#179FA5"
+      - "#115459"
+      breaks:
+      - 100000
+      - 250000
+      - 500000
+  - id: office-employment-county
+    title: "Office-based Private Employment 2016"
+    type: choropleth
+    source: office-employment
+    source-layer: office-employment-county
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ccffff"
+      - "#00ffff"
+      - "#179FA5"
+      - "#115459"
+      breaks:
+      - 15000
+      - 50000
+      - 85000
+  - id: office-employment-municipality
+    title: "Office-based Private Employment 2015"
+    type: choropleth
+    source: office-employment
+    source-layer: office-employment-municipality
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ccffff"
+      - "#00ffff"
+      - "#179FA5"
+      - "#115459"
+      - "#0d1923"
+      breaks:
+      - 1000
+      - 5000
+      - 15000
+      - 50000

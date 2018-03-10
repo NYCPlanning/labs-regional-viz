@@ -35,5 +35,13 @@ orderings:
     # Jobs
     - id: total-employment
       hasNarrative: true
+    - id: office-employment
+      hasNarrative: true
+    - id: institutional-employment
+      hasNarrative: true
+    - id: industrial-employment
+      hasNarrative: true
+    - id: localserve-employment
+      hasNarrative: true
     - id: private-employment-change
       hasNarrative: true
