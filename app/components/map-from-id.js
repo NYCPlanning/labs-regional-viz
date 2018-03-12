@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 import { get } from '@ember/object';
 import carto from 'ember-jane-maps/utils/carto';
-import numeral from 'numeral';
 import getPopupSQL from '../utils/get-popup-sql';
+import buildPopupContent from '../utils/build-popup-content';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -169,67 +169,7 @@ export default Component.extend({
 
         carto.SQL(SQL)
           .then((data) => {
-            // create rows for the table body
-            let rowStrings = data.map((rowData) => {
-              const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
-              const columnTitles = popupColumns.map(d => d.id);
-              const columns = columnTitles.map((id) => {
-                const value = rowData[id];
-                const isLarge = popupColumns
-                  .find(d => d.id === id).large;
-
-                let formattedValue = 'N/A';
-                if (value !== null) {
-                  if (value >= 10000) {
-                    formattedValue = numeral(value).format('0.0a');
-                  } else {
-                    formattedValue = isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
-                  }
-                }
-
-                let isInsignificant = false;
-                if (
-                  formattedValue === 'N/A' ||
-                  (rowData.cv >= 20 && rowData.cv !== null) ||
-                  (rowData.sig <= 1.645 && rowData.sig !== null)
-                ) {
-                  isInsignificant = true;
-                }
-
-                console.log(rowData.sig <= 1.645);
-
-                return (`
-                  <td class="${isLarge ? 'large' : ''} ${isInsignificant ? 'medium-gray' : ''} text-right">
-                    ${formattedValue}
-                  </td>
-                `);
-              }).join('');
-
-              return (`
-                <tr class="${isHighlighted}">
-                  <td class="geom">
-                    <small class="geom-type">${rowData.geomtype}</small>
-                    <span class="geom-name">${rowData.name}</span>
-                  </td>
-                  ${columns}
-                </tr>
-              `);
-            });
-            rowStrings = rowStrings.join('');
-
-            // create table header cells
-            const headerCells = popupColumns.map(d => (
-              `<td class="text-right">${d.title}</td>`
-            )).join('');
-
-            // put the table rows into the popup
-            popup.setLngLat(e.lngLat)
-              .setHTML(`
-                <table class="popup-table">
-                  <thead><td></td>${headerCells}</thead>
-                  <tbody>${rowStrings}</tbody>
-                </table>
-              `);
+            popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPercent));
           });
       } else {
         popup.remove();
