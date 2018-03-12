@@ -180,8 +180,13 @@ export default Component.extend({
                   }
                 }
 
+                let isInsignificant = false;
+                if (formattedValue === 'N/A') {
+                  isInsignificant = true;
+                }
+
                 return (`
-                  <td class="${isLarge ? 'large' : ''} text-right">
+                  <td class="${isLarge ? 'large' : ''} ${isInsignificant ? 'medium-gray' : ''} text-right">
                     ${formattedValue}
                   </td>
                 `);
