@@ -3,8 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import { computed } from 'ember-decorators/object';
 import { get } from '@ember/object';
 import carto from 'ember-jane-maps/utils/carto';
-import numeral from 'numeral';
 import getPopupSQL from '../utils/get-popup-sql';
+import buildPopupContent from '../utils/build-popup-content';
 
 export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
@@ -155,7 +155,7 @@ export default Component.extend({
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
-      const isPercent = this.get('mapConfig.isPercent');
+      const { isPercent, popupColumns } = this.get('mapConfig');
 
       // Add the popup with a spinner before loading its data
       popup.setLngLat(e.lngLat)
@@ -165,20 +165,11 @@ export default Component.extend({
       // Add data to the popup
       if (feature) {
         const SQL = getPopupSQL(e.lngLat, this.get('mapConfig'), this.get('geographyLevel'));
+        const geographyLevel = this.get('geographyLevel');
 
         carto.SQL(SQL)
           .then((data) => {
-            let rowStrings = data.map(d => `
-              <tr>
-                <td><h6 class="dark-gray no-margin">${d.name}</h6></td>
-                <td class="text-right">${isPercent ? numeral(d.value).format('0,0%') : numeral(d.value).format('0,0')}</td>
-              </tr>
-            `);
-
-            rowStrings = rowStrings.join('');
-
-            popup.setLngLat(e.lngLat)
-              .setHTML(`<table class="popup-table"><tbody>${rowStrings}</tbody></table>`);
+            popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPercent));
           });
       } else {
         popup.remove();
@@ -186,6 +177,9 @@ export default Component.extend({
     },
 
     handleGeographyLevelToggle(geog) {
+      const popup = this.get('popup');
+
+      popup.remove();
       this.set('toggledGeographyLevel', geog);
     },
   },

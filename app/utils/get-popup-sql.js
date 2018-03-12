@@ -1,46 +1,53 @@
-export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { popupValues: [] }, geographyLevel = 'municipality') {
+export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { popupColumns: [] }, geographyLevel = 'municipality') {
   const { lng, lat } = lngLat;
 
-  const { popupValues } = mapConfig;
+  const { popupColumns } = mapConfig;
 
   function getPopupValue(geomType) {
-    const match = popupValues.find(d => d.id === geomType);
-    return match ? match.value : null;
+    const selectChunks = [];
+    popupColumns.forEach((columnConfig) => {
+      const match = columnConfig.values.find(d => d.geomType === geomType);
+      if (match) selectChunks.push(`${match.columnName} AS ${columnConfig.id}, ${match.cv} AS cv, ${match.sig} AS sig`);
+    });
+
+    if (selectChunks.length === 0) return '';
+    return `,${selectChunks.join(',')}`; // prepend comma
   }
 
   const SQLArray = [];
 
   SQLArray.push(`
-    SELECT 'region' as geomtype, 'NYC region' as name, ${getPopupValue('region')} as value FROM region_region_v0
+    SELECT 'region' as geomtype, 'Total Metro Area' as name ${getPopupValue('region')}
+    FROM region_region_v0
   `);
 
   if (getPopupValue('subregion')) {
     SQLArray.push(`
-      SELECT 'county' as geomtype, name as name, ${getPopupValue('subregion')} as value
+      SELECT 'subregion' as geomtype, name as name ${getPopupValue('subregion')}
       FROM region_subregion_v0
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }
 
-  if (geographyLevel === 'subregion') return SQLArray.join(' UNION ALL ');
+  if (geographyLevel === 'subregion') return SQLArray.reverse().join(' UNION ALL ');
 
   if (getPopupValue('county')) {
     SQLArray.push(`
-      SELECT 'county' as geomtype, name as name, ${getPopupValue('county')} as value
+      SELECT 'county' as geomtype, name as name ${getPopupValue('county')}
       FROM region_county_v0
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }
 
-  if (geographyLevel === 'county') return SQLArray.join(' UNION ALL ');
+  if (geographyLevel === 'county') return SQLArray.reverse().join(' UNION ALL ');
 
   if (getPopupValue('municipality')) {
     SQLArray.push(`
-      SELECT 'municipality' as geomtype, namelsad as name, ${getPopupValue('municipality')} as value
+      SELECT 'municipality' as geomtype, namelsad as name ${getPopupValue('municipality')}
       FROM region_municipality_v0
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }
 
-  return SQLArray.join(' UNION ALL ');
+  return SQLArray.reverse().join(' UNION ALL ');
 }

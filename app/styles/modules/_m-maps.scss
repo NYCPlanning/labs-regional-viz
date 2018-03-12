@@ -16,7 +16,7 @@
 .mapboxgl-popup {}
 
 .mapboxgl-popup-content {
-  padding: $global-margin;
+  padding: $global-margin $global-margin/2;
   background-color: $white;
   color: $body-font-color;
   font-size: rem-calc(12);
