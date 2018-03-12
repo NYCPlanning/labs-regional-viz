@@ -1,6 +1,11 @@
 import numeral from 'numeral';
 
 export default function buildPopupContent(data, geographyLevel, popupColumns, isPercent) {
+  console.log(JSON.stringify(data));
+  console.log(JSON.stringify(popupColumns));
+  console.log(JSON.stringify(isPercent));
+
+
   // create rows for the table body
   let rowStrings = data.map((rowData) => {
     const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
