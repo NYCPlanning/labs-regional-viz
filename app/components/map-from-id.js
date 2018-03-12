@@ -13,7 +13,9 @@ export default Component.extend({
 
   // noop for passed context
   toggleNarrative() {},
-  mapConfig: {},
+  mapConfig: {
+    layers: [],
+  },
 
   zoom: 6.8,
   center: [-73.869324, 40.815888],
@@ -39,6 +41,11 @@ export default Component.extend({
     const { layerId: currentLayerId } = foundLayer;
 
     return mapConfig.layers.find(d => d.id === currentLayerId);
+  },
+
+  @computed('currentLayerConfig')
+  mapTitle(layerConfig) {
+    return layerConfig ? layerConfig.title : '';
   },
 
   @computed('highlightedFeature')
