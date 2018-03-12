@@ -35,6 +35,10 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
       `);
     }).join('');
 
+    if (rowData.houptest === 'Y') {
+      return '';
+    }
+
     return (`
       <tr class="${isHighlighted}">
         <td class="geom">
