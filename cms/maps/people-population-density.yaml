@@ -31,16 +31,27 @@ map:
     - id: population-density-municipality
       sql: SELECT the_geom_webmercator, geoid, popaden16 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
-
-  popupValues:
-  - id: region
-    value: popepd16
-  - id: subregion
-    value: popepd16
-  - id: county
-    value: popepd16
-  - id: municipality
-    value: popaden16
+  popupColumns:
+  - id: popdens
+    title: Pop/sq. mile
+    large: true
+    values:
+    - geomType: region
+      columnName: popepd16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: popepd16
+      cv:
+      sig:
+    - geomType: county
+      columnName: popepd16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popaden16
+      cv:
+      sig:
 
   isPercent: false
 

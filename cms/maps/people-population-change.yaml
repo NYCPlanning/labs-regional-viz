@@ -27,13 +27,23 @@ map:
     - id: population-change-county
       sql: SELECT the_geom_webmercator, geoid, popp1016 as value FROM region_county_v0
 
-  popupValues:
-  - id: region
-    value: popp1016
-  - id: subregion
-    value: popp1016
-  - id: county
-    value: popp1016
+  popupColumns:
+  - id: change
+    title: Change
+    large: true
+    values:
+    - geomType: region
+      columnName: popp1016
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: popp1016
+      cv:
+      sig:
+    - geomType: county
+      columnName: popp1016
+      cv:
+      sig:
 
   isPercent: true
   isChangeMeasurement: true
