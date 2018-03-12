@@ -40,13 +40,11 @@
 {{/mapbox-gl}}
 
 {{#if highlightedFeature}}
-  <div class='map-tooltip' style="top: {{tooltipPoint.y}}px;left: {{tooltipPoint.x}}px;">
-    {{#if highlightedFeature.properties.name}}
+  {{#if highlightedFeature.properties.name}}
+    <div class='map-tooltip' style="top: {{tooltipPoint.y}}px;left: {{tooltipPoint.x}}px;">
       {{highlightedFeature.properties.name}}
-    {{else}}
-      Name is not defined
-    {{/if}}
-  </div>
+    </div>
+  {{/if}}
 {{/if}}
 
 {{#unless narrativeVisible}}
