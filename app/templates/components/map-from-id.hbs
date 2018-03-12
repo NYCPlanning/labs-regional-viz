@@ -39,6 +39,16 @@
   {{map.on 'click' (action 'handleMouseClick')}}
 {{/mapbox-gl}}
 
+{{#if highlightedFeature}}
+  <div class='map-tooltip' style="top: {{tooltipPoint.y}}px;left: {{tooltipPoint.x}}px;">
+    {{#if highlightedFeature.properties.name}}
+      {{highlightedFeature.properties.name}}
+    {{else}}
+      Name is not defined
+    {{/if}}
+  </div>
+{{/if}}
+
 {{#unless narrativeVisible}}
   {{#if mapTitle}}<h1 class="map-title">{{mapTitle}}</h1>{{/if}}
   <a {{action toggleNarrative}} class="narrative-link">
