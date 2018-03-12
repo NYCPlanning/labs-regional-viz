@@ -2,11 +2,78 @@ slug: about
 title: About NYC Metro Mapper
 menutitle: About
 content: |
-  ## Lorem ipsum dolor
 
+  ## Methodology and Definitions
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
-  ### Data Sourcing
+  -----
+
+  <a id="geographies-and-boundaries"></a>
+  ### Geographies and Boundaries
+
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  - _Region_: Here we explain the region definition.
+  - _Subregion_: Here we explain the subregion definition and list the names.
+  - _County_: Here we indicate that data came from Census TIGER/Line files.
+  - _Municipality_: Here we explain that municipality is a blend of Census Minor County Divisions for New Jersey, CT, and the Hudson Valley, Census Places for Long Island and Sub Borough Definition for NYC with link to NNY report.
+  - _Census Tract_: Here we explain mapping to census tract
+
+  -----
+
+  <a id="people"></a>
+  ### People
+
+  ##### Population Totals and Change
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Foreign Born
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Prime Labor Force
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  -----
+
+  <a id="housing"></a>
+  ### Housing
+
+  ##### Housing Units, Tenure and Building Size
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Housing Permits
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  -----
+
+  <a id="jobs"></a>
+  ### Jobs
+
+  ##### Total Employment
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Employment by Sector
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  -----
+
+  <a id="balance"></a>
+  ### Balance
+
+  ##### Housing Units/Total Employment
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Housing Production vs. Total Employment Change
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  -----
+
+  <a id="data-reliability"></a>
+  ### Data Reliability
+
+  ##### Statistical Significance
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Geographic Precision
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+
+  -----
+
+  <a id="data-sources"></a>
+  ### Data Sources
 
   Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
@@ -22,15 +89,15 @@ sidebar:
 
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
-    **Region Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=SHP),  [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=CSV)
+    **Region:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=SHP),  [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_region_v0&format=CSV), [Metadata]
 
-    **Subregion Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=CSV)
+    **Subregion:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_subregion_v0&format=CSV), [Metadata]
 
-    **County Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=CSV)
+    **County:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_county_v0&format=CSV), [Metadata]
 
-    **Municipality Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=CSV)
+    **Municipality:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_municipality_v0&format=CSV), [Metadata]
 
-    **Census Tract Data:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=CSV)
+    **Census Tract:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP), [CSV](https://planninglabs.carto.com/api/v2/sql?q=SELECT%20%2A%20FROM%20region_censustract_v0&format=CSV), [Metadata]
 
   button:
   buttontext:
