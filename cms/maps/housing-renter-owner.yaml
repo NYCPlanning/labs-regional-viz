@@ -24,25 +24,83 @@ map:
       sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0
 
   popupColumns:
-  - id: hou
+  - id: owner
     title: Units
     large: true
     values:
     - geomType: region
-      columnName: houa16
+      columnName: houo16
       cv:
       sig:
     - geomType: subregion
-      columnName: houa16
-      cv:
+      columnName: houo16
+      cv: houo16cv
       sig:
     - geomType: county
-      columnName: houa16
-      cv:
+      columnName: houo16
+      cv: houo16cv
       sig:
     - geomType: municipality
-      columnName: hou16
+      columnName: houo16
+      cv: houo16cv
+      sig:
+  - id: ownermoe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
       cv:
+      sig:
+    - geomType: subregion
+      columnName: houo16moe
+      cv: houo16cv
+      sig:
+    - geomType: county
+      columnName: houo16moe
+      cv: houo16cv
+      sig:
+    - geomType: municipality
+      columnName: houo16moe
+      cv: houo16cv
+      sig:
+  - id: renter
+    title: Units
+    large: true
+    values:
+    - geomType: region
+      columnName: hour16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: hour16
+      cv: hour16cv
+      sig:
+    - geomType: county
+      columnName: hour16
+      cv: hour16cv
+      sig:
+    - geomType: municipality
+      columnName: hour16
+      cv: hour16cv
+      sig:
+  - id: rentermoe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: hour16moe
+      cv: hour16cv
+      sig:
+    - geomType: county
+      columnName: hour16moe
+      cv: hour16cv
+      sig:
+    - geomType: municipality
+      columnName: hour16moe
+      cv: hour16cv
       sig:
 
   isPercent: false

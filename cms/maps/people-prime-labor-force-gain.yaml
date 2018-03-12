@@ -48,6 +48,25 @@ map:
       columnName: lfpw0016
       cv:
       sig: lfpw0016si
+  - id: moe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: lfpw0016mo
+      cv:
+      sig: lfpw0016si
+    - geomType: county
+      columnName: lfpw0016mo
+      cv:
+      sig: lfpw0016si
+    - geomType: municipality
+      columnName: lfpw0016mo
+      cv:
+      sig: lfpw0016si
 
   isPercent: false
   isChangeMeasurement: true
