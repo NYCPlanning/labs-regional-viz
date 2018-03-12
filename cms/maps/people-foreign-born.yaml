@@ -31,16 +31,27 @@ map:
     - id: foreign-born-municipality
       sql: SELECT the_geom_webmercator, geoid, popfbp16 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
-
-  popupValues:
-  - id: region
-    value: popfbp16
-  - id: subregion
-    value: popfbp16
-  - id: county
-    value: popfbp16
-  - id: municipality
-    value: popfbp16
+  popupColumns:
+  - id: count
+    title: Count
+    large: true
+    values:
+    - geomType: region
+      columnName: popfbp16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: popfbp16
+      cv:
+      sig:
+    - geomType: county
+      columnName: popfbp16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popfbp16
+      cv:
+      sig:
 
   isPercent: true
 

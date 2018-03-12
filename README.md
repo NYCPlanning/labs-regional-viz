@@ -1,6 +1,6 @@
 # NYC Regional Visualization
 
-{TODO: Add description.}
+An interactive mapping experience that highlights regional planning data and trends.
 
 ## How we work
 
@@ -54,12 +54,14 @@ You will need the following things properly installed on your computer.
 
 ### Building
 
-* `ember build` (development)
-* `ember build --environment production` (production)
+- `ember build` (development)
+- `ember build --environment production` (production)
 
 ## Deployment
 
-{Description of what type of hosting environment is required, and steps for how Labs deploys -- e.g `git push dokku master`.}
+- Create a Dokku remote: `git remote add dokku dokku@{dokkudomain}:regional-viz`
+- Deploy to Dokku: `git push dokku master`
+
 
 ## Contact us
 

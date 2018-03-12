@@ -31,15 +31,27 @@ map:
     - id: multifamily-permitted-municipality
       sql: SELECT the_geom_webmercator, random_value FROM region_unittype_dotdensity_v2
 
-  popupValues:
-  - id: region
-    value: houps1016
-  - id: subregion
-    value: houps1016
-  - id: county
-    value: houps1016
-  - id: municipality
-    value: houps1016
+  popupColumns:
+  - id: houps
+    title: Units
+    large: true
+    values:
+    - geomType: region
+      columnName: houps1016
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houps1016
+      cv:
+      sig:
+    - geomType: county
+      columnName: houps1016
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houps1016
+      cv:
+      sig:
 
   isPercent: false
 

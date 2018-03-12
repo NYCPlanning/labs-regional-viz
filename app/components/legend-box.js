@@ -49,7 +49,6 @@ export default Component.extend({
   currentLayerConfig: {},
   mapConfig: {},
 
-  // TODO: Don't use firstLayer. Nix this when making legends update on geographyLevel change.
   @computed('currentLayerConfig')
   layerTitle({ title = '' } = {}) {
     return title;
