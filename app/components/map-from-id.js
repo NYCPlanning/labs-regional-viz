@@ -13,7 +13,9 @@ export default Component.extend({
 
   // noop for passed context
   toggleNarrative() {},
-  mapConfig: {},
+  mapConfig: {
+    layers: [],
+  },
 
   zoom: 6.8,
   center: [-73.869324, 40.815888],
