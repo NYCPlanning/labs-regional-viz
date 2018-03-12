@@ -8,5 +8,97 @@ content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 
 map:
-  sources: []
-  layers: []
+  toggles:
+  - layerId: empty-polygons-subregion
+    type: subregion
+  - layerId: empty-polygons-county
+    type: county
+  - layerId: empty-polygons-municipality
+    type: municipality
+
+  defaultGeographyLevel: county
+
+  sources:
+    - id: empty-polygons
+      type: cartovector
+      source-layers:
+      - id: empty-polygons-subregion
+        sql: SELECT the_geom_webmercator, geoid, (cartodb_id % 5) AS color  FROM region_subregion_v0
+      - id: empty-polygons-county
+        sql: SELECT the_geom_webmercator, geoid, (cartodb_id % 5) AS color  FROM region_county_v0
+      - id: empty-polygons-municipality
+        sql: SELECT the_geom_webmercator, geoid, (cartodb_id % 5) AS color FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+
+  layers:
+  - id: empty-polygons-subregion
+    title:
+    type: fill
+    source: empty-polygons
+    source-layer: empty-polygons-subregion
+    paint:
+      fill-outline-color: rgba(0, 0, 0, 1)
+      fill-opacity: 0.6
+      fill-color:
+      - match
+      - - get
+        - color
+      - 0
+      - rgba(67, 114, 222, 1)
+      - 1
+      - rgba(56, 98, 193, 1)
+      - 2
+      - rgba(48, 85, 167, 1)
+      - 3
+      - rgba(41, 72, 142, 1)
+      - 4
+      - rgba(34, 60, 119, 1)
+      - "#FFFFFF"
+      fill-antialias: true
+  - id: empty-polygons-county
+    title:
+    type: fill
+    source: empty-polygons
+    source-layer: empty-polygons-county
+    paint:
+      fill-outline-color: rgba(0, 0, 0, 1)
+      fill-opacity: 0.6
+      fill-color:
+      - match
+      - - get
+        - color
+      - 0
+      - rgba(67, 114, 222, 1)
+      - 1
+      - rgba(56, 98, 193, 1)
+      - 2
+      - rgba(48, 85, 167, 1)
+      - 3
+      - rgba(41, 72, 142, 1)
+      - 4
+      - rgba(34, 60, 119, 1)
+      - "#FFFFFF"
+      fill-antialias: true
+  - id: empty-polygons-municipality
+    title:
+    type: fill
+    source: empty-polygons
+    source-layer: empty-polygons-municipality
+    paint:
+      fill-outline-color: rgba(0, 0, 0, 1)
+      fill-opacity: 0.6
+      fill-color:
+      - match
+      - - get
+        - color
+      - 0
+      - rgba(67, 114, 222, 1)
+      - 1
+      - rgba(56, 98, 193, 1)
+      - 2
+      - rgba(48, 85, 167, 1)
+      - 3
+      - rgba(41, 72, 142, 1)
+      - 4
+      - rgba(34, 60, 119, 1)
+      - "#FFFFFF"
+      fill-antialias: true

@@ -16,7 +16,7 @@
 .mapboxgl-popup {}
 
 .mapboxgl-popup-content {
-  padding: $global-margin;
+  padding: $global-margin $global-margin/2;
   background-color: $white;
   color: $body-font-color;
   font-size: rem-calc(12);
@@ -116,6 +116,30 @@
 }
 
 // Map Legend
+.map-title {
+  position: absolute;
+  z-index: 2;
+  top: 10px;
+  left: 50px;
+  float: left;
+
+  max-width: calc(100% - 100px);
+  margin-top: calc(1.4rem + 0.6875rem + 10px);
+  padding: 0.3rem 0.6rem 0.4rem;
+  border-radius: 4px;
+
+  font-size: rem-calc(20);
+
+  background-color: transparentize($white, 0.3);
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
+
+  @include breakpoint(medium) {
+    max-width: calc(100% - 130px);
+    font-size: rem-calc(25);
+  }
+}
+
+// Map Legend
 .legend {
   position: absolute;
   z-index: 2;
@@ -138,13 +162,16 @@
     margin-bottom: rem-calc(4);
   }
 
-  .legend-item {
+  .legend-item:not(:first-child) {
     border-top: 1px solid rgba(235,235,235,0.7);
     padding: 0;
 
     .legend-color {
       margin: 0 rem-calc(4) 0 0;
     }
+  }
+  .legend-title + .legend-item:first-child {
+    border-top: 1px solid rgba(235,235,235,0.7);
   }
 }
 

@@ -1,6 +1,6 @@
 {{#unless (eq layerTitle '')}}
   <div class="legend">
-    <h5 class="legend-title">{{layerTitle}}</h5>
+    {{#if narrativeVisible}}<h5 class="legend-title">{{layerTitle}}</h5>{{/if}}
     {{#each rows as |row|}}
       <div class="legend-item">
         <span class="legend-color" style="color:{{row.color}};">{{fa-icon icon}}</span>

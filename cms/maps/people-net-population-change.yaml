@@ -32,15 +32,27 @@ map:
     - id: net-population-change-municipality
       sql: SELECT the_geom_webmercator, popa1016, popa1016si as value FROM region_popa1016_dotdensity_v0
 
-  popupValues:
-  - id: region
-    value: pop1016
-  - id: subregion
-    value: pop1016
-  - id: county
-    value: pop1016
-  - id: municipality
-    value: popa1016
+  popupColumns:
+  - id: change
+    title: Change
+    large: true
+    values:
+    - geomType: region
+      columnName: pop1016
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: pop1016
+      cv:
+      sig:
+    - geomType: county
+      columnName: pop1016
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popa1016
+      cv:
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

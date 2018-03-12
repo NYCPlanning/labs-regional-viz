@@ -22,6 +22,7 @@
     currentLayerConfig=currentLayerConfig
     isPercent=mapConfig.isPercent
     isChangeMeasurement=mapConfig.isChangeMeasurement
+    narrativeVisible=narrativeVisible
   }}
 
   {{!-- Geometry toggle --}}
@@ -39,6 +40,7 @@
 {{/mapbox-gl}}
 
 {{#unless narrativeVisible}}
+  {{#if mapTitle}}<h1 class="map-title">{{mapTitle}}</h1>{{/if}}
   <a {{action toggleNarrative}} class="narrative-link">
     <span class="hide-for-large">{{fa-icon 'chevron-up'}}</span>
     <span class="show-for-large">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</span>

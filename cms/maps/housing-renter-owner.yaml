@@ -23,15 +23,27 @@ map:
     - id: renter-owner-municipality
       sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0
 
-  popupValues:
-  - id: region
-    value: houa16
-  - id: subregion
-    value: houa16
-  - id: county
-    value: houa16
-  - id: municipality
-    value: hou16
+  popupColumns:
+  - id: hou
+    title: Units
+    large: true
+    values:
+    - geomType: region
+      columnName: houa16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houa16
+      cv:
+      sig:
+    - geomType: county
+      columnName: houa16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: hou16
+      cv:
+      sig:
 
   isPercent: false
 
@@ -62,4 +74,4 @@ map:
           - 1.5
         - - 11
           - 2
-      circle-opacity: 0.9
+      circle-opacity: 0.4
