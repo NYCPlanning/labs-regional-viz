@@ -38,12 +38,16 @@ map:
     values:
     - geomType: region
       columnName: houp1016
+      cv:
     - geomType: subregion
       columnName: houp1016
+      cv:
     - geomType: county
       columnName: houp1016
+      cv:
     - geomType: municipality
       columnName: houp1016
+      cv:
 
   isPercent: false
 

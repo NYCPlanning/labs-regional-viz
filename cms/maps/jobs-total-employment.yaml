@@ -38,12 +38,16 @@ map:
     values:
     - geomType: region
       columnName: emtot16
+      cv:
     - geomType: subregion
       columnName: emtot16
+      cv:
     - geomType: county
       columnName: emtot16
+      cv:
     - geomType: municipality
       columnName: emtot15
+      cv:
 
   isPercent: false
 

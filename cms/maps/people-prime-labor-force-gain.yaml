@@ -38,10 +38,13 @@ map:
     values:
     - geomType: region
       columnName: lfpw0016
+      cv:
     - geomType: subregion
       columnName: lfpw0016
+      cv:
     - geomType: county
       columnName: lfpw0016
+      cv:
 
   isPercent: false
   isChangeMeasurement: true

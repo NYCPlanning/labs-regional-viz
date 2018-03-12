@@ -38,12 +38,16 @@ map:
     values:
     - geomType: region
       columnName: popepd16
+      cv:
     - geomType: subregion
       columnName: popepd16
+      cv:
     - geomType: county
       columnName: popepd16
+      cv:
     - geomType: municipality
       columnName: popaden16
+      cv:
 
   isPercent: false
 

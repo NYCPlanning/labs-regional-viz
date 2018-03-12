@@ -181,7 +181,7 @@ export default Component.extend({
                 }
 
                 let isInsignificant = false;
-                if (formattedValue === 'N/A') {
+                if (formattedValue === 'N/A' || rowData.cv >= 20) {
                   isInsignificant = true;
                 }
 
