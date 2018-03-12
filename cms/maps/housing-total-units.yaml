@@ -39,15 +39,19 @@ map:
     - geomType: region
       columnName: houa16
       cv:
+      sig:
     - geomType: subregion
       columnName: houa16
       cv:
+      sig:
     - geomType: county
       columnName: houa16
       cv:
+      sig:
     - geomType: municipality
       columnName: hou16
       cv:
+      sig:
 
   isPercent: false
 

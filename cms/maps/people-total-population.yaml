@@ -42,30 +42,38 @@ map:
     - geomType: region
       columnName: popep16
       cv:
+      sig:
     - geomType: subregion
       columnName: popep16
       cv:
+      sig:
     - geomType: county
       columnName: popep16
       cv:
+      sig:
     - geomType: municipality
       columnName: popa16
       cv: popacv16
+      sig:
   - id: moe
     title: MOE
     values:
     - geomType: region
       columnName:
       cv:
+      sig:
     - geomType: subregion
       columnName:
       cv:
+      sig:
     - geomType: county
       columnName:
       cv:
+      sig:
     - geomType: municipality
       columnName: popamoe16
       cv: popacv16
+      sig:
 
   isPercent: false
 

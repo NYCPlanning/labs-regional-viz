@@ -40,15 +40,19 @@ map:
     - geomType: region
       columnName: pop1016
       cv:
+      sig:
     - geomType: subregion
       columnName: pop1016
       cv:
+      sig:
     - geomType: county
       columnName: pop1016
       cv:
+      sig:
     - geomType: municipality
       columnName: popa1016
       cv:
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

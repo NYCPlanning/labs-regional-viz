@@ -39,12 +39,15 @@ map:
     - geomType: region
       columnName: lfpw0016
       cv:
+      sig: lfpw0016si
     - geomType: subregion
       columnName: lfpw0016
       cv:
+      sig: lfpw0016si
     - geomType: county
       columnName: lfpw0016
       cv:
+      sig: lfpw0016si
 
   isPercent: false
   isChangeMeasurement: true

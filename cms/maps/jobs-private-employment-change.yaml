@@ -36,12 +36,15 @@ map:
     - geomType: region
       columnName: empr0816
       cv:
+      sig:
     - geomType: subregion
       columnName: empr0816
       cv:
+      sig:
     - geomType: county
       columnName: empr0816
       cv:
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

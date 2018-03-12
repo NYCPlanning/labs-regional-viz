@@ -35,12 +35,15 @@ map:
     - geomType: region
       columnName: popp1016
       cv:
+      sig:
     - geomType: subregion
       columnName: popp1016
       cv:
+      sig:
     - geomType: county
       columnName: popp1016
       cv:
+      sig:
 
   isPercent: true
   isChangeMeasurement: true

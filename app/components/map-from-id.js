@@ -181,9 +181,15 @@ export default Component.extend({
                 }
 
                 let isInsignificant = false;
-                if (formattedValue === 'N/A' || rowData.cv >= 20) {
+                if (
+                  formattedValue === 'N/A' ||
+                  (rowData.cv >= 20 && rowData.cv !== null) ||
+                  (rowData.sig <= 1.645 && rowData.sig !== null)
+                ) {
                   isInsignificant = true;
                 }
+
+                console.log(rowData.sig <= 1.645);
 
                 return (`
                   <td class="${isLarge ? 'large' : ''} ${isInsignificant ? 'medium-gray' : ''} text-right">

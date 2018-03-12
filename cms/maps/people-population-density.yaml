@@ -39,15 +39,19 @@ map:
     - geomType: region
       columnName: popepd16
       cv:
+      sig:
     - geomType: subregion
       columnName: popepd16
       cv:
+      sig:
     - geomType: county
       columnName: popepd16
       cv:
+      sig:
     - geomType: municipality
       columnName: popaden16
       cv:
+      sig:
 
   isPercent: false
 

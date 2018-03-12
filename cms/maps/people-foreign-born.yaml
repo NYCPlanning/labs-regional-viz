@@ -39,15 +39,19 @@ map:
     - geomType: region
       columnName: popfbp16
       cv:
+      sig:
     - geomType: subregion
       columnName: popfbp16
       cv:
+      sig:
     - geomType: county
       columnName: popfbp16
       cv:
+      sig:
     - geomType: municipality
       columnName: popfbp16
       cv:
+      sig:
 
   isPercent: true
 
