@@ -59,7 +59,7 @@ You will need the following things properly installed on your computer.
 
 ## Deployment
 
-- Create a Dokku remote: `git remote add dokku dokku@{dokkudomain}:factfinder`
+- Create a Dokku remote: `git remote add dokku dokku@{dokkudomain}:regional-viz`
 - Deploy to Dokku: `git push dokku master`
 
 
