@@ -45,3 +45,11 @@ orderings:
       hasNarrative: true
     - id: private-employment-change
       hasNarrative: true
+
+    # Balance
+    - id: balance-housjobs00
+      hasNarrative: true
+    - id: balance-housjobs16
+      hasNarrative: true
+    - id: balance-housjobs0016
+      hasNarrative: true
