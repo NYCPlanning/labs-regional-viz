@@ -10,6 +10,7 @@ export default Component.extend({
   classNameBindings: ['narrativeVisible:narrative-visible'],
   classNames: 'map-container cell large-auto',
   toggledGeographyLevel: null,
+  tooltipPoint: { x: 0, y: 0 },
 
   // noop for passed context
   toggleNarrative() {},
@@ -143,6 +144,10 @@ export default Component.extend({
       if (feature) {
         // set the highlighted feature
         this.set('highlightedFeature', feature);
+        this.set('tooltipPoint', {
+          x: e.point.x + 20,
+          y: e.point.y + 20,
+        });
         map.getSource('highlighted-feature').setData(feature);
       } else {
         this.set('highlightedFeature', null);
