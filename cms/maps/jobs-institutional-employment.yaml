@@ -1,0 +1,108 @@
+# Jobs
+# ----------
+slug: institutional-employment
+category: Jobs
+categorySlug: jobs
+title: "NYC accounts for nearly XX% of the region's XX million total education and healthcare jobs"
+menuTitle: "Institutional Employment"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+
+map:
+  toggles:
+  - layerId: institutional-employment-subregion
+    type: subregion
+  - layerId: institutional-employment-county
+    type: county
+  - layerId: institutional-employment-municipality
+    type: municipality
+
+  defaultGeographyLevel: subregion
+
+  sources:
+  - id: institutional-employment
+    type: cartovector
+    source-layers:
+    - id: institutional-employment-subregion
+      sql: SELECT the_geom_webmercator, geoid, emins16 as value FROM region_subregion_v0
+    - id: institutional-employment-county
+      sql: SELECT the_geom_webmercator, geoid, emins16 as value FROM region_county_v0
+    - id: institutional-employment-municipality
+      sql: SELECT the_geom_webmercator, geoid, emins15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+
+  popupColumns:
+  - id: emins
+    title: Employment
+    large: true
+    values:
+    - geomType: region
+      columnName: emins16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emins16
+      cv:
+      sig:
+    - geomType: county
+      columnName: emins16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: emins15
+      cv:
+      sig:
+
+  isPercent: false
+
+  layers:
+  - id: institutional-employment-subregion
+    title: "Total Institutional Employment 2016"
+    type: choropleth
+    source: institutional-employment
+    source-layer: institutional-employment-subregion
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#e8d699"
+      - "#e8c758"
+      - "#a87a10"
+      breaks:
+      - 100000
+      - 250000
+      - 500000
+  - id: institutional-employment-county
+    title: "Total Institutional Employment 2016"
+    type: choropleth
+    source: institutional-employment
+    source-layer: institutional-employment-county
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#e8d699"
+      - "#e8c758"
+      - "#a87a10"
+      breaks:
+      - 15000
+      - 50000
+      - 85000
+  - id: institutional-employment-municipality
+    title: "Total Institutional Employment 2015"
+    type: choropleth
+    source: institutional-employment
+    source-layer: institutional-employment-municipality
+    paintConfig:
+      opacity: 0.6
+      colors:
+      - "#ffffe0"
+      - "#e8d699"
+      - "#e8c758"
+      - "#a87a10"
+      - "#7c5511"
+      breaks:
+      - 1000
+      - 5000
+      - 15000
+      - 50000
