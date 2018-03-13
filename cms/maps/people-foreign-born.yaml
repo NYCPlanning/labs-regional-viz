@@ -42,15 +42,34 @@ map:
       sig:
     - geomType: subregion
       columnName: popfbp16
-      cv:
+      cv: popfbp16cv
       sig:
     - geomType: county
       columnName: popfbp16
-      cv:
+      cv: popfbp16cv
       sig:
     - geomType: municipality
       columnName: popfbp16
+      cv: popfbp16cv
+      sig:
+  - id: moe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
       cv:
+      sig:
+    - geomType: subregion
+      columnName: popfbp16mo
+      cv: popfbp16cv
+      sig:
+    - geomType: county
+      columnName: popfbp16mo
+      cv: popfbp16cv
+      sig:
+    - geomType: municipality
+      columnName: popfbp16mo
+      cv: popfbp16cv
       sig:
 
   isPercent: true

@@ -50,7 +50,26 @@ map:
       sig:
     - geomType: municipality
       columnName: popaden16
+      cv: popacv16
+      sig:
+  - id: moe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
       cv:
+      sig:
+    - geomType: subregion
+      columnName:
+      cv:
+      sig:
+    - geomType: county
+      columnName:
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popacv16
+      cv: popacv16
       sig:
 
   isPercent: false

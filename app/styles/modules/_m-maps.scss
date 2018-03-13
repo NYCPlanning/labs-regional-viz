@@ -115,7 +115,7 @@
   }
 }
 
-// Map Legend
+// Map Title
 .map-title {
   position: absolute;
   z-index: 2;
@@ -168,6 +168,10 @@
 
     .legend-color {
       margin: 0 rem-calc(4) 0 0;
+      opacity: 0.6;
+      text-shadow: 0 0 1px $black, 0 0 1px $black, 0 0 1px $black,
+                   0 0 1px $black, 0 0 1px $black, 0 0 1px $black,
+                   0 0 1px $black, 0 0 1px $black, 0 0 1px $black;
     }
   }
   .legend-title + .legend-item:first-child {
