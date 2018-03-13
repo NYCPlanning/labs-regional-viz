@@ -17,7 +17,6 @@ map:
     type: county
 
   defaultGeographyLevel: county
-  # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
 
   sources:
   - id: balance-housjobs0016
@@ -28,13 +27,23 @@ map:
     - id: balance-housjobs0016-county
       sql: SELECT the_geom_webmercator, geoid, balhpj0016 as value FROM region_county_v0
 
-  popupValues:
-  - id: region
-    value: balhpj0016
-  - id: subregion
-    value: balhpj0016
-  - id: county
-    value: balhpj0016
+  popupColumns:
+  - id: balhpj0016
+    title: Jobs
+    large: true
+    values:
+    - geomType: region
+      columnName: balhpj0016
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: balhpj0016
+      cv:
+      sig:
+    - geomType: county
+      columnName: balhpj0016
+      cv:
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

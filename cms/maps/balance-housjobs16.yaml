@@ -28,13 +28,23 @@ map:
     - id: balance-housjobs16-county
       sql: SELECT the_geom_webmercator, geoid, balhj16 as value FROM region_county_v0
 
-  popupValues:
-  - id: region
-    value: balhj16
-  - id: subregion
-    value: balhj16
-  - id: county
-    value: balhj16
+  popupColumns:
+  - id: balhj16
+    title: Units/Job
+    large: true
+    values:
+    - geomType: region
+      columnName: balhj16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: balhj16
+      cv:
+      sig:
+    - geomType: county
+      columnName: balhj16
+      cv:
+      sig:
 
   isPercent: false
   isChangeMeasurement: false
