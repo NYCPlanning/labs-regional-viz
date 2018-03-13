@@ -76,6 +76,10 @@ map:
         - rgba(34, 60, 119, 1)
         - "#FFFFFF"
         fill-antialias: true
+  - id: municipality
+    title:
+    legend:
+    layers:
     - id: empty-polygons-municipality
       title:
       type: fill

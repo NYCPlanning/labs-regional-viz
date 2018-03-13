@@ -23,7 +23,7 @@ map:
 
   popupColumns:
   - id: owner
-    title: Units
+    title: Owner-occupied
     large: true
     values:
     - geomType: region
@@ -62,7 +62,7 @@ map:
       cv: houo16cv
       sig:
   - id: renter
-    title: Units
+    title: Renter-occupied
     large: true
     values:
     - geomType: region
