@@ -50,11 +50,6 @@ export default Component.extend({
   mapConfig: {},
 
   @computed('currentLayerGroup')
-  layerTitle({ title = '' } = {}) {
-    return title;
-  },
-
-  @computed('currentLayerGroup')
   icon({ type }) {
     return type === 'circle' ? 'circle' : 'square';
   },

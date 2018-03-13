@@ -146,7 +146,9 @@ export default Component.extend({
         this.set('highlightedFeature', null);
       }
 
-      map.getCanvas().style.cursor = feature ? 'pointer' : '';
+      const { popupColumns } = this.get('mapConfig');
+
+      map.getCanvas().style.cursor = (feature && popupColumns) ? 'pointer' : '';
     },
 
     handleMouseClick(e) {
