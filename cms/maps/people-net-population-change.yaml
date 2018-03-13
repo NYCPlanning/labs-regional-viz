@@ -26,9 +26,9 @@ map:
     type: cartovector
     source-layers:
     - id: net-population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop1016 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, pop1016 as value, name FROM region_subregion_v0
     - id: net-population-change-county
-      sql: SELECT the_geom_webmercator, geoid, pop1016 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, pop1016 as value, name FROM region_county_v0
     - id: net-population-change-municipality
       sql: SELECT the_geom_webmercator, popa1016, popa1016si as value FROM region_popa1016_dotdensity_v0
 
