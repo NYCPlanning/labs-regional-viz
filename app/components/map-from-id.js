@@ -36,15 +36,14 @@ export default Component.extend({
   },
 
   @computed('mapConfig', 'geographyLevel')
-  currentLayerConfig(mapConfig, geographyLevel) {
-    const { toggles = [] } = mapConfig;
-    const foundLayer = toggles.find(d => d.type === geographyLevel) || {};
-    const { layerId: currentLayerId } = foundLayer;
+  currentLayerGroup(mapConfig, geographyLevel) {
+    const { layerGroups = [] } = mapConfig;
+    const foundLayerGroup = layerGroups.find(d => d.id === geographyLevel) || {};
 
-    return mapConfig.layers.find(d => d.id === currentLayerId);
+    return foundLayerGroup;
   },
 
-  @computed('currentLayerConfig')
+  @computed('currentLayerGroup')
   mapTitle(layerConfig) {
     return layerConfig ? layerConfig.title : '';
   },
@@ -79,16 +78,10 @@ export default Component.extend({
   },
 
   @computed('mapConfig', 'geographyLevel')
-  visibleLayers({ mapboxLayers: layers = [], toggles = [] }, selectedGeographyLevel) {
-    // find toggle-able layers to hide
-    // 1. find which toggle-ables are not selected
-    // 2. grab those from the layers
-    const hiddenLayersIDs = toggles
-      .filter(toggle => toggle.type !== selectedGeographyLevel)
-      .mapBy('layerId');
-
-    return layers
-      .filter(layer => !hiddenLayersIDs.some(layerId => (layer.id === layerId || layer.id === `${layerId}-line`)));
+  visibleLayers({ mapboxLayers = [] }, selectedGeographyLevel) {
+    return mapboxLayers
+      .find(layerGroup => layerGroup.id === selectedGeographyLevel)
+      .layers;
   },
 
   didReceiveAttrs() {
@@ -182,9 +175,7 @@ export default Component.extend({
     },
 
     handleGeographyLevelToggle(geog) {
-      const popup = this.get('popup');
-
-      popup.remove();
+      this.get('popup').remove();
       this.set('toggledGeographyLevel', geog);
     },
   },

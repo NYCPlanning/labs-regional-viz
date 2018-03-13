@@ -19,7 +19,7 @@
 
   {{!-- Legends --}}
   {{legend-box
-    currentLayerConfig=currentLayerConfig
+    currentLayerGroup=currentLayerGroup
     isPercent=mapConfig.isPercent
     isChangeMeasurement=mapConfig.isChangeMeasurement
     narrativeVisible=narrativeVisible
@@ -29,9 +29,8 @@
   {{geometry-toggle
     geographyLevel=geographyLevel
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
-    toggles=mapConfig.toggles
+    layerGroups=mapConfig.layerGroups
   }}
-
 
   {{yield (hash mapboxGl=map)}}
 

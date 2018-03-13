@@ -46,30 +46,26 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement) {
 
 export default Component.extend({
   handleGeographyLevelToggle() {},
-  currentLayerConfig: {},
+  currentLayerGroup: {},
   mapConfig: {},
 
-  @computed('currentLayerConfig')
+  @computed('currentLayerGroup')
   layerTitle({ title = '' } = {}) {
     return title;
   },
 
-  @computed('currentLayerConfig')
+  @computed('currentLayerGroup')
   icon({ type }) {
     return type === 'circle' ? 'circle' : 'square';
   },
 
-  @computed('currentLayerConfig', 'isPercent', 'isChangeMeasurement')
+  @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement')
   rows(layerConfig, isPercent, isChangeMeasurement) {
-    const { type } = layerConfig;
-    if (type === 'choropleth') {
-      return getChoroplethRows(layerConfig, isPercent, isChangeMeasurement);
+    const { legend } = layerConfig;
+    if (typeof legend === 'string') {
+      return getChoroplethRows(layerConfig.layers.find(layer => layer.id === legend), isPercent, isChangeMeasurement);
     }
 
-    if (type === 'circle') {
-      return layerConfig.legend;
-    }
-
-    return [];
+    return layerConfig.legend;
   },
 });

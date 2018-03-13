@@ -40,38 +40,43 @@ export default Route.extend({
         return mapNarrative;
       })
       .then((enrichedMapNarrative) => {
-        const { map: { layers } } = enrichedMapNarrative;
-        const builtLayers = [];
+        const { map: { layerGroups } } = enrichedMapNarrative;
+        const builtLayerGroups = layerGroups.map(layerGroup => ({
+          id: layerGroup.id,
+          layers: [],
+        }));
 
-        layers.forEach((layer) => {
-          if (layer.type === 'choropleth') {
-            const { id, source, paintConfig } = layer;
-            builtLayers.push({
-              id,
-              type: 'fill',
-              source,
-              'source-layer': layer['source-layer'],
-              paint: buildPaint(paintConfig),
-            });
+        layerGroups.forEach(({ layers }, i) => {
+          layers.forEach((layer) => {
+            if (layer.type === 'choropleth') {
+              const { id, source, paintConfig } = layer;
+              builtLayerGroups[i].layers.push({
+                id,
+                type: 'fill',
+                source,
+                'source-layer': layer['source-layer'],
+                paint: buildPaint(paintConfig),
+              });
 
-            // for choropleth fill layers, push an outlines line layer as well
-            builtLayers.push({
-              id: `${id}-line`,
-              type: 'line',
-              source,
-              'source-layer': layer['source-layer'],
-              paint: {
-                'line-color': 'rgba(131, 131, 131, 1)',
-                'line-width': 0.5,
-              },
-            });
-          } else {
-            // no building necessary if not type choropleth
-            builtLayers.push(layer);
-          }
+              // for choropleth fill layers, push an outlines line layer as well
+              builtLayerGroups[i].layers.push({
+                id: `${id}-line`,
+                type: 'line',
+                source,
+                'source-layer': layer['source-layer'],
+                paint: {
+                  'line-color': 'rgba(131, 131, 131, 1)',
+                  'line-width': 0.5,
+                },
+              });
+            } else {
+              // no building necessary if not type choropleth
+              builtLayerGroups[i].layers.push(layer);
+            }
+          });
         });
 
-        set(enrichedMapNarrative, 'map.mapboxLayers', builtLayers);
+        set(enrichedMapNarrative, 'map.mapboxLayers', builtLayerGroups);
         // set(enrichedMapNarrative, 'map.legends', layers);
         return enrichedMapNarrative;
       });
