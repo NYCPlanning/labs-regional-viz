@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: total-population-subregion
-    type: subregion
-  - layerId: total-population-county
-    type: county
-  - layerId: total-population-municipality
-    type: municipality
-
   defaultGeographyLevel: subregion
 
   sources:
@@ -77,58 +69,67 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: total-population-subregion
+  layerGroups:
+  - id: subregion
     title: "Total Population 2016"
-    type: choropleth
-    source: total-population
-    source-layer: total-population-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 1000000
-      - 2000000
-      - 5000000
-      - 7500000
-  - id: total-population-county
+    legend: total-population-subregion
+    layers:
+    - id: total-population-subregion
+      type: choropleth
+      source: total-population
+      source-layer: total-population-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 1000000
+        - 2000000
+        - 5000000
+        - 7500000
+  - id: county
     title: "Total Population 2016"
-    type: choropleth
-    source: total-population
-    source-layer: total-population-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 250000
-      - 500000
-      - 750000
-      - 1250000
-  - id: total-population-municipality
+    legend: total-population-county
+    layers:
+    - id: total-population-county
+      type: choropleth
+      source: total-population
+      source-layer: total-population-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 250000
+        - 500000
+        - 750000
+        - 1250000
+  - id: municipality
     title: "Total Population 2016"
-    type: choropleth
-    source: total-population
-    source-layer: total-population-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 10000
-      - 50000
-      - 100000
-      - 200000
+    legend: total-population-municipality
+    layers:
+    - id: total-population-municipality
+      type: choropleth
+      source: total-population
+      source-layer: total-population-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 10000
+        - 50000
+        - 100000
+        - 200000

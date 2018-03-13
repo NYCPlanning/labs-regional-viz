@@ -37,9 +37,9 @@ test('it displays toggle from data', function(assert) {
   // Handle any actions with this.on('myAction', function(val) { ... });
 
   const toggles = [
-    { layerId: 'map-id-1', type: 'county' },
-    { layerId: 'map-id-1', type: 'subregion' },
-    { layerId: 'map-id-1', type: 'region' },
+    { layerIds: 'map-id-1', type: 'county' },
+    { layerIds: 'map-id-1', type: 'subregion' },
+    { layerIds: 'map-id-1', type: 'region' },
   ];
 
   this.set('toggles', toggles);

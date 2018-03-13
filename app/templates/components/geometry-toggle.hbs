@@ -1,8 +1,8 @@
 <ul class="menu geography-selector">
-  {{#each toggles as |toggle|}}
-    <li class="{{if (eq geographyLevel toggle.type) 'active'}} explode-block toggle-list-item">
-      <a {{action handleGeographyLevelToggle toggle.type}}>
-        {{capitalize toggle.type}}
+  {{#each layerGroups as |layerGroup|}}
+    <li class="{{if (eq geographyLevel layerGroup.id) 'active'}} explode-block toggle-list-item">
+      <a {{action handleGeographyLevelToggle layerGroup.id}}>
+        {{capitalize layerGroup.id}}
       </a>
     </li>
   {{/each}}

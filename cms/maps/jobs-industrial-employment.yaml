@@ -10,14 +10,6 @@ content: |
 source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
 
 map:
-  toggles:
-  - layerId: industrial-employment-subregion
-    type: subregion
-  - layerId: industrial-employment-county
-    type: county
-  - layerId: industrial-employment-municipality
-    type: municipality
-
   defaultGeographyLevel: subregion
 
   sources:
@@ -25,12 +17,11 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, emind16 as value, name FROM region_subregion_v0
     - id: industrial-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emind16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, emind16 as value, name FROM region_county_v0
     - id: industrial-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emind15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
-
+      sql: SELECT the_geom_webmercator, geoid, emind15 as value, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: industrialemployment
@@ -56,54 +47,63 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: industrial-employment-subregion
+  layerGroups:
+  - id: subregion
     title: "Private Industrial Employment 2016"
-    type: choropleth
-    source: industrial-employment
-    source-layer: industrial-employment-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#f5eaf7"
-      - "#d6a8e0"
-      - "#9e5dba"
-      - "#712d8e"
-      breaks:
-      - 100000
-      - 250000
-      - 500000
-  - id: industrial-employment-county
+    legend: industrial-employment-subregion
+    layers:
+    - id: industrial-employment-subregion
+      type: choropleth
+      source: industrial-employment
+      source-layer: industrial-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f5eaf7"
+        - "#d6a8e0"
+        - "#9e5dba"
+        - "#712d8e"
+        breaks:
+        - 100000
+        - 250000
+        - 500000
+  - id: county
     title: "Private Industrial Employment 2016"
-    type: choropleth
-    source: industrial-employment
-    source-layer: industrial-employment-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#f5eaf7"
-      - "#d6a8e0"
-      - "#9e5dba"
-      - "#712d8e"
-      breaks:
-      - 15000
-      - 50000
-      - 85000
-  - id: industrial-employment-municipality
+    legend: industrial-employment-county
+    layers:
+    - id: industrial-employment-county
+      type: choropleth
+      source: industrial-employment
+      source-layer: industrial-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f5eaf7"
+        - "#d6a8e0"
+        - "#9e5dba"
+        - "#712d8e"
+        breaks:
+        - 15000
+        - 50000
+        - 85000
+  - id: municipality
     title: "Private Industrial Employment 2015"
-    type: choropleth
-    source: industrial-employment
-    source-layer: industrial-employment-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#f5eaf7"
-      - "#d6a8e0"
-      - "#9e5dba"
-      - "#712d8e"
-      - "#401354"
-      breaks:
-      - 1000
-      - 5000
-      - 15000
-      - 50000
+    legend: industrial-employment-municipality
+    layers:
+    - id: industrial-employment-municipality
+      type: choropleth
+      source: industrial-employment
+      source-layer: industrial-employment-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f5eaf7"
+        - "#d6a8e0"
+        - "#9e5dba"
+        - "#712d8e"
+        - "#401354"
+        breaks:
+        - 1000
+        - 5000
+        - 15000
+        - 50000

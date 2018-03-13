@@ -10,14 +10,6 @@ content: |
 source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
 
 map:
-  toggles:
-  - layerId: office-employment-subregion
-    type: subregion
-  - layerId: office-employment-county
-    type: county
-  - layerId: office-employment-municipality
-    type: municipality
-
   defaultGeographyLevel: subregion
 
   sources:
@@ -55,54 +47,63 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: office-employment-subregion
+  layerGroups:
+  - id: subregion
     title: "Office-based Private Employment 2016"
-    type: choropleth
-    source: office-employment
-    source-layer: office-employment-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ccffff"
-      - "#00ffff"
-      - "#179FA5"
-      - "#115459"
-      breaks:
-      - 100000
-      - 250000
-      - 500000
-  - id: office-employment-county
+    legend: office-employment-subregion
+    layers:
+    - id: office-employment-subregion
+      type: choropleth
+      source: office-employment
+      source-layer: office-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccffff"
+        - "#00ffff"
+        - "#179FA5"
+        - "#115459"
+        breaks:
+        - 100000
+        - 250000
+        - 500000
+  - id: county
     title: "Office-based Private Employment 2016"
-    type: choropleth
-    source: office-employment
-    source-layer: office-employment-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ccffff"
-      - "#00ffff"
-      - "#179FA5"
-      - "#115459"
-      breaks:
-      - 15000
-      - 50000
-      - 85000
-  - id: office-employment-municipality
+    legend: office-employment-county
+    layers:
+    - id: office-employment-county
+      type: choropleth
+      source: office-employment
+      source-layer: office-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccffff"
+        - "#00ffff"
+        - "#179FA5"
+        - "#115459"
+        breaks:
+        - 15000
+        - 50000
+        - 85000
+  - id: municipality
     title: "Office-based Private Employment 2015"
-    type: choropleth
-    source: office-employment
-    source-layer: office-employment-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ccffff"
-      - "#00ffff"
-      - "#179FA5"
-      - "#115459"
-      - "#0d1923"
-      breaks:
-      - 1000
-      - 5000
-      - 15000
-      - 50000
+    legend: office-employment-municipality
+    layers:
+    - id: office-employment-municipality
+      type: choropleth
+      source: office-employment
+      source-layer: office-employment-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccffff"
+        - "#00ffff"
+        - "#179FA5"
+        - "#115459"
+        - "#0d1923"
+        breaks:
+        - 1000
+        - 5000
+        - 15000
+        - 50000

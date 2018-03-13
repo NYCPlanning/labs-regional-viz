@@ -18,25 +18,28 @@
   {{/if}}
 
   {{!-- Legends --}}
-  {{legend-box
-    currentLayerConfig=currentLayerConfig
-    isPercent=mapConfig.isPercent
-    isChangeMeasurement=mapConfig.isChangeMeasurement
-    narrativeVisible=narrativeVisible
-  }}
+  {{#if currentLayerGroup.legend}}
+    {{legend-box
+      currentLayerGroup=currentLayerGroup
+      isPercent=mapConfig.isPercent
+      isChangeMeasurement=mapConfig.isChangeMeasurement
+      narrativeVisible=narrativeVisible
+    }}
+  {{/if}}
 
   {{!-- Geometry toggle --}}
   {{geometry-toggle
     geographyLevel=geographyLevel
     handleGeographyLevelToggle=(action 'handleGeographyLevelToggle')
-    toggles=mapConfig.toggles
+    layerGroups=mapConfig.layerGroups
   }}
-
 
   {{yield (hash mapboxGl=map)}}
 
   {{map.on 'mousemove' (action 'handleMouseMove')}}
-  {{map.on 'click' (action 'handleMouseClick')}}
+  {{#if mapConfig.popupColumns}}
+    {{map.on 'click' (action 'handleMouseClick')}}
+  {{/if}}
 {{/mapbox-gl}}
 
 {{#if highlightedFeature}}

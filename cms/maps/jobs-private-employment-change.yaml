@@ -10,12 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: private-employment-change-subregion
-    type: subregion
-  - layerId: private-employment-change-county
-    type: county
-
   defaultGeographyLevel: county
   # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
 
@@ -49,44 +43,50 @@ map:
   isPercent: false
   isChangeMeasurement: true
 
-  layers:
-  - id: private-employment-change-subregion
+  layerGroups:
+  - id: subregion
     title: "Private Employment Change, 2008-2016"
-    type: choropleth
-    source: private-employment-change
-    source-layer: private-employment-change-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffa555"
-      - "#ffffe0"
-      - "#89dfa4"
-      - "#127723"
-      - "#193f1f"
-      breaks:
-      - 10000
-      - 50000
-      - 100000
-      - 300000
-  - id: private-employment-change-county
+    legend: private-employment-change-county
+    layers:
+    - id: private-employment-change-subregion
+      type: choropleth
+      source: private-employment-change
+      source-layer: private-employment-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffa555"
+        - "#ffffe0"
+        - "#89dfa4"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 10000
+        - 50000
+        - 100000
+        - 300000
+  - id: county
     title: "Private Employment Change, 2008-2016"
-    type: choropleth
-    source: private-employment-change
-    source-layer: private-employment-change-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d76423"
-      - "#ffa555"
-      - "#ffffe0"
-      - "#89dfa4"
-      - "#127723"
-      - "#193f1f"
-      - "#031c0d"
-      breaks:
-      - -10000
-      - -2500
-      - 2500
-      - 15000
-      - 35000
-      - 100000
+    legend: private-employment-change-county
+    layers:
+    - id: private-employment-change-county
+      type: choropleth
+      source: private-employment-change
+      source-layer: private-employment-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#89dfa4"
+        - "#127723"
+        - "#193f1f"
+        - "#031c0d"
+        breaks:
+        - -10000
+        - -2500
+        - 2500
+        - 15000
+        - 35000
+        - 100000
