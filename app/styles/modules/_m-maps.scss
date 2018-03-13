@@ -221,8 +221,14 @@
   }
 }
 
+// Map Tooltip
 .map-tooltip {
   position: absolute;
-  background-color: white;
+  background-color: $white;
   z-index: 1000;
+  padding: rem-calc(2) rem-calc(6);
+  color: $dark-gray;
+  font-size: rem-calc(11);
+  box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
+  border-radius: 2px;
 }
