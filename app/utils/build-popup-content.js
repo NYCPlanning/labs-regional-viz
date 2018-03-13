@@ -1,6 +1,9 @@
 import numeral from 'numeral';
 
 export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent) {
+  const reliabilityDisclaimer = '<p class="popup-footer">Grayed values are not statistically reliable.</p>';
+  let popupFooter = '';
+
   // create rows for the table body
   let rowStrings = data.map((rowData) => {
     const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
@@ -26,6 +29,7 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         (rowData.sig <= 1.645 && rowData.sig !== null)
       ) {
         isInsignificant = true;
+        popupFooter = reliabilityDisclaimer;
       }
 
       return (`
@@ -68,5 +72,6 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
       <thead><td></td>${headerCells}</thead>
       <tbody>${rowStrings}</tbody>
     </table>
+    ${popupFooter}
   `;
 }
