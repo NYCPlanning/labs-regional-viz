@@ -140,8 +140,7 @@ button {
 // --------------------------------------------------
 .popup-table {
   @include table(none);
-
-  &:last-child { margin-bottom: -0.375rem; }
+  margin-bottom: -0.375rem;
 
   thead {
     border: 0;
@@ -200,6 +199,15 @@ button {
   .large {
     font-size: 1rem;
   }
+}
+
+.popup-footer {
+  color: $dark-gray;
+  font-size: rem-calc(10);
+  border-top: $hr-border;
+  margin: 1rem 0 -0.375rem;
+  padding: rem-calc(7 7 0);
+  text-align: center;
 }
 
 
