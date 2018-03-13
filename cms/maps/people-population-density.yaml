@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: population-density-subregion
-    type: subregion
-  - layerId: population-density-county
-    type: county
-  - layerId: population-density-municipality
-    type: municipality
-
   defaultGeographyLevel: municipality
 
   sources:
@@ -74,58 +66,67 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: population-density-subregion
+  layerGroups:
+  - id: subregion
     title: "Population Density (Pop/sq. mile) 2016"
-    type: choropleth
-    source: population-density
-    source-layer: population-density-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 500
-      - 1000
-      - 2000
-      - 3000
-  - id: population-density-county
+    legend: population-density-subregion
+    layers:
+    - id: population-density-subregion
+      type: choropleth
+      source: population-density
+      source-layer: population-density-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 500
+        - 1000
+        - 2000
+        - 3000
+  - id: county
     title: "Population Density (Pop/sq. mile) 2016"
-    type: choropleth
-    source: population-density
-    source-layer: population-density-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 1000
-      - 2500
-      - 5000
-      - 10000
-  - id: population-density-municipality
+    legend: population-density-county
+    layers:
+    - id: population-density-county
+      type: choropleth
+      source: population-density
+      source-layer: population-density-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 1000
+        - 2500
+        - 5000
+        - 10000
+  - id: municipality
     title: "Population Density (Pop/sq. mile) 2016"
-    type: choropleth
-    source: population-density
-    source-layer: population-density-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#73efff"
-      - "#0094ff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 1000
-      - 5000
-      - 10000
-      - 25000
+    legend: population-density-municipality
+    layers:
+    - id: population-density-municipality
+      type: choropleth
+      source: population-density
+      source-layer: population-density-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#73efff"
+        - "#0094ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 1000
+        - 5000
+        - 10000
+        - 25000

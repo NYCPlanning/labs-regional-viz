@@ -10,14 +10,6 @@ content: |
 source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
 
 map:
-  toggles:
-  - layerId: localserve-employment-subregion
-    type: subregion
-  - layerId: localserve-employment-county
-    type: county
-  - layerId: localserve-employment-municipality
-    type: municipality
-
   defaultGeographyLevel: subregion
 
   sources:
@@ -25,11 +17,11 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emser16 as value FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, emser16 as value, name FROM region_subregion_v0
     - id: localserve-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emser16 as value FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, emser16 as value, name FROM region_county_v0
     - id: localserve-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emser15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, emser15 as value, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: emser
@@ -55,54 +47,63 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: localserve-employment-subregion
+  layerGroups:
+  - id: subregion
     title: "Retail, Leisure & Hospitality Private Employment 2016"
-    type: choropleth
-    source: localserve-employment
-    source-layer: localserve-employment-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#dbfcdc"
-      - "#aaf7ac"
-      - "#3db709"
-      - "#2e7a0d"
-      breaks:
-      - 100000
-      - 250000
-      - 500000
-  - id: localserve-employment-county
+    legend: localserve-employment-subregion
+    layers:
+    - id: localserve-employment-subregion
+      type: choropleth
+      source: localserve-employment
+      source-layer: localserve-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#dbfcdc"
+        - "#aaf7ac"
+        - "#3db709"
+        - "#2e7a0d"
+        breaks:
+        - 100000
+        - 250000
+        - 500000
+  - id: county
     title: "Retail, Leisure & Hospitality Private Employment 2016"
-    type: choropleth
-    source: localserve-employment
-    source-layer: localserve-employment-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#dbfcdc"
-      - "#aaf7ac"
-      - "#3db709"
-      - "#2e7a0d"
-      breaks:
-      - 15000
-      - 50000
-      - 85000
-  - id: localserve-employment-municipality
+    legend: localserve-employment-county
+    layers:
+    - id: localserve-employment-county
+      type: choropleth
+      source: localserve-employment
+      source-layer: localserve-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#dbfcdc"
+        - "#aaf7ac"
+        - "#3db709"
+        - "#2e7a0d"
+        breaks:
+        - 15000
+        - 50000
+        - 85000
+  - id: municipality
     title: "Retail, Leisure & Hospitality Private Employment 2015"
-    type: choropleth
-    source: localserve-employment
-    source-layer: localserve-employment-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#dbfcdc"
-      - "#aaf7ac"
-      - "#3db709"
-      - "#2e7a0d"
-      - "#173d07"
-      breaks:
-      - 1000
-      - 5000
-      - 15000
-      - 50000
+    legend: localserve-employment-municipality
+    layers:
+    - id: localserve-employment-municipality
+      type: choropleth
+      source: localserve-employment
+      source-layer: localserve-employment-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#dbfcdc"
+        - "#aaf7ac"
+        - "#3db709"
+        - "#2e7a0d"
+        - "#173d07"
+        breaks:
+        - 1000
+        - 5000
+        - 15000
+        - 50000

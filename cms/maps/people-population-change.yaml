@@ -10,12 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: population-change-subregion
-    type: subregion
-  - layerId: population-change-county
-    type: county
-
   defaultGeographyLevel: county
 
   sources:
@@ -48,42 +42,48 @@ map:
   isPercent: true
   isChangeMeasurement: true
 
-  layers:
-  - id: population-change-subregion
+  layerGroups:
+  - id: subregion
     title: "% Population Change, 2010-2016"
-    type: choropleth
-    source: population-change
-    source-layer: population-change-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffa555"
-      - "#ffffe0"
-      - "#73efff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - 0
-      - 0.005
-      - 0.01
-      - 0.03
-  - id: population-change-county
+    legend: population-change-subregion
+    layers:
+    - id: population-change-subregion
+      type: choropleth
+      source: population-change
+      source-layer: population-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - 0
+        - 0.005
+        - 0.01
+        - 0.03
+  - id: county
     title: "% Population Change, 2010-2016"
-    type: choropleth
-    source: population-change
-    source-layer: population-change-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d76423"
-      - "#ffa555"
-      - "#ffffe0"
-      - "#73efff"
-      - "#0058ee"
-      - "#002673"
-      breaks:
-      - -0.025
-      - -0.01
-      - 0.01
-      - 0.025
-      - 0.05
+    legend: population-change-county
+    layers:
+    - id: population-change-county
+      type: choropleth
+      source: population-change
+      source-layer: population-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.025
+        - -0.01
+        - 0.01
+        - 0.025
+        - 0.05

@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: foreign-born-subregion
-    type: subregion
-  - layerId: foreign-born-county
-    type: county
-  - layerId: foreign-born-municipality
-    type: municipality
-
   defaultGeographyLevel: municipality
 
   sources:
@@ -74,46 +66,53 @@ map:
 
   isPercent: true
 
-  layers:
-  - id: foreign-born-subregion
+  layerGroups:
+  - id: subregion
     title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
-    type: choropleth
-    source: foreign-born
-    source-layer: foreign-born-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#0094ff"
-      - "#002673"
-      breaks:
-      - 0.15
-      - 0.3
-  - id: foreign-born-county
+    layers:
+    - id: foreign-born-subregion
+      type: choropleth
+      source: foreign-born
+      source-layer: foreign-born-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#0094ff"
+        - "#002673"
+        breaks:
+        - 0.15
+        - 0.3
+  - id: county
     title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
-    type: choropleth
-    source: foreign-born
-    source-layer: foreign-born-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#0094ff"
-      - "#002673"
-      breaks:
-      - 0.15
-      - 0.3
-  - id: foreign-born-municipality
+    layers:
+    - id: foreign-born-county
+      type: choropleth
+      source: foreign-born
+      source-layer: foreign-born-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#0094ff"
+        - "#002673"
+        breaks:
+        - 0.15
+        - 0.3
+  - id: municipality
     title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
-    type: choropleth
-    source: foreign-born
-    source-layer: foreign-born-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#d4f3f7"
-      - "#0094ff"
-      - "#002673"
-      breaks:
-      - 0.15
-      - 0.3
+    legend: foreign-born-municipality
+    layers:
+    - id: foreign-born-municipality
+      type: choropleth
+      source: foreign-born
+      source-layer: foreign-born-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d4f3f7"
+        - "#0094ff"
+        - "#002673"
+        breaks:
+        - 0.15
+        - 0.3
