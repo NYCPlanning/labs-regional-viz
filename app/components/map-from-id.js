@@ -160,7 +160,7 @@ export default Component.extend({
       const layers = this.get('visibleLayers').map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
-      const { isPercent, popupColumns } = this.get('mapConfig');
+      const { popupColumns, isPermitMap, isPercent } = this.get('mapConfig');
 
       // Add the popup with a spinner before loading its data
       popup.setLngLat(e.lngLat)
@@ -174,7 +174,7 @@ export default Component.extend({
 
         carto.SQL(SQL)
           .then((data) => {
-            popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPercent));
+            popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent));
           });
       } else {
         popup.remove();

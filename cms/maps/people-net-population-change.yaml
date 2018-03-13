@@ -53,6 +53,25 @@ map:
       columnName: popa1016
       cv:
       sig:
+  - id: moe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
+      cv:
+      sig:
+    - geomType: subregion
+      columnName:
+      cv:
+      sig:
+    - geomType: county
+      columnName:
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popa1016mo
+      cv:
+      sig: popa1016si
 
   isPercent: false
   isChangeMeasurement: true

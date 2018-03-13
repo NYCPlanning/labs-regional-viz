@@ -33,7 +33,7 @@ map:
 
   popupColumns:
   - id: houp
-    title: Units
+    title: Units Permitted
     large: true
     values:
     - geomType: region
@@ -52,6 +52,8 @@ map:
       columnName: houp1016
       cv:
       sig:
+
+  isPermitMap: true
 
   isPercent: false
 

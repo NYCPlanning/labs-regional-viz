@@ -9,7 +9,7 @@ const popupColumns = [{"id":"pop","title":"Population","large":true,"values":[{"
 
 // Replace this with your real tests.
 test('it renders a table tag', function(assert) {
-  let result = buildPopupContent(data, 'county', popupColumns, false);
+  let result = buildPopupContent(data, 'county', popupColumns, false, false);
 
   const foundTable = result.indexOf('<table class="popup-table">') > -1
   assert.ok(result);

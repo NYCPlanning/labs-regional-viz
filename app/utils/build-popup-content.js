@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export default function buildPopupContent(data, geographyLevel, popupColumns, isPercent) {
+export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent) {
   // create rows for the table body
   let rowStrings = data.map((rowData) => {
     const isHighlighted = geographyLevel === rowData.geomtype ? 'highlighted' : '';
@@ -34,6 +34,17 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         </td>
       `);
     }).join('');
+
+    // If this is a Permit Map
+    if (isPermitMap) {
+      // hide the rows that are Long Island municipalities that do not report housing permit data
+      if (rowData.houptest === 'N') {
+        return '';
+      }
+    } else if (rowData.islitown === 'Y') {
+      // If it's not a Permit Map, always hide the Long Island town rows
+      return '';
+    }
 
     return (`
       <tr class="${isHighlighted}">

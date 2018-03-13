@@ -32,7 +32,7 @@ map:
       sql: SELECT the_geom_webmercator, geoid, hou16 as value, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
-  - id: hou
+  - id: totalunits
     title: Units
     large: true
     values:
@@ -42,15 +42,34 @@ map:
       sig:
     - geomType: subregion
       columnName: houa16
-      cv:
+      cv: houa16cv
       sig:
     - geomType: county
       columnName: houa16
-      cv:
+      cv: houa16cv
       sig:
     - geomType: municipality
       columnName: hou16
+      cv: hou16cv
+      sig:
+  - id: moe
+    title: MOE
+    values:
+    - geomType: region
+      columnName:
       cv:
+      sig:
+    - geomType: subregion
+      columnName: houa16moe
+      cv: houa16cv
+      sig:
+    - geomType: county
+      columnName: houa16moe
+      cv: houa16cv
+      sig:
+    - geomType: municipality
+      columnName: hou16moe
+      cv: hou16cv
       sig:
 
   isPercent: false
