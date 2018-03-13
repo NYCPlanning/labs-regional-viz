@@ -8,6 +8,7 @@ menuTitle: "Retail, Leisure & Hospitality Employment"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+
 map:
   toggles:
   - layerId: localserve-employment-subregion
@@ -30,16 +31,27 @@ map:
     - id: localserve-employment-municipality
       sql: SELECT the_geom_webmercator, geoid, emser15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
-
-  popupValues:
-  - id: region
-    value: emser16
-  - id: subregion
-    value: emser16
-  - id: county
-    value: emser16
-  - id: municipality
-    value: emser15
+  popupColumns:
+  - id: emser
+    title: Employment
+    large: true
+    values:
+    - geomType: region
+      columnName: emser16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emser16
+      cv:
+      sig:
+    - geomType: county
+      columnName: emser16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: emser15
+      cv:
+      sig:
 
   isPercent: false
 
