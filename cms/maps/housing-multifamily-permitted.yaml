@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: multifamily-permitted-subregion
-    type: subregion
-  - layerId: multifamily-permitted-county
-    type: county
-  - layerId: multifamily-permitted-municipality
-    type: municipality
-
   defaultGeographyLevel: county
 
   sources:
@@ -30,6 +22,8 @@ map:
       sql: SELECT the_geom_webmercator, geoid, houps1016 as value, name FROM region_county_v0
     - id: multifamily-permitted-municipality
       sql: SELECT the_geom_webmercator, random_value FROM region_unittype_dotdensity_v2
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: houps
@@ -57,67 +51,89 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: multifamily-permitted-subregion
+  layerGroups:
+  - id: subregion
     title: "Housing Units Permitted, 2010-2016"
-    type: choropleth
-    source: multifamily-permitted
-    source-layer: multifamily-permitted-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 10000
-      - 20000
-      - 50000
-      - 100000
-  - id: multifamily-permitted-county
+    legend: multifamily-permitted-subregion
+    layers:
+    - id: multifamily-permitted-subregion
+      type: choropleth
+      source: multifamily-permitted
+      source-layer: multifamily-permitted-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 10000
+        - 20000
+        - 50000
+        - 100000
+  - id: county
     title: "Housing Units Permitted, 2010-2016"
-    type: choropleth
-    source: multifamily-permitted
-    source-layer: multifamily-permitted-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 3000
-      - 7500
-      - 15000
-      - 30000
-  - id: multifamily-permitted-municipality
+    legend: multifamily-permitted-county
+    layers:
+    - id: multifamily-permitted-county
+      type: choropleth
+      source: multifamily-permitted
+      source-layer: multifamily-permitted-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 3000
+        - 7500
+        - 15000
+        - 30000
+  - id: municipality
     title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
-    type: circle
-    legend:
-    - color: "#fc8d59"
-      label: "50 Single-family Units"
-    - color: "#91bfdb"
-      label: "50 Multi-family Units"
-    source: multifamily-permitted
-    source-layer: multifamily-permitted-municipality
-    paint:
-      circle-color:
-      - match
-      - - get
-        - random_value
-      - "single"
-      - "#fc8d59"
-      - "multi"
-      - "#91bfdb"
-      - "#FFFFFF"
-      circle-radius:
-        stops:
-        - - 7
-          - 1.5
-        - - 11
-          - 2
-      circle-opacity: 0.9
+    legend: multifamily-permitted-municipality
+    layers:
+    - id: multifamily-permitted-municipality
+      type: circle
+      legend:
+      - color: "#fc8d59"
+        label: "50 Single-family Units"
+      - color: "#91bfdb"
+        label: "50 Multi-family Units"
+      source: multifamily-permitted
+      source-layer: multifamily-permitted-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - random_value
+        - "single"
+        - "#fc8d59"
+        - "multi"
+        - "#91bfdb"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.9
+    - id: empty-municipality-polygons
+      type: fill
+      source: multifamily-permitted
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: multifamily-permitted
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

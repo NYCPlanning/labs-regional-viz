@@ -10,14 +10,7 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: balance-housjobs16-subregion
-    type: subregion
-  - layerId: balance-housjobs16-county
-    type: county
-
   defaultGeographyLevel: county
-  # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
 
   sources:
   - id: balance-housjobs16
@@ -49,44 +42,50 @@ map:
   isPercent: false
   isChangeMeasurement: false
 
-  layers:
-  - id: balance-housjobs16-subregion
+  layerGroups:
+  - id: subregion
     title: "Housing Units/Total Employment 2016"
-    type: choropleth
-    source: balance-housjobs16
-    source-layer: balance-housjobs16-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#127723"
-      - "#89dfa4"
-      - "#ffffe0"
-      - "#ffa555"
-      - "#d76523"
-      breaks:
-      - 0.825
-      - 0.850
-      - 0.9
-      - 0.95
-  - id: balance-housjobs16-county
+    legend: balance-housjobs16-subregion
+    layers:
+    - id: balance-housjobs16-subregion
+      type: choropleth
+      source: balance-housjobs16
+      source-layer: balance-housjobs16-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#127723"
+        - "#89dfa4"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - 0.825
+        - 0.850
+        - 0.9
+        - 0.95
+  - id: county
     title: "Housing Units/Total Employment 2016"
-    type: choropleth
-    source: balance-housjobs16
-    source-layer: balance-housjobs16-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#193f1f"
-      - "#127723"
-      - "#89dfa4"
-      - "#ffffe0"
-      - "#ffa555"
-      - "#d76523"
-      - "#87390c"
-      breaks:
-      - 0.4
-      - 0.6
-      - 0.85
-      - 0.9
-      - 1.15
-      - 1.75
+    legend: balance-housjobs16-county
+    layers:
+    - id: balance-housjobs16-county
+      type: choropleth
+      source: balance-housjobs16
+      source-layer: balance-housjobs16-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#193f1f"
+        - "#127723"
+        - "#89dfa4"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        - "#87390c"
+        breaks:
+        - 0.4
+        - 0.6
+        - 0.85
+        - 0.9
+        - 1.15
+        - 1.75

@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: total-units-subregion
-    type: subregion
-  - layerId: total-units-county
-    type: county
-  - layerId: total-units-municipality
-    type: municipality
-
   defaultGeographyLevel: municipality
 
   sources:
@@ -74,58 +66,67 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: total-units-subregion
+  layerGroups:
+  - id: subregion
     title: "Total Housing Units, 2012-2016 Avg"
-    type: choropleth
-    source: total-units
-    source-layer: total-units-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 500000
-      - 750000
-      - 1000000
-      - 2000000
-  - id: total-units-county
+    legend: total-units-subregion
+    layers:
+    - id: total-units-subregion
+      type: choropleth
+      source: total-units
+      source-layer: total-units-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 500000
+        - 750000
+        - 1000000
+        - 2000000
+  - id: county
     title: "Total Housing Units, 2012-2016 Avg"
-    type: choropleth
-    source: total-units
-    source-layer: total-units-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 50000
-      - 100000
-      - 250000
-      - 500000
-  - id: total-units-municipality
+    legend: total-units-county
+    layers:
+    - id: total-units-county
+      type: choropleth
+      source: total-units
+      source-layer: total-units-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 50000
+        - 100000
+        - 250000
+        - 500000
+  - id: municipality
     title: "Total Housing Units, 2012-2016 Avg"
-    type: choropleth
-    source: total-units
-    source-layer: total-units-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 1000
-      - 5000
-      - 15000
-      - 50000
+    legend: total-units-municipality
+    layers:
+    - id: total-units-municipality
+      type: choropleth
+      source: total-units
+      source-layer: total-units-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 1000
+        - 5000
+        - 15000
+        - 50000

@@ -10,14 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: units-permitted-subregion
-    type: subregion
-  - layerId: units-permitted-county
-    type: county
-  - layerId: units-permitted-municipality
-    type: municipality
-
   defaultGeographyLevel: county
 
   sources:
@@ -57,58 +49,67 @@ map:
 
   isPercent: false
 
-  layers:
-  - id: units-permitted-subregion
+  layerGroups:
+  - id: subregion
     title: "Housing Units Permitted, 2010-2016"
-    type: choropleth
-    source: units-permitted
-    source-layer: units-permitted-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 10000
-      - 20000
-      - 50000
-      - 100000
-  - id: units-permitted-county
+    legend: units-permitted-subregion
+    layers:
+    - id: units-permitted-subregion
+      type: choropleth
+      source: units-permitted
+      source-layer: units-permitted-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 10000
+        - 20000
+        - 50000
+        - 100000
+  - id: county
     title: "Housing Units Permitted, 2010-2016"
-    type: choropleth
-    source: units-permitted
-    source-layer: units-permitted-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 3000
-      - 7500
-      - 15000
-      - 30000
-  - id: units-permitted-municipality
+    legend: units-permitted-county
+    layers:
+    - id: units-permitted-county
+      type: choropleth
+      source: units-permitted
+      source-layer: units-permitted-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 3000
+        - 7500
+        - 15000
+        - 30000
+  - id: municipality
     title: "Housing Units Permitted, 2010-2016"
-    type: choropleth
-    source: units-permitted
-    source-layer: units-permitted-municipality
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#ffffe0"
-      - "#ffffbe"
-      - "#ffd37f"
-      - "#ffaa00"
-      - "#ff5500"
-      breaks:
-      - 500
-      - 1000
-      - 2500
-      - 5000
+    legend: units-permitted-municipality
+    layers:
+    - id: units-permitted-municipality
+      type: choropleth
+      source: units-permitted
+      source-layer: units-permitted-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffffe0"
+        - "#ffffbe"
+        - "#ffd37f"
+        - "#ffaa00"
+        - "#ff5500"
+        breaks:
+        - 500
+        - 1000
+        - 2500
+        - 5000

@@ -10,12 +10,6 @@ content: |
 source: This maps show data from some source.
 
 map:
-  toggles:
-  - layerId: balance-housjobs0016-subregion
-    type: subregion
-  - layerId: balance-housjobs0016-county
-    type: county
-
   defaultGeographyLevel: county
 
   sources:
@@ -48,42 +42,48 @@ map:
   isPercent: false
   isChangeMeasurement: true
 
-  layers:
-  - id: balance-housjobs0016-subregion
+  layerGroups:
+  - id: subregion
     title: "Housing Units Produced vs. Change in Total Employment, 2000-2016"
-    type: choropleth
-    source: balance-housjobs0016
-    source-layer: balance-housjobs0016-subregion
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#127723"
-      - "#89dfa4"
-      - "#ffffe0"
-      - "#ffa555"
-      - "#d76523"
-      breaks:
-      - -50000
-      - -15000
-      - 15000
-      - 50000
-  - id: balance-housjobs0016-county
+    legend: balance-housjobs0016-subregion
+    layers:
+    - id: balance-housjobs0016-subregion
+      type: choropleth
+      source: balance-housjobs0016
+      source-layer: balance-housjobs0016-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#127723"
+        - "#89dfa4"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - -50000
+        - -15000
+        - 15000
+        - 50000
+  - id: county
     title: "Housing Units Produced vs. Change in Total Employment, 2000-2016"
-    type: choropleth
-    source: balance-housjobs0016
-    source-layer: balance-housjobs0016-county
-    paintConfig:
-      opacity: 0.6
-      colors:
-      - "#193f1f"
-      - "#127723"
-      - "#89dfa4"
-      - "#ffffe0"
-      - "#ffa555"
-      - "#d76523"
-      breaks:
-      - -50000
-      - -15000
-      - -5000
-      - 5000
-      - 15000
+    legend: balance-housjobs0016-county
+    layers:
+    - id: balance-housjobs0016-county
+      type: choropleth
+      source: balance-housjobs0016
+      source-layer: balance-housjobs0016-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#193f1f"
+        - "#127723"
+        - "#89dfa4"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - -50000
+        - -15000
+        - -5000
+        - 5000
+        - 15000
