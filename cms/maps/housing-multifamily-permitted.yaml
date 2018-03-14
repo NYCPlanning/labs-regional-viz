@@ -27,7 +27,7 @@ map:
 
   popupColumns:
   - id: houps
-    title: Units Permitted
+    title: '1-2 Units'
     large: true
     values:
     - geomType: region
@@ -44,6 +44,26 @@ map:
       sig:
     - geomType: municipality
       columnName: houps1016
+      cv:
+      sig:
+  - id: houpm1016
+    title: '3+ Units'
+    large: true
+    values:
+    - geomType: region
+      columnName: houpm1016
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houpm1016
+      cv:
+      sig:
+    - geomType: county
+      columnName: houpm1016
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houpm1016
       cv:
       sig:
 
