@@ -41,6 +41,7 @@ map:
 
   isPercent: false
   isChangeMeasurement: false
+  isRatio: true
 
   layerGroups:
   - id: subregion

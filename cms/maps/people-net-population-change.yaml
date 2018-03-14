@@ -47,6 +47,7 @@ map:
       sig:
   - id: moe
     title: MOE
+    isMOE: true
     values:
     - geomType: region
       columnName:
