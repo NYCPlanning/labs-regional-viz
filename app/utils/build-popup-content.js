@@ -10,8 +10,8 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
     const columnTitles = popupColumns.map(d => d.id);
     const columns = columnTitles.map((id) => {
       const value = rowData[id];
-      const isLarge = popupColumns
-        .find(d => d.id === id).large;
+      const isLarge = popupColumns.find(d => d.id === id).large;
+      const { isMOE } = popupColumns.find(d => d.id === id);
 
       let formattedValue = 'N/A';
       if (value !== null) {
@@ -21,6 +21,7 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         if (isRatio) formattedValue = numeral(value).format('0.0');
         if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
         if (isPercent && isChangeMeasurement) formattedValue = '+0.0%';
+        if (isChangeMeasurement && isMOE) formattedValue = `±${numeral(value).format('0,0')}`;
       }
 
       let isInsignificant = false;
