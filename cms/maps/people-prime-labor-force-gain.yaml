@@ -48,6 +48,7 @@ map:
       sig: lfpw0016si
   - id: moe
     title: MOE
+    isMOE: true
     values:
     - geomType: region
       columnName:
