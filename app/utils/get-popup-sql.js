@@ -7,7 +7,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
     const selectChunks = [];
     popupColumns.forEach((columnConfig) => {
       const match = columnConfig.values.find(d => d.geomType === geomType);
-      if (match) selectChunks.push(`${match.columnName} AS ${columnConfig.id}, ${match.cv} AS cv, ${match.sig} AS sig`);
+      if (match) selectChunks.push(`${match.columnName} AS ${columnConfig.id}, ${match.cv} AS ${columnConfig.id}_cv, ${match.sig} AS ${columnConfig.id}_sig`);
     });
 
     if (selectChunks.length === 0) return '';

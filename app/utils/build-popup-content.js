@@ -26,8 +26,8 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
 
       let isInsignificant = false;
       if (
-        (rowData.cv >= 20 && rowData.cv !== null) ||
-        (rowData.sig <= 1.645 && rowData.sig !== null)
+        (rowData[`${id}_cv`] >= 20 && rowData[`${id}_cv`] !== null) ||
+        (rowData[`${id}_sig`] <= 1.645 && rowData[`${id}_sig`] !== null)
       ) {
         isInsignificant = true;
         popupFooter = reliabilityDisclaimer;
