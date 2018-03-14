@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent) {
+export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent, isRatio, isChangeMeasurement) {
   const reliabilityDisclaimer = '<p class="popup-footer">Grayed values are not statistically reliable.</p>';
   let popupFooter = '';
 
@@ -15,11 +15,12 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
 
       let formattedValue = 'N/A';
       if (value !== null) {
-        if (value >= 10000) {
-          formattedValue = numeral(value).format('0.0a');
-        } else {
-          formattedValue = isPercent ? numeral(value).format('0,0%') : numeral(value).format('0,0');
-        }
+        formattedValue = numeral(value).format('0,0');
+        if (value >= 10000) formattedValue = numeral(value).format('0.0a');
+        if (isPercent) formattedValue = numeral(value).format('0,0%');
+        if (isRatio) formattedValue = numeral(value).format('0.0');
+        if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
+        if (isPercent && isChangeMeasurement) formattedValue = '+0.0%';
       }
 
       let isInsignificant = false;
