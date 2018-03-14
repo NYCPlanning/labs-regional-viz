@@ -228,26 +228,26 @@ body {
 // }
 
 // HACK: dot and pulse misalign without this.
-.mapboxgl-user-location-dot {
-  box-sizing: initial;
-}
+// .mapboxgl-user-location-dot {
+//   box-sizing: initial;
+// }
 
 
 // Features
 // --------------------------------------------------
-.feature-image-cell {
-
-  @include breakpoint(medium) {
-    padding-right: 1rem;
-  }
-}
-
-.feature-image {
-  max-width: 60%;
-  margin: 0 auto $global-margin;
-
-  @include breakpoint(medium) {
-    max-width: 100%;
-    margin-bottom: $global-margin*2;
-  }
-}
+// .feature-image-cell {
+//
+//   @include breakpoint(medium) {
+//     padding-right: 1rem;
+//   }
+// }
+//
+// .feature-image {
+//   max-width: 60%;
+//   margin: 0 auto $global-margin;
+//
+//   @include breakpoint(medium) {
+//     max-width: 100%;
+//     margin-bottom: $global-margin*2;
+//   }
+// }
