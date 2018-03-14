@@ -26,7 +26,6 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
 
       let isInsignificant = false;
       if (
-        formattedValue === 'N/A' ||
         (rowData.cv >= 20 && rowData.cv !== null) ||
         (rowData.sig <= 1.645 && rowData.sig !== null)
       ) {
