@@ -25,28 +25,30 @@
 
     {{outlet}}
 
-    <nav aria-label="Pagination" class="narrative-navigation">
-      <ul class="pagination text-center">
-        <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
-          {{#if previousNarrative}}
-            {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug}}
+    {{#if model.hasNarrative}}
+      <nav aria-label="Pagination" class="narrative-navigation">
+        <ul class="pagination text-center">
+          <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
+            {{#if previousNarrative}}
+              {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug}}
+                {{fa-icon 'arrow-left'}}&nbsp;Previous
+              {{/link-to}}
+            {{else}}
               {{fa-icon 'arrow-left'}}&nbsp;Previous
-            {{/link-to}}
-          {{else}}
-            {{fa-icon 'arrow-left'}}&nbsp;Previous
-          {{/if}}
-        </li>
-        <li class="pagination-next {{unless nextNarrative 'disabled'}}">
-          {{#if nextNarrative}}
-            {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug}}
+            {{/if}}
+          </li>
+          <li class="pagination-next {{unless nextNarrative 'disabled'}}">
+            {{#if nextNarrative}}
+              {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug}}
+                Next&nbsp;{{fa-icon 'arrow-right'}}
+              {{/link-to}}
+            {{else}}
               Next&nbsp;{{fa-icon 'arrow-right'}}
-            {{/link-to}}
-          {{else}}
-            Next&nbsp;{{fa-icon 'arrow-right'}}
-          {{/if}}
-        </li>
-      </ul>
-    </nav>
+            {{/if}}
+          </li>
+        </ul>
+      </nav>
+    {{/if}}
 
   </div>
 {{/if}}
