@@ -5,51 +5,54 @@ orderings:
 
   maps:
     - id: intro
-      hasNarrative: true
+      isLinearNarrative: true
       hideFromMenu: true
+      transitionPrompt: 23 million people live in the NYC region...
 
     # People
     - id: total-population
-      hasNarrative: true
+      isLinearNarrative: true
+      transitionPrompt: Our population is recentralizing...
     - id: population-density
-      hasNarrative: true
+      isLinearNarrative: true
+      transitionPrompt: Learn about some subject in the next map
     - id: population-change
-      hasNarrative: true
+      isLinearNarrative: true
     - id: net-population-change
-      hasNarrative: true
+      isLinearNarrative: true
     - id: foreign-born
-      hasNarrative: true
+      isLinearNarrative: true
     - id: prime-labor-force-gain
-      hasNarrative: true
+      isLinearNarrative: true
 
     # Housing
     - id: total-units
-      hasNarrative: true
+      isLinearNarrative: true
     - id: renter-owner
-      hasNarrative: true
+      isLinearNarrative: true
     - id: units-permitted
-      hasNarrative: true
+      isLinearNarrative: true
     - id: multifamily-permitted
-      hasNarrative: true
+      isLinearNarrative: true
 
     # Jobs
     - id: total-employment
-      hasNarrative: true
+      isLinearNarrative: true
     - id: office-employment
-      hasNarrative: true
+      isLinearNarrative: true
     - id: institutional-employment
-      hasNarrative: true
+      isLinearNarrative: true
     - id: industrial-employment
-      hasNarrative: true
+      isLinearNarrative: true
     - id: localserve-employment
-      hasNarrative: true
+      isLinearNarrative: true
     - id: private-employment-change
-      hasNarrative: true
+      isLinearNarrative: true
 
     # Balance
     - id: balance-housjobs00
-      hasNarrative: true
+      isLinearNarrative: true
     - id: balance-housjobs16
-      hasNarrative: true
+      isLinearNarrative: true
     - id: balance-housjobs0016
-      hasNarrative: true
+      isLinearNarrative: true

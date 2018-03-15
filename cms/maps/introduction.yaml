@@ -1,11 +1,19 @@
 slug: intro
 category: welcome
 categorySlug: welcome
-title: Introduction
+title: Welcome to the NYC Metro Mapper!
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  <p class="lead">The <strong><a href="http://www.nyc.gov/planning">NYC Department of City Planning</a> Metro Mapper</strong> lets you explore population, housing, and employment trends within the tri-state New York City Metropolitan Region.</p>
 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  When the City of New York consolidated in 1898, it united the majority of the region’s population under shared leadership. A century of suburban expansion has greatly increased both the size and scale of the metropolitan region, which today spans 3 states, 31 counties, and over 800 municipalities.
+
+  Using data from a range of publicly available sources, the Metro Mapper illustrates the geography of the region’s growth from 2000 to today. It also allows you to explore data by subregion, county, and municipality ([learn more about the data and geographies](/about)).
+
+source: |
+
+  ###### Sources & Notes
+
+  The tri-state geography shown, representing New York City and surrounding 26 counties in portions of New York, New Jersey and Connecticut, is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed.
 
 map:
   defaultGeographyLevel: county
