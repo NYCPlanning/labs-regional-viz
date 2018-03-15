@@ -1,7 +1,8 @@
 import Ember from 'ember';
-
 import Route from '@ember/routing/route';
 import { set } from '@ember/object';
+import { next } from '@ember/runloop';
+import { inject as service } from '@ember/service';
 
 import carto from 'ember-jane-maps/utils/carto';
 import buildPaint from '../utils/build-mapbox-paint-object';
@@ -9,6 +10,8 @@ import buildPaint from '../utils/build-mapbox-paint-object';
 const { Promise } = Ember.RSVP;
 
 export default Route.extend({
+  scroller: service(),
+
   model({ slug }) {
     const { maps = [] } = this
       .modelFor('application');
@@ -80,5 +83,17 @@ export default Route.extend({
         // set(enrichedMapNarrative, 'map.legends', layers);
         return enrichedMapNarrative;
       });
+  },
+
+  actions: {
+    didTransition() {
+      const scroller = this.get('scroller');
+
+      next(this, () => {
+        scroller.scrollVertical('#top', {
+          duration: 400,
+        });
+      });
+    },
   },
 });

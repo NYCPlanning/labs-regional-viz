@@ -23,10 +23,9 @@ test('index redirects to welcome/intro', function(assert) {
 
 test('user can click "next" from intro', function(assert) {
   visit('/');
-  click('.pagination-next a');
+  click('.pagination-next');
 
   andThen(function() {
     assert.equal(currentURL().indexOf('/welcome/intro'), -1);
   });
 });
-
