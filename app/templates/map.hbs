@@ -12,11 +12,15 @@
   <a {{action 'toggleNarrative'}} class="narrative-toggle">
     <span>{{fa-icon 'times'}}</span>
   </a>
-  <div class="cell large-5 xlarge-4 narrative-container">
+  <div class="cell large-5 xlarge-4 narrative-container" id="scrollable-content">
+    <a id="top"></a>
 
     <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
 
-    {{md-text text=model.content html=true}}
+    {{md-text
+      text=model.content
+      html=true
+    }}
 
     {{#if model.source}}
       <hr>
