@@ -7,7 +7,7 @@ orderings:
     - id: intro
       isLinearNarrative: true
       hideFromMenu: true
-      transitionPrompt: Learn about some subject in the next map
+      transitionPrompt: 23 million people live in the NYC region...
 
     # People
     - id: total-population
