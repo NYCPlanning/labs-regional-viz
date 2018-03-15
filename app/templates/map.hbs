@@ -31,11 +31,11 @@
           <p class="narrative-transition-prompt">{{model.transitionPrompt}}</p>
         {{/if}}
 
-        {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug class=(if previousNarrative 'button tiny gray text-orange' 'button tiny gray text-orange disabled')}}
+        {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug class=(if previousNarrative 'button tiny gray text-orange pagination-prev' 'button tiny gray text-orange disabled pagination-prev')}}
           {{fa-icon 'arrow-left'}}
         {{/link-to}}
 
-        {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug class=(if nextNarrative 'button' 'button disabled')}}
+        {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug class=(if nextNarrative 'button pagination-next' 'button disabled pagination-next')}}
           Next&nbsp;&nbsp;{{fa-icon 'arrow-right'}}
         {{/link-to}}
       </nav>
