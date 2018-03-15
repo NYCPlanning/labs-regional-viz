@@ -118,6 +118,7 @@ body {
   @include breakpoint(large) {
     box-shadow: -4px 0 0 0 rgba(0,0,0,0.1);
     overflow: visible;
+    padding-bottom: rem-calc(150);
   }
 }
 
@@ -129,6 +130,8 @@ body {
 
 .narrative-navigation {
 
+  margin-top: $global-margin*3;
+
   @include breakpoint(large) {
     position: fixed;
     bottom: 0;
@@ -137,9 +140,10 @@ body {
     background-color: $white;
     box-shadow: 0 -2px 0 0 rgba(0,0,0,0.1);
     padding: rem-calc(12);
+    margin-top: 0;
 
-    .pagination {
-      margin: 0;
+    .button {
+      margin: 0 rem-calc(5) 0;
     }
   }
 
@@ -147,6 +151,11 @@ body {
     width: calc(33.333%);
   }
 
+  .narrative-transition-prompt {
+    font-size: rem-calc(14);
+    font-weight: $global-weight-bold;
+    margin-bottom: $global-margin/2;
+  }
 }
 
 .narrative-toggle {

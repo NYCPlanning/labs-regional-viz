@@ -25,28 +25,19 @@
 
     {{outlet}}
 
-    {{#if model.hasNarrative}}
-      <nav aria-label="Pagination" class="narrative-navigation">
-        <ul class="pagination text-center">
-          <li class="pagination-previous {{unless previousNarrative 'disabled'}}">
-            {{#if previousNarrative}}
-              {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug}}
-                {{fa-icon 'arrow-left'}}&nbsp;Previous
-              {{/link-to}}
-            {{else}}
-              {{fa-icon 'arrow-left'}}&nbsp;Previous
-            {{/if}}
-          </li>
-          <li class="pagination-next {{unless nextNarrative 'disabled'}}">
-            {{#if nextNarrative}}
-              {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug}}
-                Next&nbsp;{{fa-icon 'arrow-right'}}
-              {{/link-to}}
-            {{else}}
-              Next&nbsp;{{fa-icon 'arrow-right'}}
-            {{/if}}
-          </li>
-        </ul>
+    {{#if model.isLinearNarrative}}
+      <nav class="narrative-navigation text-center">
+        {{#if model.transitionPrompt}}
+          <p class="narrative-transition-prompt">{{model.transitionPrompt}}</p>
+        {{/if}}
+
+        {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug class=(if previousNarrative 'button tiny gray text-orange' 'button tiny gray text-orange disabled')}}
+          {{fa-icon 'arrow-left'}}
+        {{/link-to}}
+
+        {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug class=(if nextNarrative 'button' 'button disabled')}}
+          Next&nbsp;&nbsp;{{fa-icon 'arrow-right'}}
+        {{/link-to}}
       </nav>
     {{/if}}
 
