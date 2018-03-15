@@ -1,4 +1,4 @@
-<div class="cell">
+<div class="cell" id="scrollable-content">
 
   <div class="page-container grid-x grid-padding-x">
 
@@ -9,11 +9,17 @@
     {{#if (or model.sidebar.content model.sidebar.button)}}
 
       <div class="cell large-6 large-offset-1 xlarge-5 xlarge-offset-2">
-        {{md-text text=model.content html=true}}
+        {{md-text
+          text=model.content
+          html=true
+        }}
       </div>
 
       <div class="cell page-sidebar large-4 xlarge-3">
-        {{md-text text = model.sidebar.content}}
+        {{md-text
+          text=model.sidebar.content
+          html=true
+        }}
         {{#if model.sidebar.button}}
           <a href="{{model.sidebar.button}}" class="button">{{if model.sidebar.buttontext model.sidebar.buttontext model.sidebar.button}}</a>
         {{/if}}
@@ -22,7 +28,10 @@
     {{else}}
 
       <div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2">
-        {{md-text text=model.content html=true}}
+        {{md-text
+          text=model.content
+          html=true
+        }}
       </div>
 
     {{/if}}

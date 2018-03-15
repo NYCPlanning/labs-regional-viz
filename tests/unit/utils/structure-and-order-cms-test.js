@@ -20,15 +20,15 @@ const testData = {
          "maps":[
             {
                "id":"housing-3",
-               "hasNarrative":true
+               "isLinearNarrative":true
             },
             {
                "id":"housing-2",
-               "hasNarrative":true
+               "isLinearNarrative":true
             },
             {
                "id":"housing-1",
-               "hasNarrative":true
+               "isLinearNarrative":true
             },
          ]
       }

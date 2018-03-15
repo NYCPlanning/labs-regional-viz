@@ -16,7 +16,7 @@ export default Controller.extend({
 
   @computed('application.model.maps', 'model.slug')
   previousNarrative(maps, currentSlug) {
-    const mapNarratives = maps.filter(map => map.hasNarrative);
+    const mapNarratives = maps.filter(map => map.isLinearNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
     return mapNarratives[currentPosition - 1];
@@ -24,7 +24,7 @@ export default Controller.extend({
 
   @computed('application.model.maps', 'model.slug')
   nextNarrative(maps, currentSlug) {
-    const mapNarratives = maps.filter(map => map.hasNarrative);
+    const mapNarratives = maps.filter(map => map.isLinearNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
     return mapNarratives[currentPosition + 1];
