@@ -51,8 +51,16 @@
   {{/if}}
 {{/if}}
 
+<div class="map-meta-box">
+  {{#unless narrativeVisible}}
+    {{#if mapTitle}}<h1 class="map-title">{{mapTitle}}</h1>{{/if}}
+  {{/unless}}
+  {{#if mapConfig.popupColumns}}
+    <p class="call-to-action">{{fa-icon 'hand-pointer-o'}} Select a geography to view its details.</p>
+  {{/if}}
+</div>
+
 {{#unless narrativeVisible}}
-  {{#if mapTitle}}<h1 class="map-title">{{mapTitle}}</h1>{{/if}}
   <a {{action toggleNarrative}} class="narrative-link">
     <span class="hide-for-large">{{fa-icon 'chevron-up'}}</span>
     <span class="show-for-large">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</span>

@@ -115,8 +115,8 @@
   }
 }
 
-// Map Title
-.map-title {
+// Map Meta Box
+.map-meta-box {
   position: absolute;
   z-index: 2;
   top: 10px;
@@ -125,17 +125,32 @@
 
   max-width: calc(100% - 100px);
   margin-top: calc(1.4rem + 0.6875rem + 10px);
-  padding: 0.3rem 0.6rem 0.4rem;
-  border-radius: 4px;
-
-  font-size: rem-calc(20);
-
-  background-color: transparentize($white, 0.3);
-  box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
 
   @include breakpoint(medium) {
     max-width: calc(100% - 130px);
     font-size: rem-calc(25);
+  }
+
+  .map-title {
+    // display: inline-block;
+    float: left;
+    margin: 0 0 rem-calc(10);
+    padding: 0.3rem 0.6rem 0.4rem;
+    border-radius: 4px;
+    font-size: rem-calc(20);
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
+  }
+
+  .call-to-action {
+    float: left;
+    clear: left;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    font-size: rem-calc(10);
+    background-color: rgba(255,255,255,0.9);
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.07);
+    color: $dark-gray;
   }
 }
 
