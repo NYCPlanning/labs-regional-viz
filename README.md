@@ -42,7 +42,7 @@ You will need the following things properly installed on your computer.
   - Visit your app at [http://localhost:4200](http://localhost:4200).
   - Visit your tests at [http://localhost:4200/tests](http://localhost:4200/tests).
 
-## Testing and checks
+### Testing and checks
 
 - **ESLint** - We use ESLint with Airbnb's rules for JavaScript projects
   - Add an ESLint plugin to your text editor to highlight broken rules while you code
