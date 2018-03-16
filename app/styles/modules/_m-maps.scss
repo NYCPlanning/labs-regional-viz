@@ -207,6 +207,10 @@
   border-radius: 4px;
   text-align: center;
 
+  @include breakpoint(large) {
+    box-shadow: none;
+  }
+
   .supporting-layers-list {
     display: none;
     position: absolute;
@@ -220,6 +224,10 @@
     box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
     border-radius: 4px;
     padding: rem-calc(6) rem-calc(10);
+
+    @include breakpoint(large) {
+      display: block;
+    }
 
     li {
       white-space: nowrap;
