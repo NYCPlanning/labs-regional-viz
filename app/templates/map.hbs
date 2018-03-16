@@ -39,7 +39,7 @@
     {{#if model.isLinearNarrative}}
       <nav class="narrative-navigation text-center">
         {{#if model.transitionPrompt}}
-          <p class="narrative-transition-prompt">{{model.transitionPrompt}}</p>
+          <p class="narrative-transition-prompt"><span style="font-weight:normal;">NEXT:</span> {{model.transitionPrompt}}</p>
         {{/if}}
 
         {{#link-to 'map' previousNarrative.categorySlug previousNarrative.slug class=(if previousNarrative 'button tiny gray text-orange pagination-prev' 'button tiny gray text-orange disabled pagination-prev')}}
@@ -47,7 +47,7 @@
         {{/link-to}}
 
         {{#link-to 'map' nextNarrative.categorySlug nextNarrative.slug class=(if nextNarrative 'button pagination-next' 'button disabled pagination-next')}}
-          Next&nbsp;&nbsp;{{fa-icon 'arrow-right'}}
+          Learn&nbsp;More&nbsp;&nbsp;{{fa-icon 'arrow-right'}}
         {{/link-to}}
       </nav>
     {{/if}}
