@@ -19,8 +19,11 @@ export default Component.extend({
   },
 
   zoom: 9,
+  maxZoom: 14,
+  minZoom: 5,
   center: [-73.869324, 40.815888],
-  regionbounds: [[-75.234614, 39.480131], [-71.820730, 42.205393]],
+  regionBounds: [[-75.234614, 39.480131], [-71.820730, 42.205393]],
+  maxBounds: [[-79.2185899687017, 37.091720189853106], [-67.83675403119405, 44.41941348578442]],
 
   highlightedFeature: null,
 
@@ -111,8 +114,8 @@ export default Component.extend({
     popup.remove();
 
     // This is repeated in handleMapLoad(), maybe move to service
-    const regionbounds = this.get('regionbounds');
-    map.fitBounds(regionbounds, {
+    const regionBounds = this.get('regionBounds');
+    map.fitBounds(regionBounds, {
       padding: {
         top: 20,
         bottom: 20,
@@ -141,8 +144,8 @@ export default Component.extend({
       map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
 
       // This is repeated in didUpdateAttrs(), maybe move to service
-      const regionbounds = this.get('regionbounds');
-      map.fitBounds(regionbounds, {
+      const regionBounds = this.get('regionBounds');
+      map.fitBounds(regionBounds, {
         padding: {
           top: 20,
           bottom: 20,
