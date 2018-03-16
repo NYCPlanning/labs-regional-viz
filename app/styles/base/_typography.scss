@@ -198,6 +198,7 @@ button {
 
   .large {
     font-size: 1rem;
+    box-shadow: inset 1px 0 0 0 transparentize($medium-gray, 0.75);
   }
 }
 
