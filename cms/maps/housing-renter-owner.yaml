@@ -23,7 +23,7 @@ map:
 
   popupColumns:
   - id: owner
-    title: Owner-occupied
+    title: Owner
     large: true
     values:
     - geomType: region
@@ -62,7 +62,7 @@ map:
       cv: houo16cv
       sig:
   - id: renter
-    title: Renter-occupied
+    title: Renter
     large: true
     values:
     - geomType: region
@@ -99,6 +99,45 @@ map:
     - geomType: municipality
       columnName: hour16moe
       cv: hour16cv
+      sig:
+  - id: vacant
+    title: Vacant
+    large: true
+    values:
+    - geomType: region
+      columnName: houv16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houv16
+      cv: houv16c
+      sig:
+    - geomType: county
+      columnName: houv16
+      cv: houv16c
+      sig:
+    - geomType: municipality
+      columnName: houv16
+      cv: houv16cv
+      sig:
+  - id: vacantmoe
+    title: MOE
+    values:
+    - geomType: region
+      columnName: houv16moe
+      cv: houv16c
+      sig:
+    - geomType: subregion
+      columnName: houv16moe
+      cv: houv16c
+      sig:
+    - geomType: county
+      columnName: houv16moe
+      cv: houv16c
+      sig:
+    - geomType: municipality
+      columnName: houv16moe
+      cv: houv16cv
       sig:
 
   isPercent: false
