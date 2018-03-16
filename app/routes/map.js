@@ -94,6 +94,8 @@ export default Route.extend({
           duration: 400,
         });
       });
+
+      window.scrollTo(0, 0);
     },
   },
 });
