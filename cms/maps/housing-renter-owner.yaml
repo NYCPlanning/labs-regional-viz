@@ -18,6 +18,10 @@ map:
     source-layers:
     - id: renter-owner-municipality
       sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
@@ -143,6 +147,90 @@ map:
   isPercent: false
 
   layerGroups:
+  - id: subregion
+    title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
+    legend:
+    - color: "#fc8d59"
+      label: "50 Owner-occupied Units"
+    - color: "#91bfdb"
+      label: "50 Renter-occupied Units"
+    layers:
+    - id: renter-owner-municipality
+      type: circle
+      source: renter-owner
+      source-layer: renter-owner-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - random_value
+        - "own"
+        - "#fc8d59"
+        - "rent"
+        - "#91bfdb"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.4
+    - id: empty-subregion-polygons
+      type: fill
+      source: renter-owner
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: renter-owner
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
+    legend:
+    - color: "#fc8d59"
+      label: "50 Owner-occupied Units"
+    - color: "#91bfdb"
+      label: "50 Renter-occupied Units"
+    layers:
+    - id: renter-owner-municipality
+      type: circle
+      source: renter-owner
+      source-layer: renter-owner-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - random_value
+        - "own"
+        - "#fc8d59"
+        - "rent"
+        - "#91bfdb"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.4
+    - id: empty-county-polygons
+      type: fill
+      source: renter-owner
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: renter-owner
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
   - id: municipality
     title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
     legend:
