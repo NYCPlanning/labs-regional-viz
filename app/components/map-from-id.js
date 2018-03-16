@@ -18,8 +18,9 @@ export default Component.extend({
     layers: [],
   },
 
-  zoom: 6.8,
+  zoom: 9,
   center: [-73.869324, 40.815888],
+  regionbounds: [[-75.234614, 39.480131], [-71.820730, 42.205393]],
 
   highlightedFeature: null,
 
@@ -108,6 +109,17 @@ export default Component.extend({
     });
 
     popup.remove();
+
+    // This is repeated in handleMapLoad(), maybe move to service
+    const regionbounds = this.get('regionbounds');
+    map.fitBounds(regionbounds, {
+      padding: {
+        top: 20,
+        bottom: 20,
+        left: 10,
+        right: 10,
+      },
+    });
   },
 
   actions: {
@@ -127,6 +139,17 @@ export default Component.extend({
       });
 
       map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
+
+      // This is repeated in didUpdateAttrs(), maybe move to service
+      const regionbounds = this.get('regionbounds');
+      map.fitBounds(regionbounds, {
+        padding: {
+          top: 20,
+          bottom: 20,
+          left: 10,
+          right: 10,
+        },
+      });
     },
 
     handleMouseMove(e) {
