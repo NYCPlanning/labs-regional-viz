@@ -11,7 +11,7 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
     let formatter = '0,0';
     if (value >= 10000) formatter = '0.0a';
     if (isPercent) formatter = '0,0%';
-    if (isRatio) formatter = '0.0';
+    if (isRatio) formatter = '0.00';
     if (isChangeMeasurement) formatter = '+0,0';
     if (isPercent && isChangeMeasurement) formatter = '+0.0%';
 
