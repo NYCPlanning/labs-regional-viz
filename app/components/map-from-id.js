@@ -178,7 +178,9 @@ export default Component.extend({
     },
 
     handleMouseClick(e) {
-      const layers = this.get('visibleLayers').map(d => d.id);
+      const layers = this.get('visibleLayers')
+        .filter(d => d.type !== 'circle') // exclude dot density maps
+        .map(d => d.id);
       const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
       const popup = this.get('popup');
       const {
