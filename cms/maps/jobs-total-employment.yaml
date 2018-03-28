@@ -1,10 +1,10 @@
 # Jobs
 # ----------
-slug: employment-by-sector
+slug: total-employment
 category: Jobs
 categorySlug: jobs
-title: "Employment by Sector"
-menuTitle: "Employment by Sector"
+title: "NYC accounts for 42% of regional employment"
+menuTitle: "Total Employment 2016"
 content: |
   Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 source: This maps show data from some source.
@@ -13,202 +13,101 @@ map:
   defaultGeographyLevel: subregion
 
   sources:
-  - id: employment-by-sector-dots
+  - id: total-employment
     type: cartovector
     source-layers:
-    - id: employment-by-sector-subregion
+    - id: total-employment-subregion
       sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_subregion_v0
-    - id: employment-by-sector-county
+    - id: total-employment-county
       sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_county_v0
-    - id: employment-by-sector-municipality
+    - id: total-employment-municipality
       sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
-    - id: employment-by-sector-dots
-      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
 
-  # popupColumns:
-  # - id: emptot
-  #   title: Total
-  #   large: true
-  #   values:
-  #   - geomType: region
-  #     columnName: emtot16
-  #     cv:
-  #     sig:
-  #   - geomType: subregion
-  #     columnName: emtot16
-  #     cv:
-  #     sig:
-  #   - geomType: county
-  #     columnName: emtot16
-  #     cv:
-  #     sig:
-  #   - geomType: municipality
-  #     columnName: emtot15
-  #     cv:
-  #     sig:
+  popupColumns:
+  - id: emptot
+    title: Total
+    large: true
+    values:
+    - geomType: region
+      columnName: emtot16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emtot16
+      cv:
+      sig:
+    - geomType: county
+      columnName: emtot16
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: emtot15
+      cv:
+      sig:
 
-  # isPercent: false
+  isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
-    legend:
-    - color: "#179FA5"
-      label: "Office-based jobs"
-    - color: "#e8c758"
-      label: "Education & Healthcare jobs"
-    - color: "#9e5dba"
-      label: "Industrial jobs"
-    - color: "#3db709"
-      label: "Retail, Leisure & Hospitality jobs"
-    - color: "#818387"
-      label: "Other Services jobs"
+    title: "Total Employment 2016"
+    legend: total-employment-subregion
     layers:
-    - id: multifamily-permitted-municipality
-      type: circle
-      legend:
-      - color: "#179FA5"
-        label: "Office-based jobs"
-      - color: "#e8c758"
-        label: "Education & Healthcare jobs"
-      - color: "#9e5dba"
-        label: "Industrial jobs"
-      - color: "#3db709"
-        label: "Retail, Leisure & Hospitality jobs"
-      - color: "#818387"
-        label: "Other Services jobs"
-
-      source: employment-by-sector-dots
-      source-layer: employment-by-sector-dots
-      paint:
-        circle-color:
-        - match
-        - - get
-          - category
-        - "EmOff15"
-        - "#179FA5"
-        - "EmIns15"
-        - "#e8c758"
-        - "EmInd15"
-        - "#9e5dba"
-        - "EmSer15"
-        - "#3db709"
-        - "EmOth15"
-        - "#818387"
-        - "#FFFFFF"
-        circle-radius:
-          stops:
-          - - 7
-            - 1.5
-          - - 11
-            - 2
-        circle-opacity: 0.9
-    - id: empty-subregion-polygons
-      type: fill
-      source: employment-by-sector-dots
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: employment-by-sector-dots
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
-
-  # - id: county
-  #   title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
-  #   legend:
-  #   - color: "#fc8d59"
-  #     label: "50 Single-family Units"
-  #   - color: "#91bfdb"
-  #     label: "50 Multi-family Units"
-  #   layers:
-  #   - id: multifamily-permitted-municipality
-  #     type: circle
-  #     legend:
-  #     - color: "#fc8d59"
-  #       label: "50 Single-family Units"
-  #     - color: "#91bfdb"
-  #       label: "50 Multi-family Units"
-  #     source: multifamily-permitted
-  #     source-layer: multifamily-permitted-municipality
-  #     paint:
-  #       circle-color:
-  #       - match
-  #       - - get
-  #         - random_value
-  #       - "single"
-  #       - "#fc8d59"
-  #       - "multi"
-  #       - "#91bfdb"
-  #       - "#FFFFFF"
-  #       circle-radius:
-  #         stops:
-  #         - - 7
-  #           - 1.5
-  #         - - 11
-  #           - 2
-  #       circle-opacity: 0.9
-  #   - id: empty-county-polygons
-  #     type: fill
-  #     source: multifamily-permitted
-  #     source-layer: empty-polygons-county
-  #     paint:
-  #       fill-opacity: 0
-  #   - id: empty-county-line
-  #     type: line
-  #     source: multifamily-permitted
-  #     source-layer: empty-polygons-county
-  #     paint:
-  #       line-color: rgba(131, 131, 131, 1)
-  #       line-width: 0.5
-
-  # - id: municipality
-  #   title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
-  #   legend:
-  #   - color: "#fc8d59"
-  #     label: "50 Single-family Units"
-  #   - color: "#91bfdb"
-  #     label: "50 Multi-family Units"
-  #   layers:
-  #   - id: multifamily-permitted-municipality
-  #     type: circle
-  #     legend:
-  #     - color: "#fc8d59"
-  #       label: "50 Single-family Units"
-  #     - color: "#91bfdb"
-  #       label: "50 Multi-family Units"
-  #     source: multifamily-permitted
-  #     source-layer: multifamily-permitted-municipality
-  #     paint:
-  #       circle-color:
-  #       - match
-  #       - - get
-  #         - random_value
-  #       - "single"
-  #       - "#fc8d59"
-  #       - "multi"
-  #       - "#91bfdb"
-  #       - "#FFFFFF"
-  #       circle-radius:
-  #         stops:
-  #         - - 7
-  #           - 1.5
-  #         - - 11
-  #           - 2
-  #       circle-opacity: 0.9
-  #   - id: empty-municipality-polygons
-  #     type: fill
-  #     source: multifamily-permitted
-  #     source-layer: empty-polygons-municipality
-  #     paint:
-  #       fill-opacity: 0
-  #   - id: empty-municipality-line
-  #     type: line
-  #     source: multifamily-permitted
-  #     source-layer: empty-polygons-municipality
-  #     paint:
-  #       line-color: rgba(131, 131, 131, 1)
-  #       line-width: 0.5
+    - id: total-employment-subregion
+      type: choropleth
+      source: total-employment
+      source-layer: total-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccf5df"
+        - "#89dfa4"
+        - "#64b678"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 500000
+        - 750000
+        - 1000000
+        - 2500000
+  - id: county
+    title: "Total Employment 2016"
+    legend: total-employment-county
+    layers:
+    - id: total-employment-county
+      type: choropleth
+      source: total-employment
+      source-layer: total-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccf5df"
+        - "#89dfa4"
+        - "#64b678"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 100000
+        - 250000
+        - 500000
+        - 750000
+  - id: municipality
+    title: "Total Employment 2016"
+    legend: total-employment-municipality
+    layers:
+    - id: total-employment-municipality
+      type: choropleth
+      source: total-employment
+      source-layer: total-employment-municipality
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccf5df"
+        - "#89dfa4"
+        - "#64b678"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 5000
+        - 10000
+        - 25000
+        - 50000
