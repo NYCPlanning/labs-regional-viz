@@ -18,25 +18,47 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
     return numeral(value).format(formatter);
   };
 
+  let lowBreakPrefix = 'Under';
+  let lowBreakSuffix = '';
+  let highBreakPrefix = 'Over';
+  let highBreakSuffix = '';
+
+  if (isChangeMeasurement) {
+    lowBreakPrefix = 'Loss of';
+    lowBreakSuffix = 'or more';
+    highBreakPrefix = 'Gain of';
+    highBreakSuffix = 'or more';
+  }
+
+  if (isPercent) {
+    lowBreakPrefix = 'Less than';
+    lowBreakSuffix = '';
+    highBreakPrefix = '';
+    highBreakSuffix = 'or more';
+  }
+
   const breaksArray = [];
 
   for (let i = breaks.length; i >= 0; i -= 1) {
+    // Handles the highest break
     if (i === breaks.length) {
       breaksArray.push({
-        label: `${format(breaks[breaks.length - 1])} or more`,
+        label: `${highBreakPrefix} ${format(breaks[breaks.length - 1])} ${highBreakSuffix}`,
         color: colors[breaks.length],
       });
       continue; // eslint-disable-line
     }
 
+    // Handles the lowset break
     if (i === 0) {
       breaksArray.push({
-        label: isPercent ? `Less than ${format(breaks[0])}` : `Under ${format(breaks[0])}`,
+        label: `${lowBreakPrefix} ${format(breaks[0])} ${lowBreakSuffix}`,
         color: colors[0],
       });
       continue; // eslint-disable-line
     }
 
+    // Handles all other breaks
     breaksArray.push({
       label: `${format(breaks[i - 1])} to ${format(breaks[i])}`,
       color: colors[i],
