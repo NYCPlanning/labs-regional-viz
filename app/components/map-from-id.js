@@ -83,8 +83,6 @@ export default Component.extend({
 
   @computed('mapConfig', 'geographyLevel')
   visibleLayers({ mapboxLayers = [] }, selectedGeographyLevel) {
-    console.log(mapboxLayers.find(layerGroup => layerGroup.id === selectedGeographyLevel).layers)
-
     return mapboxLayers
       .find(layerGroup => layerGroup.id === selectedGeographyLevel)
       .layers;
