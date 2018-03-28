@@ -1,0 +1,294 @@
+# Jobs
+# ----------
+slug: employment-by-sector
+category: Jobs
+categorySlug: jobs
+title: "Employment by Sector"
+menuTitle: "Employment by Sector"
+content: |
+  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+source: This maps show data from some source.
+
+map:
+  defaultGeographyLevel: subregion
+
+  sources:
+  - id: employment-by-sector
+    type: cartovector
+    source-layers:
+    - id: employment-by-sector-municipality
+      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+
+  popupColumns:
+  - id: emoff
+    title: Office-based
+    large: true
+    values: 
+    - geomType: municipality
+      columnName: emoff15
+      cv:
+      sig:
+    - geomType: county
+      columnName: emoff16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emoff16
+      cv:
+      sig:
+    - geomType: region
+      columnName: emoff16            
+      cv:
+      sig:
+  - id: emins
+    title: Edu. & Health
+    large: true
+    values: 
+    - geomType: municipality
+      columnName: emins15
+      cv:
+      sig:
+    - geomType: county
+      columnName: emins16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emins16
+      cv:
+      sig:
+    - geomType: region
+      columnName: emins16      
+      cv:
+      sig:
+  - id: emind
+    title: Industrial
+    large: true
+    values: 
+    - geomType: municipality
+      columnName: emind15
+      cv:
+      sig:
+    - geomType: county
+      columnName: emind16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emind16
+      cv:
+      sig:
+    - geomType: region
+      columnName: emind16                  
+      cv:
+      sig:
+  - id: emser
+    title: Retail, Leisure & Hospitality
+    large: true
+    values: 
+    - geomType: municipality
+      columnName: emser15
+      cv:
+      sig:
+    - geomType: county
+      columnName: emser16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emser16
+      cv:
+      sig:
+    - geomType: region
+      columnName: emser16                  
+      cv:
+      sig:
+  - id: emoth
+    title: Other Services
+    large: true
+    values: 
+    - geomType: municipality
+      columnName: emoth15
+      cv:
+      sig:
+    - geomType: county
+      columnName: emoth16
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emoth16            
+      cv:
+      sig:
+    - geomType: region
+      columnName: emoth16      
+      cv:
+      sig:
+
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "Employment by Sector"
+    legend:
+    - label: "Office-based jobs"
+      color: "#179FA5"
+    - label: "Education & Healthcare jobs"
+      color: "#e8c758"
+    - label: "Industrial jobs"
+      color: "#9e5dba"
+    - label: "Retail, Leisure & Hospitality jobs"
+      color: "#3db709"
+    - label: "Other Services jobs"
+      color: "#818387"
+    layers:
+    - id: employment-by-sector-municipality
+      type: circle
+      source: employment-by-sector
+      source-layer: employment-by-sector-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "EmOff15" 
+        - "#179FA5"
+        - "EmIns15" 
+        - "#e8c758"
+        - "EmInd15" 
+        - "#9e5dba"
+        - "EmSer15" 
+        - "#3db709"
+        - "EmOth15" 
+        - "#818387"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.4
+    - id: empty-subregion-polygons
+      type: fill
+      source: employment-by-sector
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: employment-by-sector
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Employment by Sector"
+    legend:
+    - label: "Office-based jobs"
+      color: "#179FA5"
+    - label: "Education & Healthcare jobs"
+      color: "#e8c758"
+    - label: "Industrial jobs"
+      color: "#9e5dba"
+    - label: "Retail, Leisure & Hospitality jobs"
+      color: "#3db709"
+    - label: "Other Services jobs"
+      color: "#818387"
+    layers:
+    - id: employment-by-sector-municipality
+      type: circle
+      source: employment-by-sector
+      source-layer: employment-by-sector-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "EmOff15" 
+        - "#179FA5"
+        - "EmIns15" 
+        - "#e8c758"
+        - "EmInd15" 
+        - "#9e5dba"
+        - "EmSer15" 
+        - "#3db709"
+        - "EmOth15" 
+        - "#818387"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.4
+    - id: empty-county-polygons
+      type: fill
+      source: employment-by-sector
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: employment-by-sector
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: municipality
+    title: "Employment by Sector"
+    legend:
+    - label: "Office-based jobs"
+      color: "#179FA5"
+    - label: "Education & Healthcare jobs"
+      color: "#e8c758"
+    - label: "Industrial jobs"
+      color: "#9e5dba"
+    - label: "Retail, Leisure & Hospitality jobs"
+      color: "#3db709"
+    - label: "Other Services jobs"
+      color: "#818387"
+    layers:
+    - id: employment-by-sector-municipality
+      type: circle
+      source: employment-by-sector
+      source-layer: employment-by-sector-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "EmOff15" 
+        - "#179FA5"
+        - "EmIns15" 
+        - "#e8c758"
+        - "EmInd15" 
+        - "#9e5dba"
+        - "EmSer15" 
+        - "#3db709"
+        - "EmOth15" 
+        - "#818387"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.4
+    - id: empty-municipality-polygons
+      type: fill
+      source: employment-by-sector
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: employment-by-sector
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
