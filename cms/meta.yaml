@@ -48,6 +48,8 @@ orderings:
       isLinearNarrative: true
     - id: private-employment-change
       isLinearNarrative: true
+    - id: employment-by-sector
+      isLinearNarrative: true
 
     # Balance
     - id: balance-housjobs00
