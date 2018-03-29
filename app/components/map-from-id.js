@@ -18,6 +18,8 @@ export default Component.extend({
     layers: [],
   },
 
+  loading: true,
+
   zoom: 9,
   maxZoom: 14,
   minZoom: 5,
