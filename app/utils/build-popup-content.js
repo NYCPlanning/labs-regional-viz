@@ -20,7 +20,8 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         if (isPercent) formattedValue = numeral(value).format('0,0%');
         if (isRatio) formattedValue = numeral(value).format('0.00');
         if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
-        if (isPercent && isChangeMeasurement) formattedValue = '+0.0%';
+        if (isPercent && isChangeMeasurement) formattedValue = numeral(value).format('+0.0%');
+        if (isRatio && isChangeMeasurement) formattedValue = numeral(value).format('+0.00');
         if (isChangeMeasurement && isMOE) formattedValue = `±${numeral(value).format('0,0')}`;
       }
 
