@@ -14,6 +14,7 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
     if (isRatio) formatter = '0.00';
     if (isChangeMeasurement) formatter = '+0,0';
     if (isPercent && isChangeMeasurement) formatter = '+0.0%';
+    if (isRatio && isChangeMeasurement) formatter = '+0.00';
 
     return numeral(value).format(formatter);
   };
