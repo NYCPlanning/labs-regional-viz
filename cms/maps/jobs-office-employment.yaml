@@ -3,14 +3,15 @@
 slug: office-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for nearly 50% of the region's 2.69 million office-based jobs"
-menuTitle: "Office-based Employment"
+title: "NYC accounts for nearly 50% of the region's 2.69 million office-based jobs."
+menuTitle: "Office Employment"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+  NYC was home to 1.3 million average annual office-based jobs in 2016, close to half of the region's total office-based employment.  Office-based jobs includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors.
+source: |
+  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: office-employment

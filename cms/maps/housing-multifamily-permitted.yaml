@@ -3,11 +3,15 @@
 slug: multifamily-permitted
 category: Housing
 categorySlug: housing
-title: "NYC accounted for XX% of multifamily housing units permitted in the region since 2010."
-menuTitle: "Housing Units Permitted by Building Size"
+title: "In recent years, NYC and North Jersey dominated housing production, especially multifamily housing."
+menuTitle: "Housing Production (Permitted Units) by Building Size, 2010-2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle being added in a six-year period. NYC accounted for 44% of new housing (142,000 units) and the Inner NJ subregion accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units. Nearly three-quarters of the total permitted units were in buildings that have 3 or units (235,000 units), with only 90,000 units permitted in buildings with 1-2 units, which are characteristic of lower-density areas.
+
+  Today the region has 3.8 million households in buildings with 3 or more units, of which NYC accounts for 63% (2.4 million units) and the Inner NJ subregion accounts for 17% (667,000 units. Areas in north New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 57% of the region’s permitted units in buildings with 3+ units (133,000 units), slightly lower than its regional share, and Inner NJ accounted for 28% of the region’s permitted units in 3+ unit structures (66,000 units), higher than its regional share of units in such buildings. These are the areas that are also experiencing considerable population and labor force growth.
+
+source: |
+  Source: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual.
 
 map:
   defaultGeographyLevel: county
@@ -31,7 +35,7 @@ map:
 
   popupColumns:
   - id: houps
-    title: '1-2 Units'
+    title: '1-2 Unit Bldg'
     large: true
     values:
     - geomType: region
@@ -51,7 +55,7 @@ map:
       cv:
       sig:
   - id: houpm1016
-    title: '3+ Units'
+    title: '3+ Unit Bldg'
     large: true
     values:
     - geomType: region
@@ -77,20 +81,20 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
+    title: "Permitted Housing Units by Building Size, 2010-2016"
     legend:
-    - color: "#fc8d59"
-      label: "50 Single-family Units"
-    - color: "#91bfdb"
-      label: "50 Multi-family Units"
+    - color: "#f2d710"
+      label: "50 Units, in 1-2 Unit Bldg"
+    - color: "#db6f0a"
+      label: "50 Units, in 3+ Unit Bldg"
     layers:
     - id: multifamily-permitted-municipality
       type: circle
       legend:
-      - color: "#fc8d59"
-        label: "50 Single-family Units"
-      - color: "#91bfdb"
-        label: "50 Multi-family Units"
+      - color: "#f2d710"
+        label: "50 Units, in 1-2 Unit Bldg"
+      - color: "#db6f0a"
+        label: "50 Units, in 3+ Unit Bldg"
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
@@ -99,9 +103,9 @@ map:
         - - get
           - random_value
         - "single"
-        - "#fc8d59"
+        - "#f2d710"
         - "multi"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -125,20 +129,20 @@ map:
         line-width: 0.5
 
   - id: county
-    title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
+    title: "Permitted Housing Units by Building Size, 2010-2016"
     legend:
-    - color: "#fc8d59"
-      label: "50 Single-family Units"
-    - color: "#91bfdb"
-      label: "50 Multi-family Units"
+    - color: "#f2d710"
+      label: "50 Units, in 1-2 Unit Bldg"
+    - color: "#db6f0a"
+      label: "50 Units, in 3+ Unit Bldg"
     layers:
     - id: multifamily-permitted-municipality
       type: circle
       legend:
-      - color: "#fc8d59"
-        label: "50 Single-family Units"
-      - color: "#91bfdb"
-        label: "50 Multi-family Units"
+      - color: "#f2d710"
+        label: "50 Units, in 1-2 Unit Bldg"
+      - color: "#db6f0a"
+        label: "50 Units, in 3+ Unit Bldg"
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
@@ -147,9 +151,9 @@ map:
         - - get
           - random_value
         - "single"
-        - "#fc8d59"
+        - "#f2d710"
         - "multi"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -173,20 +177,20 @@ map:
         line-width: 0.5
 
   - id: municipality
-    title: "Single vs. Multifamily Housing Units Permitted, 2010-2016"
+    title: "Permitted Housing Units by Building Size, 2010-2016"
     legend:
-    - color: "#fc8d59"
-      label: "50 Single-family Units"
-    - color: "#91bfdb"
-      label: "50 Multi-family Units"
+    - color: "#f2d710"
+      label: "50 Units, in 1-2 Unit Bldg"
+    - color: "#db6f0a"
+      label: "50 Units, in 3+ Unit Bldg"
     layers:
     - id: multifamily-permitted-municipality
       type: circle
       legend:
-      - color: "#fc8d59"
-        label: "50 Single-family Units"
-      - color: "#91bfdb"
-        label: "50 Multi-family Units"
+      - color: "#f2d710"
+        label: "50 Units, in 1-2 Unit Bldg"
+      - color: "#db6f0a"
+        label: "50 Units, in 3+ Unit Bldg"
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
@@ -195,9 +199,9 @@ map:
         - - get
           - random_value
         - "single"
-        - "#fc8d59"
+        - "#f2d710"
         - "multi"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:

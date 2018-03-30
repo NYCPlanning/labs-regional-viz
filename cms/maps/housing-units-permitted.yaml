@@ -3,11 +3,12 @@
 slug: units-permitted
 category: Housing
 categorySlug: housing
-title: "NYC accounted for about 40% of housing units permitted since 2010"
-menuTitle: "Total Housing Units Permitted"
+title: "NYC and north NJ accounted for over 80% of housing units permitted in the region since 2010."
+menuTitle: "Housing Units Permitted, 2010-2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Since 2010, there were about 324,000 new housing units issued building permits in the NYC metro region. Of the total units permitted, NYC accounted for 44% (142,000 units) and the Inner NJ subregion accounted for 29% (95,000 units).
+source: |
+  Source: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual.
 
 map:
   defaultGeographyLevel: county

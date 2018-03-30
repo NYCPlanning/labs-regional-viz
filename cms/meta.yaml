@@ -14,49 +14,57 @@ orderings:
       isLinearNarrative: true
       transitionPrompt: Our population is recentralizing...
     - id: population-density
-      isLinearNarrative: true
-      transitionPrompt: Learn about some subject in the next map
+      isLinearNarrative: false
     - id: population-change
-      isLinearNarrative: true
+      isLinearNarrative: false
     - id: net-population-change
       isLinearNarrative: true
+      transitionPrompt: Growing areas are among the most diverse...
     - id: foreign-born
+      transitionPrompt: Prime-age labor force is recentralizing...
       isLinearNarrative: true
     - id: prime-labor-force-gain
       isLinearNarrative: true
+      transitionPrompt: Rental housing is concentrated in NYC...
 
     # Housing
     - id: total-units
-      isLinearNarrative: true
+      isLinearNarrative: false
     - id: renter-owner
       isLinearNarrative: true
+      transitionPrompt: NYC and NJ are building the most housing...
+    - id: units-by-structure
+      isLinearNarrative: false
     - id: units-permitted
-      isLinearNarrative: true
+      isLinearNarrative: false
     - id: multifamily-permitted
       isLinearNarrative: true
-    - id: units-by-structure
-      isLinearNarrative: true
+      transitionPrompt: NYC is the largest U.S. metro economy...
 
     # Jobs
     - id: total-employment
-      isLinearNarrative: true
-    - id: office-employment
-      isLinearNarrative: true
-    - id: institutional-employment
-      isLinearNarrative: true
-    - id: industrial-employment
-      isLinearNarrative: true
-    - id: localserve-employment
-      isLinearNarrative: true
-    - id: private-employment-change
-      isLinearNarrative: true
+      isLinearNarrative: false
     - id: employment-by-sector
       isLinearNarrative: true
+      transitionPrompt: Post-recession, NYC saw the majority of job gains...
+    - id: office-employment
+      isLinearNarrative: false
+    - id: institutional-employment
+      isLinearNarrative: false
+    - id: industrial-employment
+      isLinearNarrative: false
+    - id: localserve-employment
+      isLinearNarrative: false
+    - id: private-employment-change
+      isLinearNarrative: true
+      transitionPrompt: The regional housing-jobs balance is shifting...
 
     # Balance
     - id: balance-housjobs00
       isLinearNarrative: true
+      transitionPrompt: The regional housing/jobs balance is shifting…
     - id: balance-housjobs16
       isLinearNarrative: true
+      transitionPrompt: The regional housing/jobs balance is shifting…
     - id: balance-housjobs0016
       isLinearNarrative: true

@@ -3,11 +3,17 @@
 slug: balance-housjobs16
 category: Balance
 categorySlug: balance
-title: "Something about the relationship between housing and jobs in 2016"
-menuTitle: "Housing Units/ Total Employment 2016"
+title: "Housing/jobs balance in 2016"
+menuTitle: "Housing/Jobs Balance 2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Shifts in the region’s economic and population growth are reflected in the Housing/Jobs indicator for 2016. Inner NJ counties like Essex and Union, which experienced significant population growth and housing development but lost employment, switched from skewing jobs-intensive (green) in 2000 to housing-intensive (orange) in 2016. Whereas Suffolk County, which experienced limited housing/population growth but gained some jobs, shifted from housing-intensive (orange) toward greater balance between housing-jobs (yellow).
+
+  ![jobshousingspectrum](/img/JobsHousingSpectrum.png)
+
+  All four NYC outer boroughs shifted more jobs-intensive, lowering the ratio of housing units to total employment in a period when the city experienced widespread growth. This is especially true of the Bronx and Brooklyn, which were the only two counties in region with more than 2 homes/job in 2000 (the most housing-intensive). The Bronx shifted from 2.3 homes/job in 2000 to 1.74 homes/job in 2016, and Brooklyn shifted from 2.1 homes per job in 2000 to 1.49 homes/job in 2016. This reflects the significant job gains in NYC outer boroughs, and implies improved access to employment opportunities for city residents without the need to commute to Manhattan. In contrast, shifts in the region towards more housing-intensive – most notably in New Jersey – imply increasing reliance on commutation into Manhattan for employment, which increases pressure on regional transit infrastructure.
+
+source: |
+  Source: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
   defaultGeographyLevel: county
@@ -23,7 +29,7 @@ map:
 
   popupColumns:
   - id: balhj16
-    title: Units/Job
+    title: Home/Job
     large: true
     values:
     - geomType: region

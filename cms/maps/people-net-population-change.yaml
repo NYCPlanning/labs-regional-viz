@@ -3,11 +3,13 @@
 slug: net-population-change
 category: People
 categorySlug: people
-title: "Most noticeable gains outside of NYC are in select municipalities along regional rail corridors and in North NJ"
-menuTitle: "Net Population Change"
+title: "In recent years, population growth has shifted toward the region’s center."
+menuTitle: "Net Population Change, 2010-2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Recent growth patterns suggest that more people are moving to and staying in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. Hudson County, New Jersey saw the fastest rate of population growth (+6.9%) in the region, as well as the largest net population gain (+43,700) outside of NYC, and every municipality within Hudson County saw population increases. Within inner suburban counties, population growth concentrated in urban centers along rail corridors, such as Stamford, Bridgeport, New Rochelle, Hempstead, Newark, Elizabeth, and New Brunswick, and in other areas proximate to NYC – notably southern Westchester and western Nassau counties. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today. Though historically international in-migration has been an important factor in New York City’s growth, this is now increasingly true elsewhere in the region.
+
+source: |
+  Source: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2012-2016.
 
 map:
   defaultGeographyLevel: municipality
@@ -112,16 +114,17 @@ map:
         - "#002673"
         breaks:
         - -5000
+        - -1500
         - 1500
         - 15000
         - 50000
   - id: municipality
     title: "Net Population Change, 2010 - 2016"
     legend:
-    - color: "#ff7900"
-      label: "Loss of 50 people"
     - color: "#00aacc"
       label: "Gain of 50 people"
+    - color: "#ff7900"
+      label: "Loss of 50 people"
     layers:
     - id: net-population-change-municipality
       type: circle

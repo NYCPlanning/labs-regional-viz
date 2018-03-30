@@ -3,14 +3,20 @@
 slug: employment-by-sector
 category: Jobs
 categorySlug: jobs
-title: "Employment by Sector"
-menuTitle: "Employment by Sector"
+title: "NYC is the hub of the largest metropolitan economy in the United States."
+menuTitle: "Employment by Industry Sector"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area.
+
+  In 2016, New York City accounted for 42% of the metro region’s 10.3 million jobs and about half of the region’s $744 billion in annual worker wages. Manhattan alone accounts for 2.4 million jobs and $274 billion in annual worker wages – the highest for any county in the U.S. – representing 24% of the region’s total jobs and 37% of regional wages. Outside of the city, there are 6.1 million jobs providing employment for regional residents, including 400,000 NYC residents.
+
+  Office sector jobs are most concentrated in Manhattan, which accounts for 40% of the region’s 2.7 million office-based jobs and averages about 50,000 office jobs per square mile. Other office clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30,000-50,000 office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Parsippany-Troy Hills and Melville (Long Island). Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but institutional jobs also track population size, as it relates to locally serving schools and healthcare facilities. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+
+source: |
+  Source: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: employment-by-sector
@@ -29,7 +35,7 @@ map:
   - id: emoff
     title: Office-based
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: emoff15
       cv:
@@ -43,13 +49,13 @@ map:
       cv:
       sig:
     - geomType: region
-      columnName: emoff16            
+      columnName: emoff16
       cv:
       sig:
   - id: emins
-    title: Edu. & Health
+    title: Edu & Health
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: emins15
       cv:
@@ -63,13 +69,13 @@ map:
       cv:
       sig:
     - geomType: region
-      columnName: emins16      
+      columnName: emins16
       cv:
       sig:
   - id: emind
     title: Industrial
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: emind15
       cv:
@@ -83,13 +89,13 @@ map:
       cv:
       sig:
     - geomType: region
-      columnName: emind16                  
+      columnName: emind16
       cv:
       sig:
   - id: emser
-    title: Retail, Leisure & Hospitality
+    title: Retail, Lei & Hos
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: emser15
       cv:
@@ -103,13 +109,13 @@ map:
       cv:
       sig:
     - geomType: region
-      columnName: emser16                  
+      columnName: emser16
       cv:
       sig:
   - id: emoth
-    title: Other Services
+    title: Other
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: emoth15
       cv:
@@ -119,11 +125,11 @@ map:
       cv:
       sig:
     - geomType: subregion
-      columnName: emoth16            
+      columnName: emoth16
       cv:
       sig:
     - geomType: region
-      columnName: emoth16      
+      columnName: emoth16
       cv:
       sig:
 
@@ -131,17 +137,17 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Employment by Sector"
+    title: "Jobs by Sector, 2016"
     legend:
-    - label: "Office-based jobs"
-      color: "#179FA5"
-    - label: "Education & Healthcare jobs"
-      color: "#e8c758"
-    - label: "Industrial jobs"
-      color: "#9e5dba"
-    - label: "Retail, Leisure & Hospitality jobs"
-      color: "#3db709"
-    - label: "Other Services jobs"
+    - label: "100 Office-based jobs"
+      color: "#0628d3"
+    - label: "100 Education & Healthcare jobs"
+      color: "#f2922b"
+    - label: "100 Industrial jobs"
+      color: "#ce50c4"
+    - label: "100 Retail, Leisure & Hospitality jobs"
+      color: "#6ff268"
+    - label: "100 Other Services jobs"
       color: "#818387"
     layers:
     - id: employment-by-sector-municipality
@@ -153,15 +159,15 @@ map:
         - match
         - - get
           - category
-        - "EmOff15" 
-        - "#179FA5"
-        - "EmIns15" 
-        - "#e8c758"
-        - "EmInd15" 
-        - "#9e5dba"
-        - "EmSer15" 
-        - "#3db709"
-        - "EmOth15" 
+        - "EmOff15"
+        - "#0628d3"
+        - "EmIns15"
+        - "#f2922b"
+        - "EmInd15"
+        - "#ce50c4"
+        - "EmSer15"
+        - "#6ff268"
+        - "EmOth15"
         - "#818387"
         - "#FFFFFF"
         circle-radius:
@@ -185,17 +191,17 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Employment by Sector"
+    title: "Jobs by Sector, 2016"
     legend:
-    - label: "Office-based jobs"
-      color: "#179FA5"
-    - label: "Education & Healthcare jobs"
-      color: "#e8c758"
-    - label: "Industrial jobs"
-      color: "#9e5dba"
-    - label: "Retail, Leisure & Hospitality jobs"
-      color: "#3db709"
-    - label: "Other Services jobs"
+    - label: "100 Office-based jobs"
+      color: "#0628d3"
+    - label: "100 Education & Healthcare jobs"
+      color: "#f2922b"
+    - label: "100 Industrial jobs"
+      color: "#ce50c4"
+    - label: "100 Retail, Leisure & Hospitality jobs"
+      color: "#6ff268"
+    - label: "100 Other Services jobs"
       color: "#818387"
     layers:
     - id: employment-by-sector-municipality
@@ -207,15 +213,15 @@ map:
         - match
         - - get
           - category
-        - "EmOff15" 
-        - "#179FA5"
-        - "EmIns15" 
-        - "#e8c758"
-        - "EmInd15" 
-        - "#9e5dba"
-        - "EmSer15" 
-        - "#3db709"
-        - "EmOth15" 
+        - "EmOff15"
+        - "#0628d3"
+        - "EmIns15"
+        - "#f2922b"
+        - "EmInd15"
+        - "#ce50c4"
+        - "EmSer15"
+        - "#6ff268"
+        - "EmOth15"
         - "#818387"
         - "#FFFFFF"
         circle-radius:
@@ -239,17 +245,17 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Employment by Sector"
+    title: "Jobs by Sector, 2015"
     legend:
-    - label: "Office-based jobs"
-      color: "#179FA5"
-    - label: "Education & Healthcare jobs"
-      color: "#e8c758"
-    - label: "Industrial jobs"
-      color: "#9e5dba"
-    - label: "Retail, Leisure & Hospitality jobs"
-      color: "#3db709"
-    - label: "Other Services jobs"
+    - label: "100 Office-based jobs"
+      color: "#0628d3"
+    - label: "100 Education & Healthcare jobs"
+      color: "#f2922b"
+    - label: "100 Industrial jobs"
+      color: "#ce50c4"
+    - label: "100 Retail, Leisure & Hospitality jobs"
+      color: "#6ff268"
+    - label: "100 Other Services jobs"
       color: "#818387"
     layers:
     - id: employment-by-sector-municipality
@@ -261,15 +267,15 @@ map:
         - match
         - - get
           - category
-        - "EmOff15" 
-        - "#179FA5"
-        - "EmIns15" 
-        - "#e8c758"
-        - "EmInd15" 
-        - "#9e5dba"
-        - "EmSer15" 
-        - "#3db709"
-        - "EmOth15" 
+        - "EmOff15"
+        - "#0628d3"
+        - "EmIns15"
+        - "#f2922b"
+        - "EmInd15"
+        - "#ce50c4"
+        - "EmSer15"
+        - "#6ff268"
+        - "EmOth15"
         - "#818387"
         - "#FFFFFF"
         circle-radius:
