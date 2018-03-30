@@ -34,6 +34,8 @@ orderings:
       isLinearNarrative: true
     - id: multifamily-permitted
       isLinearNarrative: true
+    - id: units-by-structure
+      isLinearNarrative: true
 
     # Jobs
     - id: total-employment
