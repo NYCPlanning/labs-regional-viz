@@ -3,11 +3,11 @@
 slug: total-units
 category: Housing
 categorySlug: housing
-title: "NYC has 38% of the region's 9 million housing units"
+title: "Our region has about 9 million housing units."
 menuTitle: "Total Housing Units"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  In 2016, there were 8.97 million housing units in the region, of which 38% were located in New York City. Brooklyn had the highest number of units among counties in the region (1 million), followed by Manhattan (867k), Queens (847k), and Suffolk County (570k).
+source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
   defaultGeographyLevel: municipality

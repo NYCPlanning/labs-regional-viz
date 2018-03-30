@@ -3,11 +3,12 @@
 slug: renter-owner
 category: Housing
 categorySlug: housing
-title: "The region is roughly split between owner- (XX%) and renter-occupied (XX%) housing units"
+title: "NYC provides more than half of the region’s rental housing."
 menuTitle: "Housing Units, Owner- vs. Renter-Occupied"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Of the region’s nearly 9 million homes, 3.8 million are renter-occupied and 4.3 million are owner-occupied. Among U.S. metropolitan areas, our region’s 46% rental share of total housing is second only to Los Angeles (48% rental share, 2.8 million renter of 5.9 million households), an important feature of our region’s success in accommodating a dynamic population. NYC’s 3.4 million homes represent 38% of the region’s housing, and the city’s 2.1 million renter-occupied units represent 56% of the region’s renter households. Other concentrations of rental housing are found in the metro’s historically denser cities – Newark (111,000 housing units, 66% rental), Jersey City, Elizabeth, Paterson, New Haven, and Yonkers – as well as in newer Transit-Oriented Development (TOD) centers like Harrison, NJ, and New Rochelle. As has been the case nationally, there has been an increase in the construction of multifamily housing, including rental housing, in locations throughout the region since the recession.
+source: |
+  Source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
   defaultGeographyLevel: municipality
@@ -114,11 +115,11 @@ map:
       sig:
     - geomType: subregion
       columnName: houv16
-      cv: houv16c
+      cv: houv16cv
       sig:
     - geomType: county
       columnName: houv16
-      cv: houv16c
+      cv: houv16cv
       sig:
     - geomType: municipality
       columnName: houv16
@@ -129,15 +130,15 @@ map:
     values:
     - geomType: region
       columnName: houv16moe
-      cv: houv16c
+      cv: houv16cv
       sig:
     - geomType: subregion
       columnName: houv16moe
-      cv: houv16c
+      cv: houv16cv
       sig:
     - geomType: county
       columnName: houv16moe
-      cv: houv16c
+      cv: houv16cv
       sig:
     - geomType: municipality
       columnName: houv16moe
@@ -150,9 +151,9 @@ map:
   - id: subregion
     title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
     legend:
-    - color: "#fc8d59"
+    - color: "#f2d710"
       label: "50 Owner-occupied Units"
-    - color: "#91bfdb"
+    - color: "#db6f0a"
       label: "50 Renter-occupied Units"
     layers:
     - id: renter-owner-municipality
@@ -165,9 +166,9 @@ map:
         - - get
           - random_value
         - "own"
-        - "#fc8d59"
+        - "#f2d710"
         - "rent"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -192,9 +193,9 @@ map:
   - id: county
     title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
     legend:
-    - color: "#fc8d59"
+    - color: "#f2d710"
       label: "50 Owner-occupied Units"
-    - color: "#91bfdb"
+    - color: "#db6f0a"
       label: "50 Renter-occupied Units"
     layers:
     - id: renter-owner-municipality
@@ -207,9 +208,9 @@ map:
         - - get
           - random_value
         - "own"
-        - "#fc8d59"
+        - "#f2d710"
         - "rent"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -234,9 +235,9 @@ map:
   - id: municipality
     title: "Housing Units by Renter vs. Owner, 2012-2016 Avg"
     legend:
-    - color: "#fc8d59"
+    - color: "#f2d710"
       label: "50 Owner-occupied Units"
-    - color: "#91bfdb"
+    - color: "#db6f0a"
       label: "50 Renter-occupied Units"
     layers:
     - id: renter-owner-municipality
@@ -249,9 +250,9 @@ map:
         - - get
           - random_value
         - "own"
-        - "#fc8d59"
+        - "#f2d710"
         - "rent"
-        - "#91bfdb"
+        - "#db6f0a"
         - "#FFFFFF"
         circle-radius:
           stops:

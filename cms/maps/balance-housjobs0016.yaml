@@ -3,11 +3,23 @@
 slug: balance-housjobs0016
 category: Balance
 categorySlug: balance
-title: "Something about the relationship between housing production vs. change in employment, 2000-2016"
-menuTitle: "Housing Production vs. Job Change 2000-2016"
+title: "The housing/jobs balance has shifted from 2000 to 2016."
+menuTitle: "Housing/Jobs Balance, 2000-2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  Examining the change from 2000 to 2016, or the Housing/Jobs ratio in 2000 subtracted from the ratio in 2016, sheds light on how balance is geographically shifting within the region. Areas that shifted toward a greater proportion of housing to jobs are represented in the orange spectrum, and areas with employment gains that outpaced housing change are represented in green; areas in yellow represent marginal shifts.
+
+  ![jobshousingspectrum](/img/JobsHousingSpectrum.png)
+
+  From 2000 to 2016, a period of tremendous growth for NYC, all five boroughs trended towards a more even balance of housing and jobs. The growth of Manhattan’s housing stock exceeded its change in employment, while historic employment growth in Brooklyn, Queens, Bronx and Staten Island outpaced strong housing production.
+
+  Though the Inner NJ counties have produced housing at about the same rate as NYC since 2000 (both grew by about 7%), making a significant contribution to meeting the housing needs of the region, this was not complemented by commensurate employment growth. This area of the region, which accounts for 23% of the region’s total employment, lost jobs from 2000 to 2016. As job growth fails to keep up with housing, Inner NJ residents are becoming more dependent on NYC for employment opportunities, which is reflected by growth in the trans-Hudson commuter population.
+
+  **[INSERT BAR CHART – SUBREGION HOUSING CHANGE V JOB CHANGE]**
+
+  As certain areas of the region gain jobs but little housing (Long Island), or gain housing but few jobs (Inner NJ), shifts in balance impact commuting patterns and the demands placed on regional transportation infrastructure.
+
+source: |
+  Source: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000 & 2016; U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
   defaultGeographyLevel: county
@@ -17,34 +29,36 @@ map:
     type: cartovector
     source-layers:
     - id: balance-housjobs0016-subregion
-      sql: SELECT the_geom_webmercator, geoid, balhpj0016 as value, name FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_subregion_v0
     - id: balance-housjobs0016-county
-      sql: SELECT the_geom_webmercator, geoid, balhpj0016 as value, name FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_county_v0
 
   popupColumns:
-  - id: balhpj0016
-    title: Jobs
+  - id: balhj0016
+    title: "Change in Balance"
     large: true
     values:
     - geomType: region
-      columnName: balhpj0016
+      columnName: balhj0016
       cv:
       sig:
     - geomType: subregion
-      columnName: balhpj0016
+      columnName: balhj0016
       cv:
       sig:
     - geomType: county
-      columnName: balhpj0016
+      columnName: balhj0016
       cv:
       sig:
 
   isPercent: false
+  isRatio: true
   isChangeMeasurement: true
+
 
   layerGroups:
   - id: subregion
-    title: "Housing Units Produced vs. Change in Total Employment, 2000-2016"
+    title: "Shift in Housing/Jobs Balance, 2000-2016"
     legend: balance-housjobs0016-subregion
     layers:
     - id: balance-housjobs0016-subregion
@@ -60,12 +74,12 @@ map:
         - "#ffa555"
         - "#d76523"
         breaks:
-        - -50000
-        - -15000
-        - 15000
-        - 50000
+        - -0.05
+        - -0.01
+        - 0.01
+        - 0.05
   - id: county
-    title: "Housing Units Produced vs. Change in Total Employment, 2000-2016"
+    title: "Shift in Housing/Jobs Balance, 2000-2016"
     legend: balance-housjobs0016-county
     layers:
     - id: balance-housjobs0016-county
@@ -82,8 +96,8 @@ map:
         - "#ffa555"
         - "#d76523"
         breaks:
-        - -50000
-        - -15000
-        - -5000
-        - 5000
-        - 15000
+        - -0.500
+        - -0.099
+        - -0.025
+        - 0.025
+        - 0.099

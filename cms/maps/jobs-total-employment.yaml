@@ -3,14 +3,15 @@
 slug: total-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for 42% of regional employment"
-menuTitle: "Total Employment 2016"
+title: "NYC accounts for 41% of the region's 10.3 million jobs."
+menuTitle: "Total Employment"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  In 2016, the NYC metropolitan region was home to nearly 10.3 million average annual jobs, of which about 41% were located in New York City (3.63 million jobs). Second to NYC, Inner New Jersey counties totaled an average annual 1.99 million jobs, representing 22% of the region's employment base.
+source: |
+  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: total-employment
@@ -49,7 +50,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Employment 2016"
+    title: "Total Employment, 2016"
     legend: total-employment-subregion
     layers:
     - id: total-employment-subregion
@@ -70,7 +71,7 @@ map:
         - 1000000
         - 2500000
   - id: county
-    title: "Total Employment 2016"
+    title: "Total Employment, 2016"
     legend: total-employment-county
     layers:
     - id: total-employment-county
@@ -91,7 +92,7 @@ map:
         - 500000
         - 750000
   - id: municipality
-    title: "Total Employment 2016"
+    title: "Total Employment, 2015"
     legend: total-employment-municipality
     layers:
     - id: total-employment-municipality

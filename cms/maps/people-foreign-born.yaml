@@ -3,11 +3,12 @@
 slug: foreign-born
 category: People
 categorySlug: people
-title: "Foreign-born residents are a significant share of the population in growing parts of the region."
+title: "Our region has the largest foreign-born population in the nation."
 menuTitle: "% Foreign Born"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  With 6.65 million foreign-born residents from 110 countries, the region’s immigrants are an integral part of our communities and workforce, representing 29% of our total population and 34% of our resident labor force. Of the total regional foreign-born population, about half reside in New York City and half outside the city, with high concentrations in northern New Jersey, Rockland County, southern Westchester, and certain areas of Long Island and coastal Connecticut. Foreign-born residents represent a significant share of the population and workforce in growing areas, while areas without significant foreign-born population are often shrinking as the baby-boomer generation ages and reaches retirement.
+source: |
+  Source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
   defaultGeographyLevel: municipality

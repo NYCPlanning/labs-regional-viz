@@ -3,15 +3,18 @@
 slug: private-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Post-recession, NYC accounted for 80% of the region's private employment gains"
+title: "The majority of the region’s post-recession job gains have been in NYC."
 menuTitle: "Private Employment Change, 2008-2016"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  In the period from 2008 to 2016, the NYC metro region gained 631,120 private-sector jobs, increasing from 8.07 million average annual private jobs in 2008 to 8.85 million in 2016. Job growth was mostly located in NYC, which is now experiencing its highest levels of recorded employment, while many areas of the region are just now returning to pre-recession levels of employment. As a whole, the region’s rate of employment growth underperformed the national average and that of other large regions such as San Francisco, Seattle, and Boston.
+
+  Nearly every county in the 31-county region lost private jobs from 2008 to 2009. NYC rebounded the fastest from recession losses and had the largest net gain by 2016, adding 497,225 jobs and growing at 2% per year. The rest of the region added a total of 133,900 jobs and grew on average at 0.3% per year from 2008 to 2016.  NYC accounted for 80% of the region’s total private employment gain during this period. Long Island accounted for the second largest net gain (+58,150), and Inner NJ, which accounts for 22% of the region’s private jobs, represented just 2% of regional post-recession employment growth (+10,550). Within NJ, gains in Hudson and Middlesex counties helped balance large losses in Passaic, Essex and Union counties.
+
+source: |
+  Source: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016.
 
 map:
-  defaultGeographyLevel: county
-  # TODO: Confirm defaultGeographyLevel; it's not defined in spreadsheet
+  defaultGeographyLevel: subregion
 
   sources:
   - id: private-employment-change
@@ -46,7 +49,7 @@ map:
   layerGroups:
   - id: subregion
     title: "Private Employment Change, 2008-2016"
-    legend: private-employment-change-county
+    legend: private-employment-change-subregion
     layers:
     - id: private-employment-change-subregion
       type: choropleth
@@ -55,7 +58,7 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#ffa555"
+        - "#d6584a"
         - "#ffffe0"
         - "#89dfa4"
         - "#127723"
@@ -76,8 +79,8 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#d76423"
-        - "#ffa555"
+        - "#871a0e"
+        - "#d6584a"
         - "#ffffe0"
         - "#89dfa4"
         - "#127723"
