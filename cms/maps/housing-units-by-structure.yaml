@@ -3,14 +3,14 @@
 slug: units-by-structure
 category: Housing
 categorySlug: housing
-title: "Units by Structure"
-menuTitle: "Units by Structure"
+title: "Most of the region's housing units are in buildings with 2 units or less."
+menuTitle: "Housing by Building Size"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: This maps show data from some source.
+  This map shows the location of the region's housing units by the size of the structure, or building, in which those homes are located. Homes located in buildings with 1-2 units are in yellow and homes located in buildings that contain 3 or more housing units are in orange. Units in buildings of 1-2 units are representative of lower-density communities. Buildings with 3 or more units, typical of medium or larger multifamily buildings, are concentrated in the city, areas proximate to rail transit, and in the region's historic downtowns. Of the region's nearly 9 million homes, 43% are in buildings with 3 or more units (3.8 million homes). About 63% of the homes in 3+ unit buildings are located in New York City.
+source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: units-by-structure
@@ -27,9 +27,9 @@ map:
 
   popupColumns:
   - id: hous
-    title: Units in 1-2
+    title: 1-2 Unit Bldg
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: housf16
       cv: housf16cv
@@ -48,7 +48,7 @@ map:
       sig:
   - id: housmoe
     title: MOE
-    values: 
+    values:
     - geomType: municipality
       columnName: housf16moe
       cv: housf16cv
@@ -66,9 +66,9 @@ map:
       cv: hous16cv
       sig:
   - id: houm
-    title: Units in 3+
+    title: 3+ Unit Bldg
     large: true
-    values: 
+    values:
     - geomType: municipality
       columnName: houmf16
       cv: houmf16cv
@@ -82,12 +82,12 @@ map:
       cv: houm16cv
       sig:
     - geomType: region
-      columnName: houm16      
+      columnName: houm16
       cv: houm16cv
       sig:
   - id: hoummoe
     title: MOE
-    values: 
+    values:
     - geomType: municipality
       columnName: houmf16moe
       cv: houmf16cv
@@ -101,7 +101,7 @@ map:
       cv: houm16cv
       sig:
     - geomType: region
-      columnName: houm16moe      
+      columnName: houm16moe
       cv: houm16cv
       sig:
 
@@ -109,12 +109,12 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Units by Structure"
+    title: "Housing Units by Building Size"
     legend:
-      - label: Single-Family
-        color: "#91bfdb"
-      - label: Multi-Family
-        color: "#fc8d59"
+      - label: "100 units, 1-2 Unit Building"
+        color: "#f2d710"
+      - label: "100 units, 3+ Unit Building"
+        color: "#b25a08"
     layers:
     - id: units-by-structure-municipality
       type: circle
@@ -126,9 +126,9 @@ map:
         - - get
           - category
         - "HouM16"
-        - "#91bfdb"
+        - "#b25a08"
         - "HouS16"
-        - "#fc8d59"
+        - "#f2d710"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -151,12 +151,12 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Employment by Sector"
+    title: "Housing Units by Building Size"
     legend:
-      - label: Single-Family
-        color: "#91bfdb"
-      - label: Multi-Family
-        color: "#fc8d59"
+      - label: "100 units, 1-2 Unit Building"
+        color: "#f2d710"
+      - label: "100 units, 3+ Unit Building"
+        color: "#b25a08"
     layers:
     - id: units-by-structure-municipality
       type: circle
@@ -168,9 +168,9 @@ map:
         - - get
           - category
         - "HouM16"
-        - "#91bfdb"
+        - "#b25a08"
         - "HouS16"
-        - "#fc8d59"
+        - "#f2d710"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -193,12 +193,12 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Employment by Sector"
+    title: "Housing Units by Building Size"
     legend:
-      - label: Single-Family
-        color: "#91bfdb"
-      - label: Multi-Family
-        color: "#fc8d59"
+      - label: "100 units, 1-2 Unit Building"
+        color: "#f2d710"
+      - label: "100 units, 3+ Unit Building"
+        color: "#b25a08"
     layers:
     - id: units-by-structure-municipality
       type: circle
@@ -210,9 +210,9 @@ map:
         - - get
           - category
         - "HouM16"
-        - "#91bfdb"
+        - "#b25a08"
         - "HouS16"
-        - "#fc8d59"
+        - "#f2d710"
         - "#FFFFFF"
         circle-radius:
           stops:

@@ -3,14 +3,15 @@
 slug: institutional-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for nearly XX% of the region's XX million total education and healthcare jobs"
+title: "NYC accounts for about 40% of the region's 2.7 million education and healthcare jobs."
 menuTitle: "Institutional Employment"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+  The NYC metro region is home to 2.7 million average annual jobs in the education and healthcare sector, representing 40%, which includes public and private sector employment. Close to three-quarters of the region's institutional employment was in private sector education and healthcare, 1.96 million jobs representing 72% of the total institutional employment.
+source: |
+  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: institutional-employment
@@ -49,7 +50,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Institutional Employment 2016"
+    title: "Institutional Employment, 2016"
     legend: institutional-employment-subregion
     layers:
     - id: institutional-employment-subregion
@@ -68,7 +69,7 @@ map:
         - 250000
         - 500000
   - id: county
-    title: "Total Institutional Employment 2016"
+    title: "Institutional Employment, 2016"
     legend: institutional-employment-county
     layers:
     - id: institutional-employment-county
@@ -87,7 +88,7 @@ map:
         - 50000
         - 85000
   - id: municipality
-    title: "Total Institutional Employment 2015"
+    title: "Institutional Employment, 2015"
     legend: institutional-employment-municipality
     layers:
     - id: institutional-employment-municipality

@@ -3,14 +3,15 @@
 slug: localserve-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for nearly XX% of the region's XX million retail, leisure and hospitality jobs"
+title: "There are about 2.1 million retail, leisure and hospitality jobs in the region."
 menuTitle: "Retail, Leisure & Hospitality Employment"
 content: |
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-source: U.S. Bureau of Labor Services, QCEW NAICS-based files, 2016; U.S. Census Bureau LEHD-LODES 2015
+  Of the region's approximately 2.1 million retail, leisure and hospitality (private sector) jobs, 38% were located in New York City.  These jobs tend to be locally-serving, and the distribution reflects that of population distribution in the region.
+source: |
+  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: municipality
 
   sources:
   - id: localserve-employment
