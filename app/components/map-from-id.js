@@ -212,5 +212,22 @@ export default Component.extend({
       this.get('popup').remove();
       this.set('toggledGeographyLevel', geog);
     },
+
+    mapLoading(data) {
+      // Create array of local source IDs from the config (not e.g. basemap sources)
+      const localConfig = this.get('mapConfig');
+      const sourceIds = localConfig.sources.mapBy('id');
+
+      // Is this data event's source ID in the array of local source IDs?
+      const isLocalSource = sourceIds.find(d => d === data.sourceId) && data.dataType === 'source';
+
+      if (isLocalSource) {
+        if (data.isSourceLoaded) {
+          this.set('loading', false);
+        } else {
+          this.set('loading', true);
+        }
+      }
+    },
   },
 });

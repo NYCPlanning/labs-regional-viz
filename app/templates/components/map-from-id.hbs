@@ -44,6 +44,8 @@
   {{#if mapConfig.popupColumns}}
     {{map.on 'click' (action 'handleMouseClick')}}
   {{/if}}
+
+  {{map.on 'data' (action 'mapLoading')}}
 {{/mapbox-gl}}
 
 {{#if highlightedFeature}}
