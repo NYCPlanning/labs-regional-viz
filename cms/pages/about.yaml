@@ -3,42 +3,75 @@ title: About NYC Metro Mapper
 menutitle: About
 content: |
 
+  <p class="lead">The <a href="http://www.nyc.gov/planning"> NYC Department of City Planning</a> <b> Metro Mapper </b> is an interactive map showing population, housing, and employment trends within the tri-state New York City Metropolitan Region. It also shares key insights about how the region has changed from 2000 to today.</p>
+
+  Developed in collaboration between <a href="https://planninglabs.nyc/">DCP Planning Labs</a> and <a href="http://www1.nyc.gov/site/planning/plans/region/region.page">DCP Regional Planning</a>, this tool will be maintained as part of our ongoing commitment to help the public access and understand information about planning issues affecting NYC and the metro region.
+
+  -----
+
   ## Methodology and Definitions
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  Metro Mapper is built upon a range of publicly available Federal data processed and analyzed by DCP. Federal data are used to maintain reporting consistency across state boundaries. The following section briefly describes terminology, sources and limitations, analytic methodology, and data reliability. Links to Federal data websites are also provided. When examining change, Metro Mapper focuses on two time periods: post-recession to today (start year depends on the data product, release date, and publication frequency), and 2000 to today. Population, housing, and economic datasets are released with varying frequencies and coverages, as detailed below. Jump to:
+
+  - [Geographies and boundaries](#geographies-and-boundaries)
+  - [People](#people)
+  - [Housing](#housing)
+  - [Jobs](#jobs)
+  - [Balance](#balance)
 
   -----
 
   <a id="geographies-and-boundaries"></a>
   ### Geographies and Boundaries
 
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  - _Region_: Here we explain the region definition.
-  - _Subregion_: Here we explain the subregion definition and list the names.
-  - _County_: Here we indicate that data came from Census TIGER/Line files.
-  - _Municipality_: Here we explain that municipality is a blend of Census Minor County Divisions for New Jersey, CT, and the Hudson Valley, Census Places for Long Island and Sub Borough Definition for NYC with link to NNY report.
-  - _Census Tract_: Here we explain mapping to census tract
+  Information is provided for geographic entities at four scales: region, subregion, county, and municipality.
+
+    ##### Region
+    Defined by DCP, the tri-state _region_ geography represents New York City and the surrounding 26 counties in portions of New York, New Jersey and Connecticut. This definition of the region is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed. It does not represent a regulatory or other jurisdictional boundary. The “region” boundary is not visualized in Metro Mapper, but data are reported for characteristics at region scale, as well as made available for download.
+
+    ##### Subregion
+    Defined by DCP, the _subregion_ geography represents aggregations of U.S. counties:
+    - _New York City_: Bronx, Kings (Brooklyn), New York (Manhattan), Queens, Richmond (Staten Island)
+    - _Inner New Jersey_: Bergen, Essex, Hudson, Middlesex, Morris, Passaic, Somerset, Union
+    - _Outer New Jersey_: Hunterdon, Mercer, Monmouth, Ocean, Sussex, Warren
+    - _Long Island_: Nassau, Suffolk
+    - _Connecticut_: Fairfield, Litchfield, New Haven
+    - _Lower Hudson Valley_: Putnam, Rockland, Westchester
+    - _Mid Hudson Valley_: Dutchess, Orange, Sullivan, Ulster
+
+    Please note that “Inner” and “Outer” New Jersey are relative to NYC proximity and/or accessibility and do not indicate formalized geographic locations or jurisdictional boundaries.
+
+    ##### County
+    The _county_ geography is represented by 31 counties, including the five boroughs/counties of NYC and surrounding 26 counties listed above.
+
+    ##### Municipality
+    Defined by DCP in consultation with the U.S. Census Bureau, the _municipality_ geography represents approximations for cities, towns, and villages within the NYC Metropolitan Region. The boundaries are U.S. Census Bureau Minor County Division (MCD) geographies for all counties in New Jersey, Connecticut, and the Hudson Valley; U.S. Census Bureau Places (Places) boundaries for Long Island unless otherwise noted; and, to represent NYC at municipality-comparable scale, DCP used the sub-borough geographies defined in the 2013 edition of [The Newest New Yorkers](https://www1.nyc.gov/site/planning/data-maps/nyc-population/newest-new-yorkers-2013.page) report, “Chapter 3: Settlement Patterns”. NYC geographies represent aggregations of U.S. Census Bureau Public Use Microdata Areas (PUMAs). It is important to note that “municipalities” represented in this tool do not imply or consistently represent jurisdictional boundaries or governance authority. The purpose of this geography to enable consistent longitudinal socioeconomic analysis for comparable geographies across the region. Data were recoded for municipalities when changes were detected during the study period (e.g., consolidation, renaming), however, it is possible that inaccuracies in the data reflect additional changes to municipal borders or Census-defined geographic entities over this period. Municipality data are not visualized for select maps as a result of data limitations or reliability concerns [(more about data reliability)](#data-reliability).
 
   -----
 
   <a id="people"></a>
   ### People
 
-  ##### Population Totals and Change
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  ##### Foreign Born
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  ##### Prime Labor Force
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Population and Population Density
+  U.S. Census Bureau Decennial Census population estimates are used for all geographies in 2000 and 2010. U.S. Census Bureau Population Estimates Program 2016 estimates are used for county and larger geographies, and population estimates from the 2012-2016 U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates files, which represent an average over the period 2012-2016, are used for Municipality geographies. Population densities are calculated using land areas provided by the U.S. Census Bureau MAF/TIGER database.
+  ##### Population Change
+  Population change from 2010 to 2016 for county and larger geographies is represented as the change between the 2010 Decennial Census population estimate and the 2016 Population Estimates Program population estimate; neither source reports margins of error. Net population change from 2010 to 2016 at the municipal geography is visualized for all municipalities as the net difference between the 2006-2010 ACS 5-Year Estimate and 2012-2016 ACS 5-Year Estimate population estimates. Percent change for municipalities is not visualized due to data reliability issues for smaller geographic units, as well as to avoid misrepresentation of change over a wide range of municipal population sizes.
+  ##### Percent Foreign-born
+  Percent foreign-born is calculated as the share of total population born outside of the United States over the total population estimate using the 2012-2016 ACS 5-Year Estimates for all geographies.
+  ##### Labor Force Change
+  Labor force change is calculated as the net change in labor force participants from 2000 to today (as represented by the 2012-2016 ACS 5-Year Estimates). The U.S. Census Bureau defines population 16 years and older participating in the labor force as a representation the full labor force. The “prime-age labor force” is commonly referenced as working population aged 25 to 54. Change is calculated as the net difference between estimates from the 2000 Decennial Census and the 2012-2016 ACS 5-Year Estimates for both total labor force (age 16 and older) as well as prime-age labor force (age 25 to 54). Labor force participant populations for both cohorts in 2000 and 2012-2016 are included in the downloadable files, but are not visualized in Metro Mapper.
 
   -----
 
   <a id="housing"></a>
   ### Housing
 
-  ##### Housing Units, Tenure and Building Size
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  ##### Housing Permits
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Housing Units, Tenure (Owner vs. Renter), and Building Size
+  2012-2016 ACS 5-Year Estimates files are used for all geographies. Total units and tenure (owner-occupied, renter-occupied, and vacant unit) are reported by the U.S. Census Bureau. Building size, which visualizes the total housing units by units located in structures with 1-2 units versus structures with 3 or more units, is calculated by DCP and does not include units located in mobile homes or vehicles. This measure intends to illustrate lower density versus higher density residential development patterns. Housing tenure and building size data are visualized at the U.S. Census Tract geographic unit for the purpose of enhancing geographic accuracy; however, given statistical reliability of tract-level data, measures are reported at the municipality and larger geographic scale.
+  ##### Housing Production (Units Permitted) and Production by Building Size
+  To estimate housing production, DCP calculated the aggregate number of building permits issued for all municipalities using U.S. Census Bureau Building Permits Survey (BPS) annual data by County or Place from 2000 to 2016. Housing production data represent the number of new housing units authorized by building permits, but does not account for demolition and other changes, and therefore does not represent comprehensive change in housing supply for a given area. Coverage within this database may not reflect local records due to reporting issues (e.g., lag, jurisdiction boundaries), however, BPS files are used for methodological consistency across state boundaries.
+
+  All permit data has been processed and reported for MCDs in New Jersey, Hudson Valley, and Connecticut municipalities. Although orders of magnitude are consistent with U.S. Census Bureau BPS-reported figures, DCP has adjusted NYC permit data for consistency with City reporting standards. Boundaries for Long Island municipalities are modified for housing production data and visualization due to reporting discrepancies for Long Island jurisdictions. Long Island’s incorporated villages (Places) self-report building permit data to the county, whereas unincorporated areas (Places) do not self-report and permit data are allocated to the Town (MCD). The municipal geography depicted on Long Island represents data reported by incorporated villages within Towns and the aggregate unincorporated Town areas.  This results in lesser geographic accuracy for Long Island housing permit data than other regional geographies.
+
 
   -----
 
@@ -46,19 +79,35 @@ content: |
   ### Jobs
 
   ##### Total Employment
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Total employment represents total public and private sector jobs, though it should be noted that data are drawn from administrative-based records and may not capture informal or other forms of self-reported employment. Federal data are used for consistency in reporting across state boundaries. For county and larger geographies, total employment reflects 2016 average annual employment as reported by the U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) North American Industry Classification System (NAICS)-based data files. U.S. BLS QCEW data are not available at the municipal geography. For municipal employment estimates, DCP processed and aggregated U.S. Census Bureau Longitudinal Employer-Household Dynamics (LEHD) Origin-Destination Employment Statistics (LODES) data, which reports employment by U.S. Census Block, and geocoded data to Metro Mapper municipal geographic boundaries. LEHD is based on, but differs from, the BLS QCEW-reported employment, combining administrative and other (e.g., survey) data. Therefore, municipal data will not sum to county or larger geography totals reported by Metro Mapper. The most recent LEHD release year is 2015.
   ##### Employment by Sector
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Employment data are reported by industry “macro sector” and, to enhance geographic accuracy of job locations, are visualized using U.S. Census Tract-level employment data from the 2015 LEHD LODES Work Area Characteristics files. County and larger geographies’ reported employment are calculated using 2016 U.S. BLS QCEW County High-Level and Industry NAICS-based data files, and represent average annual employment. Municipality geographies’ employment are calculated using 2015 LEHD LODES data. All geographies report private sector employment by industry unless otherwise indicated (see note below on accuracy of public and private jobs data).
+
+  Industry macro sectors represent aggregations of U.S. BLS NAICS 2-digit industry sector employment data, which reflect land use patterns associated with certain kinds of professions. Links to more information about BLS NAICS categorizations can be found in the Sources section of this page. Jobs data are mapped in aggregate (all macro sectors combined), as well individually mapped by macro sector. Industries are grouped as follows:
+
+  - **Office-based jobs**: Office-based jobs include NAICS 51 Information; 52 Finance and Insurance; 53 Real Estate and Rental and Leasing; 54 Professional, Scientific, and Technical Services; 55 Management of Companies, and 56 Administrative and Support and Waste Management and Remediation Services jobs. These jobs are generally located in commercial office buildings.
+  - **Institutional jobs**: Institutional jobs include NAICS 61 Educational Services and 62 Health Care and Social Assistance. These jobs are typically located in campus-style facilities, or in smaller commercial office buildings – as is the case for local clinics and community-based services. Unlike the other macro sectors, reporting for these jobs includes public sector employment and may reflect inaccurate visualization or geographic concentration (see note below).
+  - **Industrial jobs**: Includes NAICS 11 Agriculture, Forestry, Fishing and Hunting; 21 Mining, Quarrying, and Oil and Gas Extraction; 22 Utilities; 23 Construction; 31-33 Manufacturing; 42 Wholesale Trade; and 48-49 Transportation and Warehousing. These jobs are generally land-intensive, found along freight corridors or in concentrated areas/specialized zones, such as ports.
+  - **Retail, Leisure and Hospitality jobs**: Includes NAICS 44-45 Retail Trade; 71 Arts, Entertainment and Recreation; and 72 Accommodation and Food Services. These jobs tend to be locally serving, and are found throughout the region.
+  - **Other Services jobs**: Includes NAICS 81 Other Services [except Public Administration], which includes local miscellaneous services such as dry cleaners and mechanics.
+
+  These groupings differ slightly from the NAICS-defined super sectors, but most notably in the grouping of the Retail Trade with leisure and hospitality employment, rather than with Wholesale Trade and other types of industrial employment. As a result of using NAICS 2-digit industry sector categorizations, DCP-defined macro sectors may include jobs that are not exclusively representative of a single land use characteristic or development pattern (e.g., an industrial job that also contains office space). Metro Mapper provides an impressionistic sense of job location and relative land use implications.
+
+  ##### Additional Notes on Private vs. Public Sector Employment Data
+
+  As with all data, there are certain limitations encountered using both U.S. BLS QCEW and U.S. Census Bureau LEHD employment datasets to map jobs by industry sector. Private sector jobs data are primarily use, because public sector employment reporting encounters more substantial reporting challenges related to coverage and accuracy. U.S. BLS QCEW public sector employment data by NAICS-2 digit industry are not disclosed for select industry sectors and/or geographies, and therefore public employment is not consistently or comprehensively represented across regional geographies. Public sector employment is, however, more comprehensively represented in NAICS-defined super sector aggregations for county and larger geographies. NAICS super sectors similarly aggregate education and healthcare employment (Institutional jobs), for which public sector employment accounts for over 25% of total institutional jobs. Other super sectors show much lower shares (less than 5%) of public sector employment where data are available. Public sector estimates are therefore included in the institutional jobs total to more precisely reflect the scale of education and healthcare employment.
+
+  LEHD distinguishes between public and private sector employment in its datasets at the NAICS-2 digit level, however, DCP finds that public data more frequently reflects “headquartering” issues. “Headquartering” error occurs when jobs are geographically assigned to a headquarters location rather than a place of employment. For example, LEHD data indicated more than 100,000 public sector education jobs were located on a single Census Block in Downtown Brooklyn, which is where the NYC Department of Education is headquartered. DCP presumes that these jobs include public school employees at their administrative headquarters, rather than their place of daily employment (the school in which they work). Visualization of institutional employment at the Census Tract geographic unit shown in Metro Mapper would reflect this inaccuracy. Similar issues may occur in private employment data, likely at a considerably smaller scale.
 
   -----
 
   <a id="balance"></a>
   ### Balance
 
-  ##### Housing Units/Total Employment
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  ##### Housing Production vs. Total Employment Change
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  ##### Housing/Jobs Balance in 2000 and 2016
+  Planners often examine the relationship between supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. A “Housing/Jobs” indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. The 2000 ratio uses 2000 U.S. Census Bureau Decennial Census housing estimates and U.S. BLS QCEW County-High Level NAICS-based data files average annual employment figures. The 2016 ratio uses 2012-2016 ACS 5-Year Estimates housing units and 2016 BLS QCEW average annual employment figures. In our region, there is an average of 0.87 housing units per job (in other words, on average, more than one worker lives in each household). It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.” However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.
+  ##### Shift in Housing/Jobs Balance, 2000 to 2016
+  To represent the shift in housing/jobs balance, DCP calculated the change in the ratio of housing units/jobs in 2000 to the ratio of housing units/jobs in 2016. A negative shift represents an area that saw job gains outpace growth of housing supply, thereby becoming more jobs-intensive. A positive shift represents an area that saw housing change outpace jobs change, thereby becoming more housing-intensive.
 
   -----
 
@@ -66,48 +115,52 @@ content: |
   ### Data Reliability
 
   ##### Statistical Significance
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  ##### Geographic Precision
-  Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+  Metro Mapper population and housing data and trend analyses frequently use ACS estimates to represent current data. ACS estimates are derived from a survey and are subject to sampling error. Consequently, all ACS estimates are published with Margins of Error (MOEs) at a 90% confidence interval wherever available. Though all data are visualized and mapped, grayed values in the pop-up box represent data deemed unreliable. For estimates, unreliable values represent a calculated coefficient of variation (CV) of 20 or greater. In examining longitudinal change, DCP calculated margins of error for 2000 Decennial Census SF3 estimates consistent with U.S. Census Bureau [guidelines](https://www.census.gov/programs-surveys/acs/guidance/comparing-acs-data/2016.html), or used ACS-reported margins of error. For change estimates, grayed values represent statistically insignificant change at the 90% confidence level (a calculated significance value of less than 1.645).  Data files available for download on this site contain CVs, significance values (checking for values less than 1.645), and MOEs associated with estimates wherever possible. Additional information about the ACS and guidelines for using ACS data can be viewed on [DCP’s website](https://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page), where you might also access tools like the [map reliability calculator](https://www1.nyc.gov/site/planning/data-maps/nyc-population/geographic-reference.page).
+  ##### Geographic Accuracy and Precision
+  Dot density visualizations represent data mapped within specific boundaries (i.e. Census Tract, municipality) and do not represent the actual location of people, housing units, or jobs. Dots are illustrative only. In areas where no data are represented, values may fall below the selected threshold and do not necessarily indicate a value of zero.
 
   -----
 
   <a id="data-sources"></a>
   ### Data Sources
 
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+  Data produced for this tool was drawn from the following publicly available sources, which each offer user guides and information for data collection and reporting:
 
-  - [Link to source data](http://example.org/)
-  - [Link to source data](http://example.org/)
-  - [Link to source data](http://example.org/)
-  - [Link to source data](http://example.org/)
-  - [Link to source data](http://example.org/)
+  - U.S. Census Bureau [2016 TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html)
+  - U.S. Census Bureau population and housing data accessed via [American FactFinder Tool](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) for:
+    - U.S. Census Bureau Decennial Census, 2000 and 2010
+    - U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2012-2016
+    - U.S. Census Bureau Population Estimates Program
+  - U.S. Census Bureau [Building Permits Survey](https://www.census.gov/construction/bps/) (annual, 2000-2016)
+  - U.S. Bureau of Labor Services [Quarterly Census of Employment and Wages](https://www.bls.gov/cew/datatoc.htm) (annual, 2000-2016)
+  - U.S. Census Bureau [Longitudinal Employer-Household Dynamics (LEHD)](https://lehd.ces.census.gov/) 2015
 
 sidebar:
   content: |
     ### Get the data...
 
-    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Data are available by geography as shapefiles or comma separated value files. Metadata files include variable definitions and data sources. Please check back for periodic updates.
 
-    **Region:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_v0&format=SHP),
+    - **Region:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_v0&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_v0&format=CSV),
-    [Metadata]
-
-    **Subregion:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_v0&format=SHP),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_meta_v0&format=CSV)
+    - **Subregion:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_v0&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_v0&format=CSV),
-    [Metadata]
-
-    **County:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_v0&format=SHP),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_meta_v0&format=CSV)
+    - **County:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_v0&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_v0&format=CSV),
-    [Metadata]
-
-    **Municipality:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_v0&format=SHP),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_meta_v0&format=CSV)
+    - **Municipality:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_v0&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_v0&format=CSV),
-    [Metadata]
-
-    **Census Tract:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_meta_v0&format=CSV)
+    - **Census Tract:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v0&format=CSV),
     [Metadata]
+
+    _Last updated on April 4, 2017_
+
+    ### Feedback
+    Check back for new data additions and map updates. To let us know how this app could be better, [add a GitHub Issue](https://github.com/NYCPlanning/labs-regional-viz) or send a Tweet to @NYCPlanningLabs. If you have questions about the data and analysis, send an email to [regional@planning.nyc.gov](mailto:regional@planning.nyc.gov).
 
   button:
   buttontext:
