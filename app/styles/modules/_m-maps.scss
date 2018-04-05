@@ -259,3 +259,14 @@
   box-shadow: 0 0 0 2px rgba(0,0,0,0.1);
   border-radius: 2px;
 }
+
+// Map Loading Spinner
+.map-loading-spinner {
+  display: none; // TODO get the spinner working
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 9999;
+  margin-top: -0.5em;
+  margin-left: -0.5em;
+}

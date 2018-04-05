@@ -15,6 +15,9 @@ module.exports = function(defaults) {
       enabled: true,
       extensions: ['js'],
     },
+    fingerprint: {
+      exclude: ['img/*'],
+    },
   });
 
   // Use `app.import` to add additional libraries to the generated
