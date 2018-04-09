@@ -44,6 +44,8 @@
   {{#if mapConfig.popupColumns}}
     {{map.on 'click' (action 'handleMouseClick')}}
   {{/if}}
+
+  {{map.on 'data' (action 'mapLoading')}}
 {{/mapbox-gl}}
 
 {{#if highlightedFeature}}
@@ -69,3 +71,7 @@
     <span class="show-for-large">{{fa-icon 'chevron-left' class="medium-gray"}}&nbsp;{{fa-icon 'align-left'}}</span>
   </a>
 {{/unless}}
+
+{{#if loading}}
+  {{fa-icon 'spinner' class="fa-spin dark-gray fa-5x map-loading-spinner"}}
+{{/if}}
