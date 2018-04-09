@@ -5,7 +5,9 @@ title: Welcome to the NYC Metro Mapper!
 content: |
   <p class="lead">The <strong><a href="http://www.nyc.gov/planning">NYC Department of City Planning</a> Metro Mapper</strong> enables you to explore population, housing, and employment trends within the tri-state New York City Metropolitan Region.</p>
 
-  NYC is the center of a region that spans 3 states, 31 counties, and over 800 municipalities. Using data from a range of publicly available sources, the Metro Mapper allows you to explore socioeconomic characteristics by subregion, county, and municipality ([more about the data and geographies](/about)). The Department of City Planning developed this tool as part of our ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
+  NYC is the center of a large region that spans across city, county and state boundaries. Though we are governed independently, many of our planning challenges are interconnected, and our future is intertwined with the future of our larger region.
+
+  Using data from a range of publicly available sources, the Metro Mapper allows you to explore socioeconomic characteristics across 7 subregions, 31 counties, and close to 900 municipalities ([more about the data and geographies](/about)). The Department of City Planning developed this tool as part of our ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
 
 source: The tri-state geography shown, representing New York City and surrounding 26 counties in portions of New York, New Jersey and Connecticut, is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed.
 
