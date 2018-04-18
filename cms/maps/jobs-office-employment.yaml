@@ -17,16 +17,18 @@ map:
   - id: office-employment
     type: cartovector
     source-layers:
-    - id: office-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_subregion_v0
-    - id: office-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emoff16 as value FROM region_county_v0
-    - id: office-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emoff15 as value FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: office-employment-tract
+      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: emoff
-    title: Employment
+    title: "Office jobs"
     large: true
     values:
     - geomType: region
@@ -50,61 +52,116 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Private Employment 2016"
-    legend: office-employment-subregion
+    title: "Office-based Employment, 2016"
+    legend:
+    - label: "100 Office jobs"
+      color: "#0628d3"
     layers:
-    - id: office-employment-subregion
-      type: choropleth
+    - id: office-employment-tract
+      type: circle
       source: office-employment
-      source-layer: office-employment-subregion
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#ccffff"
-        - "#00ffff"
-        - "#179FA5"
-        - "#115459"
-        breaks:
-        - 100000
-        - 250000
-        - 500000
+      source-layer: office-employment-tract
+      paint:
+        circle-color:
+          - match
+          - - get
+            - category
+          - "EmOff15"
+          - "#0628d3"
+          - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: office-employment
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: office-employment
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
   - id: county
-    title: "Office-based Private Employment 2016"
-    legend: office-employment-county
+    title: "Office-based Employment, 2016"
+    legend:
+    - label: "100 Office-based jobs"
+      color: "#0628d3"
     layers:
-    - id: office-employment-county
-      type: choropleth
+    - id: office-employment-tract
+      type: circle
       source: office-employment
-      source-layer: office-employment-county
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#ccffff"
-        - "#00ffff"
-        - "#179FA5"
-        - "#115459"
-        breaks:
-        - 15000
-        - 50000
-        - 85000
+      source-layer: office-employment-tract
+      paint:
+        circle-color:
+            - match
+            - - get
+              - category
+            - "EmOff15"
+            - "#0628d3"
+            - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-county-polygons
+      type: fill
+      source: office-employment
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: office-employment
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
   - id: municipality
-    title: "Office-based Private Employment 2015"
-    legend: office-employment-municipality
+    title: "Office-based Employment, 2015"
+    legend:
+    - label: "100 Office-based jobs"
+      color: "#0628d3"
     layers:
-    - id: office-employment-municipality
-      type: choropleth
+    - id: office-employment-tract
+      type: circle
       source: office-employment
-      source-layer: office-employment-municipality
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#ccffff"
-        - "#00ffff"
-        - "#179FA5"
-        - "#115459"
-        - "#0d1923"
-        breaks:
-        - 1000
-        - 5000
-        - 15000
-        - 50000
+      source-layer: office-employment-tract
+      paint:
+        circle-color:
+          - match
+          - - get
+            - category
+          - "EmOff15"
+          - "#0628d3"
+          - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-municipality-polygons
+      type: fill
+      source: office-employment
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: office-employment
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

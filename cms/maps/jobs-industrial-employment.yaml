@@ -17,16 +17,18 @@ map:
   - id: industrial-employment
     type: cartovector
     source-layers:
-    - id: industrial-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind16 as value, name FROM region_subregion_v0
-    - id: industrial-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emind16 as value, name FROM region_county_v0
-    - id: industrial-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emind15 as value, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: industrial-employment-tract
+      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
-  - id: industrialemployment
-    title: Employment
+  - id: emind
+    title: "Industrial jobs"
     large: true
     values:
     - geomType: region
@@ -53,58 +55,117 @@ map:
     title: "Private Industrial Employment, 2016"
     legend: industrial-employment-subregion
     layers:
-    - id: industrial-employment-subregion
-      type: choropleth
-      source: industrial-employment
-      source-layer: industrial-employment-subregion
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#f5eaf7"
-        - "#d6a8e0"
-        - "#9e5dba"
-        - "#712d8e"
-        breaks:
-        - 100000
-        - 250000
-        - 500000
-  - id: county
-    title: "Private Industrial Employment, 2016"
-    legend: industrial-employment-county
-    layers:
-    - id: industrial-employment-county
-      type: choropleth
-      source: industrial-employment
-      source-layer: industrial-employment-county
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#f5eaf7"
-        - "#d6a8e0"
-        - "#9e5dba"
-        - "#712d8e"
-        breaks:
-        - 15000
-        - 50000
-        - 85000
-  - id: municipality
-    title: "Private Industrial Employment, 2015"
-    legend: industrial-employment-municipality
-    layers:
-    - id: industrial-employment-municipality
-      type: choropleth
-      source: industrial-employment
-      source-layer: industrial-employment-municipality
-      paintConfig:
-        opacity: 0.6
-        colors:
-        - "#f5eaf7"
-        - "#d6a8e0"
-        - "#9e5dba"
-        - "#712d8e"
-        - "#401354"
-        breaks:
-        - 1000
-        - 5000
-        - 15000
-        - 50000
+    - id: subregion
+      title: "Jobs by Sector, 2016"
+      legend:
+      - label: "100 Industrial jobs"
+        color: "#ce50c4"
+      layers:
+      - id: industrial-employment-tract
+        type: circle
+        source: industrial-employment
+        source-layer: industrial-employment-tract
+        paint:
+          circle-color:
+          - match
+          - - get
+            - category
+          - "EmInd15"
+          - "#ce50c4"
+          - "#FFFFFF"
+          circle-radius:
+            stops:
+            - - 7
+              - 1.5
+            - - 11
+              - 2
+          circle-opacity: 0.4
+      - id: empty-subregion-polygons
+        type: fill
+        source: industrial-employment
+        source-layer: empty-polygons-subregion
+        paint:
+          fill-opacity: 0
+      - id: empty-subregion-line
+        type: line
+        source: industrial-employment
+        source-layer: empty-polygons-subregion
+        paint:
+          line-color: rgba(131, 131, 131, 1)
+          line-width: 0.5
+    - id: county
+      title: "Jobs by Sector, 2016"
+      legend:
+      - label: "100 Industrial jobs"
+        color: "#ce50c4"
+      layers:
+      - id: industrial-employment-tract
+        type: circle
+        source: industrial-employment
+        source-layer: industrial-employment-tract
+        paint:
+          circle-color:
+          - match
+          - - get
+            - category
+          - "EmInd15"
+          - "#ce50c4"
+          - "#FFFFFF"
+          circle-radius:
+            stops:
+            - - 7
+              - 1.5
+            - - 11
+              - 2
+          circle-opacity: 0.4
+      - id: empty-county-polygons
+        type: fill
+        source: industrial-employment
+        source-layer: empty-polygons-county
+        paint:
+          fill-opacity: 0
+      - id: empty-county-line
+        type: line
+        source: industrial-employment
+        source-layer: empty-polygons-county
+        paint:
+          line-color: rgba(131, 131, 131, 1)
+          line-width: 0.5
+    - id: municipality
+      title: "Industrial Employment, 2015"
+      legend:
+      - label: "100 Industrial jobs"
+        color: "#ce50c4"
+      layers:
+      - id: industrial-employment-tract
+        type: circle
+        source: industrial-employment
+        source-layer: industrial-employment-tract
+        paint:
+          circle-color:
+          - match
+          - - get
+            - category
+          - "EmInd15"
+          - "#ce50c4"
+          - "#FFFFFF"
+          circle-radius:
+            stops:
+            - - 7
+              - 1.5
+            - - 11
+              - 2
+          circle-opacity: 0.4
+      - id: empty-municipality-polygons
+        type: fill
+        source: industrial-employment
+        source-layer: empty-polygons-municipality
+        paint:
+          fill-opacity: 0
+      - id: empty-municipality-line
+        type: line
+        source: industrial-employment
+        source-layer: empty-polygons-municipality
+        paint:
+          line-color: rgba(131, 131, 131, 1)
+          line-width: 0.5
