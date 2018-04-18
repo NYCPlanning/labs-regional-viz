@@ -85,16 +85,14 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#d76423"
-        - "#ffa555"
-        - "#ffffe0"
-        - "#b3e4ff"
-        - "#5ab4ff"
+        - "#c4f4f5"
+        - "#6eeef0"
+        - "#00aacc"
+        - "#106678"
         breaks:
-        - -25000
-        - -10000
-        - 10000
+        - 50000
         - 100000
+        - 300000
   - id: county
     title: "Labor Force Change, 2000-2016"
     legend: labor-force-gain-county
@@ -106,18 +104,16 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#d76423"
-        - "#ffa555"
-        - "#ffffe0"
-        - "#b3e4ff"
-        - "#5ab4ff"
-        - "#002673"
+        - "#c4f4f5"
+        - "#6eeef0"
+        - "#00aacc"
+        - "#137C91"
+        - "#0E4F5C"
         breaks:
-        - -15000
-        - -2500
-        - 2500
-        - 15000
-        - 75000
+        - 5000
+        - 25000
+        - 50000
+        - 100000
   - id: municipality
     title: "Labor Force Change, 2000-2016"
     legend:
