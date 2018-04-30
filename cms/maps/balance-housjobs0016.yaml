@@ -6,7 +6,12 @@ categorySlug: balance
 title: "The housing/jobs balance has shifted from 2000 to 2016."
 menuTitle: "Housing/Jobs Balance, 2000-2016"
 content: |
-  ![jobshousingspectrumchange](/img/JobsHousingSpectrumchange.png)
+  <div style="background: linear-gradient(90deg, rgba(25,63,31,0.7) 0%, rgba(18,119,35,0.7) 20%, rgba(137,223,164,0.7) 40%, rgba(255,255,224,0.7) 60%, rgba(255,165,85,0.7) 80%, rgba(215,101,35,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny">
+    <strong class="float-left" style="width:33.33%;">More job gains than housing</strong>
+    <strong class="float-right text-right" style="width:33.33%;">More housing growth than jobs</strong>
+  </p>
+
   Examining the change from 2000 to 2016, or the housing/jobs ratio in 2000 subtracted from the ratio in 2016, sheds light on how balance is geographically shifting within the region. Areas that shifted toward a greater proportion of housing to jobs are represented in the orange spectrum, and areas with employment gains that outpaced housing change are represented in green; areas in yellow represent marginal shifts.
 
   From 2000 to 2016, a period of tremendous growth for NYC, all five boroughs trended towards a more even balance of housing and jobs. The growth of Manhattan’s housing stock exceeded its change in employment, while historic employment growth in Bronx, Brooklyn, Queens, and Staten Island outpaced strong housing production.

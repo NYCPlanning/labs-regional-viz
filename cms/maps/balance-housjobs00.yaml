@@ -6,7 +6,13 @@ categorySlug: balance
 title: "Housing/jobs balance in 2000"
 menuTitle: "Housing/Jobs Balance 2000"
 content: |
-  ![jobshousingspectrum](/img/JobsHousingSpectrum2000.png)
+  <div style="background: linear-gradient(90deg, rgba(25,63,31,0.7) 0%, rgba(18,119,35,0.7) 20%, rgba(137,223,164,0.7) 40%, rgba(255,255,224,0.7) 60%, rgba(255,165,85,0.7) 80%, rgba(215,101,35,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny text-center">
+    <strong class="float-left text-left" style="width:33.33%;">Jobs-intensive</strong>
+    <span class="float-left" style="width:33.33%;">Region Average: 0.88</span>
+    <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
+  </p>
+
   In considering the geographic balance of residents and workplaces, planners often examine the relationship between the supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. In our region, there is an average of 0.87 housing units per job (in other words, on average, more than one worker lives in each household).
 
   A “Housing/Jobs” indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. Places that have a housing-to-jobs ratio far lower than 0.87 are often important centers of economic activity (“jobs-intensive”), while areas with a higher housing-to-jobs ratio skew toward residential (“housing-intensive”). In this map, “jobs-intensive” counties or subregions are indicated in green, and “housing-intensive” geographies are indicated in orange.

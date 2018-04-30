@@ -6,7 +6,12 @@ categorySlug: balance
 title: "Housing/jobs balance in 2016"
 menuTitle: "Housing/Jobs Balance 2016"
 content: |
-  ![jobshousingspectrum](/img/JobsHousingSpectrum2016.png)
+  <div style="background: linear-gradient(90deg, rgba(25,63,31,0.7) 0%, rgba(18,119,35,0.7) 20%, rgba(137,223,164,0.7) 40%, rgba(255,255,224,0.7) 60%, rgba(255,165,85,0.7) 80%, rgba(215,101,35,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny text-center">
+    <strong class="float-left text-left" style="width:33.33%;">Jobs-intensive</strong>
+    <span class="float-left" style="width:33.33%;">Region Average: 0.87</span>
+    <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
+  </p>
 
   Shifts in the region’s economic and population growth are reflected in the Housing/Jobs indicator for 2016. Inner NJ counties like Essex and Union, which experienced significant population growth and housing development but lost employment, switched from skewing jobs-intensive (green) in 2000 to housing-intensive (orange) in 2016. On the other hand, Suffolk County, which experienced limited housing/population growth but gained some jobs, shifted from housing-intensive (orange) toward greater balance between housing-jobs (yellow).
 
