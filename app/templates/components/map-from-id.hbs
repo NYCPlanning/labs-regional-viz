@@ -1,6 +1,6 @@
 {{#mapbox-gl
   id='map'
-  initOptions=(hash style='mapbox://styles/mapbox/light-v9'
+  initOptions=(hash style='//raw.githubusercontent.com/NYCPlanning/labs-gl-style/master/data/style.json'
                     zoom=zoom
                     minZoom=minZoom
                     maxZoom=maxZoom
@@ -12,12 +12,12 @@
 
   {{!-- Main Layers --}}
   {{#each visibleLayers key='id' as |layer|}}
-    {{map.layer layer=layer before='waterway-label'}}
+    {{map.layer layer=layer before='place_other'}}
   {{/each}}
 
   {{!-- Highlighted Layer Handling --}}
   {{#if highlightedFeature}}
-    {{map.layer layer=highlightedFeatureLayer before='waterway-label'}}
+    {{map.layer layer=highlightedFeatureLayer before='place_other'}}
   {{/if}}
 
   {{!-- Legends --}}
