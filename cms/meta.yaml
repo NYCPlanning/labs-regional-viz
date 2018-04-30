@@ -23,6 +23,8 @@ orderings:
     - id: foreign-born
       transitionPrompt: Prime-age labor force is recentralizing...
       isLinearNarrative: true
+    - id: labor-force-gain
+      isLinearNarrative: false
     - id: prime-labor-force-gain
       isLinearNarrative: true
       transitionPrompt: Rental housing is concentrated in NYC...

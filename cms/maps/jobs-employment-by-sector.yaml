@@ -22,7 +22,7 @@ map:
   - id: employment-by-sector
     type: cartovector
     source-layers:
-    - id: employment-by-sector-municipality
+    - id: employment-by-sector-tract
       sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
@@ -150,10 +150,10 @@ map:
     - label: "100 Other Services jobs"
       color: "#818387"
     layers:
-    - id: employment-by-sector-municipality
+    - id: employment-by-sector-tract
       type: circle
       source: employment-by-sector
-      source-layer: employment-by-sector-municipality
+      source-layer: employment-by-sector-tract
       paint:
         circle-color:
         - match
@@ -204,10 +204,10 @@ map:
     - label: "100 Other Services jobs"
       color: "#818387"
     layers:
-    - id: employment-by-sector-municipality
+    - id: employment-by-sector-tract
       type: circle
       source: employment-by-sector
-      source-layer: employment-by-sector-municipality
+      source-layer: employment-by-sector-tract
       paint:
         circle-color:
         - match
@@ -258,10 +258,10 @@ map:
     - label: "100 Other Services jobs"
       color: "#818387"
     layers:
-    - id: employment-by-sector-municipality
+    - id: employment-by-sector-tract
       type: circle
       source: employment-by-sector
-      source-layer: employment-by-sector-municipality
+      source-layer: employment-by-sector-tract
       paint:
         circle-color:
         - match
