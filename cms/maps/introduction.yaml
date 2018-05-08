@@ -1,13 +1,23 @@
 slug: intro
 category: welcome
 categorySlug: welcome
-title: Welcome to the NYC Metro Mapper!
+title:
 content: |
-  <p class="lead">The <strong><a href="http://www.nyc.gov/planning">NYC Department of City Planning</a> Metro Mapper</strong> enables you to explore population, housing, and employment trends within the tri-state New York City Metropolitan Region.</p>
+  <p class="lead">The <strong><a href="http://www.nyc.gov/planning">NYC Department of City Planning</a> Metro Region Explorer</strong> enables you to explore population, housing, and employment trends within the tri-state New York City Metropolitan Region.</p>
 
-  NYC is the center of a large region that spans across city, county and state boundaries. Though we are governed independently, many of our planning challenges are interconnected, and our future is intertwined with the future of our larger region.
+  NYC is the center of a large region that spans across city, county and state boundaries. Though we are governed independently, many of our planning challenges are interconnected, and our future is intertwined with the future of our larger region. This tool was developed as part of our ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
 
-  Using data from a range of publicly available sources, the Metro Mapper allows you to explore socioeconomic characteristics across 7 subregions, 31 counties, and close to 900 municipalities ([more about the data and geographies](/about)). The Department of City Planning developed this tool as part of our ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
+  <strong>Top Trends and Key Insights:</strong>
+  - [Our regional population is recentralizing.](/people/net-population-change)
+  - [Growing areas are among the most diverse.](/people/foreign-born)
+  - [The prime-age labor force is recentralizing.](/people/prime-labor-force-gain)
+  - [The region's rental housing is concentrated in NYC.](/housing/renter-owner)
+  - [NYC and NJ are building the most new housing.](/housing/multifamily-permitted)
+  - [Our region is the largest U.S. metro economy.](/jobs/employment-by-sector)
+  - [Post-recession, NYC saw the majority of regional job gains.](/jobs/private-employment-change)
+  - [The regional jobs-housing balance is shifting.](/balance/housjobs0016)
+
+  Using data from a range of publicly available sources, the Metro Region Explorer allows you to view socioeconomic characteristics across 7 subregions, 31 counties, and close to 900 municipalities ([more about the data and geographies](/about)). Learn more by clicking through below or by navigating directly to maps by topic area.
 
 source: The tri-state geography shown, representing New York City and surrounding 26 counties in portions of New York, New Jersey and Connecticut, is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed.
 
@@ -19,11 +29,11 @@ map:
       type: cartovector
       source-layers:
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, statefp::integer, name FROM region_subregion_v0
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid FROM region_subregion_v0
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, LEFT(geoid::text, 2)::integer AS statefp, name FROM region_county_v0
+        sql: SELECT the_geom_webmercator, geoid, LEFT(geoid::text, 2) || '-' || (cartodb_id % 5) AS styleid FROM region_county_v0
       - id: empty-polygons-municipality
-        sql: SELECT the_geom_webmercator, geoid, LEFT(stcoid::text, 2)::integer AS statefp, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+        sql: SELECT the_geom_webmercator, geoid, LEFT(stcoid::text, 2) || '-' || (cartodb_id % 5) AS styleid FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   layerGroups:
   - id: subregion
@@ -38,16 +48,39 @@ map:
         fill-outline-color: rgba(0, 0, 0, 1)
         fill-opacity: 0.6
         fill-color:
-        - match
-        - - get
-          - statefp
-        - 34
-        - "#39a045"
-        - 36
-        - "#0874b2"
-        - 9
-        - "#E0C80B"
-        - "#FFFFFF"
+          property: "styleid"
+          type: "categorical"
+          stops:
+          - - "34-0"
+            - "#127723"
+          - - "34-1"
+            - "#89dfa4"
+          - - "34-2"
+            - "#64b678"
+          - - "34-3"
+            - "#75ff9e"
+          - - "34-4"
+            - "#00e052"
+          - - "36-0"
+            - "#73efff"
+          - - "36-1"
+            - "#0058ee"
+          - - "36-2"
+            - "#002673"
+          - - "36-3"
+            - "#00deed"
+          - - "36-4"
+            - "#0094ff"
+          - - "09-0"
+            - "#ffffbe"
+          - - "09-1"
+            - "#f2d710"
+          - - "09-2"
+            - "#ffff00"
+          - - "09-3"
+            - "#ffd652"
+          - - "09-4"
+            - "#ffff52"
         fill-antialias: true
   - id: county
     title:
@@ -61,16 +94,39 @@ map:
         fill-outline-color: rgba(0, 0, 0, 1)
         fill-opacity: 0.6
         fill-color:
-        - match
-        - - get
-          - statefp
-        - 34
-        - "#39a045"
-        - 36
-        - "#0874b2"
-        - 9
-        - "#E0C80B"
-        - "#FFFFFF"
+          property: "styleid"
+          type: "categorical"
+          stops:
+          - - "34-0"
+            - "#127723"
+          - - "34-1"
+            - "#89dfa4"
+          - - "34-2"
+            - "#64b678"
+          - - "34-3"
+            - "#75ff9e"
+          - - "34-4"
+            - "#00e052"
+          - - "36-0"
+            - "#73efff"
+          - - "36-1"
+            - "#0058ee"
+          - - "36-2"
+            - "#002673"
+          - - "36-3"
+            - "#00deed"
+          - - "36-4"
+            - "#0094ff"
+          - - "09-0"
+            - "#ffffbe"
+          - - "09-1"
+            - "#f2d710"
+          - - "09-2"
+            - "#ffff00"
+          - - "09-3"
+            - "#ffd652"
+          - - "09-4"
+            - "#ffff52"
         fill-antialias: true
   - id: municipality
     title:
@@ -85,14 +141,37 @@ map:
         fill-outline-color: rgba(0, 0, 0, 1)
         fill-opacity: 0.6
         fill-color:
-        - match
-        - - get
-          - statefp
-        - 34
-        - "#39a045"
-        - 36
-        - "#0874b2"
-        - 9
-        - "#E0C80B"
-        - "#FFFFFF"
+          property: "styleid"
+          type: "categorical"
+          stops:
+          - - "34-0"
+            - "#127723"
+          - - "34-1"
+            - "#89dfa4"
+          - - "34-2"
+            - "#64b678"
+          - - "34-3"
+            - "#75ff9e"
+          - - "34-4"
+            - "#00e052"
+          - - "36-0"
+            - "#73efff"
+          - - "36-1"
+            - "#0058ee"
+          - - "36-2"
+            - "#002673"
+          - - "36-3"
+            - "#00deed"
+          - - "36-4"
+            - "#0094ff"
+          - - "09-0"
+            - "#ffffbe"
+          - - "09-1"
+            - "#f2d710"
+          - - "09-2"
+            - "#ffff00"
+          - - "09-3"
+            - "#ffd652"
+          - - "09-4"
+            - "#ffff52"
         fill-antialias: true
