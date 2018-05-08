@@ -1,13 +1,13 @@
 {{#if (and railVisible railSource)}}
   {{#map.source sourceId='rail' options=railSource}}
-    {{map.layer layer=railConfig.lines before='poi-scalerank3'}}
-    {{map.layer layer=railConfig.stops before='poi-scalerank3'}}
+    {{map.layer layer=railConfig.lines before='boundary_country'}}
+    {{map.layer layer=railConfig.stops before='boundary_country'}}
   {{/map.source}}
 {{/if}}
 
 {{#if aerialVisible}}
   {{#map.source sourceId='aerials' options=aerialsConfig.source}}
-    {{map.layer layer=aerialsConfig.layer before='admin-2-boundaries-dispute'}}
+    {{map.layer layer=aerialsConfig.layer before='boundary_state'}}
   {{/map.source}}
 {{/if}}
 
