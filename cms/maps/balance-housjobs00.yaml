@@ -6,7 +6,7 @@ categorySlug: balance
 title: "Housing/jobs balance in 2000"
 menuTitle: "Housing/Jobs Balance 2000"
 content: |
-  <div style="background: linear-gradient(90deg, rgba(25,63,31,0.7) 0%, rgba(18,119,35,0.7) 17%, rgba(137,223,164,0.7) 33%, rgba(255,255,224,0.7) 50%, rgba(255,165,85,0.7) 66%, rgba(215,101,35,0.7) 83%, rgba(135,57,12,0.7) 100%);">&nbsp;</div>
+  <div style="background: linear-gradient(90deg, rgba(0,38,115,0.7) 0%, rgba(0,88,238,0.7) 17%, rgba(90,180,255,0.7) 33%, rgba(255,255,224,0.7) 50%, rgba(255,165,85,0.7) 66%, rgba(215,101,35,0.7) 83%, rgba(135,57,12,0.7) 100%);">&nbsp;</div>
   <p class="clearfix text-tiny text-center">
     <strong class="float-left text-left" style="width:33.33%;">Jobs-intensive</strong>
     <span class="float-left" style="width:33.33%;">Region Average: 0.88</span>
@@ -74,8 +74,8 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#127723"
-        - "#89dfa4"
+        - "#0058ee"
+        - "#5ab4ff"
         - "#ffffe0"
         - "#ffa555"
         - "#d76523"
@@ -95,16 +95,16 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#193f1f"
-        - "#127723"
-        - "#89dfa4"
+        - "#002673"
+        - "#0058ee"
+        - "#5ab4ff"
         - "#ffffe0"
         - "#ffa555"
         - "#d76523"
         - "#87390c"
         breaks:
         - 0.4
-        - 0.6
+        - 0.65
         - 0.85
         - 0.9
         - 1.15
