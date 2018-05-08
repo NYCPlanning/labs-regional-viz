@@ -12,51 +12,62 @@ orderings:
     # People
     - id: total-population
       isLinearNarrative: true
-      transitionPrompt: Our population is recentralizing...
+      transitionPrompt: Our region is densest at the center...
     - id: population-density
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Our population is recentralizing...
     - id: population-change
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Our population is recentralizing...
     - id: net-population-change
       isLinearNarrative: true
       transitionPrompt: Growing areas are among the most diverse...
     - id: foreign-born
-      transitionPrompt: Prime-age labor force is recentralizing...
       isLinearNarrative: true
+      transitionPrompt: Our labor force is growing...
     - id: labor-force-gain
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Prime-age labor force is recentralizing...
     - id: prime-labor-force-gain
       isLinearNarrative: true
-      transitionPrompt: Rental housing is concentrated in NYC...
+      transitionPrompt: Our region has 9 million homes...
 
     # Housing
     - id: total-units
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Rental housing is concentrated in NYC...
     - id: renter-owner
       isLinearNarrative: true
-      transitionPrompt: NYC and NJ are building the most housing...
+      transitionPrompt: Multifamily housing is concentrated in NYC...
     - id: units-by-structure
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: NYC and NJ are building the most housing...
     - id: units-permitted
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Most new housing is multifamily...
     - id: multifamily-permitted
       isLinearNarrative: true
       transitionPrompt: NYC is the largest U.S. metro economy...
 
     # Jobs
     - id: total-employment
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: The distribution of jobs mirrors population...
     - id: employment-by-sector
       isLinearNarrative: true
-      transitionPrompt: Post-recession, NYC saw the majority of job gains...
+      transitionPrompt: Half of the region's office jobs are in NYC...
     - id: office-employment
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: There are 2.7 million insitutional jobs in the region...
     - id: institutional-employment
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: There are 1.7 million industrial jobs in the region...
     - id: industrial-employment
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: There are 2.1 million local services jobs in the region...
     - id: localserve-employment
-      isLinearNarrative: false
+      isLinearNarrative: true
+      transitionPrompt: Post-recession, NYC saw the majority of job gains...
     - id: private-employment-change
       isLinearNarrative: true
       transitionPrompt: The regional housing-jobs balance is shifting...
@@ -70,3 +81,4 @@ orderings:
       transitionPrompt: The regional housing/jobs balance is shifting…
     - id: balance-housjobs0016
       isLinearNarrative: true
+      transitionPrompt: 

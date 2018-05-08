@@ -11,5 +11,5 @@ test('it renders', function(assert) {
 
   this.render(hbs`{{site-header}}`);
 
-  assert.equal(this.$('.site-name').text().trim(), 'Metro Mapper');
+  assert.equal(this.$('.site-name').text().trim(), 'Metro Region Explorer');
 });
