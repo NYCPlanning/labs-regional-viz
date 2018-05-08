@@ -1,7 +1,7 @@
 {{#if (and railVisible railSource)}}
   {{#map.source sourceId='rail' options=railSource}}
-    {{map.layer layer=railConfig.lines before='boundary_country'}}
-    {{map.layer layer=railConfig.stops before='boundary_country'}}
+    {{map.layer layer=railConfig.lines before='place_other'}}
+    {{map.layer layer=railConfig.stops before='place_other'}}
   {{/map.source}}
 {{/if}}
 
