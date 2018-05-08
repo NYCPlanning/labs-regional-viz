@@ -116,15 +116,15 @@ export default Component.extend({
     popup.remove();
 
     // This is repeated in handleMapLoad(), maybe move to service
-    const regionBounds = this.get('regionBounds');
-    map.fitBounds(regionBounds, {
-      padding: {
-        top: 20,
-        bottom: 20,
-        left: 10,
-        right: 10,
-      },
-    });
+    // const regionBounds = this.get('regionBounds');
+    // map.fitBounds(regionBounds, {
+    //   padding: {
+    //     top: 20,
+    //     bottom: 20,
+    //     left: 10,
+    //     right: 10,
+    //   },
+    // });
   },
 
   actions: {
