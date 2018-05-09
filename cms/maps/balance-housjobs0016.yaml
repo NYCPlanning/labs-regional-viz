@@ -21,7 +21,7 @@ content: |
   As certain areas of the region gain jobs but little housing (Long Island), or gain housing but few jobs (Inner New Jersey), shifts in balance affect commuting patterns and the demands placed on regional transportation infrastructure.
 
 source: |
-  Sources: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000 & 2016; U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000 & 2016; U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. See [About](/about/#balance) for more information about housing-jobs balance.
 
 map:
   defaultGeographyLevel: county

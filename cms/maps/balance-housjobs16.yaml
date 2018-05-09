@@ -22,7 +22,7 @@ content: |
   All four NYC boroughs other than Manhattan shifted more jobs-intensive, lowering the ratio of housing units to total employment in a period when NYC experienced widespread growth. This is especially true of the Bronx and Brooklyn, which were the only two counties in region with more than two homes per job in 2000 (the most housing-intensive). The Bronx shifted from 2.3 homes per job in 2000 to 1.74 homes per job in 2016, and Brooklyn shifted from 2.1 homes per job in 2000 to 1.49 homes per job in 2016. This reflects the significant job gains in NYC boroughs outside of Manhattan, and implies improved access to employment opportunities for NYC residents without the need to commute to Manhattan. In contrast, shifts in the region towards more housing-intensive – most notably in New Jersey – imply increasing reliance on commutation into NYC for employment, which increases pressure on regional transit infrastructure.
 
 source: |
-  Sources: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.  See [About](/about/#balance) for more information about housing-jobs balance.
 
 map:
   defaultGeographyLevel: county

@@ -22,7 +22,7 @@ content: |
   Inner NJ counties adjacent to NYC (except Hudson) skewed more jobs-intensive in 2000, while the outer ring of the region – Suffolk County, Litchfield, CT, the upper Hudson Valley, Warren County and Sussex County, NJ – tended to be more housing-intensive.
 
 source: |
-  Sources: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000. See [About](/about/#balance) for more information about housing-jobs balance.
 
 map:
   defaultGeographyLevel: county
