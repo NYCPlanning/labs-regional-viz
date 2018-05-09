@@ -74,11 +74,6 @@ export default Component.extend({
   currentLayerGroup: {},
   mapConfig: {},
 
-  @computed('currentLayerGroup')
-  icon({ type }) {
-    return type === 'circle' ? 'circle' : 'square';
-  },
-
   @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio')
   rows(layerConfig, isPercent, isChangeMeasurement, isRatio) {
     const { legend } = layerConfig;

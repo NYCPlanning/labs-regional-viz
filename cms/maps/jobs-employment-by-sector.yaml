@@ -246,17 +246,23 @@ map:
         line-width: 0.5
   - id: municipality
     title: "Jobs by Sector, 2015"
+    legend-title: "1 dot = 100 jobs"
     legend:
     - label: "100 Office-based jobs"
       color: "#0628d3"
+      type: circle
     - label: "100 Education & Healthcare jobs"
       color: "#f2922b"
+      type: circle
     - label: "100 Industrial jobs"
       color: "#ce50c4"
+      type: circle
     - label: "100 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
+      type: circle
     - label: "100 Other Services jobs"
       color: "#818387"
+      type: circle
     layers:
     - id: employment-by-sector-tract
       type: circle

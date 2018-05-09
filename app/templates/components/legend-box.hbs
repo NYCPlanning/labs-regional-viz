@@ -1,8 +1,15 @@
   <div class="legend">
     {{#if narrativeVisible}}<h5 class="legend-title">{{currentLayerGroup.title}}</h5>{{/if}}
+    {{#if currentLayerGroup.legend-title}}<h5 class="legend-subtitle">{{currentLayerGroup.legend-title}}</h5>{{/if}}
     {{#each rows as |row|}}
       <div class="legend-item">
-        <span class="legend-color" style="color:{{row.color}};">{{fa-icon icon}}</span>
+        <span class="legend-color" style="color:{{row.color}};">
+          {{#if (eq row.type 'circle')}}
+            {{fa-icon 'circle'}}
+          {{else}}
+            {{fa-icon 'square'}}
+          {{/if}}
+        </span>
         {{row.label}}
       </div>
     {{/each}}
