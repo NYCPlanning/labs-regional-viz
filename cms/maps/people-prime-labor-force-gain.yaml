@@ -125,8 +125,10 @@ map:
     legend:
     - color: "#00aacc"
       label: "Gain of 50"
+      type: circle
     - color: "#ff7900"
       label: "Loss of 50"
+      type: circle
     layers:
     - id: prime-labor-force-gain-municipality
       type: circle

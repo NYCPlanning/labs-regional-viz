@@ -10,7 +10,7 @@ content: |
 
   Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (142,000 units), and the Inner NJ subregion, which accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 30% of existing housing and 32% of population.
 source: |
-  Source & Notes: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Please see [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Please see [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county

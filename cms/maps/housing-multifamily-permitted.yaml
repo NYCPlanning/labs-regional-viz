@@ -11,7 +11,7 @@ content: |
   Today the region has 3.8 million households in buildings with three or more units, of which NYC accounts for 63% (2.4 million units) and the Inner New Jersey subregion accounts for 17% (667,000 units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 57% of the region’s permitted units in buildings with three or more units (133,000 units), slightly lower than its regional share, and the Inner New Jersey subregion accounted for 28% of the region’s permitted units in buildings with three or more units (66,000 units), higher than its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and prime-age labor force growth.
 
 source: |
-  Source: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county
@@ -82,19 +82,25 @@ map:
   layerGroups:
   - id: subregion
     title: "Permitted Housing Units by Building Size, 2010-2016"
+    legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#f2d710"
-      label: "50 Units, in 1-2 Unit Bldg"
+      label: "1-2 Unit Bldg"
+      type: circle
     - color: "#db6f0a"
-      label: "50 Units, in 3+ Unit Bldg"
+      label: "3+ Unit Bldg"
+      type: circle
     layers:
     - id: multifamily-permitted-municipality
       type: circle
+      legend-title: "1 Dot = 50 Units"
       legend:
       - color: "#f2d710"
-        label: "50 Units, in 1-2 Unit Bldg"
+        label: "1-2 Unit Bldg"
+        type: circle
       - color: "#db6f0a"
-        label: "50 Units, in 3+ Unit Bldg"
+        label: "3+ Unit Bldg"
+        type: circle
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
@@ -130,19 +136,25 @@ map:
 
   - id: county
     title: "Permitted Housing Units by Building Size, 2010-2016"
+    legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#f2d710"
-      label: "50 Units, in 1-2 Unit Bldg"
+      label: "1-2 Unit Bldg"
+      type: circle
     - color: "#db6f0a"
-      label: "50 Units, in 3+ Unit Bldg"
+      label: "3+ Unit Bldg"
+      type: circle
     layers:
     - id: multifamily-permitted-municipality
       type: circle
+      legend-title: "1 Dot = 50 Units"
       legend:
       - color: "#f2d710"
-        label: "50 Units, in 1-2 Unit Bldg"
+        label: "1-2 Unit Bldg"
+        type: circle
       - color: "#db6f0a"
-        label: "50 Units, in 3+ Unit Bldg"
+        label: "3+ Unit Bldg"
+        type: circle
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
@@ -178,19 +190,25 @@ map:
 
   - id: municipality
     title: "Permitted Housing Units by Building Size, 2010-2016"
+    legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#f2d710"
-      label: "50 Units, in 1-2 Unit Bldg"
+      label: "1-2 Unit Bldg"
+      type: circle
     - color: "#db6f0a"
-      label: "50 Units, in 3+ Unit Bldg"
+      label: "3+ Unit Bldg"
+      type: circle
     layers:
     - id: multifamily-permitted-municipality
       type: circle
+      legend-title: "1 Dot = 50 Units"
       legend:
       - color: "#f2d710"
-        label: "50 Units, in 1-2 Unit Bldg"
+        label: "1-2 Unit Bldg"
+        type: circle
       - color: "#db6f0a"
-        label: "50 Units, in 3+ Unit Bldg"
+        label: "3+ Unit Bldg"
+        type: circle
       source: multifamily-permitted
       source-layer: multifamily-permitted-municipality
       paint:
