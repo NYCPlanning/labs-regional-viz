@@ -9,7 +9,7 @@ content: |
   This map shows the location of the region's housing units by the size of the structure, or building, in which those homes are located. Homes located in buildings with one-two units are in yellow and homes located in buildings that contain three or more housing units are in orange.
 
   Of the region's nearly 9 million homes, 43% are in buildings with three or more units (3.8 million homes) while 57% are one-two family homes. Buildings with three or more units, typical of medium or larger multifamily buildings, are concentrated in the city, areas proximate to rail transit, and in the region's historic downtown, while lower-density housing types are spread more widely across the region.
-  
+
 source: |
   Source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
 
@@ -21,7 +21,7 @@ map:
     type: cartovector
     source-layers:
     - id: units-by-structure-municipality
-      sql: SELECT the_geom_webmercator, category FROM region_units_by_structure_dotdensity_v0
+      sql: SELECT the_geom_webmercator, category FROM region_units_by_structure_dotdensity_v0 ORDER BY random()
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-county

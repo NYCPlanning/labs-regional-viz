@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-tract
-      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+      sql: SELECT the_geom_webmercator, emser15 as value FROM region_censustract_localserv_dotdensity_v0
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: emser
@@ -54,7 +54,7 @@ map:
   - id: subregion
     title: "Retail, Leisure & Hospitality Employment, 2016"
     legend:
-    - label: "100 Retail, Leisure & Hospitality jobs"
+    - label: "50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
     layers:
     - id: localserve-employment-tract
@@ -63,18 +63,18 @@ map:
       source-layer: localserve-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmSer15"
-        - "#6ff268"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#6ff268"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-subregion-polygons
       type: fill
@@ -92,7 +92,7 @@ map:
   - id: county
     title: "Retail, Leisure & Hospitality Employment, 2016"
     legend:
-    - label: "100 Retail, Leisure & Hospitality jobs"
+    - label: "50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
     layers:
     - id: localserve-employment-tract
@@ -101,18 +101,18 @@ map:
       source-layer: localserve-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmSer15"
-        - "#6ff268"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#6ff268"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-county-polygons
       type: fill
@@ -130,7 +130,7 @@ map:
   - id: municipality
     title: "Retail, Leisure & Hospitality Employment, 2015"
     legend:
-    - label: "100 Retail, Leisure & Hospitality jobs"
+    - label: "50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
     layers:
     - id: localserve-employment-tract
@@ -139,18 +139,18 @@ map:
       source-layer: localserve-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmSer15"
-        - "#6ff268"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#57EB51"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
