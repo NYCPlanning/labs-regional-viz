@@ -19,7 +19,7 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-tract
-      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+      sql: SELECT the_geom_webmercator, emoff15 as value FROM region_censustract_office_dotdensity_v0
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-county
@@ -55,7 +55,7 @@ map:
   - id: subregion
     title: "Office-based Employment, 2016"
     legend:
-    - label: "100 Office jobs"
+    - label: "50 Office jobs"
       color: "#0628d3"
     layers:
     - id: office-employment-tract
@@ -64,18 +64,18 @@ map:
       source-layer: office-employment-tract
       paint:
         circle-color:
-          - match
-          - - get
-            - category
-          - "EmOff15"
-          - "#0628d3"
+        - step
+        - - get
+          - value
           - "#FFFFFF"
+          - 0
+          - "#0628d3"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-subregion-polygons
       type: fill
@@ -93,7 +93,7 @@ map:
   - id: county
     title: "Office-based Employment, 2016"
     legend:
-    - label: "100 Office-based jobs"
+    - label: "50 Office-based jobs"
       color: "#0628d3"
     layers:
     - id: office-employment-tract
@@ -102,18 +102,18 @@ map:
       source-layer: office-employment-tract
       paint:
         circle-color:
-            - match
-            - - get
-              - category
-            - "EmOff15"
-            - "#0628d3"
-            - "#FFFFFF"
+        - step
+        - - get
+          - value
+          - "#FFFFFF"
+          - 0
+          - "#0628d3"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-county-polygons
       type: fill
@@ -131,7 +131,7 @@ map:
   - id: municipality
     title: "Office-based Employment, 2015"
     legend:
-    - label: "100 Office-based jobs"
+    - label: "50 Office-based jobs"
       color: "#0628d3"
     layers:
     - id: office-employment-tract
@@ -140,18 +140,18 @@ map:
       source-layer: office-employment-tract
       paint:
         circle-color:
-          - match
+          - step
           - - get
-            - category
-          - "EmOff15"
-          - "#0628d3"
+            - value
           - "#FFFFFF"
+          - 0
+          - "#0628d3"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

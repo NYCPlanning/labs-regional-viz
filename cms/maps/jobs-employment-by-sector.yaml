@@ -173,10 +173,10 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
-        circle-opacity: 0.4
+            - 3
+        circle-opacity: 0.7
     - id: empty-subregion-polygons
       type: fill
       source: employment-by-sector
@@ -227,10 +227,10 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
-        circle-opacity: 0.4
+            - 3
+        circle-opacity: 0.7
     - id: empty-county-polygons
       type: fill
       source: employment-by-sector
@@ -281,10 +281,10 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
-        circle-opacity: 0.4
+            - 3
+        circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
       source: employment-by-sector

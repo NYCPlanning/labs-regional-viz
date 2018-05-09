@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-tract
-      sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity_v0
+      sql: SELECT the_geom_webmercator, emind15 as value FROM region_censustract_industrial_dotdensity_v0
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: emind
@@ -52,9 +52,9 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Institutional Employment, 2016"
+    title: "Industrial Employment, 2016"
     legend:
-    - label: "100 Education & Healthcare jobs"
+    - label: "50 Industrial jobs"
       color: "#ce50c4"
     layers:
     - id: industrial-employment-tract
@@ -63,18 +63,18 @@ map:
       source-layer: industrial-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmInd15"
-        - "#ce50c4"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#ce50c4"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-subregion-polygons
       type: fill
@@ -90,9 +90,9 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Institutional Employment, 2016"
+    title: "Industrial Employment, 2016"
     legend:
-    - label: "100 Education & Healthcare jobs"
+    - label: "50 Industrial jobs"
       color: "#ce50c4"
     layers:
     - id: industrial-employment-tract
@@ -101,18 +101,18 @@ map:
       source-layer: industrial-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmInd15"
-        - "#ce50c4"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#ce50c4"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-county-polygons
       type: fill
@@ -128,9 +128,9 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Institutional Employment, 2015"
+    title: "Industrial Employment, 2015"
     legend:
-    - label: "100 Education & Healthcare jobs"
+    - label: "50 Industrial jobs"
       color: "#ce50c4"
     layers:
     - id: industrial-employment-tract
@@ -139,18 +139,18 @@ map:
       source-layer: industrial-employment-tract
       paint:
         circle-color:
-        - match
-        - - get
-          - category
-        - "EmInd15"
-        - "#ce50c4"
-        - "#FFFFFF"
+          - step
+          - - get
+            - value
+          - "#FFFFFF"
+          - 0
+          - "#ce50c4"
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
-            - 2
+            - 3
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
