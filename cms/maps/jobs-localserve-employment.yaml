@@ -106,7 +106,7 @@ map:
             - value
           - "#FFFFFF"
           - 0
-          - "57EB51"
+          - "#6ff268"
         circle-radius:
           stops:
           - - 7
@@ -131,7 +131,7 @@ map:
     title: "Retail, Leisure & Hospitality Employment, 2015"
     legend:
     - label: "50 Retail, Leisure & Hospitality jobs"
-      color: "57EB51"
+      color: "#6ff268"
     layers:
     - id: localserve-employment-tract
       type: circle
