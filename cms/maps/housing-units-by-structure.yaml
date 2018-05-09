@@ -6,12 +6,12 @@ categorySlug: housing
 title: "A majority of the region's housing units are in buildings with two units or less."
 menuTitle: "Housing by Building Size"
 content: |
-  This map shows the location of the region's housing units by the size of the structure, or building, in which those homes are located. Homes located in buildings with one-two units are in yellow and homes located in buildings that contain three or more housing units are in orange.
+  This map shows the location of the region's housing units by the size of the structure (or building) in which those homes are located. Homes located in buildings with one-two units are indicated in yellow, and homes located in buildings that contain three or more housing units are indicated in orange.
 
-  Of the region's nearly 9 million homes, 43% are in buildings with three or more units (3.8 million homes) while 57% are one-two family homes. Buildings with three or more units, typical of medium or larger multifamily buildings, are concentrated in the city, areas proximate to rail transit, and in the region's historic downtown, while lower-density housing types are spread more widely across the region.
+  Of the region's nearly 9 million homes, 43% are located in buildings with three or more units (3.8 million homes) while 57% are one-two family homes. Buildings with three or more units, typical of medium or larger multifamily buildings, are concentrated in NYC, areas proximate to rail transit, or in the region's historic downtowns, while lower-density housing types are spread more widely across the region.
 
 source: |
-  Source: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
+  Source & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing by building size.
 
 map:
   defaultGeographyLevel: municipality

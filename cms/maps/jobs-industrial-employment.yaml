@@ -6,9 +6,9 @@ categorySlug: jobs
 title: "There are 1.67 million private industrial jobs in the region."
 menuTitle: "Industrial Employment"
 content: |
-  The NYC metropolitan region is home to an average annual 1.67 million private-sector industrial jobs. Industrial jobs includes manufacturing, construction, utilities, transportation and warehousing, and wholesale employment. NYC is home to about 29% of the region's industrial employment (483k). Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors).
+  The NYC metropolitan region is home to 1.67 million private-sector industrial jobs. Industrial jobs include manufacturing, construction, utilities, transportation and warehousing, and wholesale employment. 29% of the region's industrial employment (483,000) is based in NYC. Industrial employment also includes some office headquarters employment for industrial businesses, which is especially true for industrial jobs located in places like Manhattan. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors).
 source: |
-  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
+  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -54,8 +54,9 @@ map:
   - id: subregion
     title: "Industrial Employment, 2016"
     legend:
-    - label: "50 Industrial jobs"
+    - label: "1 Dot = 50 Industrial jobs"
       color: "#ce50c4"
+      type: circle
     layers:
     - id: industrial-employment-tract
       type: circle
@@ -92,8 +93,9 @@ map:
   - id: county
     title: "Industrial Employment, 2016"
     legend:
-    - label: "50 Industrial jobs"
+    - label: "1 Dot = 50 Industrial jobs"
       color: "#ce50c4"
+      type: circle
     layers:
     - id: industrial-employment-tract
       type: circle
@@ -130,8 +132,9 @@ map:
   - id: municipality
     title: "Industrial Employment, 2015"
     legend:
-    - label: "50 Industrial jobs"
+    - label: "1 Dot = 50 Industrial jobs"
       color: "#ce50c4"
+      type: circle
     layers:
     - id: industrial-employment-tract
       type: circle

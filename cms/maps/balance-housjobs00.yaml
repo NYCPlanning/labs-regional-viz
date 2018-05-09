@@ -13,18 +13,16 @@ content: |
     <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
   </p>
 
-  In considering the geographic balance of residents and workplaces, planners often examine the relationship between the supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. In our region, there is an average of 0.87 housing units per job (in other words, on average, more than one worker lives in each household).
+  One tool for considering the geographic balance of residents and workplaces in a region is to measure the relative supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. A <b>“Housing/Jobs”</b> indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. In our region, there was an overall average of 0.87 housing units per job in 2000 (in other words, on average, more than one worker lived in each household). Places in our region that had a housing-to-jobs ratio far lower than 0.87 were often important centers of economic activity (<b>“jobs-intensive”</b>), while areas with a higher housing-to-jobs ratio skewed toward residential (<b>“housing-intensive”</b>) uses. In this map, “jobs-intensive” counties or subregions are indicated in blue, and “housing-intensive” geographies are indicated in orange.
 
-  A “Housing/Jobs” indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. Places that have a housing-to-jobs ratio far lower than 0.87 are often important centers of economic activity (“jobs-intensive”), while areas with a higher housing-to-jobs ratio skew toward residential (“housing-intensive”). In this map, “jobs-intensive” counties or subregions are indicated in green, and “housing-intensive” geographies are indicated in orange.
-
-  It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.” However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.
+  <b>It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.”</b> However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.
 
   In 2000, Manhattan was the region’s most jobs-intensive county, with a ratio of 0.33 housing units (798,000) to total jobs (2.4 million). The Bronx was the region’s most housing-intensive county, with a ratio of 2.3 housing units (491,000) to jobs (213,000), while Brooklyn, Queens and Staten Island all qualify as “housing-intensive,” with those boroughs’ residents commuting to Manhattan in high numbers.
 
   Inner NJ counties adjacent to NYC (except Hudson) skewed more jobs-intensive in 2000, while the outer ring of the region – Suffolk County, Litchfield, CT, the upper Hudson Valley, Warren County and Sussex County, NJ – tended to be more housing-intensive.
 
 source: |
-  Source: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000.
+  Sources: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000.
 
 map:
   defaultGeographyLevel: county

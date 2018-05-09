@@ -6,11 +6,11 @@ categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
 menuTitle: "Housing Units Permitted, 2010-2016"
 content: |
-  Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle being added in a six-year period. While in absolute terms a large number, these housing permits represent a potential 3.5% increase in total housing supply – roughly keeping pace with the rate of population increases.
+  Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle in a six-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 3.5% increase over the region’s existing housing supply, slightly outpacing with the rate of regional population increase (+2.7%) over the same time period. It should be noted, however, that permit figures might include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
-  However, across the region the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (142,000 units), and the Inner NJ subregion, which accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 30% of existing housing and 32% of population.
+  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (142,000 units), and the Inner NJ subregion, which accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 30% of existing housing and 32% of population.
 source: |
-  Source: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual.
+  Source & Notes: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Please see [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county
@@ -106,12 +106,14 @@ map:
       paintConfig:
         opacity: 0.6
         colors:
-        - "#ffffe0"
-        - "#ffffbe"
-        - "#ffd37f"
-        - "#ffaa00"
+        - "#ffffff"
+        - "#ffff9f"
+        - "#ffdb11"
+        - "#ffa112"
         - "#ff5500"
+        - "#b32d00"
         breaks:
+        - 100
         - 500
         - 1000
         - 2500

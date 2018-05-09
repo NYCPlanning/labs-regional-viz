@@ -3,12 +3,12 @@
 slug: localserve-employment
 category: Jobs
 categorySlug: jobs
-title: "There are about 2.1 million retail, leisure and hospitality jobs in the region."
+title: "There are 2.1 million retail, leisure and hospitality jobs in the region."
 menuTitle: "Retail, Leisure & Hospitality Employment"
 content: |
-  Of the region's approximately 2.1 million retail, leisure and hospitality (private sector) jobs, 38% were located in NYC. Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+  Of the region's approximately 2.1 million private-sector retail, leisure and hospitality jobs, 38% were located in NYC. Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 source: |
-  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
+  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -54,8 +54,9 @@ map:
   - id: subregion
     title: "Retail, Leisure & Hospitality Employment, 2016"
     legend:
-    - label: "50 Retail, Leisure & Hospitality jobs"
+    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
+      type: circle
     layers:
     - id: localserve-employment-tract
       type: circle
@@ -92,8 +93,9 @@ map:
   - id: county
     title: "Retail, Leisure & Hospitality Employment, 2016"
     legend:
-    - label: "50 Retail, Leisure & Hospitality jobs"
+    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
+      type: circle
     layers:
     - id: localserve-employment-tract
       type: circle
@@ -130,8 +132,9 @@ map:
   - id: municipality
     title: "Retail, Leisure & Hospitality Employment, 2015"
     legend:
-    - label: "50 Retail, Leisure & Hospitality jobs"
+    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
       color: "#6ff268"
+      type: circle
     layers:
     - id: localserve-employment-tract
       type: circle
