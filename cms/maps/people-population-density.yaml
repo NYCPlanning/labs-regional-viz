@@ -3,13 +3,13 @@
 slug: population-density
 category: People
 categorySlug: people
-title: "The region is densest at the core."
+title: "Our region is densest at the center."
 menuTitle: "Population Density"
 content: |
-  Our region is home to a wide diversity of built environments, from skyscraper districts in Manhattan to the farms of the Hudson Valley. NYC’s neighborhoods range in densities from 6,700 people per square mile in lower density areas like central and south Staten Island to over 100,000 people per square mile in East Midtown. Areas of north New Jersey, Nassau County, lower Westchester, and historic downtowns along our regional rail lines have typically have higher densities (upwards of 10,000 people per square mile), while the suburban and outer areas of the region tend to be much lower density (under 2,000 people per square mile).
+  Our region is home to a wide diversity of built environments, from skyscraper districts in Manhattan to the farms of the Hudson Valley. NYC’s neighborhoods range in densities from 6,700 people per square mile in lower density areas like central and south Staten Island to over 100,000 people per square mile in East Midtown. Areas in northern New Jersey, Nassau County, southern Westchester County, as well as historic downtowns along our regional rail lines, typically have higher population densities (upwards of 10,000 people per square mile). Suburban and outer areas of the region tend to be much lower density (under 2,000 people per square mile).
 
 source: |
-  Source: U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016; U.S. Census Bureau MAF/TIGER database.
+  Sources: U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016; U.S. Census Bureau MAF/TIGER database.See [About](/about/#people) page for additional notes on population density.
 
 map:
   defaultGeographyLevel: municipality

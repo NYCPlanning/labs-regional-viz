@@ -3,12 +3,12 @@
 slug: institutional-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for about 40% of the region's 2.7 million education and healthcare jobs."
+title: "NYC accounts for 40% of the region's 2.7 million education and healthcare jobs."
 menuTitle: "Institutional Employment"
 content: |
-  The NYC metro region is home to 2.7 million average annual jobs in the education and healthcare sector, representing 40%, which includes public and private sector employment. Close to three-quarters of the region's institutional employment was in private sector education and healthcare, 1.96 million jobs representing 72% of the total institutional employment. Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but institutional jobs also track population size, as it relates to locally serving schools and healthcare facilities.
+  The NYC metro region is home to 2.7 million jobs in the education and healthcare sector, representing 40%, which includes public and private sector employment. Close to three-quarters of the region's institutional employment is in private sector education and healthcare, 1.96 million jobs representing 72% of the total institutional employment. Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local schools and healthcare facilities.
 source: |
-  Source: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
+  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -54,7 +54,7 @@ map:
   - id: subregion
     title: "Institutional Employment, 2016"
     legend:
-    - label: "50 Education & Healthcare jobs"
+    - label: "1 Dot = 50 Education & Healthcare jobs"
       color: "#f2922b"
     layers:
     - id: institutional-employment-tract
@@ -92,8 +92,9 @@ map:
   - id: county
     title: "Institutional Employment, 2016"
     legend:
-    - label: "50 Education & Healthcare jobs"
+    - label: "1 Dot = 50 Education & Healthcare jobs"
       color: "#f2922b"
+      type: circle
     layers:
     - id: institutional-employment-tract
       type: circle
@@ -130,8 +131,9 @@ map:
   - id: municipality
     title: "Institutional Employment, 2015"
     legend:
-    - label: "50 Education & Healthcare jobs"
+    - label: "1 Dot = 50 Education & Healthcare jobs"
       color: "#f2922b"
+      type: circle
     layers:
     - id: institutional-employment-tract
       type: circle

@@ -6,11 +6,10 @@ categorySlug: people
 title: "The region's labor force grew at pace with the national average."
 menuTitle: "Labor Force Change, 2000-2016"
 content: |
-
-  Since 2000, the NYC metropolitan region grew labor force participants by 1.5 million, representing an increase of 15% - slightly below the national average labor force growth (+16%). NYC accounted for about half of the region's growth in labor force (+742,450), representing an increase of 21% since 2000.  All counties in the region grew labor force participation, averaging a regional increase of 11% outside of NYC. The increase in labor force participants aged 65 and older notably contributed to labor force growth outside of NYC, accounting for one-quarter to one-third of net labor force gain in other parts of the region. In contrast, 10% of NYC's labor force growth was attributable to gaining labor force participants aged 65 or older.
+  Since 2000, the NYC metropolitan region grew labor force participants by 1.5 million, representing an increase of 15% – slightly below the national average labor force growth (+16%). NYC accounted for about half of the region's growth in labor force (+742,450), representing an increase of 21% since 2000. All counties in the region grew labor force participation, averaging a regional increase of 11% outside of NYC. The increase in labor force participants aged 65 and older notably contributed to labor force growth outside of NYC, accounting for one-quarter to one-third of net labor force gain in other parts of the region. In contrast, 10% of NYC's labor force growth was attributable to an increase in labor force participants aged 65 or older.
 
 source: |
-  Source: U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -116,11 +115,14 @@ map:
         - 100000
   - id: municipality
     title: "Labor Force Change, 2000-2016"
+    legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"
-      label: "Gain of 50 people"
+      label: "Gain of 50"
+      type: circle
     - color: "#ff7900"
-      label: "Loss of 50 people"
+      label: "Loss of 50"
+      type: circle
     layers:
     - id: labor-force-gain-municipality
       type: circle

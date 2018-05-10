@@ -8,12 +8,12 @@ menuTitle: "Employment by Industry Sector"
 content: |
   The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area.
 
-  In 2016, NYC accounted for 42% of the metro region’s 10.3 million jobs and about half of the region’s $744 billion in annual worker wages. Manhattan alone accounts for 2.4 million jobs and $274 billion in annual worker wages – the highest for any county in the U.S. – representing 24% of the region’s total jobs and 37% of regional wages. Outside of the city, there are 6.1 million jobs providing employment for regional residents, including 400,000 NYC residents.
+  In 2016, NYC accounted for 41% of the metro region’s 10.3 million jobs and about half of the region’s $744 billion in annual worker wages. Manhattan alone accounted for 2.4 million jobs and $274 billion in annual worker wages – the highest for any county in the U.S. – representing 24% of the region’s total jobs and 37% of regional wages. Outside of NYC, there were 6.1 million jobs providing employment for regional residents, including 400,000 NYC residents.
 
-  Office sector jobs are most concentrated in Manhattan, which accounts for 40% of the region’s 2.7 million office-based jobs and averages about 50,000 office jobs per square mile. Other office clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30,000-50,000 office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (NJ). Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but institutional jobs also track population size, as it relates to locally serving schools and healthcare facilities. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+  Office sector jobs are most concentrated in Manhattan, which accounted for 40% of the region’s 2.7 million office-based jobs and averaged about 50,000 office jobs per square mile. Other office clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30,000-50,000 office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (NJ). Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but these jobs also track population size, as related to locally serving schools and healthcare facilities. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 
 source: |
-  Source: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only].
+  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -138,17 +138,23 @@ map:
   layerGroups:
   - id: subregion
     title: "Jobs by Sector, 2016"
+    legend-title: "1 dot = 100 jobs"
     legend:
-    - label: "100 Office-based jobs"
+    - label: "Office"
       color: "#0628d3"
-    - label: "100 Education & Healthcare jobs"
+      type: circle
+    - label: "Education & Healthcare"
       color: "#f2922b"
-    - label: "100 Industrial jobs"
+      type: circle
+    - label: "Industrial"
       color: "#ce50c4"
-    - label: "100 Retail, Leisure & Hospitality jobs"
+      type: circle
+    - label: "Retail, Leisure & Hospitality"
       color: "#6ff268"
-    - label: "100 Other Services jobs"
+      type: circle
+    - label: "Other Services"
       color: "#818387"
+      type: circle
     layers:
     - id: employment-by-sector-tract
       type: circle
@@ -192,17 +198,23 @@ map:
         line-width: 0.5
   - id: county
     title: "Jobs by Sector, 2016"
+    legend-title: "1 dot = 100 jobs"
     legend:
-    - label: "100 Office-based jobs"
+    - label: "Office"
       color: "#0628d3"
-    - label: "100 Education & Healthcare jobs"
+      type: circle
+    - label: "Education & Healthcare"
       color: "#f2922b"
-    - label: "100 Industrial jobs"
+      type: circle
+    - label: "Industrial"
       color: "#ce50c4"
-    - label: "100 Retail, Leisure & Hospitality jobs"
+      type: circle
+    - label: "Retail, Leisure & Hospitality"
       color: "#6ff268"
-    - label: "100 Other Services jobs"
+      type: circle
+    - label: "Other Services"
       color: "#818387"
+      type: circle
     layers:
     - id: employment-by-sector-tract
       type: circle
@@ -248,19 +260,19 @@ map:
     title: "Jobs by Sector, 2015"
     legend-title: "1 dot = 100 jobs"
     legend:
-    - label: "100 Office-based jobs"
+    - label: "Office"
       color: "#0628d3"
       type: circle
-    - label: "100 Education & Healthcare jobs"
+    - label: "Education & Healthcare"
       color: "#f2922b"
       type: circle
-    - label: "100 Industrial jobs"
+    - label: "Industrial"
       color: "#ce50c4"
       type: circle
-    - label: "100 Retail, Leisure & Hospitality jobs"
+    - label: "Retail, Leisure & Hospitality"
       color: "#6ff268"
       type: circle
-    - label: "100 Other Services jobs"
+    - label: "Other Services"
       color: "#818387"
       type: circle
     layers:

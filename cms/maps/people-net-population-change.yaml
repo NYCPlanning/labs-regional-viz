@@ -6,10 +6,10 @@ categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
 menuTitle: "Net Population Change, 2010-2016"
 content: |
-  Recent growth patterns suggest that more people are moving to and staying in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. Hudson County, New Jersey saw the fastest rate of population growth (+6.9%) in the region, as well as the largest net population gain (+43,700) outside of NYC, and every municipality within Hudson County saw population increases. Within inner suburban counties, population growth concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Brunswick, New Rochelle, and Stamford, and in other areas proximate to NYC – notably southern Westchester and western Nassau Counties. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today. Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region.
+  Recent growth patterns suggest that more people are moved to and stayed in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. Brooklyn (+163,800), Queens (+102,300), and the Bronx (+70,600) saw the largest population gains in the region, followed by Hudson County, New Jersey. Hudson County saw the fastest rate of population growth (+6.9%) of any county in the region, as well as the largest net population gain (+43,700) outside of NYC, and every municipality within Hudson County saw population increases. Within suburban counties closest to NYC, population growth concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Brunswick, New Rochelle, and Stamford, and in other areas proximate to NYC – notably southern Westchester County and western Nassau County. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today. Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region.
 
 source: |
-  Source: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2012-2016.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on calculated population change.
 
 map:
   defaultGeographyLevel: municipality
@@ -120,11 +120,14 @@ map:
         - 50000
   - id: municipality
     title: "Net Population Change, 2010 - 2016"
+    legend-title: "1 dot = 100 people"
     legend:
     - color: "#00aacc"
-      label: "Gain of 50 people"
+      label: "Gain of 50"
+      type: circle
     - color: "#ff7900"
-      label: "Loss of 50 people"
+      label: "Loss of 50"
+      type: circle
     layers:
     - id: net-population-change-municipality
       type: circle
