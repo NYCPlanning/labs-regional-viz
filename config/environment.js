@@ -31,6 +31,27 @@ module.exports = function(environment) {
       accessToken: 'pk.eyJ1IjoiY3dob25nbnljIiwiYSI6ImNpczF1MXdrdjA4MXcycXA4ZGtyN2x5YXIifQ.3HGyME8tBs6BnljzUVIt4Q',
     },
 
+    metricsAdapters: [
+      {
+        name: 'GoogleAnalytics',
+        environments: ['development', 'production'],
+        config: {
+          id: 'UA-84250233-11',
+          // Use `analytics_debug.js` in development
+          debug: false,
+          // Use verbose tracing of GA events
+          trace: false,
+          // Ensure development env hits aren't sent to GA
+          sendHitTask: environment !== 'development',
+        },
+      },
+    ],
+
+    contentSecurityPolicy: {
+      'default-src': "'none'",
+      'script-src': "'self' www.google-analytics.com",
+    },
+
     'ember-cli-string-helpers': {
       only: ['capitalize'],
     }

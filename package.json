@@ -47,6 +47,7 @@
     "ember-jane-maps": "0.0.13",
     "ember-load-initializers": "^1.0.0",
     "ember-mapbox-gl": "0.9.0",
+    "ember-metrics": "0.12.1",
     "ember-remarkable": "3.6.1",
     "ember-resolver": "^4.0.0",
     "ember-scroll-to": "^0.6.4",
