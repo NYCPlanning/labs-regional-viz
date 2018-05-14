@@ -211,6 +211,20 @@ export default Component.extend({
     handleGeographyLevelToggle(geog) {
       this.get('popup').remove();
       this.set('toggledGeographyLevel', geog);
+
+      if (this.get('toggledGeographyLevel') !== 'municipality') {
+        const map = this.get('map');
+        const regionBounds = this.get('regionBounds');
+
+        map.fitBounds(regionBounds, {
+          padding: {
+            top: 20,
+            bottom: 20,
+            left: 10,
+            right: 10,
+          },
+        });
+      }
     },
 
     mapLoading(data) {
