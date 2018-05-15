@@ -7,7 +7,6 @@ export default Scroller.extend({
 
     if (Ember.isEmpty(jQueryElement)) {
       Ember.Logger.warn("element couldn't be found:", target);
-      return;
     }
 
     return jQueryElement;
