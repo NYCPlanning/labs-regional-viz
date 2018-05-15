@@ -18,10 +18,11 @@ export default Route.extend({
       const scroller = this.get('scroller');
       const section = window.location.hash.substr(1);
 
-      if (section) {
+      // add defensive condition for special mapbox hash, 
+      // which always includes slashes
+      if (section && !section.includes('/')) {
         next(this, () => {
-          scroller.scrollVertical(`#${section}`, {
-          });
+          scroller.scrollVertical(`#${section}`);
         });
       }
     },
