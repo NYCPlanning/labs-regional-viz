@@ -18,7 +18,7 @@ export default Route.extend({
       const scroller = this.get('scroller');
       const section = window.location.hash.substr(1);
 
-      // add defensive condition for special mapbox hash, 
+      // add defensive condition for special mapbox hash,
       // which always includes slashes
       if (section && !section.includes('/')) {
         next(this, () => {
