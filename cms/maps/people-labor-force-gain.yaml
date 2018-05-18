@@ -19,55 +19,55 @@ map:
     type: cartovector
     source-layers:
     - id: labor-force-gain-subregion
-      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_subregion_v1
     - id: labor-force-gain-county
-      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_county_v1
     - id: labor-force-gain-municipality
       sql: SELECT the_geom_webmercator, lf0016 as value FROM region_municipality_lf0016_dotdensity_v0 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: pop
-    title: Population
+    title: Δ Labor Force
     large: true
     values:
     - geomType: region
       columnName: lf0016
-      cv:
-      sig: lf0016sig
+      cv:  lf0016cv
+      sig:
     - geomType: subregion
       columnName: lf0016
-      cv:
-      sig: lf0016sig
+      cv: lf0016cv
+      sig:
     - geomType: county
       columnName: lf0016
-      cv:
-      sig: lf0016sig
+      cv: lf0016cv
+      sig:
     - geomType: municipality
       columnName: lf0016
-      cv:
-      sig: lf0016sig
+      cv: lf0016cv
+      sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
       columnName:
-      cv:
+      cv:  lf0016cv
       sig:
     - geomType: subregion
       columnName: lf0016moe
-      cv:
-      sig: lf0016sig
+      cv:  lf0016cv
+      sig:
     - geomType: county
       columnName: lf0016moe
-      cv:
-      sig: lf0016sig
+      cv:  lf0016cv
+      sig:
     - geomType: municipality
       columnName: lf0016moe
-      cv:
-      sig: lf0016sig
+      cv:  lf0016cv
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

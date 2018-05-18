@@ -1,0 +1,95 @@
+# Jobs
+# ----------
+slug: office-employment-change
+category: Jobs
+categorySlug: jobs
+title: "NYC's gain of office jobs offset regional post-recession losses."
+menuTitle: "Office Employment Change, 2008-2016"
+content: |
+          The NYC metro region saw a net increase of 94,293 office-based jobs since the recession, with NYC's gain of 119,294 office jobs offsetting regional losses. All five NYC boroughs gained office employment post-recession, and though 49% of the region's private office-based jobs are located in NYC, NYC accounted for 83% of office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Brooklyn had the fastest rate of private office job growth, an increase of 35% from 2008 to 2016, while Manhattan saw the largest increase (+79,412). Nearly every NYC metro region county lost office jobs in the finance sectors (a total regional loss of 38,555), but gained jobs in professional and business services sectors (a regional increase of 145,125). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 78% (+20,830).
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: office-employment-change
+    type: cartovector
+    source-layers:
+    - id: office-employment-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, emoff0816 as value, name FROM region_subregion_v1
+    - id: office-employment-change-county
+      sql: SELECT the_geom_webmercator, geoid, emoff0816 as value, name FROM region_county_v1
+
+  popupColumns:
+  - id: empr
+    title: Δ Office Jobs
+    large: true
+    values:
+    - geomType: region
+      columnName: emoff0816
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emoff0816
+      cv:
+      sig:
+    - geomType: county
+      columnName: emoff0816
+      cv:
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "Office Employment Change, 2008-2016"
+    legend: office-employment-change-subregion
+    layers:
+    - id: office-employment-change-subregion
+      type: choropleth
+      source: office-employment-change
+      source-layer: office-employment-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -25000
+        - -5000
+        - 5000
+        - 25000
+        - 50000
+  - id: county
+    title: "Office Employment Change, 2008-2016"
+    legend: office-employment-change-county
+    layers:
+    - id: office-employment-change-county
+      type: choropleth
+      source: office-employment-change
+      source-layer: office-employment-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#d88a82"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -10000
+        - -5000
+        - -2500
+        - 2500
+        - 5000
+        - 15000
