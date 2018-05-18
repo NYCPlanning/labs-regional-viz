@@ -31,13 +31,13 @@ map:
     type: cartovector
     source-layers:
     - id: balance-housjobs0016-subregion
-      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_subregion_v1
     - id: balance-housjobs0016-county
-      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, balhj0016 as value, name FROM region_county_v1
 
   popupColumns:
   - id: balhj0016
-    title: "Change in Balance"
+    title: "Δ Home/Job Balance"
     large: true
     values:
     - geomType: region

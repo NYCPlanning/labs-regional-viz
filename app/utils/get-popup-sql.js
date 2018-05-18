@@ -18,13 +18,13 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
 
   SQLArray.push(`
     SELECT 'region' as geomtype, null as islitown, null as houptest, 'Total Metro Area' as name ${getPopupValue('region')}
-    FROM region_region_v0
+    FROM region_region_v1
   `);
 
   if (getPopupValue('subregion')) {
     SQLArray.push(`
       SELECT 'subregion' as geomtype, null as islitown, null as houptest, name as name ${getPopupValue('subregion')}
-      FROM region_subregion_v0
+      FROM region_subregion_v1
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }
@@ -34,7 +34,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
   if (getPopupValue('county')) {
     SQLArray.push(`
       SELECT 'county' as geomtype, null as islitown, null as houptest, name as name ${getPopupValue('county')}
-      FROM region_county_v0
+      FROM region_county_v1
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }
@@ -44,7 +44,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
   if (getPopupValue('municipality')) {
     SQLArray.push(`
       SELECT 'municipality' as geomtype, islitown, houptest, namelsad as name ${getPopupValue('municipality')}
-      FROM region_municipality_v0
+      FROM region_municipality_v1
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
   }

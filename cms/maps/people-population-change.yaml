@@ -19,13 +19,13 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_subregion_v1
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_county_v1
 
   popupColumns:
   - id: change
-    title: Change
+    title: "% Change"
     large: true
     values:
     - geomType: region

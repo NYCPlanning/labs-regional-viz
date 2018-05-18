@@ -1,0 +1,97 @@
+# Jobs
+# ----------
+slug: institutional-employment-change
+category: Jobs
+categorySlug: jobs
+title: "Private healthcare and education employment grew in every county, post-recession."
+menuTitle: "Institutional Employment Change, 2008-2016"
+content: |
+        Every county in the region registered growth in private institutional jobs, or jobs in the education and healthcare sectors, post-recession. Brooklyn gained the most and the grew the fastest among metro region counties, growing private institutional employment by 37% and adding 60,060 jobs from 2008 to 2016. Manhattan (+50,310), Queens (+28,972), and Nassau County, LI (+25,795) were also top gainers. Private institutional growth was driven by healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, local medical services). Private ambulatory job growth accounted for more than 154,000 jobs and two-thirds of institutional job gains.
+
+        Though institutional jobs consistently represent about one-quarter of NYC metro subregions' private employment (2016), institutional job growth accounted for 50% to 60% of private jobs gains for non-NYC subregions and about one-third of NYC's private job gains. Institutional jobs also grew the fastest for all subregions, averaging an 18% increase from 2008 to 2016. These gains show the importance of institutional sectors in supporting the region's post-recession economy, especially in areas outside of NYC.
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector only due to public sector data disclosure challenges. See [About](/about/#jobs) for more information about employment.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: institutional-employment-change
+    type: cartovector
+    source-layers:
+    - id: institutional-employment-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_subregion_v1
+    - id: institutional-employment-change-county
+      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_county_v1
+
+  popupColumns:
+  - id: empr
+    title: Δ Private Institutional Jobs
+    large: true
+    values:
+    - geomType: region
+      columnName: emprins0816
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emprins0816
+      cv:
+      sig:
+    - geomType: county
+      columnName: emprins0816
+      cv:
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "Private Institutional Employment Change, 2008-2016"
+    legend: institutional-employment-change-subregion
+    layers:
+    - id: institutional-employment-change-subregion
+      type: choropleth
+      source: institutional-employment-change
+      source-layer: institutional-employment-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -25000
+        - -5000
+        - 5000
+        - 25000
+        - 50000
+  - id: county
+    title: "Private Institutional Employment Change, 2008-2016"
+    legend: institutional-employment-change-county
+    layers:
+    - id: institutional-employment-change-county
+      type: choropleth
+      source: institutional-employment-change
+      source-layer: institutional-employment-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#d88a82"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -10000
+        - -5000
+        - -2500
+        - 2500
+        - 5000
+        - 15000

@@ -11,7 +11,7 @@ content: |
   Historically, NYC has consistently attracted large numbers of people in their 20s, with people in their 30s+ more likely to move out of than into the city ([learn about historic NYC migration characteristics](http://migration.planning.nyc.gov/#age)). Today, fewer people in their 30s are moving out of NYC. Out-migrants from the city are more likely to leave for other parts of the U.S. than for the metro region, resulting in prime-age population declines for much of the region’s suburban areas.
 
 source: |
-  Sources & Notes: U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force changem, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -21,35 +21,35 @@ map:
     type: cartovector
     source-layers:
     - id: prime-labor-force-gain-subregion
-      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value, name FROM region_subregion_v0
+      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value, name FROM region_subregion_v1
     - id: prime-labor-force-gain-county
-      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value, name FROM region_county_v0
+      sql: SELECT the_geom_webmercator, geoid, lfpw0016 as value, name FROM region_county_v1
     - id: prime-labor-force-gain-municipality
       sql: SELECT the_geom_webmercator, lfpw0016 as value FROM region_lfpw0016_dotdensity_v1 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v0 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: pop
-    title: Population
+    title: Δ Prime-age Workers
     large: true
     values:
     - geomType: region
       columnName: lfpw0016
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
     - geomType: subregion
       columnName: lfpw0016
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
     - geomType: county
       columnName: lfpw0016
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
     - geomType: municipality
       columnName: lfpw0016
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
   - id: moe
     title: MOE
     isMOE: true
@@ -60,16 +60,16 @@ map:
       sig:
     - geomType: subregion
       columnName: lfpw0016mo
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
     - geomType: county
       columnName: lfpw0016mo
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
     - geomType: municipality
       columnName: lfpw0016mo
-      cv:
-      sig: lfpw0016si
+      cv: lfpw0016cv
+      sig:
 
   isPercent: false
   isChangeMeasurement: true

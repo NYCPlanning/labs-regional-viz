@@ -1,0 +1,95 @@
+# Jobs
+# ----------
+slug: localserve-employment-change
+category: Jobs
+categorySlug: jobs
+title: "The region added more than 271,000 retail, leisure and hospitality jobs post-recession."
+menuTitle: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+content: |
+          Retail, leisure and hospitality employment grew in nearly every county, representing an increase of 271,408 jobs and a regional growth of 15% since 2008. NYC accounted for about two-thirds of the region's local services jobs gain, with Manhattan gaining the most (+89,509), followed by Brooklyn (+43,851) and Queens (+27,028). CGrowth of these jobs generally tracks areas that gained population, however, areas like Suffolk County, LI registered retail, leisure and hospitality job gains at a rate that exceed population change, +10.4% vs. -0.1%, respectively.  Though retail, leisure and hospitality jobs generally accounted for 20%-30% of county employment, growth of these jobs accounted for anywhere between 40% to 70% of job gains in metro region counties.
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: localserve-employment-change
+    type: cartovector
+    source-layers:
+    - id: localserve-employment-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, emser0816 as value, name FROM region_subregion_v1
+    - id: localserve-employment-change-county
+      sql: SELECT the_geom_webmercator, geoid, emser0816 as value, name FROM region_county_v1
+
+  popupColumns:
+  - id: empr
+    title: Δ Retail, Lei. & Hos. Jobs
+    large: true
+    values:
+    - geomType: region
+      columnName: emser0816
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: emser0816
+      cv:
+      sig:
+    - geomType: county
+      columnName: emser0816
+      cv:
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+    legend: localserve-employment-change-subregion
+    layers:
+    - id: localserve-employment-change-subregion
+      type: choropleth
+      source: localserve-employment-change
+      source-layer: localserve-employment-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -25000
+        - -5000
+        - 5000
+        - 25000
+        - 50000
+  - id: county
+    title: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+    legend: localserve-employment-change-county
+    layers:
+    - id: localserve-employment-change-county
+      type: choropleth
+      source: localserve-employment-change
+      source-layer: localserve-employment-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#871a0e"
+        - "#d6584a"
+        - "#d88a82"
+        - "#ffffe0"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -10000
+        - -5000
+        - -2500
+        - 2500
+        - 5000
+        - 15000
