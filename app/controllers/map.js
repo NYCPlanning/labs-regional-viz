@@ -1,42 +1,45 @@
 import { next } from '@ember/runloop';
 import Controller, { inject } from '@ember/controller';
-import { computed } from 'ember-decorators/object';
+import { action, computed } from 'ember-decorators/object';
 
-export default Controller.extend({
-  queryParams: [
+export default class MapController extends Controller {
+  queryParams = [
     {
       narrativeVisible: {
         scope: 'controller',
       },
     },
-  ],
+  ]
 
-  application: inject(),
-  narrativeVisible: true,
+  application = inject()
+  narrativeVisible = true
 
   @computed('application.model.maps', 'model.slug')
-  previousNarrative(maps, currentSlug) {
+  previousNarrative() {
+    const maps = this.get('application.model.maps');
+    const currentSlug = this.get('model.slug');
     const mapNarratives = maps.filter(map => map.isLinearNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
     return mapNarratives[currentPosition - 1];
-  },
+  }
 
   @computed('application.model.maps', 'model.slug')
-  nextNarrative(maps, currentSlug) {
+  get nextNarrative() {
+    const maps = this.get('application.model.maps');
+    const currentSlug = this.get('model.slug');
     const mapNarratives = maps.filter(map => map.isLinearNarrative);
     const currentPosition = mapNarratives.findIndex(map => map.slug === currentSlug);
 
     return mapNarratives[currentPosition + 1];
-  },
+  }
 
-  actions: {
-    toggleNarrative() {
-      this.toggleProperty('narrativeVisible');
+  @action
+  toggleNarrative() {
+    this.toggleProperty('narrativeVisible');
 
-      next(function() {
-        window.dispatchEvent(new Event('resize'));
-      });
-    },
-  },
-});
+    next(function() {
+      window.dispatchEvent(new Event('resize'));
+    });
+  }
+}

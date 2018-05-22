@@ -1,16 +1,17 @@
 import Component from '@ember/component';
 import { computed } from 'ember-decorators/object';
 
-export default Component.extend({
-  classNames: ['site-header'],
-  closed: true,
-
-  model: {
-    maps: [],
-  },
-
+export default class SiteHeader extends Component {
   @computed('model.maps')
-  filteredMapLinks(maps) {
+  get filteredMapLinks() {
+    const maps = this.get('model.maps');
     return maps.filter(map => !map.hideFromMenu);
-  },
-});
+  }
+
+  classNames = ['site-header']
+  closed = true
+
+  model = {
+    maps: [],
+  }
+}

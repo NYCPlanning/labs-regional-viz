@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import carto from 'ember-jane-maps/utils/carto';
+import carto from 'cartobox-promises-utility/utils/carto';
 
 import railConfig from '../supporting-layers/rail';
 import aerialsConfig from '../supporting-layers/aerials';

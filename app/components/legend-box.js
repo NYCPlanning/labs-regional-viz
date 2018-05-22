@@ -69,18 +69,22 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
   return breaksArray;
 }
 
-export default Component.extend({
-  handleGeographyLevelToggle() {},
-  currentLayerGroup: {},
-  mapConfig: {},
+export default class LegendBox extends Component {
+  handleGeographyLevelToggle() {} // eslint-disable-line
+  currentLayerGroup = {}
+  mapConfig = {}
 
   @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio')
-  rows(layerConfig, isPercent, isChangeMeasurement, isRatio) {
+  get rows() {
+    const layerConfig = this.get('currentLayerGroup');
+    const isPercent = this.get('isPercent');
+    const isChangeMeasurement = this.get('isChangeMeasurement');
+    const isRatio = this.get('isRatio');
     const { legend } = layerConfig;
     if (typeof legend === 'string') {
       return getChoroplethRows(layerConfig.layers.find(layer => layer.id === legend), isPercent, isChangeMeasurement, isRatio);
     }
 
     return layerConfig.legend;
-  },
-});
+  }
+}

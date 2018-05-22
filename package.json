@@ -44,7 +44,6 @@
     "ember-fetch": "3.4.4",
     "ember-font-awesome": "^4.0.0-rc.2",
     "ember-freestyle": "0.7.0",
-    "ember-jane-maps": "0.0.13",
     "ember-load-initializers": "^1.0.0",
     "ember-mapbox-gl": "0.9.0",
     "ember-metrics": "0.12.1",
@@ -64,10 +63,12 @@
   },
   "dependencies": {
     "babel-eslint": "8.2.2",
+    "cartobox-promises-utility": "NYCPlanning/cartobox-promises-utility",
     "eslint-config-airbnb": "16.1.0",
     "eslint-plugin-import": "2.9.0",
     "eslint-plugin-jsx-a11y": "6.0.3",
     "eslint-plugin-react": "7.7.0",
+    "mapbox-gl": "^0.45.0",
     "numeral": "^2.0.6",
     "s": "^0.1.1"
   }

@@ -4,7 +4,7 @@ import { set } from '@ember/object';
 import { next } from '@ember/runloop';
 import { inject as service } from '@ember/service';
 
-import carto from 'ember-jane-maps/utils/carto';
+import carto from 'cartobox-promises-utility/utils/carto';
 import buildPaint from '../utils/build-mapbox-paint-object';
 
 const { Promise } = Ember.RSVP;
