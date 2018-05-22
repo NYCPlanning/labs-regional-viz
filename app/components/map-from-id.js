@@ -3,6 +3,8 @@ import mapboxgl from 'mapbox-gl';
 import { action, computed } from 'ember-decorators/object';
 import { get } from '@ember/object';
 import carto from 'cartobox-promises-utility/utils/carto';
+import { argument } from '@ember-decorators/argument';
+
 import getPopupSQL from '../utils/get-popup-sql';
 import buildPopupContent from '../utils/build-popup-content';
 
@@ -64,8 +66,11 @@ export default class MapFromID extends Component {
 
   // noop for passed context
   toggleNarrative() {} //eslint-disable-line
+
+  @argument
   mapConfig = {
     layers: [],
+    sources: [],
   }
 
   loading = true
@@ -127,7 +132,6 @@ export default class MapFromID extends Component {
 
   @action
   handleMapLoad(map) {
-    console.log(this.get('mapConfig'));
     const sources = this.get('mapConfig.sources');
     this.set('map', map);
 

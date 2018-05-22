@@ -625,7 +625,7 @@ babel-core@^5.0.0:
     trim-right "^1.0.0"
     try-resolve "^1.0.0"
 
-babel-core@^6.14.0, babel-core@^6.20.0, babel-core@^6.26.0:
+babel-core@^6.20.0, babel-core@^6.26.0:
   version "6.26.3"
   resolved "https://registry.yarnpkg.com/babel-core/-/babel-core-6.26.3.tgz#b2e2f09e342d0f0c88e2f02e067794125e75c207"
   dependencies:
@@ -1442,18 +1442,18 @@ broccoli-babel-transpiler@^5.6.2:
     workerpool "^2.3.0"
 
 broccoli-babel-transpiler@^6.0.0, broccoli-babel-transpiler@^6.1.2:
-  version "6.3.0"
-  resolved "https://registry.yarnpkg.com/broccoli-babel-transpiler/-/broccoli-babel-transpiler-6.3.0.tgz#3dad36524c66ac66abf27956ea25ce2bcc421fa6"
+  version "6.4.1"
+  resolved "https://registry.yarnpkg.com/broccoli-babel-transpiler/-/broccoli-babel-transpiler-6.4.1.tgz#9cd343f4d8db97c041e68ab0c1a757a458601769"
   dependencies:
-    babel-core "^6.14.0"
-    broccoli-funnel "^1.0.0"
-    broccoli-merge-trees "^1.0.0"
-    broccoli-persistent-filter "^1.4.0"
+    babel-core "^6.26.0"
+    broccoli-funnel "^2.0.1"
+    broccoli-merge-trees "^2.0.0"
+    broccoli-persistent-filter "^1.4.3"
     clone "^2.0.0"
-    hash-for-dep "^1.0.2"
+    hash-for-dep "^1.2.3"
     heimdalljs-logger "^0.1.7"
     json-stable-stringify "^1.0.0"
-    rsvp "^3.5.0"
+    rsvp "^4.8.2"
     workerpool "^2.3.0"
 
 broccoli-brocfile-loader@^0.18.0:
@@ -1693,7 +1693,7 @@ broccoli-middleware@^1.0.0:
     handlebars "^4.0.4"
     mime-types "^2.1.18"
 
-broccoli-persistent-filter@^1.0.3, broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.4.0, broccoli-persistent-filter@^1.4.2, broccoli-persistent-filter@^1.4.3:
+broccoli-persistent-filter@^1.0.3, broccoli-persistent-filter@^1.1.5, broccoli-persistent-filter@^1.1.6, broccoli-persistent-filter@^1.4.2, broccoli-persistent-filter@^1.4.3:
   version "1.4.3"
   resolved "https://registry.yarnpkg.com/broccoli-persistent-filter/-/broccoli-persistent-filter-1.4.3.tgz#3511bc52fc53740cda51621f58a28152d9911bc1"
   dependencies:
@@ -1989,6 +1989,7 @@ cartobox-promises-utility@NYCPlanning/cartobox-promises-utility:
   resolved "https://codeload.github.com/NYCPlanning/cartobox-promises-utility/tar.gz/4485296d07bea2dba49bb8ff6292e9cacbf584a4"
   dependencies:
     ember-cli-babel "^6.6.0"
+    ember-fetch "4.0.1"
 
 caseless@~0.11.0:
   version "0.11.0"
@@ -4855,7 +4856,7 @@ has@^1.0.1:
   dependencies:
     function-bind "^1.0.2"
 
-hash-for-dep@^1.0.2:
+hash-for-dep@^1.0.2, hash-for-dep@^1.2.3:
   version "1.2.3"
   resolved "https://registry.yarnpkg.com/hash-for-dep/-/hash-for-dep-1.2.3.tgz#5ec69fca32c23523972d52acb5bb65ffc3664cab"
   dependencies:
@@ -6362,10 +6363,10 @@ minimist@~0.0.1:
   resolved "https://registry.yarnpkg.com/minimist/-/minimist-0.0.10.tgz#de3f98543dbf96082be48ad1a0c7cda836301dcf"
 
 minipass@^2.2.1, minipass@^2.2.4:
-  version "2.3.1"
-  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.3.1.tgz#4e872b959131a672837ab3cb554962bc84b1537d"
+  version "2.3.3"
+  resolved "https://registry.yarnpkg.com/minipass/-/minipass-2.3.3.tgz#a7dcc8b7b833f5d368759cce544dccb55f50f233"
   dependencies:
-    safe-buffer "^5.1.1"
+    safe-buffer "^5.1.2"
     yallist "^3.0.0"
 
 minizlib@^1.1.0:
@@ -7563,7 +7564,7 @@ rsvp@^3.0.14, rsvp@^3.0.16, rsvp@^3.0.17, rsvp@^3.0.18, rsvp@^3.0.21, rsvp@^3.0.
   version "3.6.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-3.6.2.tgz#2e96491599a96cde1b515d5674a8f7a91452926a"
 
-rsvp@^4.6.1, rsvp@^4.7.0:
+rsvp@^4.6.1, rsvp@^4.7.0, rsvp@^4.8.2:
   version "4.8.2"
   resolved "https://registry.yarnpkg.com/rsvp/-/rsvp-4.8.2.tgz#9d5647108735784eb13418cdddb56f75b919d722"
 
