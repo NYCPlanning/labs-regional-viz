@@ -1,5 +1,6 @@
 import Component from '@ember/component';
 import { computed } from 'ember-decorators/object';
+import { argument } from '@ember-decorators/argument';
 
 export default class SiteHeader extends Component {
   @computed('model.maps')
@@ -11,6 +12,7 @@ export default class SiteHeader extends Component {
   classNames = ['site-header']
   closed = true
 
+  @argument
   model = {
     maps: [],
   }
