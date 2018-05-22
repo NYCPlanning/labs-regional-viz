@@ -2,6 +2,7 @@ import Ember from 'ember';
 import Route from '@ember/routing/route';
 import { set } from '@ember/object';
 import { next } from '@ember/runloop';
+import { copy } from '@ember/object/internals';
 import { inject as service } from '@ember/service';
 
 import carto from 'cartobox-promises-utility/utils/carto';
@@ -23,36 +24,42 @@ export default Route.extend({
     const { sources } = mapConfig;
 
     const cartoSourcePromises = Object.keys(sources || {})
-      .filter(key => sources[key].type === 'cartovector')
       .map((key) => {
         const source = sources[key];
+        const { type } = source;
         const { minzoom = 0 } = source;
 
-        return carto.getVectorTileTemplate(source['source-layers'])
-          .then(template => ({
-            id: source.id,
-            type: 'vector',
-            tiles: [template],
-            minzoom,
-          }));
+        // resolve sources with promises first
+        if (type === 'cartovector') {
+          return carto.getVectorTileTemplate(source['source-layers'])
+            .then(template => ({
+              id: source.id,
+              type: 'vector',
+              tiles: [template],
+              minzoom,
+            }));
+        }
+
+        return source;
       });
 
     return Promise.all(cartoSourcePromises)
       .then((cartoPromises) => {
-        mapConfig.sources = cartoPromises;
+        set(mapConfig, 'sources', cartoPromises);
         return mapNarrative;
       })
       .then((enrichedMapNarrative) => {
         const { map: { layerGroups } } = enrichedMapNarrative;
-        const builtLayerGroups = layerGroups.map(layerGroup => ({
+        const builtLayerGroups = copy(layerGroups.map(layerGroup => ({
           id: layerGroup.id,
           layers: [],
-        }));
+        })), true);
 
         layerGroups.forEach(({ layers }, i) => {
           layers.forEach((layer) => {
             if (layer.type === 'choropleth') {
               const { id, source, paintConfig } = layer;
+
               builtLayerGroups[i].layers.push({
                 id,
                 type: 'fill',
