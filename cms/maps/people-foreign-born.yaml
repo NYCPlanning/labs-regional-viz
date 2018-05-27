@@ -70,7 +70,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
+    title: "Foreign-born as Share of Total Population, 2016"
     layers:
     - id: foreign-born-subregion
       type: choropleth
@@ -86,7 +86,7 @@ map:
         - 0.15
         - 0.3
   - id: county
-    title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
+    title: "Foreign-born as Share of Total Population, 2016"
     layers:
     - id: foreign-born-county
       type: choropleth
@@ -102,7 +102,7 @@ map:
         - 0.15
         - 0.3
   - id: municipality
-    title: "Foreign Born as Share of Total Population, 2012-2016 Avg"
+    title: "Foreign-born as Share of Total Population, 2016"
     legend: foreign-born-municipality
     layers:
     - id: foreign-born-municipality

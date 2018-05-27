@@ -120,7 +120,7 @@ map:
         - 50000
   - id: municipality
     title: "Net Population Change, 2010 - 2016"
-    legend-title: "1 dot = 100 people"
+    legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"
       label: "Gain of 50"
