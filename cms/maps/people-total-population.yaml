@@ -116,7 +116,7 @@ map:
         - 750000
         - 1250000
   - id: municipality
-    title: "Total Population 2016"
+    title: "Total Population, 2012-2016 Avg"
     legend: total-population-municipality
     layers:
     - id: total-population-municipality
