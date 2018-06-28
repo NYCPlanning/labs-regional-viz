@@ -113,7 +113,7 @@ map:
         - 5000
         - 10000
   - id: municipality
-    title: "Population Density (Pop/sq. mile) 2016"
+    title: "Population Density (Pop/sq. mile) 2012-2016 Avg"
     legend: population-density-municipality
     layers:
     - id: population-density-municipality
