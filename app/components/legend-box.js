@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from 'ember-decorators/object';
+import { computed } from 'ember-decorators/object'; // eslint-disable-line
 import numeral from 'numeral';
 
 function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio) {

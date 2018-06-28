@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
-import { action, computed } from 'ember-decorators/object';
+import { action, computed } from 'ember-decorators/object'; // eslint-disable-line
 import { get } from '@ember/object';
 import carto from 'cartobox-promises-utility/utils/carto';
 import { argument } from '@ember-decorators/argument';
