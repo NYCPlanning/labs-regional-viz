@@ -21,6 +21,8 @@ jobs:
 
       - run: yarn install
 
+      - run: bower install
+
       - save_cache:
           paths:
             - node_modules
