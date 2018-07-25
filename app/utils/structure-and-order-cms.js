@@ -22,8 +22,7 @@ export default function structureAndOrderCms(json) {
       });
     }
 
-    mutatedJson[key] =
-      collection.sortBy('position');
+    mutatedJson[key] = collection.sortBy('position');
   });
 
   return mutatedJson;

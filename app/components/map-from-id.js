@@ -3,7 +3,7 @@ import mapboxgl from 'mapbox-gl';
 import { action, computed } from 'ember-decorators/object'; // eslint-disable-line
 import { get } from '@ember/object';
 import carto from 'cartobox-promises-utility/utils/carto';
-import { argument } from '@ember-decorators/argument';
+import { argument } from '@ember-decorators/argument'; // eslint-disable-line
 
 import getPopupSQL from '../utils/get-popup-sql';
 import buildPopupContent from '../utils/build-popup-content';
@@ -60,8 +60,11 @@ export default class MapFromID extends Component {
   }
 
   classNameBindings = ['narrativeVisible:narrative-visible']
+
   classNames = ['map-container', 'cell', 'large-auto']
+
   toggledGeographyLevel = null
+
   tooltipPoint = { x: 0, y: 0 }
 
   // noop for passed context
@@ -76,10 +79,15 @@ export default class MapFromID extends Component {
   loading = true
 
   zoom = 9
+
   maxZoom = 14
+
   minZoom = 5
+
   center = [-73.869324, 40.815888]
+
   regionBounds = [[-75.234614, 39.480131], [-71.820730, 42.205393]]
+
   maxBounds = [[-79.2185899687017, 37.091720189853106], [-67.83675403119405, 44.41941348578442]]
 
   highlightedFeature = null

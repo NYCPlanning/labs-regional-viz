@@ -12,6 +12,7 @@ export default class MapController extends Controller {
   ]
 
   application = inject()
+
   narrativeVisible = true
 
   @computed('application.model.maps', 'model.slug')

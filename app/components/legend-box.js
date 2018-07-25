@@ -71,7 +71,9 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
 
 export default class LegendBox extends Component {
   handleGeographyLevelToggle() {} // eslint-disable-line
+
   currentLayerGroup = {}
+
   mapConfig = {}
 
   @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio')

@@ -10,6 +10,7 @@ export default class SiteHeader extends Component {
   }
 
   classNames = ['site-header']
+
   closed = true
 
   @argument
