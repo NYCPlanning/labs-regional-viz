@@ -6,23 +6,13 @@ version: 2
 jobs:
   build:
     docker:
-      # specify the version you desire here
-      - image: circleci/node:7.10-browsers
-      # - image: circleci/node:6-browsers
+      - image: circleci/node:8-browsers
         environment:
             CHROME_BIN: "/usr/bin/google-chrome"
-      
-      # Specify service dependencies here if necessary
-      # CircleCI maintains a library of pre-built images
-      # documented at https://circleci.com/docs/2.0/circleci-images/
-      # - image: circleci/mongo:3.4.4
-
     working_directory: ~/repo
 
     steps:
       - checkout
-
-      # Download and cache dependencies
       - restore_cache:
           keys:
           - v1-dependencies-{{ checksum "package.json" }}
@@ -30,13 +20,24 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-      - run: sudo yarn global add bower
-      - run: bower install
 
       - save_cache:
           paths:
             - node_modules
           key: v1-dependencies-{{ checksum "package.json" }}
-        
+
       # run tests!
       - run: yarn test
+
+      # deploy
+      - run:
+          name: Avoid hosts unknown for github
+          command: ssh-keyscan planninglabs.nyc >> ~/.ssh/known_hosts
+      - deploy:
+          name: Deployment
+          command: |
+            if [ "${CIRCLE_BRANCH}" == "master" ]; then
+              git remote add dokku dokku@planninglabs.nyc:regional-viz && git push dokku master
+            elif [ "${CIRCLE_BRANCH}" == "develop" ]; then
+              git remote add dokku dokku@planninglabs.nyc:regional-viz-staging && git push dokku develop:master
+            fi
