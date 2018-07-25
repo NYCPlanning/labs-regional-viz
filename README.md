@@ -1,3 +1,5 @@
+[![CircleCI](https://circleci.com/gh/NYCPlanning/labs-regional-viz/tree/develop.svg?style=svg)](https://circleci.com/gh/NYCPlanning/labs-regional-viz/tree/develop)
+
 # NYC Regional Visualization
 
 An interactive mapping experience that highlights regional planning data and trends.
