@@ -68,7 +68,7 @@
     "node": "^4.5 || 6.* || >= 7.*"
   },
   "dependencies": {
-    "babel-eslint": "8.2.2",
+    "babel-eslint": "8.2.6",
     "cartobox-promises-utility": "NYCPlanning/cartobox-promises-utility",
     "mapbox-gl": "^0.45.0",
     "numeral": "^2.0.6",
