@@ -1562,7 +1562,7 @@ broccoli-funnel-reducer@^1.0.0:
   version "1.0.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel-reducer/-/broccoli-funnel-reducer-1.0.0.tgz#11365b2a785aec9b17972a36df87eef24c5cc0ea"
 
-broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.0.8, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
+broccoli-funnel@^1.0.0, broccoli-funnel@^1.0.1, broccoli-funnel@^1.1.0, broccoli-funnel@^1.2.0:
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/broccoli-funnel/-/broccoli-funnel-1.2.0.tgz#cddc3afc5ff1685a8023488fff74ce6fb5a51296"
   dependencies:
@@ -1634,7 +1634,7 @@ broccoli-merge-json@0.0.2:
     change-case "^2.2.0"
     mkdirp "^0.5.0"
 
-broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0, broccoli-merge-trees@^1.1.4:
+broccoli-merge-trees@^1.0.0, broccoli-merge-trees@^1.1.0:
   version "1.2.4"
   resolved "https://registry.yarnpkg.com/broccoli-merge-trees/-/broccoli-merge-trees-1.2.4.tgz#a001519bb5067f06589d91afa2942445a2d0fdb5"
   dependencies:
@@ -2692,7 +2692,7 @@ ember-cli-app-version@^3.0.0:
     ember-cli-babel "^6.12.0"
     git-repo-version "^1.0.2"
 
-ember-cli-babel@^5.1.6, ember-cli-babel@^5.1.7:
+ember-cli-babel@^5.1.6:
   version "5.2.8"
   resolved "https://registry.yarnpkg.com/ember-cli-babel/-/ember-cli-babel-5.2.8.tgz#0356b03cc3fdff5d0f2ecaa46a0e1cfaebffd876"
   dependencies:
@@ -3506,15 +3506,16 @@ ember-wormhole@^0.5.1:
     ember-cli-babel "^6.10.0"
     ember-cli-htmlbars "^2.0.1"
 
-ember-yaml-cms@0.0.2:
-  version "0.0.2"
-  resolved "https://registry.yarnpkg.com/ember-yaml-cms/-/ember-yaml-cms-0.0.2.tgz#f4cf3d4d77536223656e302f442be1f67b8d4141"
+ember-yaml-cms@1.0.0:
+  version "1.0.0"
+  resolved "https://registry.yarnpkg.com/ember-yaml-cms/-/ember-yaml-cms-1.0.0.tgz#7573353f5196a7cd7855bc373199f4a8b8eed221"
   dependencies:
-    broccoli-funnel "^1.0.8"
+    broccoli-funnel "^2.0.1"
     broccoli-merge-json "0.0.2"
-    broccoli-merge-trees "^1.1.4"
+    broccoli-merge-trees "^3.0.0"
     broccoli-yaml "0.0.3"
-    ember-cli-babel "^5.1.7"
+    ember-cli-babel "^6.8.2"
+    mkdirp "^0.5.1"
 
 ember@^1.0.3:
   version "1.0.3"
