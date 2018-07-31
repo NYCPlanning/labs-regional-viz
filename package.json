@@ -70,7 +70,7 @@
   "dependencies": {
     "babel-eslint": "8.2.6",
     "cartobox-promises-utility": "NYCPlanning/cartobox-promises-utility",
-    "mapbox-gl": "^0.45.0",
+    "mapbox-gl": "^0.47.0",
     "numeral": "^2.0.6",
     "s": "^0.1.1"
   }
