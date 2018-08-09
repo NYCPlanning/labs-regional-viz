@@ -50,7 +50,7 @@
     "ember-mapbox-gl": "0.10.0",
     "ember-metrics": "0.12.1",
     "ember-remarkable": "3.6.1",
-    "ember-resolver": "^4.0.0",
+    "ember-resolver": "^5.0.1",
     "ember-scroll-to": "^0.6.4",
     "ember-source": "~2.17.0",
     "ember-truth-helpers": "^2.0.0",
