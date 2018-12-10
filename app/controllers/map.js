@@ -1,6 +1,7 @@
 import { next } from '@ember/runloop';
 import Controller, { inject } from '@ember/controller';
 import { action, computed } from 'ember-decorators/object'; // eslint-disable-line
+import { argument } from '@ember-decorators/argument'; // eslint-disable-line
 
 export default class MapController extends Controller {
   queryParams = [
@@ -13,6 +14,7 @@ export default class MapController extends Controller {
 
   application = inject()
 
+  @argument
   narrativeVisible = true
 
   @computed('application.model.maps', 'model.slug')

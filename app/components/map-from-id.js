@@ -31,8 +31,8 @@ export default class MapFromID extends Component {
 
   @computed('currentLayerGroup')
   get mapTitle() {
-    const layerConfig = this.get('layerConfig');
-    return layerConfig ? layerConfig.title : '';
+    const currentLayerGroup = this.get('currentLayerGroup');
+    return currentLayerGroup ? currentLayerGroup.title : '';
   }
 
   @computed('highlightedFeature')
