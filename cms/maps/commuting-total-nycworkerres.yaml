@@ -1,0 +1,260 @@
+# Commuting
+# ----------
+slug: total-nycworkerres
+category: Commuting
+categorySlug: commuting
+title: "There are 4.7 million people working in NYC, 20% of whom live outside the city."
+menuTitle: "Where NYC Workers Live"
+content: |
+  80% of the 4.7 million people employed in New York City live within the five boroughs. The other 20% are housed outside the city and travel in to NYC ("in-commuters"), representing approximately 973,000 workers. This map shows where all NYC workers live (or, the origins of their commutes), and the color indicates the borough in which those NYC workers are employed (in other words, their commuting destinations). This mobility and access to opportunity enables the city’s businesses to grow, allows NYC workers to access a wider range of housing options, and relieves pressure on NYC’s housing market by complementing city housing production with suburban markets.
+
+  The Inner New Jersey subregion is home to the largest share of NYC in-commuters (37%), followed by Long Island (31%), and the Lower Hudson Valley (18%). Areas closest to NYC house the largest concentrations of NYC in-commuters, with Nassau (LI), Westchester (Lower Hudson), and Hudson and Bergen counties (Inner NJ) combined accounting for 58% of all NYC in-commuters. As our closest neighbors, nearly one-third of all employed residents living in Nassau, Westchester, and Hudson counties work in NYC. In other words, each county is home to more than 100,000 residents who are employed in NYC.
+
+  Sizeable concentrations of NYC in-commuters also live in Suffolk (LI), Essex (Inner NJ), Middlesex (Inner NJ), and Fairfield (CT) counties, which  are slightly farther away but generally well-connected to NYC via commuter rail.  Other parts of the metro region with smaller resident labor forces, such as Putnam and Rockland counties, send a larger share of their residents to NYC for work than counties like Suffolk and Essex, which are home to more NYC workers in absolute numbers. Because NYC is a center not just of employment, but of higher-wage jobs across a range of industry sectors, the value that commuters bring back to their counties of residence is disproportionately high. For every county in the region, NYC commuters represent a larger share of county residents’ total earnings relative to the number of county residents working in NYC.
+
+  The flow of in-commuters to NYC from the rest of the region is dynamic, with in-commuters traveling to work in all five boroughs.  Manhattan, the region’s densest employment center, is geographically central to the region’s labor market and supported by a wide range of transportation infrastructure specifically designed for core-access. So, it is no surprise that the majority of in-commuters from the NYC Metro Region are traveling to jobs in Manhattan (664,000).  However, there are also strong commuter relationships between Non-Manhattan Boroughs and their geographic neighbors. Notably, two-thirds of regional in-commuters to the Bronx reside in the Low and Mid Hudson Valley; and, as more Long Island residents commute to Non-Manhattan Boroughs (combined) than they do to Manhattan. While the majority of Inner and Outer New Jersey residents in-commuting to NYC work in Manhattan, 77,000 New Jersey in-commuters also work in Non-Manhattan Boroughs.
+
+  There are an additional 64,000 NYC workers residing elsewhere in the United States. About one-third of those domestic in-commuters traveled from areas just outside the NYC Metro Region in New York, New Jersey, Connecticut, and Pennsylvania. Others are likely temporarily visiting the city for work.
+
+source: |
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2017. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of NYC workers, age 16 and older, or the origin points of commuters' trips. Color indicates the NYC borough in which those workers are employed, or workers' destinations. Grayed values in the pop-up box indicate that estimates are not reliable at the 90% confidence interval. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: total-nycworkerres
+    type: cartovector
+    source-layers:
+    - id: total-nycworkerres-tract
+      sql: SELECT the_geom_webmercator, category FROM region_comtot_nycworkerres_dotdensity_v0 ORDER BY random()
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v2
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+
+  popupColumns:
+
+  - id: cwnyctot
+    title: Total <br> NYC workers
+    large: true
+    values:
+    - geomType: county
+      columnName: cwnyctot
+      cv: cwnyctotcv
+      sig:
+    - geomType: subregion
+      columnName: cwnyctot
+      cv: cwnyctotcv
+      sig:
+    - geomType: region
+      columnName: cwnyctot
+      cv: cwnyctotcv
+      sig:
+  - id: cwnycbx
+    title: Bronx<br>workers
+    large: true
+    values:
+    - geomType: county
+      columnName: cwnycbx
+      cv: cwnycbxcv
+      sig:
+    - geomType: subregion
+      columnName: cwnycbx
+      cv: cwnycbxcv
+      sig:
+    - geomType: region
+      columnName: cwnycbx
+      cv: cwnycbxcv
+      sig:
+  - id: cwnycbk
+    title: Brooklyn<br>workers
+    large: true
+    values:
+    - geomType: county
+      columnName: cwnycbk
+      cv: cwnycbkcv
+      sig:
+    - geomType: subregion
+      columnName: cwnycbk
+      cv: cwnycbkcv
+      sig:
+    - geomType: region
+      columnName: cwnycbk
+      cv: cwnycbkcv
+      sig:
+  - id: cwnycmn
+    title: Manhattan<br>workers
+    large: true
+    values:
+      - geomType: county
+        columnName: cwnycmn
+        cv: cwnycmncv
+        sig:
+      - geomType: subregion
+        columnName: cwnycmn
+        cv: cwnycmncv
+        sig:
+      - geomType: region
+        columnName: cwnycmn
+        cv: cwnycmncv
+        sig:
+  - id: cwnycqn
+    title: Queens<br>workers
+    large: true
+    values:
+    - geomType: county
+      columnName: cwnycqn
+      cv: cwnycqncv
+      sig:
+    - geomType: subregion
+      columnName: cwnycqn
+      cv: cwnycqncv
+      sig:
+    - geomType: region
+      columnName: cwnycqn
+      cv: cwnycqncv
+      sig:
+  - id: cwnycsi
+    title: Staten Island<br>workers
+    large: true
+    values:
+    - geomType: county
+      columnName: cwnycsi
+      cv: cwnycsicv
+      sig:
+    - geomType: subregion
+      columnName: cwnycsi
+      cv: cwnycsicv
+      sig:
+    - geomType: region
+      columnName: cwnycsi
+      cv: cwnycsicv
+      sig:
+
+
+  isComNycWork: true
+  isComNycRes: false
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "Where NYC Workers Live, 2017"
+    legend-title: "1 dot = 25 NYC Workers, at Residence (Commute Origin)"
+    legend:
+    - label: "Bronx Worker"
+      color: "#f2922b"
+      type: circle
+    - label: "Brooklyn Worker"
+      color: "#0099ff"
+      type: circle
+    - label: "Manhattan Worker"
+      color: "#00cc66"
+      type: circle
+    - label: "Queens Worker"
+      color: "#ce50c4"
+      type: circle
+    - label: "Staten Island Worker"
+      color: "#f2d710"
+      type: circle
+    layers:
+    - id: total-nycworkerres-tract
+      type: circle
+      source: total-nycworkerres
+      source-layer: total-nycworkerres-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cwnycbx"
+        - "#f2922b"
+        - "cwnycbk"
+        - "#0099ff"
+        - "cwnycmn"
+        - "#00cc66"
+        - "cwnycqn"
+        - "#ce50c4"
+        - "cwnycsi"
+        - "#f2d710"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: total-nycworkerres
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: total-nycworkerres
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Where NYC Workers Live, 2017"
+    legend-title: "1 dot = 25 NYC Workers, at Residence"
+    legend:
+    - label: "Bronx Worker"
+      color: "#f2922b"
+      type: circle
+    - label: "Brooklyn Worker"
+      color: "#0099ff"
+      type: circle
+    - label: "Manhattan Worker"
+      color: "#00cc66"
+      type: circle
+    - label: "Queens Worker"
+      color: "#ce50c4"
+      type: circle
+    - label: "Staten Island Worker"
+      color: "#f2d710"
+      type: circle
+    layers:
+    - id: total-nycworkerres-tract
+      type: circle
+      source: total-nycworkerres
+      source-layer: total-nycworkerres-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cwnycbx"
+        - "#f2922b"
+        - "cwnycbk"
+        - "#0099ff"
+        - "cwnycmn"
+        - "#00cc66"
+        - "cwnycqn"
+        - "#ce50c4"
+        - "cwnycsi"
+        - "#f2d710"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-county-polygons
+      type: fill
+      source: total-nycworkerres
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: total-nycworkerres
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

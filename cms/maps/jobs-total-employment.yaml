@@ -20,9 +20,9 @@ map:
     type: cartovector
     source-layers:
     - id: total-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_subregion_v1
+      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_subregion_v2
     - id: total-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_county_v1
+      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '3610536111')
     - id: total-employment-municipality
       sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
