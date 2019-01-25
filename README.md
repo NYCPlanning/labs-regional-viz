@@ -33,6 +33,7 @@ You will need the following things properly installed on your computer.
 - [Git](https://git-scm.com/)
 - [Node.js](https://nodejs.org/) (with npm)
 - [Ember CLI](https://ember-cli.com/)
+- [Bower](https://bower.io/) (`bower install` is required for the remarkable and highlightsjs dependencies)
 - [Google Chrome](https://google.com/chrome/)
 
 ## Local development
