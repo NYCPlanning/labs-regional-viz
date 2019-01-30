@@ -1,0 +1,291 @@
+# Commuting
+# ----------
+slug: mode-nonmnworkerres
+category: Commuting
+categorySlug: commuting
+title: "Most regional in-commuters working in Non-Manhattan Boroughs drive. Many NYC residents also drive, but a greater share use transit."
+menuTitle: "Primary Mode of Travel to Work in Non-Manhattan Boroughs"
+content: |
+  40% of NYC residents working in Non-Manhattan Boroughs use transit to commute to work (734,000), which is a lower share than Manhattan’s transit commuters, but twice the rate of regional in-commuters who use transit. Only 24% of in-commuters to Non-Manhattan Boroughs are commuting by rail, subway/PATH, bus, or ferry transit.
+
+  Though the highest share of NYC residents commuting to Non-Manhattan Borough jobs by transit use subway, the bus network enables city residents to commute to many Non-Manhattan Borough jobs in areas not serviced by subways. Though bus is not as prominent for supporting regional in-commuters' jobs access, a few bus markets exist where Nassau Inter-County Express (NICE) bus serves portions of Queens, or where Bee-Line bus serves the Bronx.
+
+  309,000 regional in-commuters work in Non-Manhattan boroughs, representing 17% of the non-Manhattan NYC workforce. Despite the presence of regional rail and residents' ability to access NYC business districts outside Manhattan (e.g., Jamaica, Downtown Brooklyn), commuter rail represents a small portion of the in-commuters' primary mode choice. Today, 75% of in-commuters are driving, the largest number of which are from Long Island (123,000). Sizeable driving populations also commute from other subregions. 73,000 regional in-commuters travel by transit to non-Manhattan workplaces. Inner New Jersey is home to the greatest number of Non-Manhattan Borough workers commuting by rail, bus, and subway/PATH transit. Since most transit services from New Jersey terminate in Manhattan, it is likely that transit in-commuters are also using the NYC subway for a portion of their trip to access Non-Manhattan Borough jobs. Long Island also had 23,000 regional rail, bus and subway in-commuters, primarily accessing jobs in Queens or Downtown Brooklyn. The Lower Hudson Valley is also home to in-commuters accessing jobs in Bronx by transit.
+
+source: |
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2017. Dots represent the residence location of people working in Non-Manhattan Boroughs (i.e. Bronx, Brooklyn, Queens, and Staten Island combined), age 16 and older, or the origin of Non-Manhattan NYC workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: mode-nonmnworkerres
+    type: cartovector
+    source-layers:
+    - id: mode-nonmnworkerres-tract
+      sql: SELECT the_geom_webmercator, category FROM region_commode_nonmnworkres_dotdensity_v0 ORDER BY random()
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v2
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+
+
+  popupColumns:
+  - id: cnmncar
+    title: By Car
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmncar
+      cv: cnmncarcv
+      sig:
+    - geomType: subregion
+      columnName: cnmncar
+      cv: cnmncarcv
+      sig:
+    - geomType: region
+      columnName: cnmncar
+      cv: cnmncarcv
+      sig:
+  - id: cnmnbus
+    title: By Bus
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmnbus
+      cv: cnmnbuscv
+      sig:
+    - geomType: subregion
+      columnName: cnmnbus
+      cv: cnmnbuscv
+      sig:
+    - geomType: region
+      columnName: cnmnbus
+      cv: cnmnbuscv
+      sig:
+  - id: cnmnrai
+    title: By Rail
+    large: true
+    values:
+      - geomType: county
+        columnName: cnmnrai
+        cv: cnmnraicv
+        sig:
+      - geomType: subregion
+        columnName: cnmnrai
+        cv: cnmnraicv
+        sig:
+      - geomType: region
+        columnName: cnmnrai
+        cv: cnmnraicv
+        sig:
+  - id: cnmnsub
+    title: By Subway
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmnsub
+      cv: cnmnsubcv
+      sig:
+    - geomType: subregion
+      columnName: cnmnsub
+      cv: cnmnsubcv
+      sig:
+    - geomType: region
+      columnName: cnmnsub
+      cv: cnmnsubcv
+      sig:
+  - id: cnmnfer
+    title: By Ferry
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmnfer
+      cv: cnmnfercv
+      sig:
+    - geomType: subregion
+      columnName: cnmnfer
+      cv: cnmnfercv
+      sig:
+    - geomType: region
+      columnName: cnmnfer
+      cv: cnmnfercv
+      sig:
+  - id: cnmnbik
+    title: Walk/Bike
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmnbik
+      cv: cnmnbikcv
+      sig:
+    - geomType: subregion
+      columnName: cnmnbik
+      cv: cnmnbikcv
+      sig:
+    - geomType: region
+      columnName: cnmnbik
+      cv: cnmnbikcv
+      sig:
+  - id: cnmnoth
+    title: By Taxi/Other
+    large: true
+    values:
+    - geomType: county
+      columnName: cnmnoth
+      cv: cnmnothcv
+      sig:
+    - geomType: subregion
+      columnName: cnmnoth
+      cv: cnmnothcv
+      sig:
+    - geomType: region
+      columnName: cnmnoth
+      cv: cnmnothcv
+      sig:
+
+  isComNycWork: true
+  isComNycRes: false
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2017"
+    legend-title: "1 dot = 25 Non-Manhattan NYC Workers, at Residence"
+    legend:
+    - label: "Car"
+      color: "#f2d710"
+      type: circle
+    - label: "Bus"
+      color: "#0628d3"
+      type: circle
+    - label: "Commuter rail"
+      color: "#6ff268"
+      type: circle
+    - label: "Subway/PATH"
+      color: "#ce50c4"
+      type: circle
+    - label: "Ferry"
+      color: "#f2922b"
+      type: circle
+    - label: "Walk/Bike"
+      color: "#818387"
+      type: circle
+    - label: "Taxi/Other"
+      color: "#818320"
+      type: circle
+    layers:
+    - id: mode-nonmnworkerres-tract
+      type: circle
+      source: mode-nonmnworkerres
+      source-layer: mode-nonmnworkerres-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cnmncar"
+        - "#f2d710"
+        - "cnmnbus"
+        - "#0628d3"
+        - "cnmnrai"
+        - "#6ff268"
+        - "cnmnsub"
+        - "#ce50c4"
+        - "cnmnfer"
+        - "#f2922b"
+        - "cnmnbik"
+        - "#818387"
+        - "cnmnoth"
+        - "#818320"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: mode-nonmnworkerres
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: mode-nonmnworkerres
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2017"
+    legend-title: "1 dot = 25 Non-Manhattan NYC Workers, at Residence"
+    legend:
+    - label: "Car"
+      color: "#f2d710"
+      type: circle
+    - label: "Bus"
+      color: "#0628d3"
+      type: circle
+    - label: "Commuter rail"
+      color: "#00cc66"
+      type: circle
+    - label: "Subway/PATH"
+      color: "#ce50c4"
+      type: circle
+    - label: "Ferry"
+      color: "#f2922b"
+      type: circle
+    - label: "Walk/Bike"
+      color: "#818387"
+      type: circle
+    - label: "Taxi/Other"
+      color: "#818320"
+      type: circle
+    layers:
+    - id: mode-nonmnworkerres-tract
+      type: circle
+      source: mode-nonmnworkerres
+      source-layer: mode-nonmnworkerres-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cnmncar"
+        - "#f2d710"
+        - "cnmnbus"
+        - "#0628d3"
+        - "cnmnrai"
+        - "#00cc66"
+        - "cnmnsub"
+        - "#ce50c4"
+        - "cnmnfer"
+        - "#f2922b"
+        - "cnmnbik"
+        - "#818387"
+        - "cnmnoth"
+        - "#818320"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-county-polygons
+      type: fill
+      source: mode-nonmnworkerres
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: mode-nonmnworkerres
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

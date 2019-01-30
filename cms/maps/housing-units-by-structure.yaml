@@ -4,7 +4,7 @@ slug: units-by-structure
 category: Housing
 categorySlug: housing
 title: "A majority of the region's housing units are in buildings with two units or less."
-menuTitle: "Housing by Building Size, 2016"
+menuTitle: "Housing by Building Size"
 content: |
   This map shows the location of the region's housing units by the size of the structure (or building) in which those homes are located. Homes located in buildings with one-two units are indicated in yellow, and homes located in buildings that contain three or more housing units are indicated in orange.
 
@@ -23,11 +23,11 @@ map:
     - id: units-by-structure-municipality
       sql: SELECT the_geom_webmercator, category FROM region_units_by_structure_dotdensity_v0 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v2
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '3610536111')
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE WHERE geoid NOT IN ('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
 
   popupColumns:
   - id: hous

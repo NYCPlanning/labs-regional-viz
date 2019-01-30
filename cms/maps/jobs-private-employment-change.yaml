@@ -21,9 +21,9 @@ map:
     type: cartovector
     source-layers:
     - id: private-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_subregion_v1
+      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_subregion_v2
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_county_v1
+      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '3610536111')
 
   popupColumns:
   - id: empr
@@ -60,12 +60,14 @@ map:
         colors:
         - "#d6584a"
         - "#ffffe0"
+        - "#75eaff"
         - "#5ab4ff"
         - "#0058ee"
         - "#002673"
         breaks:
+        - 0
         - 10000
-        - 50000
+        - 30000
         - 100000
         - 300000
   - id: county

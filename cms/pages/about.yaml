@@ -18,6 +18,7 @@ content: |
   - [Housing](#housing)
   - [Jobs](#jobs)
   - [Balance](#balance)
+  - [Commuting](#commuting)
   - [Data reliability](#data-reliability)
 
   -----
@@ -117,12 +118,35 @@ content: |
   To represent the shift in housing/jobs balance, DCP calculated the change in the ratio of housing units/jobs in 2000 to the ratio of housing units/jobs in 2016. A negative shift represents an area that saw job gains outpace growth of housing supply, thereby becoming more jobs-intensive. A positive shift represents an area that saw housing change outpace jobs change, thereby becoming more housing-intensive.
 
   -----
+  <a id="commuting"></a>
+  ### Commuting
+  Commuting data represent origin-destination movements for NYC workers and NYC residents. All commuting data are calculated using [IPUMS-USA](https://usa.ipums.org/usa/) databases prepared by the University of Minnesota - available at [www.ipums.org](http://www.ipums.org). Commuting trends were calculated using U.S. Census Bureau ACS 2017 1-Year Estimates and U.S. Census Bureau Decennial Census 2000 5% Sample files. Commuting patterns visualized as dot density maps use the most recent U.S. Census Bureau Transportation Planning Package (CTPP) dataset, representing a 5-year average from 2006 to 2010. CTPP data provide better sub-county geographic patterns, however, ACS 2017 1-Year Estimates are used for data aggregations to provide the most current estimate possible. Therefore, dot density maps are for illustrative purposes only.
 
+  Tabulations for commuting trends are available solely at the county and subregional geographic levels. However, because these records are reported at the U.S. Census Bureau Public Use Microdata Area (PUMA) and Place of Work PUMA (PWPUMA) geographies, certain counties are combined in the Metro Region Explorer for consistency with data reporting. This includes Putnam and Westchester counties, which are combined as a Place of Work geography, and Sullivan and Ulster counties, which are combined as both residence and place of work counties.
+
+  ##### Place of Work
+  [copy definition from ppt appendix]
+
+  ##### NYC Workers at Place of Residence
+  Maps visulaize and report information at the location of residence for NYC workers, and the color indicates the NYC borough where that worker is employed. This includes NYC residents working within NYC, as well as in-commuters from the surrounding 26 counties. There are an additional (estimated) 64,000 in-commuters to NYC from areas outside the metro region.
+
+  ##### NYC Residents at Place of Work
+  Maps visualize and report information at the location of work for NYC residents, and the color indicates the borough of residence. This includes NYC residents working within NYC, and NYC residents out-commuting to work in the 31-county region.
+
+  ##### Primary Mode of Travel to Work by Manhattan vs. Other NYC Boroughs
+  This map visualizes the main mode of travel NYC workers said that they use to get to their jobs, either those traveling to Manhattan or to Non-Manhattan Boroughs (the Bronx, Brooklyn, Queens, and Staten Island combined). This does not captue multi-modal trips, and is reported as the commuter's main mode of accessing their job in the previous week. XXXX [copy definition from the ppt report]. DOES NOT VISUALIZE RIDERSHIP DATA REPORTED BY TRANSIT AGENCIES.
+    - Car: includes those who drove alone, as well as those who carpooled in groups of 2 or more
+    - Bus: includes both public and private bus services
+    - Commuter rail: represents the regional rail network, either NJ Transit, MTA Long Island Rail Road, MTA Metro North, or Amtrak.
+    - Subway/PATH: represents commuters using rapid transit, including both the NYCT Subway and Port Authority PATH train networks.
+    - Ferry:
+
+  -----
   <a id="data-reliability"></a>
   ### Data Reliability
 
   ##### Statistical Reliability
-  Metro Region Explorer population and housing data and trend analyses frequently use ACS estimates to represent current data. ACS estimates are derived from a survey and are subject to sampling error. Consequently, all ACS estimates are published with Margins of Error (MOEs) at a 90% confidence level wherever available. Metro Region Explorer consistently uses ACS 5-Year estimates for all geographies, which provides the most reliable estimate despite time lag [(more guidance on ACS files)](https://www.census.gov/programs-surveys/acs/guidance/estimates.html). Though all data are visualized and mapped, grayed values in the pop-up box represent data deemed unreliable. Unreliable values indicate that the calculated coefficient of variation (CV) is greater than 20% and are not statistically significant at a 90% confidence level. In examining longitudinal change, DCP calculated margins of error for 2000 Decennial Census SF3 data consistent with U.S. Census Bureau [guidelines](https://www.census.gov/programs-surveys/acs/guidance/comparing-acs-data/2016.html), or used ACS-reported margins of error. For calculated change, grayed values represent changes that are not statistically reliable at the 90% confidence level, in which the MOE associated with the calculated change represents a CV of 20% or greater. Data files available for download on this site contain all calculated MOEs and CVs associated with estimates or counts wherever possible. ACS data are subject to sampling variability, so these measures of reliability help to guage the consistency of the ACS and the degree to which one can trust any given statistic. Additional information about the ACS and guidelines for using ACS data can be viewed on [DCP’s website](https://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page), where you might also access tools like the [map reliability calculator](https://www1.nyc.gov/site/planning/data-maps/nyc-population/geographic-reference.page).
+  Metro Region Explorer population and housing data and trend analyses frequently use ACS estimates to represent current data. ACS estimates are derived from a survey and are subject to sampling error. Consequently, all ACS estimates are published with Margins of Error (MOEs) at a 90% confidence level wherever available. Metro Region Explorer consistently uses ACS 5-Year estimates for all maps that report at municipal, county, and subregion geographies. These estimates provide the most reliable data for smaller geographies (i.e. municipalities) despite time lag [(more guidance on ACS files)](https://www.census.gov/programs-surveys/acs/guidance/estimates.html). Other estimates (e.g., ACS 1-Year) are used when data is solely available at county and larger geographies. Though all data are visualized and mapped, grayed values in the pop-up box represent data deemed unreliable. Unreliable values indicate that the calculated coefficient of variation (CV) is greater than 20% and are not statistically significant at a 90% confidence level. In examining longitudinal change, DCP calculated margins of error for 2000 Decennial Census SF3 and 5% Sample data consistent with U.S. Census Bureau [guidelines](https://www.census.gov/programs-surveys/acs/guidance/comparing-acs-data/2016.html), or used ACS-reported margins of error. For ACS data obtained via IPUMS-USA databases, DCP calculated error using replicate weights. For calculated change, grayed values represent changes that are not statistically reliable at the 90% confidence level, in which the calculated MOE associated with the calculated change represents a CV of 20% or greater. Data files available for download on this site contain all calculated MOEs and CVs associated with estimates or counts wherever possible. ACS data are subject to sampling variability, so these measures of reliability help to guage the consistency of the ACS and the degree to which one can trust any given statistic. Additional information about the ACS and guidelines for using ACS data can be viewed on [DCP’s website](https://www1.nyc.gov/site/planning/data-maps/nyc-population/american-community-survey.page), where you might also access tools like the [map reliability calculator](https://www1.nyc.gov/site/planning/data-maps/nyc-population/geographic-reference.page).
   ##### Geographic Accuracy and Precision
   Dot density visualizations represent data mapped within specific boundaries (i.e. Census Tract, municipality) and do not represent the actual location of people, housing units, or jobs. Dots are illustrative only and have been assigned a random location within the geographic boundaries. For dot density maps, dots are assigned a value to represent (e.g., 50 people, 100 jobs). In areas where no data are represented (no dots are mapped), values may fall below the selected threshold value and do not necessarily indicate a value of zero for the associated geography. In those cases, data are not visualized, but values are reported for all geographies.
 
@@ -136,8 +160,11 @@ content: |
   - U.S. Census Bureau [2016 TIGER/Line Shapefiles](https://www.census.gov/geo/maps-data/data/tiger-line.html)
   - U.S. Census Bureau population and housing data accessed via [American FactFinder Tool](https://factfinder.census.gov/faces/nav/jsf/pages/index.xhtml) for:
     - U.S. Census Bureau Decennial Census, 2000 and 2010
-    - U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2012-2016
-    - U.S. Census Bureau Population Estimates Program
+    - U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010, 2012-2016, 2013-2017
+    - U.S. Census Bureau Population Estimates Program 2016
+    - U.S. Census Bureau Transportation Planning Package 2006-2010
+    - U.S. Census Bureau ACS 1-Year Estimates 2017
+  - IPUMS-USA databases via University of Minnesota, available at [www.ipums.org](http://www.ipums.org)
   - U.S. Census Bureau [Building Permits Survey](https://www.census.gov/construction/bps/) (annual, 2000-2016)
   - U.S. Bureau of Labor Services [Quarterly Census of Employment and Wages](https://www.bls.gov/cew/datatoc.htm) (annual, 2000-2016)
   - U.S. Census Bureau [Longitudinal Employer-Household Dynamics (LEHD)](https://lehd.ces.census.gov/) 2015
@@ -148,23 +175,23 @@ sidebar:
 
     Data are available by geography as shapefiles or comma separated value files. Metadata files include variable definitions and data sources. Please check back for periodic updates.
 
-    - **Region:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_v1&format=SHP),
-    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_region_v1_table&format=CSV),
-    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_region_meta_v0&format=CSV)
-    - **Subregion:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_v1&format=SHP),
-    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_subregion_v1_table&format=CSV),
-    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_meta_v0&format=CSV)
-    - **County:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_v1&format=SHP),
-    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_county_v1_table&format=CSV),
-    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=county&q=SELECT%20%2A%20FROM%20region_county_meta_v0&format=CSV)
+    - **Region:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_region_v2&format=SHP),
+    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_region_v2_table&format=CSV),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_region_meta_v1&format=CSV)
+    - **Subregion:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_v2&format=SHP),
+    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_subregion_v2_table&format=CSV),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=subregion&q=SELECT%20%2A%20FROM%20region_subregion_meta_v1&format=CSV)
+    - **County:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=county&q=SELECT%20%2A%20FROM%20region_county_v2&format=SHP),
+    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_county_v2_table&format=CSV),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=county&q=SELECT%20%2A%20FROM%20region_county_meta_v1&format=CSV)
     - **Municipality:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_v1&format=SHP),
     [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_municipality_v1_table&format=CSV),
     [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=municipality&q=SELECT%20%2A%20FROM%20region_municipality_meta_v0&format=CSV)
-    - **Census Tract:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v0&format=SHP),
-    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v0_table&format=CSV),
-    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=censustract&q=SELECT%20%2A%20FROM%20region_censustract_meta_v0&format=CSV)
+    - **Census Tract:** [Shapefile](https://planninglabs.carto.com/api/v2/sql?filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v1&format=SHP),
+    [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_censustract_v1_table&format=CSV),
+    [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=censustract&q=SELECT%20%2A%20FROM%20region_censustract_meta_v1&format=CSV)
 
-    _Last updated on June 20, 2018_
+    _Last updated on January 28, 2019_
 
     ### Feedback
     Check back for new data additions and maps. To let us know how this app could be better, [add a GitHub Issue](https://github.com/NYCPlanning/labs-regional-viz) or send a Tweet to @NYCPlanningLabs. If you have questions about the data and analysis, send an email to [regional@planning.nyc.gov](mailto:regional@planning.nyc.gov).

@@ -199,7 +199,7 @@ export default class MapFromID extends Component {
     const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
     const popup = this.get('popup');
     const {
-      popupColumns, isPermitMap, isPercent, isRatio, isChangeMeasurement,
+      popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isChangeMeasurement,
     } = this.get('mapConfig');
 
     // Add the popup with a spinner before loading its data
@@ -214,7 +214,7 @@ export default class MapFromID extends Component {
 
       carto.SQL(SQL)
         .then((data) => {
-          popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent, isRatio, isChangeMeasurement));
+          popup.setHTML(buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isChangeMeasurement));
         });
     } else {
       popup.remove();
