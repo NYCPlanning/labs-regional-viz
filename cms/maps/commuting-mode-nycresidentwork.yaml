@@ -1,0 +1,290 @@
+# Commuting
+# ----------
+slug: mode-nycresidentwork
+category: Commuting
+categorySlug: commuting
+title: "While most NYC residents working in the city commute via transit, most of the 273,000 NYC residents out-commuting to the region drive."
+menuTitle: "NYC Residents' Primary Mode of Travel to Work"
+content: |
+  Though 3.8 million NYC residents work within the city and 58% use transit to travel to work, there are 273,000 NYC residents commuting out of the city for work elsewhere in the region, 68% of whom drive. Though just 28% of NYC residents out-commuting to the region use transit, the share of NYC residents using transit to access juobs in the surrounding region is 7 times greater than the share of suburban commuters traveling by transit to jobs in the rest of the region (4% of non-NYC regional workers). Furthermore, though NYC residents represent just 5% of the regional workforce outside NYC, NYC-outcommuters represent 23% of all transit commuters traveling to jobs in the rest of the metro region.
+
+  In addition to transit accessibility at NYC residents’ homes, accessibility to transit at workers’ destinations informs NYC out-commuters modal preferences. NYC residents working in the Inner NJ subregion, especially along the Hudson County waterfront, are more likely to travel by transit to work than NYC out-commuters working on Long Island or in the Lower Hudson Valley. Though New Jersey is served by the PATH train, NYC residents out-commuting to Long Island and the Lower Hudson Valley also travel by subway, likely towards the end of NYC subway and bus lines, and transfer to other modes for the remainder of their trips. Commuter rail and bus comprise a smaller, but still substantial, portion of trips for commuters going north, east and west. Long Island is the primary destination for car-dependent out-commuters, followed by Inner NJ and Westchester.
+
+  Queens is home to the greatest number of out-commuters driving to work in the region, with more out-commuting drivers than the Bronx, Manhattan, and Brooklyn combined. Out-commuters from western Queens are more likely to use subway and rail transit, while southeast Queens residents have a higher proclivity to travel by bus transit.  Manhattan residents are most likely to out-commute via transit, with nearly half of out-commuters traveling by commuter rail, PATH, or bus. Bronx and Queens have high shares of bus out-commuters, while Brooklyn has a higher share of subway/PATH out-commuters.
+
+source: |
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2017. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the workplace location of employed NYC residents, age 16 and older, or the commuting destination of NYC residents. Color indicates the primary mode of travel used for the longest leg of NYC residents' commutes to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties, and Putnam and Westchester counties, are combined for consistency with IPUMS-USA reporting geographies.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: mode-nycresidentwork
+    type: cartovector
+    source-layers:
+    - id: mode-nycresidentwork-tract
+      sql: SELECT the_geom_webmercator, category FROM region_commode_nycreswork_dotdensity ORDER BY random()
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
+    - id: empty-polygons-county-iscomnycwork
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
+
+
+  popupColumns:
+  - id: crnycar
+    title: By Car
+    large: true
+    values:
+    - geomType: county
+      columnName: crnycar
+      cv: crnycarcv
+      sig:
+    - geomType: subregion
+      columnName: crnycar
+      cv: crnycarcv
+      sig:
+    - geomType: region
+      columnName: crnycar
+      cv: crnycarcv
+      sig:
+  - id: crnybus
+    title: By Bus
+    large: true
+    values:
+    - geomType: county
+      columnName: crnybus
+      cv: crnybuscv
+      sig:
+    - geomType: subregion
+      columnName: crnybus
+      cv: crnybuscv
+      sig:
+    - geomType: region
+      columnName: crnybus
+      cv: crnybuscv
+      sig:
+  - id: crnyrai
+    title: By Commuter Rail
+    large: true
+    values:
+      - geomType: county
+        columnName: crnyrai
+        cv: crnyraicv
+        sig:
+      - geomType: subregion
+        columnName: crnyrai
+        cv: crnyraicv
+        sig:
+      - geomType: region
+        columnName: crnyrai
+        cv: crnyraicv
+        sig:
+  - id: crnysub
+    title: By Subway/PATH
+    large: true
+    values:
+    - geomType: county
+      columnName: crnysub
+      cv: crnysubcv
+      sig:
+    - geomType: subregion
+      columnName: crnysub
+      cv: crnysubcv
+      sig:
+    - geomType: region
+      columnName: crnysub
+      cv: crnysubcv
+      sig:
+  - id: crnyfer
+    title: By Ferry
+    large: true
+    values:
+    - geomType: county
+      columnName: crnyfer
+      cv: crnyfercv
+      sig:
+    - geomType: subregion
+      columnName: crnyfer
+      cv: crnyfercv
+      sig:
+    - geomType: region
+      columnName: crnyfer
+      cv: crnyfercv
+      sig:
+  - id: crnybik
+    title: Walk/Bike
+    large: true
+    values:
+    - geomType: county
+      columnName: crnybik
+      cv: crnybikcv
+      sig:
+    - geomType: subregion
+      columnName: crnybik
+      cv: crnybikcv
+      sig:
+    - geomType: region
+      columnName: crnybik
+      cv: crnybikcv
+      sig:
+  - id: crnyoth
+    title: By Taxi/Other
+    large: true
+    values:
+    - geomType: county
+      columnName: crnyoth
+      cv: crnyothcv
+      sig:
+    - geomType: subregion
+      columnName: crnyoth
+      cv: crnyothcv
+      sig:
+    - geomType: region
+      columnName: crnyoth
+      cv: crnyothcv
+      sig:
+
+  isComNycRes: true
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "NYC Residents' Primary Mode of Travel to Work, 2017"
+    legend-title: "1 dot = 25 NYC Residents, at Workplace"
+    legend:
+    - label: "Car"
+      color: "#f2d710"
+      type: circle
+    - label: "Bus"
+      color: "#0628d3"
+      type: circle
+    - label: "Commuter rail"
+      color: "#6ff268"
+      type: circle
+    - label: "Subway/PATH"
+      color: "#ce50c4"
+      type: circle
+    - label: "Ferry"
+      color: "#f2922b"
+      type: circle
+    - label: "Walk/Bike"
+      color: "#818387"
+      type: circle
+    - label: "Taxi/Other"
+      color: "#818320"
+      type: circle
+    layers:
+    - id: mode-nycresidentwork-tract
+      type: circle
+      source: mode-nycresidentwork
+      source-layer: mode-nycresidentwork-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cnyccar"
+        - "#f2d710"
+        - "cnycbus"
+        - "#0628d3"
+        - "cnycrai"
+        - "#6ff268"
+        - "cnycsub"
+        - "#ce50c4"
+        - "cnycfer"
+        - "#f2922b"
+        - "cnycbik"
+        - "#818387"
+        - "cnycoth"
+        - "#818320"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: mode-nycresidentwork
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: mode-nycresidentwork
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "NYC Residents' Primary Mode of Travel to Work, 2017"
+    legend-title: "1 dot = 25 NYC Residents, at Workplace"
+    legend:
+    - label: "Car"
+      color: "#f2d710"
+      type: circle
+    - label: "Bus"
+      color: "#0628d3"
+      type: circle
+    - label: "Commuter rail"
+      color: "#6ff268"
+      type: circle
+    - label: "Subway/PATH"
+      color: "#ce50c4"
+      type: circle
+    - label: "Ferry"
+      color: "#f2922b"
+      type: circle
+    - label: "Walk/Bike"
+      color: "#818387"
+      type: circle
+    - label: "Taxi/Other"
+      color: "#818320"
+      type: circle
+    layers:
+    - id: mode-nycresidentwork-tract
+      type: circle
+      source: mode-nycresidentwork
+      source-layer: mode-nycresidentwork-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "cnyccar"
+        - "#f2d710"
+        - "cnycbus"
+        - "#0628d3"
+        - "cnycrai"
+        - "#00cc66"
+        - "cnycsub"
+        - "#ce50c4"
+        - "cnycfer"
+        - "#f2922b"
+        - "cnycbik"
+        - "#818387"
+        - "cnycoth"
+        - "#818320"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 3
+        circle-opacity: 0.7
+    - id: empty-county-polygons-iscomnycwork
+      type: fill
+      source: mode-nycresidentwork
+      source-layer: empty-polygons-county-iscomnycwork
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line-iscomnycwork
+      type: line
+      source: mode-nycresidentwork
+      source-layer: empty-polygons-county-iscomnycwork
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

@@ -1,0 +1,118 @@
+# Commuting
+# ----------
+slug: total-nycworkerchange
+category: Commuting
+categorySlug: commuting
+title: "One million more workers are employed in NYC since 2000, 82% of whom are NYC residents."
+menuTitle: "Change in NYC Workforce, 2000-2017"
+content: |
+  From 2000 to 2017, the city’s workforce grew by 1 million workers, representing a 28% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2017, at their residence location (i.e. NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by +29% (+841,000), while the NYC in-commuter workforce grew by +24% (+186,000). As a result, in-commuters represent a slightly smaller component of the NYC workforce today than in 2000.
+
+  Since 2000, there has been an increase of +119,000 (+39%) Inner and Outer New Jersey (northern New Jersey) residents traveling to NYC for work, accounting for approximately two-thirds of total NYC in-commuter gains. Bergen, Essex and Hudson counties combined (+91,000) accounted for nearly half of the total NYC in-commuter increase. In-commuting from the Hudson Valley and Connecticut increased by +52,000 combined (+25%), while in-commuting from Long Island grew the least,(+16,000) and at the slowest rate (+6%).
+
+  Despite representing just 13% of the total Manhattan workforce in 2017, northern New Jersey residents represented 18% of the Manhattan workforce growth since 2000. The remaining in-commuters represented 7% of Manhattan’s workforce growth, disproportionately smaller than those subregions’ share of the total Manhattan workforce (12%).
+
+  Similarly, though northern New Jersey residents represent just 25% of the in-commuter workforce employed in Non-Manhattan Boroughs today, northern New Jersey residents accounted for 40% of the growth of non-NYC residents working in those boroughs. This is primarily due to an additional +20k northern New Jersey residents commuting to work in Brooklyn.
+
+source: |
+  Sources & Notes: IPUMS-USA, University of Minnesota; U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2017; U.S. Census Bureau Decennial Census 2000 5% Sample. Map represents change in NYC workers at those workers' places of residence (i.e. commuters' county or subregion origin). Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: total-nycworkerchange
+    type: cartovector
+    source-layers:
+    - id: total-nycworkerchange-subregion
+      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_subregion
+    - id: total-nycworkerchange-county
+      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_county WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+
+
+  popupColumns:
+  - id: cwnyc
+    title: ΔResidents Working in NYC
+    large: true
+    values:
+    - geomType: region
+      columnName: cwnyc0017
+      cv: cwnyc0017cv
+      sig:
+    - geomType: subregion
+      columnName: cwnyc0017
+      cv: cwnyc0017cv
+      sig:
+    - geomType: county
+      columnName: cwnyc0017
+      cv: cwnyc0017cv
+      sig:
+  - id: moe
+    title: MOE
+    isMOE: true
+    values:
+    - geomType: region
+      columnName: cwnyc0017moe
+      cv: cwnyc0017cv
+      sig:
+    - geomType: subregion
+      columnName: cwnyc0017moe
+      cv: cwnyc0017cv
+      sig:
+    - geomType: county
+      columnName: cwnyc0017moe
+      cv: cwnyc0017cv
+      sig:
+
+  isComNycWork: true
+  isComNycRes: false
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "ΔResidents Working in NYC, 2000-2017"
+    legend: total-nycworkerchange-subregion
+    layers:
+    - id: total-nycworkerchange-subregion
+      type: choropleth
+      source: total-nycworkerchange
+      source-layer: total-nycworkerchange-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#e6e6e6"
+        - "#f2fcf4"
+        - "#80ffdf"
+        - "#00cc99"
+        - "#00664d"
+        - "#003326"
+        breaks:
+        - 0
+        - 10000
+        - 25000
+        - 50000
+        - 500000
+  - id: county
+    title: "ΔResidents Working in NYC, 2000-2017"
+    legend: total-nycworkerchange-county
+    layers:
+    - id: total-nycworkerchange-county
+      type: choropleth
+      source: total-nycworkerchange
+      source-layer: total-nycworkerchange-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d6d6d6"
+        - "#f2fcf4"
+        - "#80ffdf"
+        - "#00cc99"
+        - "#00664d"
+        - "#003326"
+        breaks:
+        - 0
+        - 2500
+        - 7500
+        - 15000
+        - 30000

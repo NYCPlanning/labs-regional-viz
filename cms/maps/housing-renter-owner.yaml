@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: renter-owner-tract
-      sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity_v0 ORDER BY random()
+      sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
 
   popupColumns:
   - id: owner
@@ -145,6 +145,8 @@ map:
       cv: houv16cv
       sig:
 
+  isComNycWork: false
+  isComNycRes: false
   isPercent: false
 
   layerGroups:

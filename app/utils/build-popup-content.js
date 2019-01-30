@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isPercent, isRatio, isChangeMeasurement) {
+export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isChangeMeasurement) {
   const reliabilityDisclaimer = '<p class="popup-footer">Grayed values are not statistically reliable.</p>';
   let popupFooter = '';
 
@@ -49,6 +49,24 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
       }
     } else if (rowData.islitown === 'Y') {
       // If it's not a Permit Map, always hide the Long Island town rows
+      return '';
+    }
+
+    if (isComNycWork) {
+      // If this is a NYC Workers county commuting map (isComNycWork===true) indicated in yaml
+      if (rowData.iscomnycwork === false) {
+        // hide the individual county rows that are instead shown as part of combined geographies
+        return '';
+      }
+    } else if (isComNycRes) {
+      // If this is a NYC Residents county commuting map (isComNycRes===true) indicated in yaml
+      if (rowData.iscomnycres === false) {
+        // hide the individual county rows that are instead shown as part of combined geographies
+        return '';
+      }
+    } else if (rowData.iscommap === true) {
+      // If this isn't a commuting map (neither isComNycRes nor isComNycWork)
+      // hide the combined geography rows (rows where rowData.iscommap === true)
       return '';
     }
 

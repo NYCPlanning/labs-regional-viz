@@ -93,4 +93,24 @@ orderings:
       transitionPrompt: The regional housing-jobs balance has shifted...
     - id: balance-housjobs0016
       isLinearNarrative: true
+      transitionPrompt: 20% of the 4.7 million NYC workers in-commute...
+
+    # Commuting
+    - id: total-nycworkerres
+      isLinearNarrative: true
+      transitionPrompt: 7% of the 4.2 million employed NYC residents out-commute...
+    - id: total-nycresidentwork
+      isLinearNarrative: true
+      transitionPrompt: NYC in-commuter and resident workforces have grown...
+    - id: total-nycworkerchange
+      isLinearNarrative: true
+      transitionPrompt: Manhattan workers mostly commute via transit...
+    - id: mode-mnworkerres
+      isLinearNarrative: true
+      transitionPrompt: In-commuters to Non-Manhattan Boroughs mostly drive...
+    - id: mode-nonmnworkerres
+      isLinearNarrative: true
+      transitionPrompt: NYC residents out-commuting for work mostly drive...
+    - id: mode-nycresidentwork
+      isLinearNarrative: true
       transitionPrompt:

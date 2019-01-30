@@ -13,8 +13,10 @@ content: |
   - [Prime-age labor force (age 25-54) grew the most at the region’s center.](/people/prime-labor-force-gain)
   - [The region's rental housing is concentrated in NYC.](/housing/renter-owner)
   - [NYC and NJ are building the majority of new housing in the region.](/housing/multifamily-permitted)
-  - [NYC is the hub of the largest U.S. metro economy.](/jobs/employment-by-sector)
-  - [Post-recession, NYC saw the majority of regional job gains.](/jobs/private-employment-change)
+  - [NYC is the hub of the largest U.S. metro economy, with more jobs than employed residents.](/jobs/employment-by-sector)
+  - [There are 4.7 million people working in NYC, 20% of whom commute from elsewhere in the region.](/commuting/commuting-total-nycworkerres)
+  - [Post-recession, NYC experienced the majority of regional job gains.](/jobs/private-employment-change)
+  - [NYC has gained 1 million workers since 2000, most of whom are NYC residents.](/commuting/commuting-total-nycworkerchange)
   - [The patterns of employment growth and housing development have changed the jobs-housing balance throughout the region.](/balance/housjobs0016)
 
   Using data from a range of publicly available sources, the Metro Region Explorer allows you to view socioeconomic characteristics across 7 subregions, 31 counties, and nearly 900 municipalities ([more about the data and geographies](/about)). Learn more by clicking through below or by navigating directly to maps by topic area.
@@ -29,11 +31,11 @@ map:
       type: cartovector
       source-layers:
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v1
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, LEFT(geoid::text, 2) || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v1
+        sql: SELECT the_geom_webmercator, geoid, LEFT(geoid::text, 2) || '-' || (cartodb_id % 5) AS styleid, name FROM region_county WHERE iscommap = FALSE
       - id: empty-polygons-municipality
-        sql: SELECT the_geom_webmercator, geoid, LEFT(stcoid::text, 2) || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '3610310000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+        sql: SELECT the_geom_webmercator, geoid, LEFT(stcoid::text, 2) || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality WHERE islitown = 'N'
 
   layerGroups:
   - id: subregion

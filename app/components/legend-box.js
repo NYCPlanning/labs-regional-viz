@@ -1,5 +1,5 @@
 import Component from '@ember/component';
-import { computed } from 'ember-decorators/object'; // eslint-disable-line
+import { computed } from '@ember-decorators/object'; // eslint-disable-line
 import { argument } from '@ember-decorators/argument'; // eslint-disable-line
 import numeral from 'numeral';
 
@@ -74,10 +74,10 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
 export default class LegendBox extends Component {
   handleGeographyLevelToggle() {} // eslint-disable-line
 
-  @argument
+  // @argument
   currentLayerGroup
 
-  @argument
+  // @argument
   mapConfig
 
   @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio')
