@@ -238,13 +238,13 @@ map:
           - - 11
             - 3
         circle-opacity: 0.7
-    - id: empty-county-polygons-IsComNYCWork
+    - id: empty-county-polygons-iscomnycwork
       type: fill
       source: total-nycresidentwork
       source-layer: empty-polygons-county-iscomnycwork
       paint:
         fill-opacity: 0
-    - id: empty-county-line-IsComNYCWork
+    - id: empty-county-line-iscomnycwork
       type: line
       source: total-nycresidentwork
       source-layer: empty-polygons-county-iscomnycwork
