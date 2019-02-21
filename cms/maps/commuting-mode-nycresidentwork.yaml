@@ -26,7 +26,7 @@ map:
       sql: SELECT the_geom_webmercator, category FROM region_commode_nycreswork_dotdensity_v0 ORDER BY random()
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v2
-    - id: empty-polygons-county
+    - id: empty-polygons-county-iscomnycwork
       sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v2 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
 
 
@@ -275,16 +275,16 @@ map:
           - - 11
             - 3
         circle-opacity: 0.7
-    - id: empty-county-polygons
+    - id: empty-county-polygons-IsComNYCWork
       type: fill
       source: mode-nycresidentwork
-      source-layer: empty-polygons-county
+      source-layer: empty-polygons-county-iscomnycwork
       paint:
         fill-opacity: 0
-    - id: empty-county-line
+    - id: empty-county-line-IsComNYCWork
       type: line
       source: mode-nycresidentwork
-      source-layer: empty-polygons-county
+      source-layer: empty-polygons-county-iscomnycwork
       paint:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
