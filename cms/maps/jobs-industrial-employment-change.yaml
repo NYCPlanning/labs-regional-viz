@@ -19,9 +19,9 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_subregion_v2
+      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_subregion
     - id: industrial-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '3610536111')
+      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_county WHERE geoid NOT IN ('3607936119', '3610536111')
 
   popupColumns:
   - id: empr

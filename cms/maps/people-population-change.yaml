@@ -19,9 +19,9 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_subregion_v2
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_subregion
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '3610536111')
+      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_county WHERE geoid NOT IN ('3607936119', '3610536111')
 
   popupColumns:
   - id: change

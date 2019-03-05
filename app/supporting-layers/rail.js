@@ -5,11 +5,11 @@ export default {
     'source-layers': [
       {
         id: 'rail-lines',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v0',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_lines',
       },
       {
         id: 'rail-stops',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_stops_v0',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_stops',
       },
     ],
   },
