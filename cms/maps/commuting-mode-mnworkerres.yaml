@@ -23,11 +23,11 @@ map:
       type: cartovector
       source-layers:
       - id: mode-mnworkerres-tract
-        sql: SELECT the_geom_webmercator, category FROM region_commode_mnworkres_dotdensity_v0 ORDER BY random()
+        sql: SELECT the_geom_webmercator, category FROM region_commode_mnworkres_dotdensity ORDER BY random()
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v2
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v2 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
     popupColumns:
     - id: cmncar
