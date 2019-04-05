@@ -1,7 +1,8 @@
 import { next } from '@ember/runloop';
-import Controller, { inject } from '@ember/controller';
-import { action, computed } from 'ember-decorators/object'; // eslint-disable-line
+import Controller from '@ember/controller';
+import { action, computed } from '@ember-decorators/object'; // eslint-disable-line
 import { argument } from '@ember-decorators/argument'; // eslint-disable-line
+import { inject } from '@ember-decorators/controller'; 
 
 export default class MapController extends Controller {
   queryParams = [
@@ -12,13 +13,14 @@ export default class MapController extends Controller {
     },
   ]
 
-  application = inject()
+  @inject
+  application;
 
-  @argument
+  // @argument
   narrativeVisible = true
 
   @computed('application.model.maps', 'model.slug')
-  previousNarrative() {
+  get previousNarrative() {
     const maps = this.get('application.model.maps');
     const currentSlug = this.get('model.slug');
     const mapNarratives = maps.filter(map => map.isLinearNarrative);
