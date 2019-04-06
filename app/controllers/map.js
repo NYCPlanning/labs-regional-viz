@@ -2,7 +2,7 @@ import { next } from '@ember/runloop';
 import Controller from '@ember/controller';
 import { action, computed } from '@ember-decorators/object'; // eslint-disable-line
 import { argument } from '@ember-decorators/argument'; // eslint-disable-line
-import { inject } from '@ember-decorators/controller'; 
+import { inject } from '@ember-decorators/controller';
 
 export default class MapController extends Controller {
   queryParams = [
