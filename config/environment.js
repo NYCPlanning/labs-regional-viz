@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = function(environment) {
-  let ENV = {
+  const ENV = {
     modulePrefix: 'labs-regional-viz',
     environment,
     rootURL: '/',
@@ -13,8 +13,8 @@ module.exports = function(environment) {
       },
       EXTEND_PROTOTYPES: {
         // Prevent Ember Data from overriding Date.parse.
-        Date: false
-      }
+        Date: false,
+      },
     },
 
     APP: {
@@ -23,7 +23,7 @@ module.exports = function(environment) {
     },
 
     remarkable: {
-      excludeHighlightJs: true
+      excludeHighlightJs: true,
     },
 
     'mapbox-gl': {
@@ -53,7 +53,7 @@ module.exports = function(environment) {
 
     'ember-cli-string-helpers': {
       only: ['capitalize'],
-    }
+    },
   };
 
   if (environment === 'development') {
