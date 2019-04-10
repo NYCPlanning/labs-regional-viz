@@ -9,16 +9,14 @@
     {{#if (or model.sidebar.content model.sidebar.button)}}
 
       <div class="cell large-6 large-offset-1 xlarge-5 xlarge-offset-2">
-        {{md-text
-          text=model.content
-          html=true
+        {{markdown-to-html
+          markdown=model.content
         }}
       </div>
 
       <div class="cell page-sidebar large-4 xlarge-3">
-        {{md-text
-          text=model.sidebar.content
-          html=true
+        {{markdown-to-html
+          markdown=model.sidebar.content
         }}
         {{#if model.sidebar.button}}
           <a href="{{model.sidebar.button}}" class="button">{{if model.sidebar.buttontext model.sidebar.buttontext model.sidebar.button}}</a>
@@ -28,9 +26,8 @@
     {{else}}
 
       <div class="cell large-10 large-offset-1 xlarge-8 xlarge-offset-2">
-        {{md-text
-          text=model.content
-          html=true
+        {{markdown-to-html
+          markdown=model.content
         }}
       </div>
 

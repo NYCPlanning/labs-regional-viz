@@ -55,6 +55,12 @@ You will need the following things properly installed on your computer.
   - run `ember test --serve`
   - Before creating a Pull Request, make sure your branch is updated with the latest `develop` and passes all tests
 
+### Linting
+
+* `npm run lint:hbs`
+* `npm run lint:js`
+* `npm run lint:js -- --fix`
+
 ### Building
 
 - `ember build` (development)

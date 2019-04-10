@@ -1,6 +1,6 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
-import { action, computed } from 'ember-decorators/object'; // eslint-disable-line
+import { action, computed } from '@ember-decorators/object'; // eslint-disable-line
 import { get } from '@ember/object';
 import carto from 'cartobox-promises-utility/utils/carto';
 import { argument } from '@ember-decorators/argument'; // eslint-disable-line
@@ -70,7 +70,7 @@ export default class MapFromID extends Component {
   // noop for passed context
   toggleNarrative() {} //eslint-disable-line
 
-  @argument
+  // @argument
   mapConfig = {
     layers: [],
     sources: [],
