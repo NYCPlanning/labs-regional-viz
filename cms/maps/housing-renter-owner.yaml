@@ -145,6 +145,8 @@ map:
       cv: houv16cv
       sig:
 
+  isComNycWork: false
+  isComNycRes: false
   isPercent: false
 
   layerGroups:
