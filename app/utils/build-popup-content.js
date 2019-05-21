@@ -59,7 +59,7 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         return '';
       }
     } else if (isComNycRes) {
-        // If this is a NYC Residents county commuting map (isComNycRes===true) indicated in yaml
+      // If this is a NYC Residents county commuting map (isComNycRes===true) indicated in yaml
       if (rowData.iscomnycres === false) {
         // hide the individual county rows that are instead shown as part of combined geographies
         return '';
