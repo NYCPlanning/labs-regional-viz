@@ -17,13 +17,13 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
   const SQLArray = [];
 
   SQLArray.push(`
-    SELECT 'region' as geomtype, null as islitown, null as houptest, null as iscomnycwork, null as iscomnycres, 'Total Metro Area' as name ${getPopupValue('region')}
+    SELECT 'region' as geomtype, null as islitown, null as houptest, null as iscommap, null as iscomnycwork, null as iscomnycres, 'Total Metro Area' as name ${getPopupValue('region')}
     FROM region_region
   `);
 
   if (getPopupValue('subregion')) {
     SQLArray.push(`
-      SELECT 'subregion' as geomtype, null as islitown, null as houptest, null as iscomnycwork, null as iscomnycres, name as name ${getPopupValue('subregion')}
+      SELECT 'subregion' as geomtype, null as islitown, null as houptest, null as iscommap, null as iscomnycwork, null as iscomnycres, name as name ${getPopupValue('subregion')}
       FROM region_subregion
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
@@ -33,7 +33,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
 
   if (getPopupValue('county')) {
     SQLArray.push(`
-      SELECT 'county' as geomtype, null as islitown, null as houptest, iscomnycwork, iscomnycres, name as name ${getPopupValue('county')}
+      SELECT 'county' as geomtype, null as islitown, null as houptest, iscommap, iscomnycwork, iscomnycres, name as name ${getPopupValue('county')}
       FROM region_county
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
@@ -43,7 +43,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
 
   if (getPopupValue('municipality')) {
     SQLArray.push(`
-      SELECT 'municipality' as geomtype, islitown, houptest, null as iscomnycwork, null as iscomnycres, namelsad as name ${getPopupValue('municipality')}
+      SELECT 'municipality' as geomtype, islitown, houptest, null as iscommap, null as iscomnycwork, null as iscomnycres, namelsad as name ${getPopupValue('municipality')}
       FROM region_municipality
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);

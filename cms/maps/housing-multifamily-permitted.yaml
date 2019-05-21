@@ -29,9 +29,9 @@ map:
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE geoid NOT IN ('3607936119', '3610536111')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE houptest <> 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE houptest = 'Y'
 
   popupColumns:
   - id: houps

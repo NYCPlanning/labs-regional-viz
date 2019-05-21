@@ -4,7 +4,7 @@ import { module, test } from 'qunit';
 module('Unit | Utility | build popup content');
 
 const data = [{"geomtype":"county","name":"Orange","pop":-202,"cv":null,"sig":0.197304},{"geomtype":"subregion","name":"Mid Hudson","pop":-11983,"cv":null,"sig":7.318501},{"geomtype":"region","name":"Total Metro Area","pop":401287,"cv":null,"sig":48.817284}];
-const popupColumns = [{"id":"pop","title":"Population","large":true,"values":[{"geomType":"region","columnName":"lfpw0016","cv":null,"sig":"lfpw0016si"},{"geomType":"subregion","columnName":"lfpw0016","cv":null,"sig":"lfpw0016si"},{"geomType":"county","columnName":"lfpw0016","cv":null,"sig":"lfpw0016si"}]}];
+const popupColumns = [{"id":"pop","title":"Population","large":true,"values":[{"geomType":"region","columnName":"lfpw0016","cv":null,"sig":"lfpw0016cv"},{"geomType":"subregion","columnName":"lfpw0016","cv":null,"sig":"lfpw0016cv"},{"geomType":"county","columnName":"lfpw0016","cv":null,"sig":"lfpw0016cv"}]}];
 
 
 // Replace this with your real tests.

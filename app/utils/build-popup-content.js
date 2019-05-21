@@ -52,20 +52,22 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
       return '';
     }
 
-    // If this is a NYC Workers county commuting map
     if (isComNycWork) {
-      // hide the rows that are part of combined geographies
+      // If this is a NYC Workers county commuting map (isComNycWork===true) indicated in yaml
       if (rowData.iscomnycwork === false) {
+        // hide the individual county rows that are instead shown as part of combined geographies
         return '';
       }
-    }
-
-    // If this is a NYC Residents county commuting map
-    if (isComNycRes) {
-      // hide the rows that are part of combined geographies
+    } else if (isComNycRes) {
+      // If this is a NYC Residents county commuting map (isComNycRes===true) indicated in yaml
       if (rowData.iscomnycres === false) {
+        // hide the individual county rows that are instead shown as part of combined geographies
         return '';
       }
+    } else if (rowData.iscommap === true) {
+      // If this isn't a commuting map (neither isComNycRes nor isComNycWork)
+      // hide the combined geography rows (rows where rowData.iscommap === true)
+      return '';
     }
 
     return (`
