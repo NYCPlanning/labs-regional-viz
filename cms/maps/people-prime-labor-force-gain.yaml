@@ -59,15 +59,15 @@ map:
       cv:
       sig:
     - geomType: subregion
-      columnName: lfpw0016mo
+      columnName: lfpw0016moe
       cv: lfpw0016cv
       sig:
     - geomType: county
-      columnName: lfpw0016mo
+      columnName: lfpw0016moe
       cv: lfpw0016cv
       sig:
     - geomType: municipality
-      columnName: lfpw0016mo
+      columnName: lfpw0016moe
       cv: lfpw0016cv
       sig:
 
