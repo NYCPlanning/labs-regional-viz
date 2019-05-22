@@ -194,7 +194,7 @@ sidebar:
     [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_censustract_table&format=CSV),
     [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=censustract&q=SELECT%20%2A%20FROM%20region_censustract_meta&format=CSV)
 
-    _Last updated on February 5, 2019_
+    _Last updated on May 21, 2019_
 
     ### Feedback
     Check back for new data additions and maps. To let us know how this app could be better, [add a GitHub Issue](https://github.com/NYCPlanning/labs-regional-viz) or send a Tweet to @NYCPlanningLabs. If you have questions about the data and analysis, send an email to [regional@planning.nyc.gov](mailto:regional@planning.nyc.gov).
