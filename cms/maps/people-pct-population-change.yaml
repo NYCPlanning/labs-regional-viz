@@ -41,8 +41,8 @@ map:
       cv:
       sig:
 
-  isPercent: true
   isChangeMeasurement: true
+  isPercent: true
 
   layerGroups:
   - id: subregion
@@ -62,7 +62,7 @@ map:
         - "#0058ee"
         - "#002673"
         breaks:
-        - 0
+        - -0.005
         - 0.005
         - 0.01
         - 0.025
