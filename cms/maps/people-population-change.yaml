@@ -4,7 +4,7 @@ slug: population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "Net Population Change, 2010-2016"
+menuTitle: "Population Change, 2010 to 2018"
 content: |
   Recent growth patterns suggest that more people are moved to and stayed in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. Brooklyn (+163,800), Queens (+102,300), and the Bronx (+70,600) saw the largest population gains in the region, followed by Hudson County, New Jersey. Hudson County saw the fastest rate of population growth (+6.9%) of any county in the region, as well as the largest net population gain (+43,700) outside of NYC, and every municipality within Hudson County saw population increases. Within suburban counties closest to NYC, population growth concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Brunswick, New Rochelle, and Stamford, and in other areas proximate to NYC – notably southern Westchester County and western Nassau County. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today. Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region.
 
@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop1016 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, pop1018 as value, name FROM region_subregion_v20190708
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, geoid, pop1016 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop1018 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: population-change-municipality-dotdensity
-      sql: SELECT the_geom_webmercator, popa1016 FROM region_popa1016_dotdensity ORDER BY random()
+      sql: SELECT the_geom_webmercator, pop1017 FROM region_municipality_pop1017_dotden_v20190708 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: popchange
@@ -32,20 +32,20 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: pop1016
+      columnName: pop1018
       cv:
       sig:
     - geomType: subregion
-      columnName: pop1016
+      columnName: pop1018
       cv:
       sig:
     - geomType: county
-      columnName: pop1016
+      columnName: pop1018
       cv:
       sig:
     - geomType: municipality
-      columnName: popa1016
-      cv: popa1016cv
+      columnName: pop1017
+      cv: pop1017cv
       sig:
   - id: moe
     title: MOE
@@ -64,8 +64,8 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: popa1016mo
-      cv: popa1016cv
+      columnName: pop1017moe
+      cv: pop1017cv
       sig:
 
   isPercent: false
@@ -87,14 +87,18 @@ map:
         colors:
         - "#ffa555"
         - "#ffffe0"
+        - "#e6ffff"
         - "#b3e4ff"
         - "#5ab4ff"
         - "#002673"
+        - "#00091a"
         breaks:
         - -1500
-        - 5000
-        - 25000
+        - 1500
+        - 15000
+        - 30000
         - 100000
+        - 200000
   - id: county
     title: "Population Change, 2010 to 2018"
     legend: population-change-county
@@ -109,14 +113,16 @@ map:
         - "#d76423"
         - "#ffa555"
         - "#ffffe0"
-        - "#b3e4ff"
+        - "#ccffff"
         - "#5ab4ff"
         - "#002673"
+        - "#00091a"
         breaks:
         - -5000
         - -1500
         - 1500
         - 15000
+        - 30000
         - 50000
   - id: municipality
     title: Population Change, 2006-2010 to 2013-2017
@@ -137,7 +143,7 @@ map:
         circle-color:
         - step
         - - get
-          - popa1016
+          - pop1017
         - "#ff7900"
         - 0
         - "#00aacc"
