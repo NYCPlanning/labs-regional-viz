@@ -25,9 +25,9 @@ map:
     type: cartovector
     source-layers:
     - id: total-nycworkerchange-subregion
-      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_subregion_v20190708
     - id: total-nycworkerchange-county
-      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_county WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_county_v20190708 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
 
   popupColumns:

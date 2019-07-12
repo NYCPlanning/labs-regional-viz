@@ -20,28 +20,28 @@ map:
     source-layers:
     - id: industrial-employment-tract
       sql: SELECT the_geom_webmercator, emind15 as value FROM region_censustract_industrial_dotdensity
-    - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
-    - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+    - id: industrial-employment-subregion
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_subregion_v20190708
+    - id: industrial-employment-county
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: emind
-    title: "Industrial jobs"
+    title: Industrial Jobs
     large: true
     values:
     - geomType: region
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: subregion
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: county
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: municipality
@@ -52,84 +52,51 @@ map:
   isPercent: false
 
   layerGroups:
+
   - id: subregion
-    title: "Industrial Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Industrial jobs"
-      color: "#ce50c4"
-      type: circle
+    title: "Industrial Employment, 2018"
+    legend: industrial-employment-subregion
     layers:
-    - id: industrial-employment-tract
-      type: circle
+    - id: industrial-employment-subregion
+      type: choropleth
       source: industrial-employment
-      source-layer: industrial-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#ce50c4"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-subregion-polygons
-      type: fill
-      source: industrial-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: industrial-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: industrial-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f9ebf8"
+        - "#eec3eb"
+        - "#e39cdd"
+        - "#ce50c4"
+        - "#631c5e"
+        breaks:
+        - 100000
+        - 250000
+        - 300000
+        - 500000
   - id: county
-    title: "Industrial Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Industrial jobs"
-      color: "#ce50c4"
-      type: circle
+    title: "Industrial Employment, 2018"
+    legend: industrial-employment-county
     layers:
-    - id: industrial-employment-tract
-      type: circle
+    - id: industrial-employment-county
+      type: choropleth
       source: industrial-employment
-      source-layer: industrial-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#ce50c4"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-county-polygons
-      type: fill
-      source: industrial-employment
-      source-layer: empty-polygons-county
-      paint:
-        fill-opacity: 0
-    - id: empty-county-line
-      type: line
-      source: industrial-employment
-      source-layer: empty-polygons-county
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: industrial-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f9ebf8"
+        - "#eec3eb"
+        - "#e39cdd"
+        - "#ce50c4"
+        - "#631c5e"
+        - "#280b25"
+        breaks:
+        - 10000
+        - 25000
+        - 50000
+        - 75000
+        - 100000
   - id: municipality
     title: "Industrial Employment, 2015"
     legend:

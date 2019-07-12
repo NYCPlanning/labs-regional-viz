@@ -1,10 +1,10 @@
 # Jobs
 # ----------
-slug: units-by-structure
+slug: units-structure-size
 category: Housing
 categorySlug: housing
 title: "A majority of the region's housing units are in buildings with two units or less."
-menuTitle: "Housing by Building Size"
+menuTitle: "Housing Units by Building Size"
 content: |
   This map shows the location of the region's housing units by the size of the structure (or building) in which those homes are located. Homes located in buildings with one-two units are indicated in yellow, and homes located in buildings that contain three or more housing units are indicated in orange.
 
@@ -17,125 +17,172 @@ map:
   defaultGeographyLevel: municipality
 
   sources:
-  - id: units-by-structure
+  - id: units-structure-size
     type: cartovector
     source-layers:
-    - id: units-by-structure-municipality
-      sql: SELECT the_geom_webmercator, category FROM region_units_by_structure_dotdensity ORDER BY random()
+    - id: units-structure-size-tract
+      sql: SELECT the_geom_webmercator, category FROM region_tract_size_dotden_v20190708 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190708
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
-  - id: hous
-    title: 1-2 Unit Bldg
+  - id: hou1
+    title: 1 Unit Bldg
     large: true
     values:
     - geomType: municipality
-      columnName: housf16
-      cv: housf16cv
+      columnName: houun1
+      cv: houun1cv
       sig:
     - geomType: county
-      columnName: hous16
-      cv: hous16cv
+      columnName: houun1
+      cv: houun1cv
       sig:
     - geomType: subregion
-      columnName: hous16
-      cv: hous16cv
+      columnName: houun1
+      cv: houun1cv
       sig:
     - geomType: region
-      columnName: hous16
-      cv: hous16cv
+      columnName: houun1
+      cv: houun1cv
       sig:
-  - id: housmoe
+  - id: hou1moe
     title: MOE
+    isMOE: true
     values:
     - geomType: municipality
-      columnName: housf16moe
-      cv: housf16cv
+      columnName: houun1moe
+      cv: houun1cv
       sig:
     - geomType: county
-      columnName: hous16moe
-      cv: hous16cv
+      columnName: houun1moe
+      cv: houun1cv
       sig:
     - geomType: subregion
-      columnName: hous16moe
-      cv: hous16cv
+      columnName: houun1moe
+      cv: houun1cv
       sig:
     - geomType: region
-      columnName: hous16moe
-      cv: hous16cv
+      columnName: houun1moe
+      cv: houun1cv
       sig:
-  - id: houm
-    title: 3+ Unit Bldg
+  - id: hou24
+    title: 2-4 Unit Bldg
     large: true
     values:
     - geomType: municipality
-      columnName: houmf16
-      cv: houmf16cv
+      columnName: houun24
+      cv: houun24cv
       sig:
     - geomType: county
-      columnName: houm16
-      cv: houm16cv
+      columnName: houun24
+      cv: houun24cv
       sig:
     - geomType: subregion
-      columnName: houm16
-      cv: houm16cv
+      columnName: houun24
+      cv: houun24cv
       sig:
     - geomType: region
-      columnName: houm16
-      cv: houm16cv
+      columnName: houun24
+      cv: houun24cv
       sig:
-  - id: hoummoe
+  - id: hou24moe
     title: MOE
+    isMOE: true
     values:
     - geomType: municipality
-      columnName: houmf16moe
-      cv: houmf16cv
+      columnName: houun24moe
+      cv: houun24cv
       sig:
     - geomType: county
-      columnName: houm16moe
-      cv: houm16cv
+      columnName: houun24moe
+      cv: houun24cv
       sig:
     - geomType: subregion
-      columnName: houm16moe
-      cv: houm16cv
+      columnName: houun24moe
+      cv: houun24cv
       sig:
     - geomType: region
-      columnName: houm16moe
-      cv: houm16cv
+      columnName: houun24moe
+      cv: houun24cv
+      sig:
+  - id: hou5
+    title: 5+ Unit Bldg
+    large: true
+    values:
+    - geomType: municipality
+      columnName: houun5
+      cv: houun5cv
+      sig:
+    - geomType: county
+      columnName: houun5
+      cv: houun5cv
+      sig:
+    - geomType: subregion
+      columnName: houun5
+      cv: houun5cv
+      sig:
+    - geomType: region
+      columnName: houun5
+      cv: houun5cv
+      sig:
+  - id: hou5moe
+    title: MOE
+    isMOE: true
+    values:
+    - geomType: municipality
+      columnName: houun5moe
+      cv: houun5cv
+      sig:
+    - geomType: county
+      columnName: houun5moe
+      cv: houun5cv
+      sig:
+    - geomType: subregion
+      columnName: houun5moe
+      cv: houun5cv
+      sig:
+    - geomType: region
+      columnName: houun5moe
+      cv: houun5cv
       sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Housing Units by Building Size, 2012-2016 Avg"
-    legend-title: "1 Dot = 100 Units"
+    title: "Housing Units by Building Size, 2017"
+    legend-title: "1 Dot = 25 Units"
     legend:
-      - label: "1-2 Unit Building"
+      - label: "1 Unit Building"
         color: "#f2d710"
         type: circle
-      - label: "3+ Unit Building"
-        color: "#b25a08"
+      - label: "2-4 Unit Building"
+        color: "#f58924"
+        type: circle
+      - label: "5+ Unit Building"
+        color: "#e62e00"
         type: circle
     layers:
-    - id: units-by-structure-municipality
+    - id: units-structure-size-tract
       type: circle
-      source: units-by-structure
-      source-layer: units-by-structure-municipality
+      source: units-structure-size
+      source-layer: units-structure-size-tract
       paint:
         circle-color:
         - match
         - - get
           - category
-        - "HouM16"
-        - "#b25a08"
-        - "HouS16"
+        - "houun1"
         - "#f2d710"
+        - "houun24"
+        - "#f58924"
+        - "houun5"
+        - "#e62e00"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -146,41 +193,46 @@ map:
         circle-opacity: 0.4
     - id: empty-subregion-polygons
       type: fill
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-subregion
       paint:
         fill-opacity: 0
     - id: empty-subregion-line
       type: line
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-subregion
       paint:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
     title: "Housing Units by Building Size, 2012-2016 Avg"
-    legend-title: "1 Dot = 100 Units"
+    legend-title: "1 Dot = 25 Units"
     legend:
-      - label: "1-2 Unit Building"
+      - label: "1 Unit Building"
         color: "#f2d710"
         type: circle
-      - label: "3+ Unit Building"
-        color: "#b25a08"
+      - label: "2-4 Unit Building"
+        color: "#f58924"
+        type: circle
+      - label: "5+ Unit Building"
+        color: "#e62e00"
         type: circle
     layers:
-    - id: units-by-structure-municipality
+    - id: units-structure-size-tract
       type: circle
-      source: units-by-structure
-      source-layer: units-by-structure-municipality
+      source: units-structure-size
+      source-layer: units-structure-size-tract
       paint:
         circle-color:
         - match
         - - get
           - category
-        - "HouM16"
-        - "#b25a08"
-        - "HouS16"
+        - "houun1"
         - "#f2d710"
+        - "houun24"
+        - "#f58924"
+        - "houun5"
+        - "#e62e00"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -191,41 +243,46 @@ map:
         circle-opacity: 0.4
     - id: empty-county-polygons
       type: fill
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-county
       paint:
         fill-opacity: 0
     - id: empty-county-line
       type: line
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-county
       paint:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
     title: "Housing Units by Building Size, 2012-2016 Avg"
-    legend-title: "1 Dot = 100 Units"
+    legend-title: "1 Dot = 25 Units"
     legend:
-      - label: "1-2 Unit Building"
+      - label: "1 Unit Building"
         color: "#f2d710"
         type: circle
-      - label: "3+ Unit Building"
-        color: "#b25a08"
+      - label: "2-4 Unit Building"
+        color: "#f58924"
+        type: circle
+      - label: "5+ Unit Building"
+        color: "#e62e00"
         type: circle
     layers:
-    - id: units-by-structure-municipality
+    - id: units-structure-size-tract
       type: circle
-      source: units-by-structure
-      source-layer: units-by-structure-municipality
+      source: units-structure-size
+      source-layer: units-structure-size-tract
       paint:
         circle-color:
         - match
         - - get
           - category
-        - "HouM16"
-        - "#b25a08"
-        - "HouS16"
+        - "houun1"
         - "#f2d710"
+        - "houun24"
+        - "#f58924"
+        - "houun5"
+        - "#e62e00"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -236,13 +293,13 @@ map:
         circle-opacity: 0.4
     - id: empty-municipality-polygons
       type: fill
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-municipality
       paint:
         fill-opacity: 0
     - id: empty-municipality-line
       type: line
-      source: units-by-structure
+      source: units-structure-size
       source-layer: empty-polygons-municipality
       paint:
         line-color: rgba(131, 131, 131, 1)

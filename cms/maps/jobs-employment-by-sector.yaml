@@ -13,7 +13,7 @@ content: |
   Office sector jobs are most concentrated in Manhattan, which accounted for 40% of the region’s 2.7 million office-based jobs and averaged about 50,000 office jobs per square mile. Other office clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30,000-50,000 office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (NJ). Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but these jobs also track population size, as related to locally serving schools and healthcare facilities. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 
 source: |
-  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -25,15 +25,15 @@ map:
     - id: employment-by-sector-tract
       sql: SELECT the_geom_webmercator, category FROM region_employment_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190708
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: emoff
-    title: Office
+    title: Office<br>Jobs
     large: true
     values:
     - geomType: municipality
@@ -41,19 +41,19 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emoff16
+      columnName: emoff18
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff16
+      columnName: emoff18
       cv:
       sig:
     - geomType: region
-      columnName: emoff16
+      columnName: emoff18
       cv:
       sig:
   - id: emins
-    title: Edu & Health
+    title: Edu & Health<br>Jobs
     large: true
     values:
     - geomType: municipality
@@ -61,19 +61,19 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
     - geomType: subregion
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
     - geomType: region
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
   - id: emind
-    title: Industrial
+    title: Industrial<br>Jobs
     large: true
     values:
     - geomType: municipality
@@ -81,19 +81,19 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: subregion
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: region
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
   - id: emser
-    title: Retail, Lei & Hos
+    title: Retail, Leis,<br>& Hosp Jobs
     large: true
     values:
     - geomType: municipality
@@ -101,19 +101,19 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
     - geomType: subregion
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
     - geomType: region
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
   - id: emoth
-    title: Other
+    title: Other Serv<br>Jobs
     large: true
     values:
     - geomType: municipality
@@ -121,15 +121,15 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emoth16
+      columnName: emoth18
       cv:
       sig:
     - geomType: subregion
-      columnName: emoth16
+      columnName: emoth18
       cv:
       sig:
     - geomType: region
-      columnName: emoth16
+      columnName: emoth18
       cv:
       sig:
 
@@ -137,7 +137,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Jobs by Sector, 2016"
+    title: "Jobs by Sector, 2018"
     legend-title: "1 dot = 100 jobs"
     legend:
     - label: "Office"
@@ -150,7 +150,7 @@ map:
       color: "#ce50c4"
       type: circle
     - label: "Retail, Leisure & Hospitality"
-      color: "#6ff268"
+      color: "#33cc33"
       type: circle
     - label: "Other Services"
       color: "#818387"
@@ -172,7 +172,7 @@ map:
         - "EmInd15"
         - "#ce50c4"
         - "EmSer15"
-        - "#6ff268"
+        - "#33cc33"
         - "EmOth15"
         - "#818387"
         - "#FFFFFF"
@@ -197,7 +197,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Jobs by Sector, 2016"
+    title: "Jobs by Sector, 2018"
     legend-title: "1 dot = 100 jobs"
     legend:
     - label: "Office"
@@ -210,7 +210,7 @@ map:
       color: "#ce50c4"
       type: circle
     - label: "Retail, Leisure & Hospitality"
-      color: "#6ff268"
+      color: "#33cc33"
       type: circle
     - label: "Other Services"
       color: "#818387"
@@ -232,7 +232,7 @@ map:
         - "EmInd15"
         - "#ce50c4"
         - "EmSer15"
-        - "#6ff268"
+        - "#33cc33"
         - "EmOth15"
         - "#818387"
         - "#FFFFFF"
@@ -270,7 +270,7 @@ map:
       color: "#ce50c4"
       type: circle
     - label: "Retail, Leisure & Hospitality"
-      color: "#6ff268"
+      color: "#33cc33"
       type: circle
     - label: "Other Services"
       color: "#818387"
@@ -292,7 +292,7 @@ map:
         - "EmInd15"
         - "#ce50c4"
         - "EmSer15"
-        - "#6ff268"
+        - "#33cc33"
         - "EmOth15"
         - "#818387"
         - "#FFFFFF"

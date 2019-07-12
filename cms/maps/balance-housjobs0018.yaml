@@ -1,0 +1,105 @@
+# Balance
+# ----------
+slug: balance-housjobs0018
+category: Balance
+categorySlug: balance
+title: "The housing/jobs balance has shifted from 2000 to 2018."
+menuTitle: "Housing/Jobs Balance, 2000-2018"
+content: |
+  <div style="background: linear-gradient(90deg, rgba(0,38,115,0.7) 0%, rgba(0,88,238,0.7) 17%, rgba(90,180,255,0.7) 40%, rgba(255,255,224,0.7) 60%, rgba(255,185,85,0.7) 80%, rgba(215,101,35,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny">
+    <strong class="float-left" style="width:33.33%;">More job gains than housing</strong>
+    <strong class="float-right text-right" style="width:33.33%;">More housing growth than jobs</strong>
+  </p>
+
+  Examining the change from 2000 to 2018, or the housing/jobs ratio in 2000 subtracted from the ratio in 2018, sheds light on how balance is geographically shifting within the region. Areas that <b>shifted toward a greater proportion of housing to jobs</b> are represented in the <b>orange</b> spectrum, and areas with <b>employment gains that outpaced housing change</b> are represented in <b>blue</b>; areas in yellow represent marginal shifts.
+
+  From 2000 to 2018, a period of tremendous growth for NYC, all five boroughs trended towards a more even balance of housing and jobs. The growth of Manhattan’s housing stock exceeded its change in employment, while historic employment growth in Bronx, Brooklyn, Queens, and Staten Island outpaced strong housing production.
+
+  Though the Inner New Jersey subregion has produced housing at about the same rate as NYC since 2000 (both grew by about 7%), making a significant contribution to meeting the housing needs of the region, this was not complemented by commensurate employment growth. This area of the region, which accounts for 23% of the region’s total employment, lost jobs from 2000 to 2018. As job growth fails to keep up with housing development, northern New Jersey residents are becoming more dependent on NYC for employment opportunities, which is reflected by growth in the trans-Hudson commuter population.
+
+  As certain areas of the region gain jobs but little housing (Long Island), or gain housing but few jobs (Inner New Jersey), shifts in balance affect commuting patterns and the demands placed on regional transportation infrastructure.
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000 & 2018; U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau Population Estimates Program 2018. See [About](/about/#balance) for more information about housing-jobs balance.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: balance-housjobs0018
+    type: cartovector
+    source-layers:
+    - id: balance-housjobs0018-subregion
+      sql: SELECT the_geom_webmercator, geoid, balhj0018 as value, name FROM region_subregion_v20190708
+    - id: balance-housjobs0018-county
+      sql: SELECT the_geom_webmercator, geoid, balhj0018 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+
+  popupColumns:
+  - id: balhj0018
+    title: "Δ Home/Job Balance"
+    large: true
+    values:
+    - geomType: region
+      columnName: balhj0018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: balhj0018
+      cv:
+      sig:
+    - geomType: county
+      columnName: balhj0018
+      cv:
+      sig:
+
+  isPercent: false
+  isRatio: true
+  isChangeMeasurement: true
+
+
+  layerGroups:
+  - id: subregion
+    title: "Shift in Housing/Jobs Balance, 2000-2018"
+    legend: balance-housjobs0018-subregion
+    layers:
+    - id: balance-housjobs0018-subregion
+      type: choropleth
+      source: balance-housjobs0018
+      source-layer: balance-housjobs0018-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - -0.05
+        - -0.01
+        - 0.01
+        - 0.05
+  - id: county
+    title: "Shift in Housing/Jobs Balance, 2000-2018"
+    legend: balance-housjobs0018-county
+    layers:
+    - id: balance-housjobs0018-county
+      type: choropleth
+      source: balance-housjobs0018
+      source-layer: balance-housjobs0018-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#002673"
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - -0.500
+        - -0.099
+        - -0.025
+        - 0.025
+        - 0.099

@@ -20,7 +20,7 @@ export default {
     source: 'rail',
     'source-layer': 'rail-lines',
     paint: {
-      'line-color': 'rgba(203, 70, 79, 1)',
+      'line-color': 'rgba(70, 31, 31, 1)',
       'line-width': {
         stops: [
           [

@@ -8,7 +8,7 @@ menuTitle: "Retail, Leisure & Hospitality Employment"
 content: |
   Of the region's approximately 2.1 million private-sector retail, leisure and hospitality jobs, 38% were located in NYC. Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 source: |
-  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -19,28 +19,28 @@ map:
     source-layers:
     - id: localserve-employment-tract
       sql: SELECT the_geom_webmercator, emser15 as value FROM region_censustract_localserv_dotdensity
-    - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
-    - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+    - id: localserve-employment-subregion
+      sql: SELECT the_geom_webmercator, emser18 as value FROM region_subregion_v20190708
+    - id: localserve-employment-county
+      sql: SELECT the_geom_webmercator, emser18 as value FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: emser
-    title: "Local services jobs"
+    title: Retail, Leisure<br>& Hospitality Jobs
     large: true
     values:
     - geomType: region
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
     - geomType: subregion
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
     - geomType: county
-      columnName: emser16
+      columnName: emser18
       cv:
       sig:
     - geomType: municipality
@@ -52,88 +52,54 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Retail, Leisure & Hospitality Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
-      type: circle
+    title: "Retail, Leisure, & Hospitality Employment, 2018"
+    legend: localserve-employment-subregion
     layers:
-    - id: localserve-employment-tract
-      type: circle
+    - id: localserve-employment-subregion
+      type: choropleth
       source: localserve-employment
-      source-layer: localserve-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#6ff268"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-subregion-polygons
-      type: fill
-      source: localserve-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: localserve-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: localserve-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ebfaeb"
+        - "#adebad"
+        - "#33cc33"
+        - "#196619"
+        - "#0a290a"
+        breaks:
+        - 100000
+        - 200000
+        - 400000
+        - 750000
   - id: county
-    title: "Retail, Leisure & Hospitality Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
-      type: circle
+    title: "Retail, Leisure, & Hospitality Employment, 2018"
+    legend: localserve-employment-county
     layers:
-    - id: localserve-employment-tract
-      type: circle
+    - id: localserve-employment-county
+      type: choropleth
       source: localserve-employment
-      source-layer: localserve-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#6ff268"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-county-polygons
-      type: fill
-      source: localserve-employment
-      source-layer: empty-polygons-county
-      paint:
-        fill-opacity: 0
-    - id: empty-county-line
-      type: line
-      source: localserve-employment
-      source-layer: empty-polygons-county
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: localserve-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ebfaeb"
+        - "#adebad"
+        - "#33cc33"
+        - "#29a329"
+        - "#145214"
+        - "#0a290a"
+        breaks:
+        - 25000
+        - 50000
+        - 75000
+        - 100000
+        - 250000
   - id: municipality
     title: "Retail, Leisure & Hospitality Employment, 2015"
     legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
+    - label: "1 Dot = 50 Retail, Leisure, & Hospitality Jobs"
+      color: "#33cc33"
       type: circle
     layers:
     - id: localserve-employment-tract
@@ -147,7 +113,7 @@ map:
             - value
           - "#FFFFFF"
           - 0
-          - "#57EB51"
+          - "#33cc33"
         circle-radius:
           stops:
           - - 7

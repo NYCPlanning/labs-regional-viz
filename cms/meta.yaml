@@ -19,16 +19,19 @@ orderings:
     - id: population-change
       isLinearNarrative: true
       transitionPrompt: Population growth has shifted towards the center...
-    - id: net-population-change
+    - id: pct-population-change
       isLinearNarrative: true
       transitionPrompt: Growing areas are among the most diverse...
     - id: foreign-born
       isLinearNarrative: true
       transitionPrompt: Our region's labor force grew by 15%...
-    - id: labor-force-gain
+    - id: labor-force-change
       isLinearNarrative: true
       transitionPrompt: Prime-age labor force grew mostly at the center...
-    - id: prime-labor-force-gain
+    - id: prime-labor-force-change
+      isLinearNarrative: true
+      transitionPrompt: Our labor force is aging...
+    - id: aging-labor-force-change
       isLinearNarrative: true
       transitionPrompt: Our region has 9 million homes...
 
@@ -39,13 +42,13 @@ orderings:
     - id: renter-owner
       isLinearNarrative: true
       transitionPrompt: Multifamily housing is concentrated in NYC...
-    - id: units-by-structure
+    - id: units-structure-size
       isLinearNarrative: true
       transitionPrompt: NYC and NJ are building the majority of new housing...
     - id: units-permitted
       isLinearNarrative: true
       transitionPrompt: Most new housing was in multifamily buildings...
-    - id: multifamily-permitted
+    - id: units-permitted-size
       isLinearNarrative: true
       transitionPrompt: NYC is the hub of the largest U.S. metro economy...
 
@@ -88,10 +91,10 @@ orderings:
     - id: balance-housjobs00
       isLinearNarrative: true
       transitionPrompt: The regional housing-jobs balance has shifted...
-    - id: balance-housjobs16
+    - id: balance-housjobs18
       isLinearNarrative: true
       transitionPrompt: The regional housing-jobs balance has shifted...
-    - id: balance-housjobs0016
+    - id: balance-housjobs0018
       isLinearNarrative: true
       transitionPrompt: 20% of the 4.7 million NYC workers in-commute...
 

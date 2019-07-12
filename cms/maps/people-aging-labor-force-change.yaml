@@ -1,0 +1,165 @@
+# People
+# ----------
+slug: aging-labor-force-change
+category: People
+categorySlug: people
+title: "The region's labor force is gaining workers age 65 and older."
+menuTitle: Age 65+ Labor Force Change, 2010 to 2017
+content: |
+  Workers over age 65 XX. Though NYC gained the most, rate of increase faster in XX. Faster than US average xx
+
+
+source: |
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
+
+map:
+  defaultGeographyLevel: municipality
+
+  sources:
+  - id: aging-labor-force-change
+    type: cartovector
+    source-layers:
+    - id: aging-labor-force-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, lf651017 as value, name FROM region_subregion_v20190708
+    - id: aging-labor-force-change-county
+      sql: SELECT the_geom_webmercator, geoid, lf651017 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+    - id: aging-labor-force-change-municipality
+      sql: SELECT the_geom_webmercator, l651017 as value FROM region_municipality_lf651017_dotden_v20190708 ORDER BY random()
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+
+  popupColumns:
+  - id: lfage
+    title: Δ People Age 65+<br>in Labor Force
+    large: true
+    values:
+    - geomType: region
+      columnName: lf651017
+      cv: lf651017cv
+      sig:
+    - geomType: subregion
+      columnName: lf651017
+      cv: lf651017cv
+      sig:
+    - geomType: county
+      columnName: lf651017
+      cv: lf651017cv
+      sig:
+    - geomType: municipality
+      columnName: lf651017
+      cv: lf651017cv
+      sig:
+  - id: moe
+    title: MOE
+    isMOE: true
+    values:
+    - geomType: region
+      columnName: lf651017moe
+      cv: lf651017cv
+      sig:
+    - geomType: subregion
+      columnName: lf651017moe
+      cv: lf651017cv
+      sig:
+    - geomType: county
+      columnName: lf651017moe
+      cv: lf651017cv
+      sig:
+    - geomType: municipality
+      columnName: lf651017moe
+      cv: lf651017cv
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "Change in Labor Force Aged 65+, 2010-2017"
+    legend: aging-labor-force-change-subregion
+    layers:
+    - id: aging-labor-force-change-subregion
+      type: choropleth
+      source: aging-labor-force-change
+      source-layer: aging-labor-force-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffbf80"
+        - "#f0f4f5"
+        - "#6eeef0"
+        - "#00aacc"
+        - "#106678"
+        - "#06262d"
+        breaks:
+        - -1000
+        - 1000
+        - 15000
+        - 30000
+        - 45000
+  - id: county
+    title: "Change in Labor Force Aged 65+, 2010-2017"
+    legend: aging-labor-force-change-county
+    layers:
+    - id: aging-labor-force-change-county
+      type: choropleth
+      source: aging-labor-force-change
+      source-layer: aging-labor-force-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffbf80"
+        - "#f0f4f5"
+        - "#6eeef0"
+        - "#00aacc"
+        - "#106678"
+        - "#06262d"
+        breaks:
+        - -2000
+        - 2000
+        - 5000
+        - 10000
+        - 15000
+  - id: municipality
+    title: "Change in Labor Force Aged 65+, 2010-2017"
+    legend-title: "1 dot = 50 people"
+    legend:
+    - color: "#00aacc"
+      label: "Gain of 50"
+      type: circle
+    - color: "#ff7900"
+      label: "Loss of 50"
+      type: circle
+    layers:
+    - id: aging-labor-force-change-municipality
+      type: circle
+      source: aging-labor-force-change
+      source-layer: aging-labor-force-change-municipality
+      paint:
+        circle-color:
+        - step
+        - - get
+          - value
+        - "#ff7900"
+        - 0
+        - "#00aacc"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.6
+    - id: empty-municipality-polygons
+      type: fill
+      source: aging-labor-force-change
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: aging-labor-force-change
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

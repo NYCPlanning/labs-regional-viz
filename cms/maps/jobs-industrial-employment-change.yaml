@@ -4,7 +4,7 @@ slug: industrial-employment-change
 category: Jobs
 categorySlug: jobs
 title: "Most of the region lost industrial jobs, a continuation of pre-recession trends."
-menuTitle: "Industrial Employment Change, 2008-2016"
+menuTitle: "Industrial Employment Change, 2008-2018"
 content: |
           From 2008 to 2016, the NYC metro region lost 112,973 industrial jobs, with NYC and Outer New Jersey subregions registering the smallest employment losses. The Inner New Jersey subregion accounted for half of metro industrial job losses, and Connectictut accounted for about one-quarter of losses. Mirroring national trends of a declining industrial economy, the post-recession period reflects a continued trend within the NYC metro region, which lost 241,354 industrial jobs from 2000 to 2008. Industrial losses were driven mostly by declines in manufacturing employment, representing about 70% of all job losses, followed by losses in the wholesale trade sectors. Slight gains in construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering industrial job gains, including the Bronx, Queens, Staten Island, and Mercer County, NJ.
 
@@ -19,9 +19,9 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, emind0818 as value, name FROM region_subregion_v20190708
     - id: industrial-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emind0816 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emind0818 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr
@@ -29,15 +29,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emind0816
+      columnName: emind0818
       cv:
       sig:
     - geomType: subregion
-      columnName: emind0816
+      columnName: emind0818
       cv:
       sig:
     - geomType: county
-      columnName: emind0816
+      columnName: emind0818
       cv:
       sig:
 
@@ -46,7 +46,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Industrial Employment Change, 2008-2016"
+    title: "Industrial Employment Change, 2008-2018"
     legend: industrial-employment-change-subregion
     layers:
     - id: industrial-employment-change-subregion
@@ -69,7 +69,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Industrial Employment Change, 2008-2016"
+    title: "Industrial Employment Change, 2008-2018"
     legend: industrial-employment-change-county
     layers:
     - id: industrial-employment-change-county

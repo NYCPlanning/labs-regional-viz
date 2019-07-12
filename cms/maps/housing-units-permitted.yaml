@@ -4,13 +4,13 @@ slug: units-permitted
 category: Housing
 categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
-menuTitle: "Housing Units Permitted, 2010-2016"
+menuTitle: "Housing Production (Units Permitted), 2010-2018"
 content: |
   Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle in a six-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 3.5% increase over the region’s existing housing supply, slightly outpacing with the rate of regional population increase (+2.7%) over the same time period. It should be noted, however, that permit figures might include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
   Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (142,000 units), and the Inner NJ subregion, which accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 30% of existing housing and 32% of population.
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2016 Annual. Please see [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual. Please see [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county
@@ -20,11 +20,11 @@ map:
     type: cartovector
     source-layers:
     - id: units-permitted-subregion
-      sql: SELECT the_geom_webmercator, geoid, houp1016 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_subregion_v20190708
     - id: units-permitted-county
-      sql: SELECT the_geom_webmercator, geoid, houp1016 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: units-permitted-municipality
-      sql: SELECT the_geom_webmercator, geoid, houp1016 as value, name FROM region_municipality WHERE houptest = 'Y'
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_municipality_v20190708 WHERE houptest = 'Y'
 
   popupColumns:
   - id: houp
@@ -32,19 +32,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: houp1016
+      columnName: houp_1018
       cv:
       sig:
     - geomType: subregion
-      columnName: houp1016
+      columnName: houp_1018
       cv:
       sig:
     - geomType: county
-      columnName: houp1016
+      columnName: houp_1018
       cv:
       sig:
     - geomType: municipality
-      columnName: houp1016
+      columnName: houp_1018
       cv:
       sig:
 
@@ -54,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units Permitted, 2010-2016"
+    title: "Housing Units Permitted, 2010-2018"
     legend: units-permitted-subregion
     layers:
     - id: units-permitted-subregion
@@ -75,7 +75,7 @@ map:
         - 50000
         - 100000
   - id: county
-    title: "Housing Units Permitted, 2010-2016"
+    title: "Housing Units Permitted, 2010-2018"
     legend: units-permitted-county
     layers:
     - id: units-permitted-county
@@ -96,7 +96,7 @@ map:
         - 15000
         - 30000
   - id: municipality
-    title: "Housing Units Permitted, 2010-2016"
+    title: "Housing Units Permitted, 2010-2018"
     legend: units-permitted-municipality
     layers:
     - id: units-permitted-municipality

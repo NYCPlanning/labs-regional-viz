@@ -4,7 +4,7 @@ slug: institutional-employment-change
 category: Jobs
 categorySlug: jobs
 title: "Private healthcare and education employment grew in every county, post-recession."
-menuTitle: "Institutional Employment Change, 2008-2016"
+menuTitle: "Institutional Employment Change, 2008-2018"
 content: |
         Institutional (jobs in the education and healthcare sectors) employment grew by 18% (+304,082) region-wide, with every county in the region registering growth in private institutional jobs. Brooklyn gained the most and the grew the fastest among metro region counties, growing private institutional employment by 37% and adding 60,060 jobs from 2008 to 2016. Manhattan (+50,310), Queens (+28,972), and Nassau County, LI (+25,795) also exhibited significant growth. Private institutional growth was driven by healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, local medical services). Private ambulatory job growth accounted for more than 154,000 jobs and two-thirds of institutional job gains.
 
@@ -21,25 +21,25 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, emprins0818 as value, name FROM region_subregion_v20190708
     - id: institutional-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emprins0818 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: empr
+  - id: emprins
     title: Δ Private Institutional Jobs
     large: true
     values:
     - geomType: region
-      columnName: emprins0816
+      columnName: emprins0818
       cv:
       sig:
     - geomType: subregion
-      columnName: emprins0816
+      columnName: emprins0818
       cv:
       sig:
     - geomType: county
-      columnName: emprins0816
+      columnName: emprins0818
       cv:
       sig:
 
@@ -48,7 +48,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Institutional Employment Change, 2008-2016"
+    title: "Private Institutional Employment Change, 2008-2018"
     legend: institutional-employment-change-subregion
     layers:
     - id: institutional-employment-change-subregion
@@ -71,7 +71,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Private Institutional Employment Change, 2008-2016"
+    title: "Private Institutional Employment Change, 2008-2018"
     legend: institutional-employment-change-county
     layers:
     - id: institutional-employment-change-county

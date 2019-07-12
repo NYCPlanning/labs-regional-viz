@@ -1,52 +1,52 @@
 # People
 # ----------
-slug: labor-force-gain
+slug: labor-force-change
 category: People
 categorySlug: people
 title: "The region's labor force grew at pace with the national average."
-menuTitle: "Labor Force Change, 2000-2016"
+menuTitle: "Total Labor Force Change, 2010 to 2017"
 content: |
   Since 2000, the NYC metropolitan region grew labor force participants by 1.5 million, representing an increase of 15% – slightly below the national average labor force growth (+16%). NYC accounted for about half of the region's growth in labor force (+742,450), representing an increase of 21% since 2000. All counties in the region grew labor force participation, averaging a regional increase of 11% outside of NYC. The increase in labor force participants aged 65 and older notably contributed to labor force growth outside of NYC, accounting for one-quarter to one-third of net labor force gain in other parts of the region. In contrast, 10% of NYC's labor force growth was attributable to an increase in labor force participants aged 65 or older.
 
 source: |
-  Sources & Notes: U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
 
   sources:
-  - id: labor-force-gain
+  - id: labor-force-change
     type: cartovector
     source-layers:
-    - id: labor-force-gain-subregion
-      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_subregion
-    - id: labor-force-gain-county
-      sql: SELECT the_geom_webmercator, geoid, lf0016 as value, name FROM region_county WHERE iscommap = FALSE
-    - id: labor-force-gain-municipality
-      sql: SELECT the_geom_webmercator, lf0016 as value FROM region_municipality_lf0016_dotdensity ORDER BY random()
+    - id: labor-force-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_subregion_v20190708
+    - id: labor-force-change-county
+      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+    - id: labor-force-change-municipality
+      sql: SELECT the_geom_webmercator, lf1017 as value FROM region_municipality_lf1017_dotden_v20190708 ORDER BY random()
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
 
   popupColumns:
-  - id: lftot
+  - id: lf1017
     title: Δ Labor Force
     large: true
     values:
     - geomType: region
-      columnName: lf0016
-      cv:  lf0016cv
+      columnName: lf1017
+      cv:  lf1017cv
       sig:
     - geomType: subregion
-      columnName: lf0016
-      cv: lf0016cv
+      columnName: lf1017
+      cv: lf1017cv
       sig:
     - geomType: county
-      columnName: lf0016
-      cv: lf0016cv
+      columnName: lf1017
+      cv: lf1017cv
       sig:
     - geomType: municipality
-      columnName: lf0016
-      cv: lf0016cv
+      columnName: lf1017
+      cv: lf1017cv
       sig:
   - id: moe
     title: MOE
@@ -54,19 +54,19 @@ map:
     values:
     - geomType: region
       columnName:
-      cv:  lf0016cv
+      cv:  lf1017cv
       sig:
     - geomType: subregion
-      columnName: lf0016moe
-      cv:  lf0016cv
+      columnName: lf1017moe
+      cv:  lf1017cv
       sig:
     - geomType: county
-      columnName: lf0016moe
-      cv:  lf0016cv
+      columnName: lf1017moe
+      cv:  lf1017cv
       sig:
     - geomType: municipality
-      columnName: lf0016moe
-      cv:  lf0016cv
+      columnName: lf1017moe
+      cv:  lf1017cv
       sig:
 
   isPercent: false
@@ -74,47 +74,53 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Labor Force Change, 2000-2016"
-    legend: labor-force-gain-subregion
+    title: "Labor Force Change, 2010 to 2017"
+    legend: labor-force-change-subregion
     layers:
-    - id: labor-force-gain-subregion
+    - id: labor-force-change-subregion
       type: choropleth
-      source: labor-force-gain
-      source-layer: labor-force-gain-subregion
+      source: labor-force-change
+      source-layer: labor-force-change-subregion
       paintConfig:
         opacity: 0.6
         colors:
-        - "#c4f4f5"
+        - "#ffbf80"
+        - "#f0f4f5"
         - "#6eeef0"
         - "#00aacc"
         - "#106678"
+        - "#06262d"
         breaks:
+        - -1000
+        - 1000
+        - 25000
         - 50000
-        - 100000
-        - 300000
+        - 150000
   - id: county
-    title: "Labor Force Change, 2000-2016"
-    legend: labor-force-gain-county
+    title: "Labor Force Change, 2010-2017"
+    legend: labor-force-change-county
     layers:
-    - id: labor-force-gain-county
+    - id: labor-force-change-county
       type: choropleth
-      source: labor-force-gain
-      source-layer: labor-force-gain-county
+      source: labor-force-change
+      source-layer: labor-force-change-county
       paintConfig:
         opacity: 0.6
         colors:
-        - "#c4f4f5"
-        - "#6eeef0"
-        - "#00aacc"
-        - "#137C91"
-        - "#0E4F5C"
+        - "#ffbf80"
+        - "#f0f4f5"
+        - "#a3f4f5"
+        - "#00d5ff"
+        - "#106678"
+        - "#002b33"
         breaks:
-        - 5000
-        - 25000
-        - 50000
-        - 100000
+        - -1000
+        - 1000
+        - 10000
+        - 20000
+        - 45000
   - id: municipality
-    title: "Labor Force Change, 2000-2016"
+    title: "Labor Force Change, 2010-2017"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"
@@ -124,10 +130,10 @@ map:
       label: "Loss of 50"
       type: circle
     layers:
-    - id: labor-force-gain-municipality
+    - id: labor-force-change-municipality
       type: circle
-      source: labor-force-gain
-      source-layer: labor-force-gain-municipality
+      source: labor-force-change
+      source-layer: labor-force-change-municipality
       paint:
         circle-color:
         - step
@@ -145,13 +151,13 @@ map:
         circle-opacity: 0.6
     - id: empty-municipality-polygons
       type: fill
-      source: labor-force-gain
+      source: labor-force-change
       source-layer: empty-polygons-municipality
       paint:
         fill-opacity: 0
     - id: empty-municipality-line
       type: line
-      source: labor-force-gain
+      source: labor-force-change
       source-layer: empty-polygons-municipality
       paint:
         line-color: rgba(131, 131, 131, 1)

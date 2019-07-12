@@ -9,7 +9,7 @@ content: |
   Today’s tri-state region is home to nearly 23 million residents, the largest in the United States. New York City’s 8.53 million residents in 2016 represented 37% of the metro region’s population. The next largest city in our region is Newark, which has a 2016 population of 282,000. There are nearly 900 municipalities in our region, 500 of which have populations smaller than 10,000 residents. Excluding NYC, the region has an average municipal population size of about 20,000 residents.
 
 source: |
-  Sources: U.S. Census Bureau Population Estimates Program (PEP) 2016; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2012-2016. See [About](/about/#people) page for additional notes on population.
+  Sources: U.S. Census Bureau Population Estimates Program (PEP) 2018; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2013-2017. See [About](/about/#people) page for additional notes on population.
 
 map:
   defaultGeographyLevel: county
@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, geoid, popep16 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_subregion_v20190708
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, geoid, popep16 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, geoid, popa16 as value, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, pop17 as value, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: pop
@@ -31,19 +31,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popep16
+      columnName: pop18
       cv:
       sig:
     - geomType: subregion
-      columnName: popep16
+      columnName: pop18
       cv:
       sig:
     - geomType: county
-      columnName: popep16
+      columnName: pop18
       cv:
       sig:
     - geomType: municipality
-      columnName: popa16
+      columnName: pop17
       cv: popacv16
       sig:
   - id: moe
@@ -71,7 +71,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Population 2016"
+    title: "Total Population 2018"
     legend: total-population-subregion
     layers:
     - id: total-population-subregion
@@ -88,11 +88,11 @@ map:
         - "#002673"
         breaks:
         - 1000000
-        - 2000000
+        - 2500000
         - 5000000
         - 7500000
   - id: county
-    title: "Total Population 2016"
+    title: "Total Population 2018"
     legend: total-population-county
     layers:
     - id: total-population-county
@@ -111,9 +111,9 @@ map:
         - 250000
         - 500000
         - 750000
-        - 1250000
+        - 1500000
   - id: municipality
-    title: "Total Population, 2012-2016 Avg"
+    title: "Total Population, 2013-2017 Avg"
     legend: total-population-municipality
     layers:
     - id: total-population-municipality

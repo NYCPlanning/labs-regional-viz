@@ -4,7 +4,7 @@ slug: private-employment-change
 category: Jobs
 categorySlug: jobs
 title: "The majority of the region’s post-recession job gains have been in NYC."
-menuTitle: "Private Employment Change, 2008-2016"
+menuTitle: "Private Employment Change, 2008-2018"
 content: |
   In the period from 2008 to 2016, the NYC metro region gained 631,120 private-sector jobs, increasing from 8.07 million average annual private jobs in 2008 to 8.85 million in 2016. Job growth was mostly located in NYC, which is now experiencing its highest levels of recorded employment, while many areas of the region are just now returning to pre-recession levels of employment. As a whole, the region’s rate of employment growth underperformed the national average and that of other large regions such as San Francisco, Seattle, and Boston.
 
@@ -14,16 +14,16 @@ source: |
   Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
 
 map:
-  defaultGeographyLevel: subregion
+  defaultGeographyLevel: county
 
   sources:
   - id: private-employment-change
     type: cartovector
     source-layers:
     - id: private-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_subregion_v20190708
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr0816 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr
@@ -31,15 +31,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: empr0816
+      columnName: empr0818
       cv:
       sig:
     - geomType: subregion
-      columnName: empr0816
+      columnName: empr0818
       cv:
       sig:
     - geomType: county
-      columnName: empr0816
+      columnName: empr0818
       cv:
       sig:
 
@@ -48,7 +48,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Employment Change, 2008-2016"
+    title: "Private Employment Change, 2008-2018"
     legend: private-employment-change-subregion
     layers:
     - id: private-employment-change-subregion
@@ -71,7 +71,7 @@ map:
         - 100000
         - 300000
   - id: county
-    title: "Private Employment Change, 2008-2016"
+    title: "Private Employment Change, 2008-2018"
     legend: private-employment-change-county
     layers:
     - id: private-employment-change-county

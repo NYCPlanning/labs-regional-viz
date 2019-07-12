@@ -20,11 +20,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_subregion_v20190708
     - id: total-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
     - id: total-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality_v20190708 WHERE islitown = 'N'
 
   popupColumns:
   - id: emptot
@@ -32,15 +32,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: subregion
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: county
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: municipality
@@ -52,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Employment, 2016"
+    title: "Total Employment, 2018"
     legend: total-employment-subregion
     layers:
     - id: total-employment-subregion
@@ -73,7 +73,7 @@ map:
         - 1000000
         - 2500000
   - id: county
-    title: "Total Employment, 2016"
+    title: "Total Employment, 2018"
     legend: total-employment-county
     layers:
     - id: total-employment-county
@@ -94,7 +94,7 @@ map:
         - 500000
         - 750000
   - id: municipality
-    title: "Total Employment, 2015"
+    title: "Total Employment, 2018"
     legend: total-employment-municipality
     layers:
     - id: total-employment-municipality
