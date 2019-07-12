@@ -44,7 +44,7 @@ map:
       sig:
     - geomType: municipality
       columnName: pop17
-      cv: popacv16
+      cv: pop17cv
       sig:
   - id: moe
     title: MOE
@@ -63,8 +63,8 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: popamoe16
-      cv: popacv16
+      columnName: pop17moe
+      cv: pop17cv
       sig:
 
   isPercent: false

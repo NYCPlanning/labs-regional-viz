@@ -76,7 +76,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Change in Labor Force Aged 25 to 54, 2010-2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
     legend: prime-labor-force-change-subregion
     layers:
     - id: prime-labor-force-change-subregion
@@ -97,7 +97,7 @@ map:
         - 5000
         - 150000
   - id: county
-    title: "Change in Labor Force Aged 25 to 54, 2010-2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
     legend: prime-labor-force-change-county
     layers:
     - id: prime-labor-force-change-county
@@ -120,7 +120,7 @@ map:
         - 15000
         - 75000
   - id: municipality
-    title: "Change in Labor Force Aged 25 to 54, 2010-2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"

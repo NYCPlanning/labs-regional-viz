@@ -96,7 +96,7 @@ map:
         - 25000
         - 100000
   - id: county
-    title: "Net Population Change, 2010 - 2016"
+    title: "Population Change, 2010 to 2018"
     legend: population-change-county
     layers:
     - id: population-change-county
@@ -119,7 +119,7 @@ map:
         - 15000
         - 50000
   - id: municipality
-    title: "Net Population Change, 2010 - 2016"
+    title: Population Change, 2006-2010 to 2013-2017
     legend-title: "1 dot = 100 people"
     legend:
     - color: "#00aacc"

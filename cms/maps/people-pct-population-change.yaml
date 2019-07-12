@@ -4,7 +4,7 @@ slug: pct-population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "% Population Change, 2010-2018"
+menuTitle: "% Population Change, 2010 to 2018"
 content: |
   Recent growth patterns suggest that more people have moved to and stayed in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. The Inner New Jersey subregion accounted for 27% of regional population growth, with Hudson County, New Jersey experiencing the fastest rate of population growth (+6.9%) in the region, followed by the Bronx (+5.1%) and Brooklyn (+5.0%). In New Jersey, population growth in Bergen, Middlesex, Ocean, Somerset, and Union counties outpaced the regional average. Rockland (NY) and Fairfield (CT) counties also outpaced the regional average, while certain counties closer to NYC – Essex, Morris, Nassau, and Passaic – grew population slower than the regional average. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
 
@@ -46,7 +46,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "% Population Change, 2010-2016"
+    title: "% Population Change, 2010 to 2018"
     legend: pct-population-change-subregion
     layers:
     - id: pct-population-change-subregion
@@ -67,7 +67,7 @@ map:
         - 0.01
         - 0.025
   - id: county
-    title: "% Population Change, 2010-2016"
+    title: "% Population Change, 2010 to 2018"
     legend: pct-population-change-county
     layers:
     - id: pct-population-change-county
