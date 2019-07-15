@@ -55,7 +55,6 @@ map:
     isMOE: true
     values:
     - geomType: region
-<<<<<<< HEAD:cms/maps/people-prime-labor-force-change.yaml
       columnName: lfpw1017moe
       cv: lfpw1017cv
       sig:
@@ -70,22 +69,6 @@ map:
     - geomType: municipality
       columnName: lfpw1017moe
       cv: lfpw1017cv
-=======
-      columnName: lfpw0016moe
-      cv: lfpw0016cv
-      sig:
-    - geomType: subregion
-      columnName: lfpw0016moe
-      cv: lfpw0016cv
-      sig:
-    - geomType: county
-      columnName: lfpw0016moe
-      cv: lfpw0016cv
-      sig:
-    - geomType: municipality
-      columnName: lfpw0016moe
-      cv: lfpw0016cv
->>>>>>> develop:cms/maps/people-prime-labor-force-gain.yaml
       sig:
 
   isPercent: false
