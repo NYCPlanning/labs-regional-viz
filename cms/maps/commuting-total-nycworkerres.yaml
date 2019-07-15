@@ -257,4 +257,8 @@ map:
       source-layer: empty-polygons-county
       paint:
         line-color: rgba(131, 131, 131, 1)
+<<<<<<< HEAD
         line-width: 0.5
+=======
+        line-width: 0.5
+>>>>>>> develop
