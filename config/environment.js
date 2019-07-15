@@ -77,13 +77,10 @@ module.exports = function(environment) {
 
     ENV.APP.rootElement = '#ember-testing';
     ENV.APP.autoboot = false;
-<<<<<<< HEAD
-=======
   }
 
   if (environment === 'staging') {
     ENV['mapbox-gl'].map.style = 'https://layers-api-staging.planninglabs.nyc/v1/base/style.json';
->>>>>>> develop
   }
 
   if (environment === 'production') {
