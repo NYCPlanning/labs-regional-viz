@@ -4,7 +4,12 @@ export default {
     type: 'cartovector',
     'source-layers': [
       {
-        id: 'rail-lines',
+        id: 'rail-lines-regional',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716',
+      },
+
+      {
+        id: 'rail-lines-subway',
         sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716',
       },
 
@@ -15,13 +20,35 @@ export default {
     ],
   },
 
-  lines: {
-    id: 'rail-lines',
+  regionalLines: {
+    id: 'rail-lines-regional',
     type: 'line',
     source: 'rail',
-    'source-layer': 'rail-lines',
+    'source-layer': 'rail-lines-regional',
     paint: {
       'line-color': 'rgba(70, 31, 31, 1)',
+      'line-width': {
+        stops: [
+          [
+            8,
+            1,
+          ],
+          [
+            12,
+            4,
+          ],
+        ],
+      },
+    },
+  },
+
+  subwayLines: {
+    id: 'rail-lines-subway',
+    type: 'line',
+    source: 'rail',
+    'source-layer': 'rail-lines-subway',
+    paint: {
+      'line-color': 'rgba(0, 255, 255, 1)',
       'line-width': {
         stops: [
           [
