@@ -35,26 +35,6 @@ export default {
         ],
       },
     },
-    id: 'rail-lines',
-    type: 'line',
-    source: 'rail',
-    'source-layer': 'rail-lines',
-    paint: {
-      'line-color': 'rgba(70, 31, 31, 1)',
-      'line-width': {
-        stops: [
-          [
-            8,
-            1,
-          ],
-          [
-            12,
-            4,
-          ],
-        ],
-      },
-    },
-  },
 
   stops: {
     id: 'rail-stops',
