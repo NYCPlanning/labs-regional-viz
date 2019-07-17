@@ -5,16 +5,36 @@ export default {
     'source-layers': [
       {
         id: 'rail-lines',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_lines',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716',
       },
+
       {
         id: 'rail-stops',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_stops',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_stops_v20190716',
       },
     ],
   },
 
   lines: {
+    id: 'rail-lines',
+    type: 'line',
+    source: 'rail',
+    'source-layer': 'rail-lines',
+    paint: {
+      'line-color': 'rgba(70, 31, 31, 1)',
+      'line-width': {
+        stops: [
+          [
+            8,
+            1,
+          ],
+          [
+            12,
+            4,
+          ],
+        ],
+      },
+    },
     id: 'rail-lines',
     type: 'line',
     source: 'rail',

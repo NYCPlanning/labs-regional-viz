@@ -51,7 +51,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Population Density (Pop/sq. mile) 2018"
+    title: "Population Density (Pop/sq. mile), 2018"
     legend: population-density-subregion
     layers:
     - id: population-density-subregion
@@ -72,7 +72,7 @@ map:
         - 2000
         - 3000
   - id: county
-    title: "Population Density (Pop/sq. mile) 2018"
+    title: "Population Density (Pop/sq. mile), 2018"
     legend: population-density-county
     layers:
     - id: population-density-county
@@ -93,7 +93,7 @@ map:
         - 5000
         - 10000
   - id: municipality
-    title: "Population Density (Pop/sq. mile) 2013-2017 Avg"
+    title: "Population Density (Pop/sq. mile), 2013-2017 Avg"
     legend: population-density-municipality
     layers:
     - id: population-density-municipality

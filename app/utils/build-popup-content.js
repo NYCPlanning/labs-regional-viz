@@ -20,11 +20,11 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         if (isPercent) formattedValue = numeral(value).format('0,0%');
         if (isRatio) formattedValue = numeral(value).format('0.00');
         if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
+        if (isMOE) formattedValue = `±${numeral(value).format('0,0a')}`;
         if (isPercent && isChangeMeasurement) formattedValue = numeral(value).format('+0.0%');
         if (isRatio && isChangeMeasurement) formattedValue = numeral(value).format('+0.00');
         if (isChangeMeasurement && isMOE) formattedValue = `±${numeral(value).format('0,0')}`;
-        if (isPercent && isMOE) formattedValue = `±${numeral(value).format('0.0%')}`;
-        if (isMOE) formattedValue = `±${numeral(value).format('0,0a')}`;
+        if (isMOE && isPercent) formattedValue = `±${numeral(value).format('0.0%')}`;
       }
 
       let isInsignificant = false;

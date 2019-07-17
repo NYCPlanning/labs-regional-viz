@@ -38,7 +38,7 @@ map:
 
   popupColumns:
   - id: balhj
-    title: Home/Job
+    title: Homes<br>per Job
     large: true
     values:
     - geomType: region

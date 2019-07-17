@@ -6,10 +6,10 @@ categorySlug: people
 title: "The region's labor force grew at pace with the national average."
 menuTitle: "Total Labor Force Change, 2010 to 2017"
 content: |
-  Since 2000, the NYC metropolitan region grew labor force participants by 1.5 million, representing an increase of 15% – slightly below the national average labor force growth (+16%). NYC accounted for about half of the region's growth in labor force (+742,450), representing an increase of 21% since 2000. All counties in the region grew labor force participation, averaging a regional increase of 11% outside of NYC. The increase in labor force participants aged 65 and older notably contributed to labor force growth outside of NYC, accounting for one-quarter to one-third of net labor force gain in other parts of the region. In contrast, 10% of NYC's labor force growth was attributable to an increase in labor force participants aged 65 or older.
+  Since 2010, the NYC metropolitan region grew labor force participants by 553,000, representing an increase of 4.8% - slightly above the national average labor force growth (+4.5%). NYC accounted for slightly more than half of the region's growth in labor force (+309,000), representing an increase of 7.5% since 2000. Most counties in the region grew labor force participation, averaging a regional increase of +3.3% outside of NYC. The Lower Hudson Valley grew labor force participation second to NYC, gaining 43,000 labor force participants, representing an increase of +6.3%. Inner NJ grew labor force by 4.7%, at pace with the U.S. average, while other parts of the region grew labor force more slowly, between 1% and 3%.
 
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. 2010 in this map represents a 5-year average of 2006-2010 and 2017 in this map represents a 5-year average of 2013-2017 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -97,7 +97,7 @@ map:
         - 50000
         - 150000
   - id: county
-    title: "Labor Force Change, 2010-2017"
+    title: "Labor Force Change, 2010 to 2017"
     legend: labor-force-change-county
     layers:
     - id: labor-force-change-county
@@ -120,7 +120,7 @@ map:
         - 20000
         - 45000
   - id: municipality
-    title: "Labor Force Change, 2010-2017"
+    title: "Labor Force Change, 2010 to 2017"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"
@@ -148,7 +148,7 @@ map:
             - 1.5
           - - 11
             - 2
-        circle-opacity: 0.6
+        circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
       source: labor-force-change

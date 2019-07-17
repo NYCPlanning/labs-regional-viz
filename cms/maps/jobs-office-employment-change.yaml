@@ -4,12 +4,11 @@ slug: office-employment-change
 category: Jobs
 categorySlug: jobs
 title: "NYC's gain of office jobs offset regional post-recession losses."
-menuTitle: "Office Employment Change, 2008-2018"
+menuTitle: "Office Employment Change, 2008 to 2018"
 content: |
-          The NYC metro region saw a net increase of 94,293 office-based jobs since the recession, with NYC's gain of 119,294 office jobs offsetting regional losses. All five NYC boroughs gained office employment post-recession, and though 49% of the region's private office-based jobs are located in NYC, NYC accounted for 83% of office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Brooklyn had the fastest rate of private office job growth, an increase of 35% from 2008 to 2016, while Manhattan saw the largest increase (+79,412). Nearly every NYC metro region county lost office jobs in the finance sectors (a total regional loss of 38,555), but gained jobs in professional and business services sectors (a regional increase of 145,125). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 78% (+20,830).
-
+    The NYC metro region saw a net increase of 175,940 office-based jobs since the recession, with NYC's gain of 191,835 office jobs offsetting losses elsewhere in the region. All five NYC boroughs gained office employment post-recession, and though 49% of the region's private office-based jobs are located in NYC, NYC accounted for 82% of office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Brooklyn had the fastest rate of private office job growth, an increase of 43% from 2008 to 2018, while Manhattan saw the largest increase (+141,975). Most NYC metro region counties lost office jobs in the finance and insurance sectors (a total regional loss of 24,400), but gained jobs in professional and business services sectors (a regional increase of 145,280). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 84% (+37,560).
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2018. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -46,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office Employment Change, 2008-2018"
+    title: "Office Employment Change, 2008 to 2018"
     legend: office-employment-change-subregion
     layers:
     - id: office-employment-change-subregion
@@ -69,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Office Employment Change, 2008-2018"
+    title: "Office Employment Change, 2008 to 2018"
     legend: office-employment-change-county
     layers:
     - id: office-employment-change-county

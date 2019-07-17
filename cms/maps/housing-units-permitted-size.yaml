@@ -4,11 +4,11 @@ slug: units-permitted-size
 category: Housing
 categorySlug: housing
 title: "In recent years, NYC and New Jersey dominated housing production, especially multifamily housing."
-menuTitle: "Housing Production by Building Size, 2010-2018"
+menuTitle: "Housing Production by Building Size, 2010 to 2018"
 content: |
-  Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle being added in a six-year period. NYC accounted for 44% of new housing (142,000 units) and the Inner New Jersey subregion accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units. Nearly three-quarters of the total permitted units were in buildings that have three or more units (235,000 units), with only 90,000 units permitted in buildings with one or two units, which are characteristic of lower-density areas.
+  Nearly 438,000 new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. NYC accounted for 44% of new housing (191,000 units) and the Inner New Jersey subregion accounted for 30% (130,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units. Nearly three-quarters of the total permitted units were in multifamily buildings, 70% in buildings with five or more units (308,000), and 5% in buildings with two-to-four units (23,000). 106,000 permits were issued for buildings with one unit, characteristic of low-density suburbs.
 
-  Today the region has 3.8 million households in buildings with three or more units, of which NYC accounts for 63% (2.4 million units) and the Inner New Jersey subregion accounts for 17% (667,000 units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 57% of the region’s permitted units in buildings with three or more units (133,000 units), slightly lower than its regional share, and the Inner New Jersey subregion accounted for 28% of the region’s permitted units in buildings with three or more units (66,000 units), higher than its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and prime-age labor force growth.
+  Today the region has 3.2 million households in buildings with five or more units, of which NYC accounts for 67% (2.2 million units) and the Inner New Jersey subregion accounts for 15% (490,000 units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 57% of the region’s permitted units in buildings with five or more units (174,500 units), slightly lower than its regional share, and the Inner New Jersey subregion accounted for 29% of the region’s permitted units in buildings with three or more units (90,000 units), twice its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and younger labor force growth.
 
 source: |
   Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits.
@@ -21,7 +21,7 @@ map:
     type: cartovector
     source-layers:
     - id: units-permitted-size-municipality
-      sql: SELECT the_geom_webmercator, category FROM region_municipality_permits_dotden_v20190708 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_municipality_permits_dotden_v20190716 ORDER BY random()
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190708
     - id: empty-polygons-county
@@ -31,7 +31,7 @@ map:
 
   popupColumns:
   - id: houp1
-    title: '1 Unit Bldg'
+    title: Units in<br>1 Unit Bldg
     large: true
     values:
     - geomType: region
@@ -51,7 +51,7 @@ map:
       cv:
       sig:
   - id: houp24
-    title: '2-4 Unit Bldg'
+    title: Units in<br>2-4 Unit Bldg
     large: true
     values:
     - geomType: region
@@ -71,7 +71,7 @@ map:
       cv:
       sig:
   - id: houp5
-    title: '5+ Unit Bldg'
+    title: Units in<br>5+ Unit Bldg
     large: true
     values:
     - geomType: region
@@ -97,17 +97,17 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Permitted Housing Units by Building Size, 2010-2018"
-    legend-title: "1 Dot = 25 Units"
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
-      color: "#ffef00"
+      color: "#f8f700"
       type: circle
     - label: "2-4 Unit Building"
-      color: "#f58924"
+      color: "#f47c0b"
       type: circle
     - label: "5+ Unit Building"
-      color: "#e62e00"
+      color: "#9c0022"
       type: circle
     layers:
     - id: units-permitted-size-municipality
@@ -120,11 +120,11 @@ map:
         - - get
           - category
         - "houp1_1018"
-        - "#ffef00"
+        - "#f8f700"
         - "houp24_101"
-        - "#f58924"
+        - "#f47c0b"
         - "houp5_1018"
-        - "#e62e00"
+        - "#9c0022"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -132,7 +132,7 @@ map:
             - 1.5
           - - 11
             - 2
-        circle-opacity: 0.4
+        circle-opacity: 0.7
     - id: empty-subregion-polygons
       type: fill
       source: units-permitted-size
@@ -147,17 +147,17 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Permitted Housing Units by Building Size, 2010-2016"
-    legend-title: "1 Dot = 50 Units"
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
-      color: "#ffef00"
+      color: "#f8f700"
       type: circle
     - label: "2-4 Unit Building"
-      color: "#f58924"
+      color: "#f47c0b"
       type: circle
     - label: "5+ Unit Building"
-      color: "#e62e00"
+      color: "#9c0022"
       type: circle
     layers:
     - id: units-permitted-size-municipality
@@ -170,11 +170,11 @@ map:
         - - get
           - category
         - "houp1_1018"
-        - "#ffef00"
+        - "#f8f700"
         - "houp24_101"
-        - "#f58924"
+        - "#f47c0b"
         - "houp5_1018"
-        - "#e62e00"
+        - "#9c0022"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -182,7 +182,7 @@ map:
             - 1.5
           - - 11
             - 2
-        circle-opacity: 0.4
+        circle-opacity: 0.7
     - id: empty-county-polygons
       type: fill
       source: units-permitted-size
@@ -198,16 +198,17 @@ map:
         line-width: 0.5
 
   - id: municipality
-    title: "Permitted Housing Units by Building Size, 2010-2016"
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
-      color: "#ffef00"
+      color: "#f8f700"
       type: circle
     - label: "2-4 Unit Building"
-      color: "#f58924"
+      color: "#f47c0b"
       type: circle
     - label: "5+ Unit Building"
-      color: "#e62e00"
+      color: "#9c0022"
       type: circle
     layers:
     - id: units-permitted-size-municipality
@@ -220,11 +221,11 @@ map:
         - - get
           - category
         - "houp1_1018"
-        - "#ffef00"
+        - "#f8f700"
         - "houp24_101"
-        - "#f58924"
+        - "#f47c0b"
         - "houp5_1018"
-        - "#e62e00"
+        - "#9c0022"
         - "#FFFFFF"
         circle-radius:
           stops:
@@ -232,7 +233,7 @@ map:
             - 1.5
           - - 11
             - 2
-        circle-opacity: 0.4
+        circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
       source: units-permitted-size

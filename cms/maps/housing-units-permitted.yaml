@@ -4,11 +4,11 @@ slug: units-permitted
 category: Housing
 categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
-menuTitle: "Housing Production (Units Permitted), 2010-2018"
+menuTitle: "Housing Production (Units Permitted), 2010 to 2018"
 content: |
-  Nearly 325,000 new housing units were issued permits in the region from 2010 to 2016 – the equivalent of the total housing stock of Seattle in a six-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 3.5% increase over the region’s existing housing supply, slightly outpacing with the rate of regional population increase (+2.7%) over the same time period. It should be noted, however, that permit figures might include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
+  Nearly 438,000 new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 5% increase over the region’s existing housing supply, outpacing the rate of regional population increase (+1.9%) over the same time period. It should be noted, however, that permit figures might include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
-  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (142,000 units), and the Inner NJ subregion, which accounted for 29% (95,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 30% of existing housing and 32% of population.
+  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (191,000 units), and the Inner NJ subregion, which accounted for 30% (130,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of population.
 source: |
   Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual. Please see [About](/about/#housing) for more information about housing permits.
 
@@ -54,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units Permitted, 2010-2018"
+    title: "Housing Units Permitted, 2010 to 2018"
     legend: units-permitted-subregion
     layers:
     - id: units-permitted-subregion
@@ -75,7 +75,7 @@ map:
         - 50000
         - 100000
   - id: county
-    title: "Housing Units Permitted, 2010-2018"
+    title: "Housing Units Permitted, 2010 to 2018"
     legend: units-permitted-county
     layers:
     - id: units-permitted-county
@@ -96,7 +96,7 @@ map:
         - 15000
         - 30000
   - id: municipality
-    title: "Housing Units Permitted, 2010-2018"
+    title: "Housing Units Permitted, 2010 to 2018"
     legend: units-permitted-municipality
     layers:
     - id: units-permitted-municipality

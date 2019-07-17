@@ -3,12 +3,12 @@
 slug: total-units
 category: Housing
 categorySlug: housing
-title: "Our region is home to 9 million different places to live."
+title: "Our region is home to 9.1 million different places to live."
 menuTitle: "Total Housing Units"
 content: |
-  As of 2016, there are 8.97 million housing units in the tri-state region, of which 38% are located in NYC. Brooklyn had the highest number of housing units among counties in the region (1 million), followed by Manhattan (866,640), Queens (846,690), and Suffolk County (570,470). Reflecting the historic pattern of development, the highest density housing in the region is located primarily in NYC and other historic downtowns, while post-World War II development tended to produce patterns of single family housing further from the urban core.
+  As of 2018, there are 9.14 million housing units in the tri-state region, of which 39% are located in NYC. Brooklyn had the highest number of housing units among counties in the region (1.05 million), followed by Manhattan (886,250), Queens (865,900), and Suffolk County (576,900). Reflecting the historic pattern of development, the highest density housing in the region is located primarily in NYC and other historic downtowns, while post-World War II development tended to produce patterns of single family housing further from the urban core.
 source: |
-  Sources & Notes: U.S. Census Bureau Population Estimates Program 2018; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2013-2017. See [About](/about/#housing) for more information about housing.
+  Sources & Notes: U.S. Census Bureau Population Estimates Program (PEP) 2018; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2013-2017. See [About](/about/#housing) for more information about housing.
 
 map:
   defaultGeographyLevel: municipality

@@ -3,14 +3,12 @@
 slug: aging-labor-force-change
 category: People
 categorySlug: people
-title: "The region's labor force is gaining workers age 65 and older."
+title: "The NYC metro region’s labor force is aging."
 menuTitle: Age 65+ Labor Force Change, 2010 to 2017
 content: |
-  Workers over age 65 XX. Though NYC gained the most, rate of increase faster in XX. Faster than US average xx
-
-
+  Since 2010, the NYC metro region gained more than 188,000 labor force participants aged 65 and older. That growth of 38.8% was slightly higher than the national average growth of 38.5%. NYC gained the largest number of labor force participants aged 65 and older (+62,500) in the region, but those workers accounted for the smallest share of any subregion’s total labor force growth, representing just 20% of the city’s total gain. In the U.S., growth of labor force participants aged 65 and older accounted for one-third of labor force gains on average.  The increase in labor force participants aged 65 and older notably contributed to labor force growth in areas outside of NYC, accounting for one-third of net labor force gain in Inner NJ and the Lower Hudson Valley to two-thirds of the net labor force gain in Long Island and Connecticut. In Outer NJ, the gain of older workers (+22,000) exceeded that subregion’s net labor force gains (+9,000), offsetting losses of younger workers.
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. 2010 in this map represents a 5-year average of 2006-2010 and 2017 in this map represents a 5-year average of 2013-2017 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -75,7 +73,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Change in Labor Force Aged 65+, 2010-2017"
+    title: "Change in Labor Force Aged 65+, 2010 to 2017"
     legend: aging-labor-force-change-subregion
     layers:
     - id: aging-labor-force-change-subregion
@@ -92,13 +90,13 @@ map:
         - "#106678"
         - "#06262d"
         breaks:
-        - -1000
-        - 1000
+        - -2000
+        - 2000
         - 15000
         - 30000
         - 45000
   - id: county
-    title: "Change in Labor Force Aged 65+, 2010-2017"
+    title: "Change in Labor Force Aged 65+, 2010 to 2017"
     legend: aging-labor-force-change-county
     layers:
     - id: aging-labor-force-change-county
@@ -121,7 +119,7 @@ map:
         - 10000
         - 15000
   - id: municipality
-    title: "Change in Labor Force Aged 65+, 2010-2017"
+    title: "Change in Labor Force Aged 65+, 2010 to 2017"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"
@@ -149,7 +147,7 @@ map:
             - 1.5
           - - 11
             - 2
-        circle-opacity: 0.6
+        circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
       source: aging-labor-force-change

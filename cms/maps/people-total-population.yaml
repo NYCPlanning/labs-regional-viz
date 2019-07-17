@@ -6,7 +6,7 @@ categorySlug: people
 title: "NYC is the nation’s largest city, within an even larger tri-state metropolitan area."
 menuTitle: "Total Population"
 content: |
-  Today’s tri-state region is home to nearly 23 million residents, the largest in the United States. New York City’s 8.53 million residents in 2016 represented 37% of the metro region’s population. The next largest city in our region is Newark, which has a 2016 population of 282,000. There are nearly 900 municipalities in our region, 500 of which have populations smaller than 10,000 residents. Excluding NYC, the region has an average municipal population size of about 20,000 residents.
+  Today’s tri-state region is home to nearly 23 million residents, the largest in the United States. New York City’s 8.4 million residents in 2018 represented 37% of the metro region’s population. The next largest city in our region is Newark, which has a population of just shy of 300,000. There are nearly 900 municipalities in our region, 500 of which have populations smaller than 10,000 residents. Excluding NYC, the region has an average municipal population size of about 16,000 residents.
 
 source: |
   Sources: U.S. Census Bureau Population Estimates Program (PEP) 2018; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2013-2017. See [About](/about/#people) page for additional notes on population.
@@ -71,7 +71,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Population 2018"
+    title: "Total Population, 2018"
     legend: total-population-subregion
     layers:
     - id: total-population-subregion
@@ -92,7 +92,7 @@ map:
         - 5000000
         - 7500000
   - id: county
-    title: "Total Population 2018"
+    title: "Total Population, 2018"
     legend: total-population-county
     layers:
     - id: total-population-county
