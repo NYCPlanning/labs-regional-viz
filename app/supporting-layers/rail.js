@@ -35,6 +35,7 @@ export default {
         ],
       },
     },
+  },
 
   stops: {
     id: 'rail-stops',
