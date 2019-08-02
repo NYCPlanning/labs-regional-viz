@@ -20,6 +20,7 @@ content: |
   - [Balance](#balance)
   - [Commuting](#commuting)
   - [Data reliability](#data-reliability)
+  - [Data sources](#data-sources)
 
   -----
 
@@ -48,6 +49,9 @@ content: |
 
   ##### Municipality
   The _municipality_ geography represents approximations for cities, towns, and villages within the NYC metropolitan region. The boundaries represent U.S. Census Bureau Minor County Division (MCD) geographies for all counties in New Jersey, Connecticut, and the Hudson Valley; U.S. Census Bureau Places (Places) boundaries for Long Island, unless otherwise noted; and, to represent NYC at municipality-comparable scale, DCP used the sub-borough geographies defined in the 2013 edition of [The Newest New Yorkers](https://www1.nyc.gov/site/planning/data-maps/nyc-population/newest-new-yorkers-2013.page) report, “Chapter 3: Settlement Patterns”. NYC geographies represent aggregations of U.S. Census Bureau Public Use Microdata Areas (PUMAs). It is important to note that “municipalities” represented in this tool do not imply or consistently represent jurisdictional boundaries or governance authority. The purpose of this geography is to enable consistent longitudinal socioeconomic analysis across the region at comparable scale. When changes were detected within the study period (e.g., consolidation, renaming), data were recoded. However, it is possible that inaccuracies in the data reflect additional changes to municipal borders or Census-defined geographic entities over this period. Municipality data are not visualized for select maps due to availability limitations or reliability concerns [(more about data reliability)](#data-reliability).
+
+  ##### Rail Lines
+  Rail lines, which can be toggled on by the user, represent the commuter rail network and stations (dark brown) and the NYC subway system and stations (dark grey) operated by NYC Transit. The commuter rail network includes lines operated by MTA Long Island Rail Road, MTA Metro-North Railroad, NJ Transit, PATH, and Amtrak.
 
   -----
 
@@ -175,7 +179,7 @@ content: |
   - U.S. Census Bureau [Building Permits Survey](https://www.census.gov/construction/bps/) (annual, 2010-2018)
   - U.S. Bureau of Labor Services [Quarterly Census of Employment and Wages](https://www.bls.gov/cew/datatoc.htm) (annual, 2000-2018)
   - U.S. Census Bureau [Longitudinal Employer-Household Dynamics (LEHD)](https://lehd.ces.census.gov/) 2015
-  - NYC Department of City Planning, [Division of Housing, Economic, and Infrastructure Planning](https://www1.nyc.gov/site/planning/planning-level/housing-economy/housing-economy.page) (HEIP) for NYC housing permits only 
+  - NYC Department of City Planning, [Division of Housing, Economic, and Infrastructure Planning](https://www1.nyc.gov/site/planning/planning-level/housing-economy/housing-economy.page) (HEIP) for NYC housing permits only
   - IPUMS-USA databases via University of Minnesota, available at [www.ipums.org](http://www.ipums.org)
   - U.S. Census Bureau Transportation Planning Package (CTPP), available via [AASHTO](https://ctpp.transportation.org/)
 
