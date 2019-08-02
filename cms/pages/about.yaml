@@ -5,7 +5,7 @@ content: |
 
   <p class="lead">The <a href="http://www.nyc.gov/planning"> NYC Department of City Planning</a> <b> Metro Region Explorer </b> is an interactive map showing population, housing, and employment trends within the tri-state New York City metropolitan region, and shares key insights about how the region has changed from 2000 to today.</p>
 
-  Developed in collaboration between <a href="https://planninglabs.nyc/">DCP Planning Labs</a> and <a href="http://www1.nyc.gov/site/planning/plans/region/region.page">DCP Regional Planning</a>, this tool will be maintained as part of our ongoing commitment to help the public access and understand information about planning issues affecting NYC and the metro region.
+  Developed in collaboration between <a href="https://planninglabs.nyc/">DCP Planning Labs</a> and <a href="https://www1.nyc.gov/site/planning/planning-level/region/region.page">DCP Regional Planning</a>, this tool will be maintained as part of our ongoing commitment to help the public access and understand information about planning issues affecting NYC and the metro region.
 
   -----
 
@@ -28,11 +28,11 @@ content: |
 
   Information is provided for geographic entities at four scales (from largest to smallest): region, subregion, county, and municipality. U.S. Census Tract geographic entities are used to enhance geographic accuracy for select data visualizations, however, data are not reported at this level due to reliability concerns [(more on data reliability)](#data-reliability).
 
-    ##### Region
-    The tri-state NYC metro _region_ geography represents New York City and 26 surrounding counties in portions of New York, north New Jersey and southwest Connecticut. This definition of the region is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed. This area does not represent a regulatory or other jurisdictional boundary. The region geography is not visualized as a single entity in Metro Region Explorer, but data are reported for all characteristics in the tool and the shapefile is available for download.
+  ##### Region
+  The tri-state NYC metro _region_ geography represents New York City and 26 surrounding counties in portions of New York, north New Jersey and southwest Connecticut. This definition of the region is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed. This area does not represent a regulatory or other jurisdictional boundary. The region geography is not visualized as a single entity in Metro Region Explorer, but data are reported for all characteristics in the tool and the shapefile is available for download.
 
-    ##### Subregion
-    The _subregion_ geography represents aggregations of U.S. counties, which are commonly used for transportation planning and other regional analyses. Counties are grouped as follows:
+  ##### Subregion
+  The _subregion_ geography represents aggregations of U.S. counties, which are commonly used for transportation planning and other regional analyses. Counties are grouped as follows:
     - _New York City_: Bronx, Kings (Brooklyn), New York (Manhattan), Queens, and Richmond (Staten Island)
     - _Inner New Jersey_: Bergen, Essex, Hudson, Middlesex, Morris, Passaic, Somerset, and Union
     - _Outer New Jersey_: Hunterdon, Mercer, Monmouth, Ocean, Sussex, and Warren
@@ -41,13 +41,13 @@ content: |
     - _Lower Hudson Valley_: Putnam, Rockland, and Westchester
     - _Mid Hudson Valley_: Dutchess, Orange, Sullivan, and Ulster
 
-    Please note that “Inner” and “Outer” New Jersey suggest NYC proximity and/or accessibility and do not indicate formalized geographic locations or jurisdictional boundaries.
+  Please note that “Inner” and “Outer” New Jersey suggest NYC proximity and/or accessibility and do not indicate formalized geographic locations or jurisdictional boundaries.
 
-    ##### County
-    The _county_ geography is represented by the region’s 31 counties, including the five boroughs/counties of NYC and surrounding 26 counties listed above.
+  ##### County
+  The _county_ geography is represented by the region’s 31 counties, including the five boroughs/counties of NYC and surrounding 26 counties listed above.
 
-    ##### Municipality
-    The _municipality_ geography represents approximations for cities, towns, and villages within the NYC metropolitan region. The boundaries represent U.S. Census Bureau Minor County Division (MCD) geographies for all counties in New Jersey, Connecticut, and the Hudson Valley; U.S. Census Bureau Places (Places) boundaries for Long Island, unless otherwise noted; and, to represent NYC at municipality-comparable scale, DCP used the sub-borough geographies defined in the 2013 edition of [The Newest New Yorkers](https://www1.nyc.gov/site/planning/data-maps/nyc-population/newest-new-yorkers-2013.page) report, “Chapter 3: Settlement Patterns”. NYC geographies represent aggregations of U.S. Census Bureau Public Use Microdata Areas (PUMAs). It is important to note that “municipalities” represented in this tool do not imply or consistently represent jurisdictional boundaries or governance authority. The purpose of this geography is to enable consistent longitudinal socioeconomic analysis across the region at comparable scale. When changes were detected within the study period (e.g., consolidation, renaming), data were recoded. However, it is possible that inaccuracies in the data reflect additional changes to municipal borders or Census-defined geographic entities over this period. Municipality data are not visualized for select maps due to availability limitations or reliability concerns [(more about data reliability)](#data-reliability).
+  ##### Municipality
+  The _municipality_ geography represents approximations for cities, towns, and villages within the NYC metropolitan region. The boundaries represent U.S. Census Bureau Minor County Division (MCD) geographies for all counties in New Jersey, Connecticut, and the Hudson Valley; U.S. Census Bureau Places (Places) boundaries for Long Island, unless otherwise noted; and, to represent NYC at municipality-comparable scale, DCP used the sub-borough geographies defined in the 2013 edition of [The Newest New Yorkers](https://www1.nyc.gov/site/planning/data-maps/nyc-population/newest-new-yorkers-2013.page) report, “Chapter 3: Settlement Patterns”. NYC geographies represent aggregations of U.S. Census Bureau Public Use Microdata Areas (PUMAs). It is important to note that “municipalities” represented in this tool do not imply or consistently represent jurisdictional boundaries or governance authority. The purpose of this geography is to enable consistent longitudinal socioeconomic analysis across the region at comparable scale. When changes were detected within the study period (e.g., consolidation, renaming), data were recoded. However, it is possible that inaccuracies in the data reflect additional changes to municipal borders or Census-defined geographic entities over this period. Municipality data are not visualized for select maps due to availability limitations or reliability concerns [(more about data reliability)](#data-reliability).
 
   -----
 
@@ -194,7 +194,7 @@ sidebar:
     [CSV](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=region&q=SELECT%20%2A%20FROM%20region_censustract_table&format=CSV),
     [Metadata](https://planninglabs.carto.com/api/v2/sql?skipfields=the_geom&filename=censustract&q=SELECT%20%2A%20FROM%20region_censustract_meta&format=CSV)
 
-    _Last updated on May 21, 2019_
+    _Last updated on August 3, 2019_
 
     ### Feedback
     Check back for new data additions and maps. To let us know how this app could be better, [add a GitHub Issue](https://github.com/NYCPlanning/labs-regional-viz) or send a Tweet to @NYCPlanningLabs. If you have questions about the data and analysis, send an email to [regional@planning.nyc.gov](mailto:regional@planning.nyc.gov).

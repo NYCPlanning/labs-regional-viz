@@ -5,12 +5,12 @@ export default {
     'source-layers': [
       {
         id: 'rail-lines-regional',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716 WHERE rail_oper IS NOT NULL',
       },
 
       {
         id: 'rail-lines-subway',
-        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716',
+        sql: 'SELECT the_geom_webmercator FROM region_rail_lines_v20190716 WHERE rail_oper IS NULL',
       },
 
       {
@@ -48,7 +48,7 @@ export default {
     source: 'rail',
     'source-layer': 'rail-lines-subway',
     paint: {
-      'line-color': 'rgba(0, 255, 255, 1)',
+      'line-color': 'rgba(17, 39, 58, 1)',
       'line-width': {
         stops: [
           [

@@ -30,6 +30,26 @@ map:
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE houptest = 'Y'
 
   popupColumns:
+  - id: houptot
+    title: Total Units
+    large: true
+    values:
+    - geomType: region
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houp_1018
+      cv:
+      sig:
   - id: houp1
     title: Units in<br>1 Unit Bldg
     large: true
