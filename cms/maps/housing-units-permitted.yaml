@@ -6,11 +6,11 @@ categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
 menuTitle: "Housing Production (Units Permitted), 2010 to 2018"
 content: |
-  Nearly 438,000 new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 5% increase over the region’s existing housing supply, outpacing the rate of regional population increase (+1.9%) over the same time period. It should be noted, however, that permit figures might include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
+  Nearly 438k new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 5% increase over the region’s existing housing supply. Permit figures may include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
-  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (191,000 units), and the Inner NJ subregion, which accounted for 30% (130,000 units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of population.
+  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (191k units), and the Inner NJ subregion, which accounted for 30% (130k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of the population (respectively).
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual. Please see [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual; NYC Department of City Planning, Division of Housing, Economic, and Infrastructure Planning (NYC only). Please see [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county
