@@ -24,7 +24,7 @@ map:
     - id: total-employment-county
       sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: total-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emptot
@@ -44,7 +44,7 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: emtot15
+      columnName: emtot17
       cv:
       sig:
 
@@ -81,7 +81,7 @@ map:
       source: total-employment
       source-layer: total-employment-county
       paintConfig:
-        opacity: 0.6
+        opacity: 0.8
         colors:
         - "#ccf5df"
         - "#89dfa4"
@@ -94,7 +94,7 @@ map:
         - 500000
         - 750000
   - id: municipality
-    title: "Total Employment, 2015"
+    title: "Total Employment, 2017"
     legend: total-employment-municipality
     layers:
     - id: total-employment-municipality
@@ -102,7 +102,7 @@ map:
       source: total-employment
       source-layer: total-employment-municipality
       paintConfig:
-        opacity: 0.6
+        opacity: 0.7
         colors:
         - "#ccf5df"
         - "#89dfa4"

@@ -19,7 +19,7 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-tract
-      sql: SELECT the_geom_webmercator, emoff15 as value FROM region_censustract_office_dotdensity
+      sql: SELECT the_geom_webmercator, emoff17 as value FROM region_tract_emoff_dotden_v20190911
     - id: office-employment-subregion
       sql: SELECT the_geom_webmercator, emoff18 as value FROM region_subregion_v20190911
     - id: office-employment-county
@@ -45,7 +45,7 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: emoff15
+      columnName: emoff17
       cv:
       sig:
 
@@ -53,7 +53,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office Employment, 2018"
+    title: "Office-based Employment, 2018"
     legend: office-employment-subregion
     layers:
     - id: office-employment-subregion
@@ -74,7 +74,7 @@ map:
         - 500000
         - 1000000
   - id: county
-    title: "Office Employment, 2018"
+    title: "Office-based Employment, 2018"
     legend: office-employment-county
     layers:
     - id: office-employment-county
@@ -97,9 +97,9 @@ map:
         - 125000
         - 1000000
   - id: municipality
-    title: "Office-based Employment, 2015"
+    title: "Office-based Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Office jobs"
+    - label: "1 Dot = 25 jobs"
       color: "#0628d3"
       type: circle
     layers:
@@ -118,9 +118,9 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1
+            - 0.75
           - - 11
-            - 3
+            - 2
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

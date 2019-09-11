@@ -4,9 +4,9 @@ slug: localserve-employment
 category: Jobs
 categorySlug: jobs
 title: "There are 2.1 million retail, leisure and hospitality jobs in the region."
-menuTitle: "Retail, Leisure & Hospitality Employment"
+menuTitle: "Local Services Employment"
 content: |
-  Of the region's approximately 2.11 million private-sector retail, leisure and hospitality jobs, 38% were located in NYC (805k). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+  Of the region's approximately 2.11 million private-sector retail, leisure, hospitality, and other local services jobs. 38% were located in NYC (805k). Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 source: |
   Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
@@ -18,33 +18,33 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-tract
-      sql: SELECT the_geom_webmercator, emser15 as value FROM region_censustract_localserv_dotdensity
+      sql: SELECT the_geom_webmercator, emloc17 as value FROM region_tract_emloc_dotden_v20190911
     - id: localserve-employment-subregion
-      sql: SELECT the_geom_webmercator, emser18 as value FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_subregion_v20190911
     - id: localserve-employment-county
-      sql: SELECT the_geom_webmercator, emser18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emser
-    title: Retail, Leisure<br>& Hospitality Jobs
+    title: Local Services Jobs
     large: true
     values:
     - geomType: region
-      columnName: emser18
+      columnName: emloc18
       cv:
       sig:
     - geomType: subregion
-      columnName: emser18
+      columnName: emloc18
       cv:
       sig:
     - geomType: county
-      columnName: emser18
+      columnName: emloc18
       cv:
       sig:
     - geomType: municipality
-      columnName: emser15
+      columnName: emloc17
       cv:
       sig:
 
@@ -52,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Retail, Leisure, & Hospitality Employment, 2018"
+    title: "Local Services Jobs, 2018"
     legend: localserve-employment-subregion
     layers:
     - id: localserve-employment-subregion
@@ -73,7 +73,7 @@ map:
         - 400000
         - 750000
   - id: county
-    title: "Retail, Leisure, & Hospitality Employment, 2018"
+    title: "Local Services Jobs, 2018"
     legend: localserve-employment-county
     layers:
     - id: localserve-employment-county
@@ -96,9 +96,9 @@ map:
         - 100000
         - 250000
   - id: municipality
-    title: "Retail, Leisure & Hospitality Employment, 2015"
+    title: "Local Services Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Retail, Leisure, & Hospitality Jobs"
+    - label: "1 Dot = 25 Jobs"
       color: "#33cc33"
       type: circle
     layers:
@@ -117,9 +117,9 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1
+            - 0.75
           - - 11
-            - 3
+            - 2
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

@@ -151,7 +151,7 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
             - 2
         circle-opacity: 0.7
@@ -201,7 +201,7 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
             - 2
         circle-opacity: 0.7
@@ -252,7 +252,7 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1.5
+            - 1
           - - 11
             - 2
         circle-opacity: 0.7

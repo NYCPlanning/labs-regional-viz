@@ -54,7 +54,7 @@ map:
   layerGroups:
 
   - id: subregion
-    title: "Private Sector Industrial Jobs, 2018"
+    title: "Industrial Jobs, 2018"
     legend: industrial-employment-subregion
     layers:
     - id: industrial-employment-subregion
@@ -75,7 +75,7 @@ map:
         - 300000
         - 500000
   - id: county
-    title: "Private Sector Industrial Jobs, 2018"
+    title: "Industrial Jobs, 2018"
     legend: industrial-employment-county
     layers:
     - id: industrial-employment-county
@@ -98,7 +98,7 @@ map:
         - 75000
         - 100000
   - id: municipality
-    title: "Private Sector Industrial Employment, 2017"
+    title: "Industrial Employment, 2017"
     legend:
     - label: "1 Dot = 25 jobs"
       color: "#ce50c4"
