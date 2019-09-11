@@ -18,17 +18,17 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-tract
-      sql: SELECT the_geom_webmercator, emins15 as value FROM region_censustract_institution_dotdensity
+      sql: SELECT the_geom_webmercator, emins17 as value FROM region_tract_emins_dotden_v20190911
     - id: institutional-employment-subregion
-      sql: SELECT the_geom_webmercator, emins18 as value FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, emins18 as value FROM region_subregion_v20190911
     - id: institutional-employment-county
-      sql: SELECT the_geom_webmercator, emins18 as value FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emins18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emins
-    title: Education<br> & Healthcare Jobs
+    title: Private Sector<br>Institutional Jobs
     large: true
     values:
     - geomType: region
@@ -44,7 +44,7 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: emins15
+      columnName: emins17
       cv:
       sig:
 
@@ -52,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Institutional Employment, 2018"
+    title: "Private Sector Institutional Jobs, 2018"
     legend: institutional-employment-subregion
     layers:
     - id: institutional-employment-subregion
@@ -73,7 +73,7 @@ map:
         - 500000
         - 1000000
   - id: county
-    title: "Institutional Employment, 2018"
+    title: "Private Sector Institutional Jobs, 2018"
     legend: institutional-employment-county
     layers:
     - id: institutional-employment-county
@@ -96,9 +96,9 @@ map:
         - 150000
         - 300000
   - id: municipality
-    title: "Institutional Employment, 2015"
+    title: "Private Sector Institutional Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Education & Healthcare jobs"
+    - label: "1 Dot = 25 jobs"
       color: "#f2922b"
       type: circle
     layers:
@@ -117,9 +117,9 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1
+            - 0.75
           - - 11
-            - 3
+            - 2.5
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

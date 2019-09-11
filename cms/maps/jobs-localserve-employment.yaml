@@ -20,11 +20,11 @@ map:
     - id: localserve-employment-tract
       sql: SELECT the_geom_webmercator, emser15 as value FROM region_censustract_localserv_dotdensity
     - id: localserve-employment-subregion
-      sql: SELECT the_geom_webmercator, emser18 as value FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, emser18 as value FROM region_subregion_v20190911
     - id: localserve-employment-county
-      sql: SELECT the_geom_webmercator, emser18 as value FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emser18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emser

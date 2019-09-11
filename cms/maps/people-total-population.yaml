@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_subregion_v20190911
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, geoid, pop17 as value, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, pop17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: pop

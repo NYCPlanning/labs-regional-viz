@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: labor-force-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_subregion_v20190911
     - id: labor-force-change-county
-      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, lf1017 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lf1017 as value FROM region_municipality_lf1017_dotden_v20190708 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lf1017 as value FROM region_municipality_lf1017_dotden_v20190911 ORDER BY random()
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
 

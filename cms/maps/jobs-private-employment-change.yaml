@@ -20,9 +20,9 @@ map:
     type: cartovector
     source-layers:
     - id: private-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_subregion_v20190911
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr

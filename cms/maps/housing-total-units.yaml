@@ -18,11 +18,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-units-subregion
-      sql: SELECT the_geom_webmercator, geoid, hou18 as value, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, hou18 as value, name FROM region_subregion_v20190911
     - id: total-units-county
-      sql: SELECT the_geom_webmercator, geoid, hou18 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, hou18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: total-units-municipality
-      sql: SELECT the_geom_webmercator, geoid, hou17 as value, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, hou17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: totalunits

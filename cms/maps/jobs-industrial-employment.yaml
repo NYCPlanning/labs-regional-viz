@@ -19,13 +19,13 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-tract
-      sql: SELECT the_geom_webmercator, emind15 as value FROM region_censustract_industrial_dotdensity
+      sql: SELECT the_geom_webmercator, emind17 as value FROM region_tract_emind_dotden_v20190911
     - id: industrial-employment-subregion
-      sql: SELECT the_geom_webmercator, emind18 as value FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_subregion_v20190911
     - id: industrial-employment-county
-      sql: SELECT the_geom_webmercator, emind18 as value FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emind
@@ -45,7 +45,7 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: emind15
+      columnName: emind17
       cv:
       sig:
 
@@ -54,7 +54,7 @@ map:
   layerGroups:
 
   - id: subregion
-    title: "Industrial Employment, 2018"
+    title: "Private Sector Industrial Jobs, 2018"
     legend: industrial-employment-subregion
     layers:
     - id: industrial-employment-subregion
@@ -75,7 +75,7 @@ map:
         - 300000
         - 500000
   - id: county
-    title: "Industrial Employment, 2018"
+    title: "Private Sector Industrial Jobs, 2018"
     legend: industrial-employment-county
     layers:
     - id: industrial-employment-county
@@ -98,9 +98,9 @@ map:
         - 75000
         - 100000
   - id: municipality
-    title: "Industrial Employment, 2015"
+    title: "Private Sector Industrial Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Industrial jobs"
+    - label: "1 Dot = 25 jobs"
       color: "#ce50c4"
       type: circle
     layers:
@@ -119,9 +119,9 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 1
+            - 0.75
           - - 11
-            - 3
+            - 2
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

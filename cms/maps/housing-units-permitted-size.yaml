@@ -25,11 +25,11 @@ map:
     - id: units-permitted-size-municipality
       sql: SELECT the_geom_webmercator, category FROM region_municipality_permits_dotden_v20190716 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190708 WHERE houptest = 'Y'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE houpermits = 'Y'
 
   popupColumns:
   - id: houptot

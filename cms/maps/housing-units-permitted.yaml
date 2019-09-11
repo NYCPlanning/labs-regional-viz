@@ -20,11 +20,11 @@ map:
     type: cartovector
     source-layers:
     - id: units-permitted-subregion
-      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_subregion_v20190708
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_subregion_v20190911
     - id: units-permitted-county
-      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_county_v20190708 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: units-permitted-municipality
-      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_municipality_v20190708 WHERE houptest = 'Y'
+      sql: SELECT the_geom_webmercator, geoid, houp_1018 as value, name FROM region_municipality_v20190911 WHERE houpermits = 'Y'
 
   popupColumns:
   - id: houp
