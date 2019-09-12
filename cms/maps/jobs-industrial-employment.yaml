@@ -6,10 +6,10 @@ categorySlug: jobs
 title: "There are 1.7 million private sector industrial jobs in the region."
 menuTitle: "Industrial Employment"
 content: |
-  The NYC metropolitan region is home to 1.72 million private-sector industrial jobs. Industrial jobs include manufacturing, construction, utilities, transportation and warehousing, and wholesale employment. 29% of the region's industrial employment (495k) is based in NYC. Industrial employment also includes some office headquarters employment for industrial businesses, which is especially true for industrial jobs located in places like Manhattan. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors).
+  The NYC metropolitan region is home to 1.72 million private sector industrial jobs generating $130 billion in employee wages in 2018. Industrial jobs include manufacturing, construction, utilities, transportation and warehousing, and wholesale trade employment. 29% of the region's industrial employment (495k) is based in NYC. Industrial employment also includes some office headquarters employment for industrial businesses, which is especially true for industrial jobs located in places like Manhattan. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors).
 
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities (for example, in Manhattan). Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities (for example, a construction company headquartered in Manhattan). Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -119,9 +119,9 @@ map:
         circle-radius:
           stops:
           - - 7
-            - 0.75
+            - 1
           - - 11
-            - 2
+            - 2.5
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
