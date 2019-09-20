@@ -26,7 +26,7 @@ map:
     - id: aging-labor-force-change-county
       sql: SELECT the_geom_webmercator, geoid, lf651017 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: aging-labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, l651017 as value FROM region_municipality_lf651017_dotden_v20190911 ORDER BY random()
+      sql: SELECT the_geom_webmercator, l651017 as value FROM region_municipality_lf651017_dotden_v20190708 ORDER BY random()
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 

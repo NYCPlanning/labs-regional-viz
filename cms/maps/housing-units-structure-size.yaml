@@ -21,7 +21,7 @@ map:
     type: cartovector
     source-layers:
     - id: units-structure-size-tract
-      sql: SELECT the_geom_webmercator, category FROM region_tract_size_dotden_v20190911 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_tract_size_dotden_v20190708 ORDER BY random()
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
     - id: empty-polygons-county
