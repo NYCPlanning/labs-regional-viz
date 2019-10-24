@@ -20,9 +20,11 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         if (isPercent) formattedValue = numeral(value).format('0,0%');
         if (isRatio) formattedValue = numeral(value).format('0.00');
         if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
+        if (isMOE) formattedValue = `±${numeral(value).format('0,0a')}`;
         if (isPercent && isChangeMeasurement) formattedValue = numeral(value).format('+0.0%');
         if (isRatio && isChangeMeasurement) formattedValue = numeral(value).format('+0.00');
         if (isChangeMeasurement && isMOE) formattedValue = `±${numeral(value).format('0,0')}`;
+        if (isMOE && isPercent) formattedValue = `±${numeral(value).format('0.0%')}`;
       }
 
       let isInsignificant = false;
@@ -44,7 +46,7 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
     // If this is a Permit Map
     if (isPermitMap) {
       // hide the rows that are Long Island municipalities that do not report housing permit data
-      if (rowData.houptest === 'N') {
+      if (rowData.houpermits === 'N') {
         return '';
       }
     } else if (rowData.islitown === 'Y') {

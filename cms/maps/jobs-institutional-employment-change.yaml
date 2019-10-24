@@ -3,15 +3,14 @@
 slug: institutional-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Private healthcare and education employment grew in every county, post-recession."
-menuTitle: "Institutional Employment Change, 2008-2016"
+title: "Private sector Institutional employment increased region-wide since 2008."
+menuTitle: "Institutional Employment Change, 2008 to 2018"
 content: |
-        Institutional (jobs in the education and healthcare sectors) employment grew by 18% (+304,082) region-wide, with every county in the region registering growth in private institutional jobs. Brooklyn gained the most and the grew the fastest among metro region counties, growing private institutional employment by 37% and adding 60,060 jobs from 2008 to 2016. Manhattan (+50,310), Queens (+28,972), and Nassau County, LI (+25,795) also exhibited significant growth. Private institutional growth was driven by healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, local medical services). Private ambulatory job growth accounted for more than 154,000 jobs and two-thirds of institutional job gains.
+        Private sector Institutional employment (jobs in the education and healthcare sectors) grew by +2.6% per year in the region (+434k jobs), at pace with the national average, with every county in the region adding jobs. Brooklyn gained the most private sector Institutional jobs and grew the fastest among metro region counties, growing by +6.3% per year and adding 103k jobs from 2008 to 2018. Manhattan (+63k), Queens (+47k), and Nassau County, LI (+34k) also experienced significant growth. Healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, home health aids, and other local medical services), drove Institutional macro sector job gains. There were more than 222k ambulatory healthcare services jobs added, representing half of all private Institutional job gains. In NYC, the majority of that growth was attributed to increases in home health care jobs. The growth of this industry has been influenced by public policy decisions, including expanded access to insurance, as well as broader population changes.
 
-        Though institutional jobs consistently represent about one-quarter of NYC metro subregions' private employment (2016), institutional job growth accounted for 50% to 60% of private jobs gains for non-NYC subregions and about one-third of NYC's private job gains. Institutional jobs also grew the fastest for all subregions, averaging an 18% increase from 2008 to 2016. These gains show the importance of institutional sectors in supporting the region's post-recession economy, especially in areas outside of NYC.
-
+        Though Institutional jobs consistently represent about one-quarter of NYC metro subregions' 2018 private sector employment, Institutional job growth accounted for half to near all of the net private sector jobs gains for non-NYC subregions, helping to offset job losses in other sectors. About one-third of NYC's net private sector job gains were in the Institutional macro sector. Institutional jobs also grew the fastest for all subregions, averaging a 26% increase from 2008 to 2018. These gains show the importance of Institutional sectors in supporting the region's post-recession economy, especially in areas outside of NYC.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector only due to public sector data disclosure challenges. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2018. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector emplpyment only due to public sector data disclosure challenges. See [About](/about/#publicprivatejobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -21,25 +20,25 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, emins0818 as value, name FROM region_subregion_v20190911
     - id: institutional-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emprins0816 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emins0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: empr
-    title: Δ Private Institutional Jobs
+  - id: emprins
+    title: Δ Private Sector<br>Institutional Jobs
     large: true
     values:
     - geomType: region
-      columnName: emprins0816
+      columnName: emins0818
       cv:
       sig:
     - geomType: subregion
-      columnName: emprins0816
+      columnName: emins0818
       cv:
       sig:
     - geomType: county
-      columnName: emprins0816
+      columnName: emins0818
       cv:
       sig:
 
@@ -48,7 +47,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Institutional Employment Change, 2008-2016"
+    title: "Private Institutional Employment Change, 2008 to 2018"
     legend: institutional-employment-change-subregion
     layers:
     - id: institutional-employment-change-subregion
@@ -71,7 +70,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Private Institutional Employment Change, 2008-2016"
+    title: "Private Institutional Employment Change, 2008 to 2018"
     legend: institutional-employment-change-county
     layers:
     - id: institutional-employment-change-county

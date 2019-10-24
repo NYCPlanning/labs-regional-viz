@@ -1,0 +1,91 @@
+# People
+# ----------
+slug: pct-population-change
+category: People
+categorySlug: people
+title: "In recent years, population growth has shifted toward the region’s center."
+menuTitle: "% Population Change, 2010 to 2018"
+content: |
+  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown 2.7% since 2010, with the Bronx (+3.4%) and Brooklyn (+3.1%) growing faster, Manhattan growing at 2.7%, and Queens (+2.2%) and Staten Island (+1.6%) growing slower. NYC accounted for 53% of regional population growth since 2010. The Inner New Jersey subregion grew at a slightly faster rate (+2.9%) than NYC and accounted for 34% of regional population growth, with Hudson County, New Jersey experiencing the fastest rate of population growth (+6.6%) of any county in the region. Hudson was followed by Rockland County, New York (+4.5%) and Ocean County, New Jersey (+4.4%). Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
+
+source: |
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2018. See [About](/about/#people) page for additional notes on population change.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: pct-population-change
+    type: cartovector
+    source-layers:
+    - id: pct-population-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, popp1018 as value, name FROM region_subregion_v20190911
+    - id: pct-population-change-county
+      sql: SELECT the_geom_webmercator, geoid, popp1018 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+
+  popupColumns:
+  - id: pctchange
+    title: "% Change"
+    large: true
+    values:
+    - geomType: region
+      columnName: popp1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: popp1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: popp1018
+      cv:
+      sig:
+
+  isChangeMeasurement: true
+  isPercent: true
+
+  layerGroups:
+  - id: subregion
+    title: "% Population Change, 2010 to 2018"
+    legend: pct-population-change-subregion
+    layers:
+    - id: pct-population-change-subregion
+      type: choropleth
+      source: pct-population-change
+      source-layer: pct-population-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.005
+        - 0.005
+        - 0.01
+        - 0.025
+  - id: county
+    title: "% Population Change, 2010 to 2018"
+    legend: pct-population-change-county
+    layers:
+    - id: pct-population-change-county
+      type: choropleth
+      source: pct-population-change
+      source-layer: pct-population-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.025
+        - -0.01
+        - 0.01
+        - 0.025
+        - 0.05

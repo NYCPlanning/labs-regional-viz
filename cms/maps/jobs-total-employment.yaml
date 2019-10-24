@@ -3,14 +3,16 @@
 slug: total-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for 41% of the region's 10.3 million jobs."
+title: "NYC is the hub of the largest metropolitan economy in the nation."
 menuTitle: "Total Employment"
 content: |
+  In 2018, our region employed 10.6 million, representing 7% of total U.S. jobs, and generated $815 billion in annual worker wages, representing 10% of total U.S. wages.
+
   The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area.
 
-  In 2016, NYC accounted for 41% of the metro region’s 10.3 million jobs and about half of the region’s $744 billion in annual worker wages. Manhattan alone accounted for 2.4 million jobs and $274 billion in annual worker wages – the highest for any county in the U.S. – representing 24% of the region’s total jobs and 37% of regional wages. Outside of NYC, there were 6.1 million jobs providing employment for regional residents, including 400,000 NYC residents.
+  NYC accounted for 41% of the metro region’s jobs (4.38 million) and half of the region’s annual worker wages ($406 billion). Manhattan alone represents 2.46 million jobs (23% of regional employment) and $304 billion in annual worker wages (37% of regional wages) – the highest for any county in the U.S. Outside of NYC, there are 6.22 million jobs providing employment for regional residents, including nearly 300k NYC residents who commute out of the city for work.
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: municipality
@@ -20,11 +22,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_subregion
+      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_subregion_v20190911
     - id: total-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emtot16 as value, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: total-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot15 as value, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emptot
@@ -32,19 +34,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: subregion
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: county
-      columnName: emtot16
+      columnName: emtot18
       cv:
       sig:
     - geomType: municipality
-      columnName: emtot15
+      columnName: emtot17
       cv:
       sig:
 
@@ -52,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Employment, 2016"
+    title: "Total Employment, 2018"
     legend: total-employment-subregion
     layers:
     - id: total-employment-subregion
@@ -73,7 +75,7 @@ map:
         - 1000000
         - 2500000
   - id: county
-    title: "Total Employment, 2016"
+    title: "Total Employment, 2018"
     legend: total-employment-county
     layers:
     - id: total-employment-county
@@ -81,7 +83,7 @@ map:
       source: total-employment
       source-layer: total-employment-county
       paintConfig:
-        opacity: 0.6
+        opacity: 0.8
         colors:
         - "#ccf5df"
         - "#89dfa4"
@@ -94,7 +96,7 @@ map:
         - 500000
         - 750000
   - id: municipality
-    title: "Total Employment, 2015"
+    title: "Total Employment, 2017"
     legend: total-employment-municipality
     layers:
     - id: total-employment-municipality
@@ -102,7 +104,7 @@ map:
       source: total-employment
       source-layer: total-employment-municipality
       paintConfig:
-        opacity: 0.6
+        opacity: 0.7
         colors:
         - "#ccf5df"
         - "#89dfa4"

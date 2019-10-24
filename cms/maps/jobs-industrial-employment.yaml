@@ -3,13 +3,13 @@
 slug: industrial-employment
 category: Jobs
 categorySlug: jobs
-title: "There are 1.67 million private industrial jobs in the region."
+title: "There are 1.7 million private sector industrial jobs in the region."
 menuTitle: "Industrial Employment"
 content: |
-  From 2008 to 2016, the NYC metro region lost 112,973 industrial jobs, with NYC and Outer New Jersey subregions registering the smallest employment losses. The Inner New Jersey subregion accounted for half of metro industrial job losses, and Connectictut accounted for about one-quarter of losses. Mirroring national trends of a declining industrial economy, the post-recession period reflects a continued trend within the NYC metro region, which lost 241,354 industrial jobs from 2000 to 2008. Industrial losses were driven mostly by declines in manufacturing employment, representing about 70% of all job losses, followed by losses in the wholesale trade sectors. Slight gains in construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering industrial job gains, including the Bronx, Queens, Staten Island, and Mercer County, NJ.
+  The NYC metropolitan region is home to 1.72 million private sector industrial jobs generating $130 billion in employee wages in 2018. Industrial jobs include manufacturing, construction, utilities, transportation and warehousing, and wholesale trade employment. 29% of the region's industrial employment (495k) is based in NYC. Industrial employment also includes some office headquarters employment for industrial businesses, which is especially true for industrial jobs located in places like Manhattan. Industrial employment is most concentrated near ports, airports, and transportation facilities, and because of its land-intensiveness, exists in greater share outside of NYC than within (unlike all other sectors).
 
 source: |
-  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities (for example, a construction company headquartered in Manhattan). Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -19,121 +19,88 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-tract
-      sql: SELECT the_geom_webmercator, emind15 as value FROM region_censustract_industrial_dotdensity
-    - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
-    - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emind17 as value FROM region_tract_emind_dotden_v20190911
+    - id: industrial-employment-subregion
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_subregion_v20190911
+    - id: industrial-employment-county
+      sql: SELECT the_geom_webmercator, emind18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emind
-    title: "Industrial jobs"
+    title: Industrial Jobs
     large: true
     values:
     - geomType: region
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: subregion
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: county
-      columnName: emind16
+      columnName: emind18
       cv:
       sig:
     - geomType: municipality
-      columnName: emind15
+      columnName: emind17
       cv:
       sig:
 
   isPercent: false
 
   layerGroups:
+
   - id: subregion
-    title: "Industrial Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Industrial jobs"
-      color: "#ce50c4"
-      type: circle
+    title: "Industrial Jobs, 2018"
+    legend: industrial-employment-subregion
     layers:
-    - id: industrial-employment-tract
-      type: circle
+    - id: industrial-employment-subregion
+      type: choropleth
       source: industrial-employment
-      source-layer: industrial-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#ce50c4"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-subregion-polygons
-      type: fill
-      source: industrial-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: industrial-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: industrial-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f9ebf8"
+        - "#eec3eb"
+        - "#e39cdd"
+        - "#ce50c4"
+        - "#631c5e"
+        breaks:
+        - 100000
+        - 250000
+        - 300000
+        - 500000
   - id: county
-    title: "Industrial Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Industrial jobs"
-      color: "#ce50c4"
-      type: circle
+    title: "Industrial Jobs, 2018"
+    legend: industrial-employment-county
     layers:
-    - id: industrial-employment-tract
-      type: circle
+    - id: industrial-employment-county
+      type: choropleth
       source: industrial-employment
-      source-layer: industrial-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#ce50c4"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-county-polygons
-      type: fill
-      source: industrial-employment
-      source-layer: empty-polygons-county
-      paint:
-        fill-opacity: 0
-    - id: empty-county-line
-      type: line
-      source: industrial-employment
-      source-layer: empty-polygons-county
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: industrial-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#f9ebf8"
+        - "#eec3eb"
+        - "#e39cdd"
+        - "#ce50c4"
+        - "#631c5e"
+        - "#280b25"
+        breaks:
+        - 10000
+        - 25000
+        - 50000
+        - 75000
+        - 100000
   - id: municipality
-    title: "Industrial Employment, 2015"
+    title: "Industrial Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Industrial jobs"
+    - label: "1 Dot = 25 jobs"
       color: "#ce50c4"
       type: circle
     layers:
@@ -154,7 +121,7 @@ map:
           - - 7
             - 1
           - - 11
-            - 3
+            - 2.5
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

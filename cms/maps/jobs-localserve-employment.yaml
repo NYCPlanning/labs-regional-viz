@@ -3,12 +3,12 @@
 slug: localserve-employment
 category: Jobs
 categorySlug: jobs
-title: "There are 2.1 million retail, leisure and hospitality jobs in the region."
-menuTitle: "Retail, Leisure & Hospitality Employment"
+title: "There are 2.6 million retail, leisure, hospitality and other local services jobs in the region."
+menuTitle: "Local Services Employment"
 content: |
-  Of the region's approximately 2.1 million private-sector retail, leisure and hospitality jobs, 38% were located in NYC. Retail and hospitality employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+  The region's approximately 2.56 million private sector Local Services jobs - retail, leisure, food services, accommodations, and other local services (e.g., laundromats and auto repair shops) sectors - represent 28% of the region's total private sector employment, the second-largest share behind the Office macro sector. Local Services private sector employment generated $95 billion in employee wages in 2018, averaging a lower wage per job than the other three macro sectors. 39% of the region's Local Services jobs are in NYC, (990k), which represent 47% of private sector wages ($45 billion). Local Services employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 source: |
-  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,33 +18,33 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-tract
-      sql: SELECT the_geom_webmercator, emser15 as value FROM region_censustract_localserv_dotdensity
-    - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion
-    - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emloc17 as value FROM region_tract_emloc_dotden_v20190911
+    - id: localserve-employment-subregion
+      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_subregion_v20190911
+    - id: localserve-employment-county
+      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emser
-    title: "Local services jobs"
+    title: Local Services Jobs
     large: true
     values:
     - geomType: region
-      columnName: emser16
+      columnName: emloc18
       cv:
       sig:
     - geomType: subregion
-      columnName: emser16
+      columnName: emloc18
       cv:
       sig:
     - geomType: county
-      columnName: emser16
+      columnName: emloc18
       cv:
       sig:
     - geomType: municipality
-      columnName: emser15
+      columnName: emloc17
       cv:
       sig:
 
@@ -52,88 +52,54 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Retail, Leisure & Hospitality Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
-      type: circle
+    title: "Local Services Jobs, 2018"
+    legend: localserve-employment-subregion
     layers:
-    - id: localserve-employment-tract
-      type: circle
+    - id: localserve-employment-subregion
+      type: choropleth
       source: localserve-employment
-      source-layer: localserve-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#6ff268"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-subregion-polygons
-      type: fill
-      source: localserve-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: localserve-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: localserve-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ebfaeb"
+        - "#adebad"
+        - "#33cc33"
+        - "#196619"
+        - "#0a290a"
+        breaks:
+        - 100000
+        - 200000
+        - 400000
+        - 750000
   - id: county
-    title: "Retail, Leisure & Hospitality Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
-      type: circle
+    title: "Local Services Jobs, 2018"
+    legend: localserve-employment-county
     layers:
-    - id: localserve-employment-tract
-      type: circle
+    - id: localserve-employment-county
+      type: choropleth
       source: localserve-employment
-      source-layer: localserve-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#6ff268"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-county-polygons
-      type: fill
-      source: localserve-employment
-      source-layer: empty-polygons-county
-      paint:
-        fill-opacity: 0
-    - id: empty-county-line
-      type: line
-      source: localserve-employment
-      source-layer: empty-polygons-county
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: localserve-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ebfaeb"
+        - "#adebad"
+        - "#33cc33"
+        - "#29a329"
+        - "#145214"
+        - "#0a290a"
+        breaks:
+        - 25000
+        - 50000
+        - 75000
+        - 100000
+        - 250000
   - id: municipality
-    title: "Retail, Leisure & Hospitality Employment, 2015"
+    title: "Local Services Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Retail, Leisure & Hospitality jobs"
-      color: "#6ff268"
+    - label: "1 Dot = 25 Jobs"
+      color: "#33cc33"
       type: circle
     layers:
     - id: localserve-employment-tract
@@ -147,13 +113,13 @@ map:
             - value
           - "#FFFFFF"
           - 0
-          - "#57EB51"
+          - "#33cc33"
         circle-radius:
           stops:
           - - 7
-            - 1
+            - 0.75
           - - 11
-            - 3
+            - 2
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill
