@@ -3,12 +3,18 @@
 slug: institutional-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for 40% of the region's 2.7 million education and healthcare jobs."
+title: "NYC accounts for 44% of the region's 2.1 million private sector Institutional jobs in the education and healthcare sectors."
 menuTitle: "Institutional Employment"
 content: |
-  The NYC metro region is home to 2.7 million jobs in the education and healthcare sector, representing 40%, which includes public and private sector employment. Close to three-quarters of the region's institutional employment is in private sector education and healthcare, 1.96 million jobs representing 72% of the total institutional employment. Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local schools and healthcare facilities.
+  The region employs 2.1 million people in private sector education and healthcare jobs. NYC accounted for 929k jobs, representing 44% of the region’s private sector Institutional employment.
+
+  83% of the region's private sector Institutional jobs are in healthcare, 1.7 million jobs, and 360k jobs are in education, which includes private schools and universities. Private sector Institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local healthcare facilities (e.g., doctors and denstists offices) and  social services.
+
+  The Institutional macro sector additionally employs more than 750,000 people in public sector jobs  in the region, most notably in local and State education. Public sector institutional employment generally mirrors population distributition throughout the tri-state area.
+
+  Among the four macro industry sectors represented on the Metro Explorer (Office, Institutional, Industrial, Local Services), Institutional employment has by far the highest share of jobs in the public sector - approximately 26% of total Institutional jobs are in the public sector and 74% are in the private sector. The other three macro industry sectors average below 5% of total employment in the public sector. However, due to data disclosure challenges (as well as reporting challenges for change over time), Metro Explorer solely visualizes private sector Institutional employment and change over time. However, total Institutional employment estimates (inclusive of public sector jobs) are available for download on the [About](/about/) page. Please refer to notes on [public and private sector employment](/about/#publicprivatejobs) for more detail.
 source: |
-  Sources & Notes: U.S. Department of Commerce Bureau of Economic Analysis, 2016; U.S. Bureau of Labor Statistics (BLS) Current Employment Statistics, 2017;  U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2016; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2015 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,33 +24,33 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-tract
-      sql: SELECT the_geom_webmercator, emins15 as value FROM region_censustract_institution_dotdensity_v0
-    - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
-    - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, emins17 as value FROM region_tract_emins_dotden_v20190911
+    - id: institutional-employment-subregion
+      sql: SELECT the_geom_webmercator, emins18 as value FROM region_subregion_v20190911
+    - id: institutional-employment-county
+      sql: SELECT the_geom_webmercator, emins18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v1 WHERE geoid NOT IN('3605934000', '3605953000', '3605956000', '3610304000', '361035000', '3610322194', '3610337000', '3610338000', '3610361984', '3610366839', '3610368000', '3610368473', '3610369463')
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
   - id: emins
-    title: "Institutional jobs"
+    title: Private Sector<br>Institutional Jobs
     large: true
     values:
     - geomType: region
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
     - geomType: subregion
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
     - geomType: county
-      columnName: emins16
+      columnName: emins18
       cv:
       sig:
     - geomType: municipality
-      columnName: emins15
+      columnName: emins17
       cv:
       sig:
 
@@ -52,86 +58,53 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Institutional Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Education & Healthcare jobs"
-      color: "#f2922b"
+    title: "Private Sector Institutional Jobs, 2018"
+    legend: institutional-employment-subregion
     layers:
-    - id: institutional-employment-tract
-      type: circle
+    - id: institutional-employment-subregion
+      type: choropleth
       source: institutional-employment
-      source-layer: institutional-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#f2922b"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-subregion-polygons
-      type: fill
-      source: institutional-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        fill-opacity: 0
-    - id: empty-subregion-line
-      type: line
-      source: institutional-employment
-      source-layer: empty-polygons-subregion
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: institutional-employment-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#fdf3e7"
+        - "#f7c187"
+        - "#f2922b"
+        - "#a85c0b"
+        - "#482705"
+        breaks:
+        - 175000
+        - 350000
+        - 500000
+        - 1000000
   - id: county
-    title: "Institutional Employment, 2016"
-    legend:
-    - label: "1 Dot = 50 Education & Healthcare jobs"
-      color: "#f2922b"
-      type: circle
+    title: "Private Sector Institutional Jobs, 2018"
+    legend: institutional-employment-county
     layers:
-    - id: institutional-employment-tract
-      type: circle
+    - id: institutional-employment-county
+      type: choropleth
       source: institutional-employment
-      source-layer: institutional-employment-tract
-      paint:
-        circle-color:
-          - step
-          - - get
-            - value
-          - "#FFFFFF"
-          - 0
-          - "#f2922b"
-        circle-radius:
-          stops:
-          - - 7
-            - 1
-          - - 11
-            - 3
-        circle-opacity: 0.7
-    - id: empty-county-polygons
-      type: fill
-      source: institutional-employment
-      source-layer: empty-polygons-county
-      paint:
-        fill-opacity: 0
-    - id: empty-county-line
-      type: line
-      source: institutional-employment
-      source-layer: empty-polygons-county
-      paint:
-        line-color: rgba(131, 131, 131, 1)
-        line-width: 0.5
+      source-layer: institutional-employment-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#fdf3e7"
+        - "#f7c187"
+        - "#f2922b"
+        - "#c0690c"
+        - "#784208"
+        - "#301a03"
+        breaks:
+        - 15000
+        - 35000
+        - 75000
+        - 150000
+        - 300000
   - id: municipality
-    title: "Institutional Employment, 2015"
+    title: "Private Sector Institutional Employment, 2017"
     legend:
-    - label: "1 Dot = 50 Education & Healthcare jobs"
+    - label: "1 Dot = 25 jobs"
       color: "#f2922b"
       type: circle
     layers:
@@ -152,7 +125,7 @@ map:
           - - 7
             - 1
           - - 11
-            - 3
+            - 2.5
         circle-opacity: 0.7
     - id: empty-municipality-polygons
       type: fill

@@ -3,13 +3,12 @@
 slug: office-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NYC's gain of office jobs offset regional post-recession losses."
-menuTitle: "Office Employment Change, 2008-2016"
+title: "NYC's Office-based employment growth offset losses elsewhere in the region."
+menuTitle: "Office Employment Change, 2008 to 2018"
 content: |
-          The NYC metro region saw a net increase of 94,293 office-based jobs since the recession, with NYC's gain of 119,294 office jobs offsetting regional losses. All five NYC boroughs gained office employment post-recession, and though 49% of the region's private office-based jobs are located in NYC, NYC accounted for 83% of office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Brooklyn had the fastest rate of private office job growth, an increase of 35% from 2008 to 2016, while Manhattan saw the largest increase (+79,412). Nearly every NYC metro region county lost office jobs in the finance sectors (a total regional loss of 38,555), but gained jobs in professional and business services sectors (a regional increase of 145,125). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 78% (+20,830).
-
+    The NYC metro region gained 180k Office-based private sector jobs since the recession. However, NYC's gain of 192k Office jobs offset losses experienced elsewhere in the region. All five NYC boroughs gained Office employment post-recession, with Manhattan adding the most (+143k) and Brooklyn growing the fastest (+4.3% per year) since 2008. Though 49% of the region's private sector Office-based jobs are located in NYC, NYC accounted for 82% of Office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Most NYC metro region counties lost Office jobs in the finance, insurance, and real estate sectors (a total regional loss of 23k), but gained jobs in professional, administrative, and other business services sectors (a regional increase of 204k). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 84% (+38k).
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2018. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -19,9 +18,9 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emoff0816 as value, name FROM region_subregion_v1
+      sql: SELECT the_geom_webmercator, geoid, emoff0818 as value, name FROM region_subregion_v20190911
     - id: office-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emoff0816 as value, name FROM region_county_v1
+      sql: SELECT the_geom_webmercator, geoid, emoff0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr
@@ -29,15 +28,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff0816
+      columnName: emoff0818
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff0816
+      columnName: emoff0818
       cv:
       sig:
     - geomType: county
-      columnName: emoff0816
+      columnName: emoff0818
       cv:
       sig:
 
@@ -46,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office Employment Change, 2008-2016"
+    title: "Office Employment Change, 2008 to 2018"
     legend: office-employment-change-subregion
     layers:
     - id: office-employment-change-subregion
@@ -69,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Office Employment Change, 2008-2016"
+    title: "Office Employment Change, 2008 to 2018"
     legend: office-employment-change-county
     layers:
     - id: office-employment-change-county

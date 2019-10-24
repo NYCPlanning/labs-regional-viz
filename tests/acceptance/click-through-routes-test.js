@@ -1,31 +1,30 @@
-import { test } from 'qunit';
-import moduleForAcceptance from 'labs-regional-viz/tests/helpers/module-for-acceptance';
+import { module, test } from 'qunit';
+import { setupApplicationTest } from 'ember-qunit';
+import { visit, click, find, pauseTest, currentURL } from '@ember/test-helpers';
 
-moduleForAcceptance('Acceptance | click through routes');
+module('Acceptance | click through routes', function(hooks) {
+  setupApplicationTest(hooks);
 
-test('user can toggle narrative off and on', function(assert) {
-  visit('/');
-  click('.narrative-toggle');
+  test('user can toggle narrative off and on', async function(assert) {
+    await visit('/');
+    await click('.narrative-toggle');
 
-  andThen(function() {
-    assert.equal(find('.narrative-toggle').length, 0);
-    assert.equal(find('.narrative-link').length, 1);
+    assert.equal(find('.narrative-toggle'), undefined);
+    assert.ok(find('.narrative-link'));
   });
-});
 
-test('index redirects to welcome/intro', function(assert) {
-  visit('/');
+  test('index redirects to welcome/intro', async function(assert) {
+    await visit('/');
 
-  andThen(function() {
     assert.equal(currentURL(), '/welcome/intro');
   });
-});
 
-test('user can click "next" from intro', function(assert) {
-  visit('/');
-  click('.pagination-next');
+  test('user can click "next" from intro', async function(assert) {
+    await visit('/');
+    // await pauseTest();
+    await click('.pagination-next');
+    // await pauseTest();
 
-  andThen(function() {
     assert.equal(currentURL().indexOf('/welcome/intro'), -1);
   });
 });

@@ -6,7 +6,7 @@ version: 2
 jobs:
   build:
     docker:
-      - image: circleci/node:8-browsers
+      - image: circleci/node:10.14-browsers
         environment:
             CHROME_BIN: "/usr/bin/google-chrome"
     working_directory: ~/repo
@@ -20,10 +20,6 @@ jobs:
           - v1-dependencies-
 
       - run: yarn install
-
-      - run: sudo yarn global add bower
-
-      - run: bower install
 
       - save_cache:
           paths:

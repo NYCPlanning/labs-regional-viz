@@ -1,0 +1,271 @@
+# Housing
+# ----------
+slug: units-permitted-size
+category: Housing
+categorySlug: housing
+title: "In recent years, NYC and New Jersey dominated housing production, especially multifamily housing."
+menuTitle: "Housing Production by Building Size, 2010 to 2018"
+content: |
+  Nearly 438k new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. NYC accounted for 44% of new housing (191k units) and the Inner New Jersey subregion accounted for 30% (130k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units.
+
+  Nearly three-quarters of the total permitted units were in multifamily buildings, 70% in buildings with five or more units (308k), and 5% in buildings with two-to-four units (23k). 106k permits were issued for buildings with one unit, characteristic of low-density suburbs.
+
+  Today the region has 3.2 million households in buildings with five or more units, of which NYC accounts for 67% (2.2 million units) and the Inner New Jersey subregion accounts for 15% (490k units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 57% of the region’s permitted units in buildings with five or more units (175k units), slightly lower than its regional share, and the Inner New Jersey subregion accounted for 29% of the region’s permitted units in buildings with three or more units (90k units), twice its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and younger labor force growth.
+
+source: |
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual; NYC Department of City Planning, Division of Housing, Economic, and Infrastructure Planning (NYC only). Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: units-permitted-size
+    type: cartovector
+    source-layers:
+    - id: units-permitted-size-municipality
+      sql: SELECT the_geom_webmercator, category FROM region_municipality_permits_dotden_v20190716 ORDER BY random()
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE iscommap = FALSE
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE houpermits = 'Y'
+
+  popupColumns:
+  - id: houptot
+    title: Total Units
+    large: true
+    values:
+    - geomType: region
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: houp_1018
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houp_1018
+      cv:
+      sig:
+  - id: houp1
+    title: Units in<br>1 Unit Bldg
+    large: true
+    values:
+    - geomType: region
+      columnName: houp1_1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houp1_1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: houp1_1018
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houp1_1018
+      cv:
+      sig:
+  - id: houp24
+    title: Units in<br>2-4 Unit Bldg
+    large: true
+    values:
+    - geomType: region
+      columnName: houp24_1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houp24_1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: houp24_1018
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houp24_1018
+      cv:
+      sig:
+  - id: houp5
+    title: Units in<br>5+ Unit Bldg
+    large: true
+    values:
+    - geomType: region
+      columnName: houp5_1018
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: houp5_1018
+      cv:
+      sig:
+    - geomType: county
+      columnName: houp5_1018
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: houp5_1018
+      cv:
+      sig:
+
+  isPermitMap: true
+
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
+    legend:
+    - label: "1 Unit Building"
+      color: "#f8f700"
+      type: circle
+    - label: "2-4 Unit Building"
+      color: "#f47c0b"
+      type: circle
+    - label: "5+ Unit Building"
+      color: "#9c0022"
+      type: circle
+    layers:
+    - id: units-permitted-size-municipality
+      type: circle
+      source: units-permitted-size
+      source-layer: units-permitted-size-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "houp1_1018"
+        - "#f8f700"
+        - "houp24_101"
+        - "#f47c0b"
+        - "houp5_1018"
+        - "#9c0022"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: units-permitted-size
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: units-permitted-size
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
+    legend:
+    - label: "1 Unit Building"
+      color: "#f8f700"
+      type: circle
+    - label: "2-4 Unit Building"
+      color: "#f47c0b"
+      type: circle
+    - label: "5+ Unit Building"
+      color: "#9c0022"
+      type: circle
+    layers:
+    - id: units-permitted-size-municipality
+      type: circle
+      source: units-permitted-size
+      source-layer: units-permitted-size-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "houp1_1018"
+        - "#f8f700"
+        - "houp24_101"
+        - "#f47c0b"
+        - "houp5_1018"
+        - "#9c0022"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-county-polygons
+      type: fill
+      source: units-permitted-size
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: units-permitted-size
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+
+  - id: municipality
+    title: "Permitted Housing Units by Building Size, 2010 to 2018"
+    legend-title: "1 Dot = 5 Units"
+    legend:
+    - label: "1 Unit Building"
+      color: "#f8f700"
+      type: circle
+    - label: "2-4 Unit Building"
+      color: "#f47c0b"
+      type: circle
+    - label: "5+ Unit Building"
+      color: "#9c0022"
+      type: circle
+    layers:
+    - id: units-permitted-size-municipality
+      type: circle
+      source: units-permitted-size
+      source-layer: units-permitted-size-municipality
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "houp1_1018"
+        - "#f8f700"
+        - "houp24_101"
+        - "#f47c0b"
+        - "houp5_1018"
+        - "#9c0022"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 1
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-municipality-polygons
+      type: fill
+      source: units-permitted-size
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: units-permitted-size
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

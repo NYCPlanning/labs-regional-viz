@@ -19,17 +19,15 @@
       <h1 class="header-xlarge narrative-title">{{model.title}}</h1>
     {{/if}}
 
-    {{md-text
-      text=model.content
-      html=true
+    {{markdown-to-html
+      markdown=model.content
     }}
 
     {{#if model.source}}
       <hr>
       <div class="text-small dark-gray">
-        {{md-text
-          text=model.source
-          html=true
+        {{markdown-to-html
+          markdown=model.source
         }}
       </div>
     {{/if}}

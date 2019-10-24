@@ -1,0 +1,289 @@
+# Commuting
+# ----------
+slug: mode-mnworkerres
+category: Commuting
+categorySlug: commuting
+title: "Most Manhattan workers travel by transit, but their primary mode of travel depends on available transit options near their residences."
+menuTitle: "Primary Mode of Travel to Work in Manhattan"
+content: |
+  Of the 973k regional in-commuters, 61% travel to NYC jobs via transit, while 38% travel by car. Unlike NYC residents, who are able to use the NYC subway to access jobs centers throughout NYC, regional in-commuters primarily use transit to access jobs just in Manhattan. 90% of all regional in-commuters traveling on transit work in Manhattan, while nearly three-quarters of in-commuters traveling to work in Non-Manhattan Boroughs travel by car.
+
+  Residents of areas to the north and east of the city (in the Hudson Valley, Connecticut, and Long Island) are most likely to travel to Manhattan by commuter rail. However, one-quarter drive to Manhattan and a smaller, but still considerable, number of in-commuters use the subway. Presumably those in-commuters drive or take the bus to the NYC subway stations. The Inner NJ subregion is served by multiple transit systems, including commuter rail, bus, and PATH train. Commuter rail is strongest in areas with direct rail access to Penn Station - in Essex, Union, and Middlesex Counties - as well as in western Bergen County. Subway/PATH commuters are most concentrated in Jersey City and Hoboken along the Hudson County waterfront, with some subway/PATH commuters likely driving, taking trains, or Hudson-Bergen light rail to access PATH service to Manhattan. In areas not served by Manhattan-bound rail or subway, bus and car are the primary modes of travel.
+
+  NYC residents working in Manhattan primarily travel by subway. This is true for residents of the Bronx, Brooklyn, and Queens in areas also served by commuter rail, which in some cases offers faster access to Manhattan at a higher cost. There are approximately 168k NYC residents commuting by car to jobs in Manhattan (including carpools), representing 9% of NYC residents who work in Manhattan. By contrast, 21% of in-commuters drive to Manhattan, but given that regional workers represent one-fifth of Manhattan workers, the total in-commuters traveling by car (137k) is slightly lower than NYC residents traveling to jobs in Manhattan by car (168k).
+source: |
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2017. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of people working in Manhattan, age 16 and older, or the origin of Manhattan workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+
+map:
+    defaultGeographyLevel: county
+
+    sources:
+    - id: mode-mnworkerres
+      type: cartovector
+      source-layers:
+      - id: mode-mnworkerres-tract
+        sql: SELECT the_geom_webmercator, category FROM region_commode_mnworkres_dotdensity ORDER BY random()
+      - id: empty-polygons-subregion
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      - id: empty-polygons-county
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE geoid NOT IN ('3607936119', '36105','36111')
+
+    popupColumns:
+    - id: cmncar
+      title: By Car
+      large: true
+      values:
+      - geomType: county
+        columnName: cmncar
+        cv: cmncarcv
+        sig:
+      - geomType: subregion
+        columnName: cmncar
+        cv: cmncarcv
+        sig:
+      - geomType: region
+        columnName: cmncar
+        cv: cmncarcv
+        sig:
+    - id: cmnbus
+      title: By Bus
+      large: true
+      values:
+      - geomType: county
+        columnName: cmnbus
+        cv: cmnbuscv
+        sig:
+      - geomType: subregion
+        columnName: cmnbus
+        cv: cmnbuscv
+        sig:
+      - geomType: region
+        columnName: cmnbus
+        cv: cmnbuscv
+        sig:
+    - id: cmnrai
+      title: By Commuter Rail
+      large: true
+      values:
+        - geomType: county
+          columnName: cmnrai
+          cv: cmnraicv
+          sig:
+        - geomType: subregion
+          columnName: cmnrai
+          cv: cmnraicv
+          sig:
+        - geomType: region
+          columnName: cmnrai
+          cv: cmnraicv
+          sig:
+    - id: cmnsub
+      title: By Subway/PATH
+      large: true
+      values:
+      - geomType: county
+        columnName: cmnsub
+        cv: cmnsubcv
+        sig:
+      - geomType: subregion
+        columnName: cmnsub
+        cv: cmnsubcv
+        sig:
+      - geomType: region
+        columnName: cmnsub
+        cv: cmnsubcv
+        sig:
+    - id: cmnfer
+      title: By Ferry
+      large: true
+      values:
+      - geomType: county
+        columnName: cmnfer
+        cv: cmnfercv
+        sig:
+      - geomType: subregion
+        columnName: cmnfer
+        cv: cmnfercv
+        sig:
+      - geomType: region
+        columnName: cmnfer
+        cv: cmnfercv
+        sig:
+    - id: cmnbik
+      title: Walk/Bike
+      large: true
+      values:
+      - geomType: county
+        columnName: cmnbik
+        cv: cmnbikcv
+        sig:
+      - geomType: subregion
+        columnName: cmnbik
+        cv: cmnbikcv
+        sig:
+      - geomType: region
+        columnName: cmnbik
+        cv: cmnbikcv
+        sig:
+    - id: cmnoth
+      title: By Taxi/Other
+      large: true
+      values:
+      - geomType: county
+        columnName: cmnoth
+        cv: cmnothcv
+        sig:
+      - geomType: subregion
+        columnName: cmnoth
+        cv: cmnothcv
+        sig:
+      - geomType: region
+        columnName: cmnoth
+        cv: cmnothcv
+        sig:
+
+    isComNycWork: true
+    isComNycRes: false
+    isPercent: false
+
+    layerGroups:
+    - id: subregion
+      title: "Primary Mode of Travel to Manhattan Jobs, 2017"
+      legend-title: "1 dot = 25 Manhattan Workers, at Residence"
+      legend:
+      - label: "Car"
+        color: "#f2d710"
+        type: circle
+      - label: "Bus"
+        color: "#0628d3"
+        type: circle
+      - label: "Commuter rail"
+        color: "#6ff268"
+        type: circle
+      - label: "Subway/PATH"
+        color: "#ce50c4"
+        type: circle
+      - label: "Ferry"
+        color: "#ff7f00"
+        type: circle
+      - label: "Walk/Bike"
+        color: "#818387"
+        type: circle
+      - label: "Taxi/Other"
+        color: "#818320"
+        type: circle
+      layers:
+      - id: mode-mnworkerres-tract
+        type: circle
+        source: mode-mnworkerres
+        source-layer: mode-mnworkerres-tract
+        paint:
+          circle-color:
+          - match
+          - - get
+            - category
+          - "cmncar"
+          - "#f2d710"
+          - "cmnbus"
+          - "#0628d3"
+          - "cmnrai"
+          - "#6ff268"
+          - "cmnsub"
+          - "#ce50c4"
+          - "cmnfer"
+          - "#ff7f00"
+          - "cmnbik"
+          - "#818387"
+          - "cmnoth"
+          - "#818320"
+          - "#FFFFFF"
+          circle-radius:
+            stops:
+            - - 7
+              - 1
+            - - 11
+              - 3
+          circle-opacity: 0.7
+      - id: empty-subregion-polygons
+        type: fill
+        source: mode-mnworkerres
+        source-layer: empty-polygons-subregion
+        paint:
+          fill-opacity: 0
+      - id: empty-subregion-line
+        type: line
+        source: mode-mnworkerres
+        source-layer: empty-polygons-subregion
+        paint:
+          line-color: rgba(131, 131, 131, 1)
+          line-width: 0.5
+    - id: county
+      title: "Primary Mode of Travel to Manhattan Jobs, 2017"
+      legend-title: "1 dot = 25 Manhattan Workers, at Residence"
+      legend:
+      - label: "Car"
+        color: "#f2d710"
+        type: circle
+      - label: "Bus"
+        color: "#0628d3"
+        type: circle
+      - label: "Commuter rail"
+        color: "#6ff268"
+        type: circle
+      - label: "Subway/PATH"
+        color: "#ce50c4"
+        type: circle
+      - label: "Ferry"
+        color: "#ff7f00"
+        type: circle
+      - label: "Walk/Bike"
+        color: "#818387"
+        type: circle
+      - label: "Taxi/Other"
+        color: "#818320"
+        type: circle
+      layers:
+      - id: mode-mnworkerres-tract
+        type: circle
+        source: mode-mnworkerres
+        source-layer: mode-mnworkerres-tract
+        paint:
+          circle-color:
+          - match
+          - - get
+            - category
+          - "cmncar"
+          - "#f2d710"
+          - "cmnbus"
+          - "#0628d3"
+          - "cmnrai"
+          - "#00cc66"
+          - "cmnsub"
+          - "#ce50c4"
+          - "cmnfer"
+          - "#ff7f00"
+          - "cmnbik"
+          - "#818387"
+          - "cmnoth"
+          - "#818320"
+          - "#FFFFFF"
+          circle-radius:
+            stops:
+            - - 7
+              - 1
+            - - 11
+              - 3
+          circle-opacity: 0.7
+      - id: empty-county-polygons
+        type: fill
+        source: mode-mnworkerres
+        source-layer: empty-polygons-county
+        paint:
+          fill-opacity: 0
+      - id: empty-county-line
+        type: line
+        source: mode-mnworkerres
+        source-layer: empty-polygons-county
+        paint:
+          line-color: rgba(131, 131, 131, 1)
+          line-width: 0.5

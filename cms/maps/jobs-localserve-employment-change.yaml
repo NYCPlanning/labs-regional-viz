@@ -3,13 +3,12 @@
 slug: localserve-employment-change
 category: Jobs
 categorySlug: jobs
-title: "The region added more than 271,000 retail, leisure and hospitality jobs post-recession."
-menuTitle: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+title: "The region added 371k Local Services jobs post-recession."
+menuTitle: "Local Services Employment Change, 2008 to 2018"
 content: |
-          Retail, leisure and hospitality employment grew in nearly every county, representing an increase of 271,408 jobs and a regional growth of 15% since 2008. NYC accounted for about two-thirds of the region's local services jobs gain, with Manhattan gaining the most (+89,509), followed by Brooklyn (+43,851) and Queens (+27,028). Growth of this sector generally occurred in areas that gained population, however, areas like Suffolk County, LI registered retail, leisure and hospitality job gains at a rate that exceed population change, +10.4% vs. -0.1%, respectively. Though retail, leisure and hospitality jobs generally accounted for 20%-30% of county employment, growth of these jobs accounted for anywhere between 40% to 70% of job gains in metro region counties.
-
+          Local Services employment (retail, leisure, hospitality, and other local services sectors) grew in nearly every county, representing an increase of 371k jobs and a regional growth of +1.7% per year since 2008. NYC accounted for nearly two-thirds of the region's Local Services employment growth, with Manhattan gaining the most jobs (+116k), followed by Brooklyn (+61k, growing fastest at +5.5% per year) and Queens (+37k, +3.2% per year). Growth of this sector generally occurred in areas that gained population, however, areas like Suffolk County, LI registered retail, leisure and hospitality job gains at a rate that exceeded population change post-Recession, +12% vs. -1% total, respectively. Within the Local Services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with no significant change in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding 49k retail jobs since 2008, with the largest share of retail growth experienced in Brooklyn (+20k jobs), followed by Manhattan, Queens, the Bronx, and Hudson County, NJ. Retail in those areas grew more than 5 times the rate of the national average.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2016. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2018. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -19,25 +18,25 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emser0816 as value, name FROM region_subregion_v1
+      sql: SELECT the_geom_webmercator, geoid, emloc0818 as value, name FROM region_subregion_v20190911
     - id: localserve-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emser0816 as value, name FROM region_county_v1
+      sql: SELECT the_geom_webmercator, geoid, emloc0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: empr
-    title: Δ Retail, Lei. & Hos. Jobs
+  - id: emloc
+    title: Δ Local Services Jobs
     large: true
     values:
     - geomType: region
-      columnName: emser0816
+      columnName: emloc0818
       cv:
       sig:
     - geomType: subregion
-      columnName: emser0816
+      columnName: emloc0818
       cv:
       sig:
     - geomType: county
-      columnName: emser0816
+      columnName: emloc0818
       cv:
       sig:
 
@@ -46,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+    title: "Local Services Employment Change, 2008 to 2018"
     legend: localserve-employment-change-subregion
     layers:
     - id: localserve-employment-change-subregion
@@ -69,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Retail, Leisure & Hospitality Employment Change, 2008-2016"
+    title: "Local Services Employment Change, 2008 to 2018"
     legend: localserve-employment-change-county
     layers:
     - id: localserve-employment-change-county

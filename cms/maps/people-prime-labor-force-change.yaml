@@ -1,0 +1,165 @@
+# People
+# ----------
+slug: prime-labor-force-change
+category: People
+categorySlug: people
+title: "Growth of the region’s labor force age 25-54 has shifted toward the center."
+menuTitle: Age 25-54 Labor Force Change, 2010 to 2017
+content: |
+  Since 2010, the region has gained +40k workers between the ages of 25 and 54 – a rate of +0.5% – at par with the national average of +0.4% and one-tenth of the region’s growth rate from 2000 to 2010. Nationally, this cohort grew more slowly as the larger baby-boomer population aged and was replaced by younger, smaller population cohorts.
+
+  Within our region, this cohort of workers are increasingly choosing to reside in the center of our region, particularly within NYC, which has gained over 190k (+6.5%) labor force participants aged 25 to 54 since 2010. Though most parts of the region lost labor force participants age 25-54, areas proximate to NYC or well-connected by public transit -- like Bridgeport, Hoboken, Jersey City, New Rochelle, and Valley Stream  – also experienced increases in these resident workers and the U.S. growth rate.
+
+  Historically, NYC has consistently attracted large numbers of people in their 20s, with people in their 30s+ more likely to move out of than into the city ([learn about historic NYC migration characteristics](http://migration.planning.nyc.gov/#age)). Today, fewer people in their 30s are moving out of NYC. Out-migrants from the city are more likely to leave for other parts of the U.S. than for the metro region, resulting in population declines for this cohort in much of the region's suburban areas.
+source: |
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. 2010 in this map represents a 5-year average of 2006-2010 and 2017 in this map represents a 5-year average of 2013-2017 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
+
+map:
+  defaultGeographyLevel: municipality
+
+  sources:
+  - id: prime-labor-force-change
+    type: cartovector
+    source-layers:
+    - id: prime-labor-force-change-subregion
+      sql: SELECT the_geom_webmercator, geoid, lfpw1017 as value, name FROM region_subregion_v20190911
+    - id: prime-labor-force-change-county
+      sql: SELECT the_geom_webmercator, geoid, lfpw1017 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+    - id: prime-labor-force-change-municipality
+      sql: SELECT the_geom_webmercator, lfp1017 as value FROM region_municipality_lfpw1017_dotden_v20190708 ORDER BY random()
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+
+  popupColumns:
+  - id: lfprime
+    title: Δ People Age 25-54<br>in Labor Force
+    large: true
+    values:
+    - geomType: region
+      columnName: lfpw1017
+      cv: lfpw1017cv
+      sig:
+    - geomType: subregion
+      columnName: lfpw1017
+      cv: lfpw1017cv
+      sig:
+    - geomType: county
+      columnName: lfpw1017
+      cv: lfpw1017cv
+      sig:
+    - geomType: municipality
+      columnName: lfpw1017
+      cv: lfpw1017cv
+      sig:
+  - id: moe
+    title: MOE
+    isMOE: true
+    values:
+    - geomType: region
+      columnName: lfpw1017moe
+      cv: lfpw1017cv
+      sig:
+    - geomType: subregion
+      columnName: lfpw1017moe
+      cv: lfpw1017cv
+      sig:
+    - geomType: county
+      columnName: lfpw1017moe
+      cv: lfpw1017cv
+      sig:
+    - geomType: municipality
+      columnName: lfpw1017moe
+      cv: lfpw1017cv
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    legend: prime-labor-force-change-subregion
+    layers:
+    - id: prime-labor-force-change-subregion
+      type: choropleth
+      source: prime-labor-force-change
+      source-layer: prime-labor-force-change-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#9a4819"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#b3e4ff"
+        - "#002673"
+        breaks:
+        - -25000
+        - -5000
+        - 5000
+        - 150000
+  - id: county
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    legend: prime-labor-force-change-county
+    layers:
+    - id: prime-labor-force-change-county
+      type: choropleth
+      source: prime-labor-force-change
+      source-layer: prime-labor-force-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffbf80"
+        - "#ffffe0"
+        - "#b3e4ff"
+        - "#5ab4ff"
+        - "#002673"
+        breaks:
+        - -15000
+        - -3500
+        - 3500
+        - 15000
+        - 75000
+  - id: municipality
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    legend-title: "1 dot = 50 people"
+    legend:
+    - color: "#00aacc"
+      label: "Gain of 50"
+      type: circle
+    - color: "#ff7900"
+      label: "Loss of 50"
+      type: circle
+    layers:
+    - id: prime-labor-force-change-municipality
+      type: circle
+      source: prime-labor-force-change
+      source-layer: prime-labor-force-change-municipality
+      paint:
+        circle-color:
+        - step
+        - - get
+          - value
+        - "#ff7900"
+        - 0
+        - "#00aacc"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.6
+    - id: empty-municipality-polygons
+      type: fill
+      source: prime-labor-force-change
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: prime-labor-force-change
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

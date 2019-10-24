@@ -4,49 +4,78 @@ slug: population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "% Population Change, 2010-2016"
+menuTitle: "Population Change, 2010 to 2018"
 content: |
-  Recent growth patterns suggest that more people have moved to and stayed in our region, with a focus on the urban core and in areas well-connected to rail transit. This is especially true for NYC, which accounted for 60% of regional population growth since 2010, and has seen a slowing of residents leaving for other locations in the United States. The Inner New Jersey subregion accounted for 27% of regional population growth, with Hudson County, New Jersey experiencing the fastest rate of population growth (+6.9%) in the region, followed by the Bronx (+5.1%) and Brooklyn (+5.0%). In New Jersey, population growth in Bergen, Middlesex, Ocean, Somerset, and Union counties outpaced the regional average. Rockland (NY) and Fairfield (CT) counties also outpaced the regional average, while certain counties closer to NYC – Essex, Morris, Nassau, and Passaic – grew population slower than the regional average. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
+  Recent growth patterns suggest that more people moved to and stayed in our region,[CGM(5]  with a focus on the urban core and in areas well-connected to transit. This is especially true for NYC, which accounted for 53% of regional population growth since 2010, despite housing just 37% of the region’s population, and has seen a slowing of residents leaving for other locations in the United States. Brooklyn (+78k), Queens (+48k), and the Bronx (+47k) saw the largest population gains in the region, followed by Hudson County, New Jersey. Hudson County saw the fastest rate of population growth (+6.6%) of any county in the region, as well as the largest net population gain (+42k) outside of NYC, and every municipality within Hudson County saw population increases. Within suburban counties closest to NYC, population growth concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Brunswick, New Rochelle, and Stamford, and in other areas proximate to NYC – notably southern Westchester County and western Nassau County. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today. Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region.
 
 source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2016. See [About](/about/#people) page for additional notes on population change.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2018; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2013-2017. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on calculated population change.
 
 map:
-  defaultGeographyLevel: county
-
+  defaultGeographyLevel: municipality
   sources:
   - id: population-change
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_subregion_v1
+      sql: SELECT the_geom_webmercator, geoid, pop1018 as value, name FROM region_subregion_v20190911
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp1016 as value, name FROM region_county_v1
+      sql: SELECT the_geom_webmercator, geoid, pop1018 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+    - id: population-change-municipality-dotdensity
+      sql: SELECT the_geom_webmercator, pop1017 FROM region_municipality_pop1017_dotden_v20190708 ORDER BY random()
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
 
   popupColumns:
-  - id: change
-    title: "% Change"
+  - id: popchange
+    title: Δ Population
     large: true
     values:
     - geomType: region
-      columnName: popp1016
+      columnName: pop1018
       cv:
       sig:
     - geomType: subregion
-      columnName: popp1016
+      columnName: pop1018
       cv:
       sig:
     - geomType: county
-      columnName: popp1016
+      columnName: pop1018
       cv:
       sig:
+    - geomType: municipality
+      columnName: pop1017
+      cv: pop1017cv
+      sig:
+  - id: moe
+    title: MOE
+    isMOE: true
+    values:
+    - geomType: region
+      columnName:
+      cv:
+      sig:
+    - geomType: subregion
+      columnName:
+      cv:
+      sig:
+    - geomType: county
+      columnName:
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: pop1017moe
+      cv: pop1017cv
+      sig:
 
-  isPercent: true
+  isPercent: false
   isChangeMeasurement: true
+
+  # Layergroups
 
   layerGroups:
   - id: subregion
-    title: "% Population Change, 2010-2016"
+    title: "Population Change, 2010 to 2018"
     legend: population-change-subregion
     layers:
     - id: population-change-subregion
@@ -58,16 +87,20 @@ map:
         colors:
         - "#ffa555"
         - "#ffffe0"
-        - "#73efff"
-        - "#0058ee"
+        - "#e6ffff"
+        - "#b3e4ff"
+        - "#5ab4ff"
         - "#002673"
+        - "#00091a"
         breaks:
-        - 0
-        - 0.005
-        - 0.01
-        - 0.03
+        - -1500
+        - 1500
+        - 15000
+        - 30000
+        - 100000
+        - 200000
   - id: county
-    title: "% Population Change, 2010-2016"
+    title: "Population Change, 2010 to 2018"
     legend: population-change-county
     layers:
     - id: population-change-county
@@ -80,12 +113,57 @@ map:
         - "#d76423"
         - "#ffa555"
         - "#ffffe0"
-        - "#73efff"
-        - "#0058ee"
+        - "#ccffff"
+        - "#5ab4ff"
         - "#002673"
+        - "#00091a"
         breaks:
-        - -0.025
-        - -0.01
-        - 0.01
-        - 0.025
-        - 0.05
+        - -5000
+        - -1500
+        - 1500
+        - 15000
+        - 30000
+        - 50000
+  - id: municipality
+    title: Population Change, 2006-2010 to 2013-2017
+    legend-title: "1 dot = 100 people"
+    legend:
+    - color: "#00aacc"
+      label: "Gain of 50"
+      type: circle
+    - color: "#ff7900"
+      label: "Loss of 50"
+      type: circle
+    layers:
+    - id: population-change-municipality
+      type: circle
+      source: population-change
+      source-layer: population-change-municipality-dotdensity
+      paint:
+        circle-color:
+        - step
+        - - get
+          - pop1017
+        - "#ff7900"
+        - 0
+        - "#00aacc"
+        circle-radius:
+          stops:
+          - - 7
+            - 1.5
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-municipality-polygons
+      type: fill
+      source: population-change
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: population-change
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
