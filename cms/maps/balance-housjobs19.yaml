@@ -1,15 +1,15 @@
 # Balance
 # ----------
-slug: balance-housjobs18
+slug: balance-housjobs19
 category: Balance
 categorySlug: balance
-title: "Housing/jobs balance in 2018"
-menuTitle: "Housing/Jobs Balance 2018"
+title: "Housing/jobs balance in 2019"
+menuTitle: "Housing/Jobs Balance 2019"
 content: |
   <div style="background: linear-gradient(90deg, rgba(0,38,115,0.7) 0%, rgba(0,88,238,0.7) 17%, rgba(90,180,255,0.7) 33%, rgba(255,255,224,0.7) 50%, rgba(255,185,85,0.7) 66%, rgba(215,101,35,0.7) 83%, rgba(135,57,12,0.7) 100%);">&nbsp;</div>
   <p class="clearfix text-tiny text-center">
     <strong class="float-left text-left" style="width:33.33%;">Jobs-intensive</strong>
-    <span class="float-left" style="width:33.33%;">Region Average: 0.87</span>
+    <span class="float-left" style="width:33.33%;">Region Average: 0.85</span>
     <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
   </p>
 
@@ -21,35 +21,35 @@ content: |
 
   All four NYC boroughs other than Manhattan shifted more jobs-intensive, lowering the ratio of housing units to total employment in a period when NYC experienced widespread growth. This is especially true of the Bronx and Brooklyn, which were the only two counties in region with more than two homes per job in 2000 (the most housing-intensive). The Bronx shifted from 2.3 homes per job in 2000 to 1.64 homes per job in 2018*, and Brooklyn shifted from 2.1 homes per job in 2000 to 1.37 homes per job in 2018. This reflects the significant job gains in NYC boroughs outside of Manhattan, and implies improved access to employment opportunities for NYC residents without the need to commute to Manhattan. In contrast, shifts in the region towards more housing-intensive – most notably in Inner New Jersey – imply increasing reliance on commutation into NYC for employment, which increases pressure on regional transit infrastructure.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau Population Estimates Program (PEP) 2018. *NYC public sector employment (e.g., teachers, police) was not allocated to actual borough of workplace employment in 2000 and had been registered to headquarters locations. Appropriate allocation of jobs to place-of-work in 2018 accounts for slight additional shifts towards more jobs intensive ratios for non-Manhattan boroughs in 2018. See [About](/about/#balance) for more information about housing-jobs balance.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau Population Estimates Program (PEP) 2019. *NYC public sector employment (e.g., teachers, police) was not allocated to actual borough of workplace employment in 2000 and had been registered to headquarters locations. Appropriate allocation of jobs to place-of-work in 2018 accounts for slight additional shifts towards more jobs intensive ratios for non-Manhattan boroughs in 2019. See [About](/about/#balance) for more information about housing-jobs balance.
 
 map:
   defaultGeographyLevel: county
 
   sources:
-  - id: balance-housjobs18
+  - id: balance-housjobs19
     type: cartovector
     source-layers:
-    - id: balance-housjobs18-subregion
-      sql: SELECT the_geom_webmercator, geoid, balhj18 as value, name FROM region_subregion_v20190911
-    - id: balance-housjobs18-county
-      sql: SELECT the_geom_webmercator, geoid, balhj18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+    - id: balance-housjobs19-subregion
+      sql: SELECT the_geom_webmercator, geoid, bal_19 as value, name FROM region_subregion_v202007
+    - id: balance-housjobs19-county
+      sql: SELECT the_geom_webmercator, geoid, bal_19 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: balhj18
+  - id: bal_19
     title: Homes<br>per Job
     large: true
     values:
     - geomType: region
-      columnName: balhj18
+      columnName: bal_19
       cv:
       sig:
     - geomType: subregion
-      columnName: balhj18
+      columnName: bal_19
       cv:
       sig:
     - geomType: county
-      columnName: balhj18
+      columnName: bal_19
       cv:
       sig:
 
@@ -59,13 +59,13 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units/Total Employment 2018"
-    legend: balance-housjobs18-subregion
+    title: "Housing Units/Total Employment 2019"
+    legend: balance-housjobs19-subregion
     layers:
-    - id: balance-housjobs18-subregion
+    - id: balance-housjobs19-subregion
       type: choropleth
-      source: balance-housjobs18
-      source-layer: balance-housjobs18-subregion
+      source: balance-housjobs19
+      source-layer: balance-housjobs19-subregion
       paintConfig:
         opacity: 0.6
         colors:
@@ -77,16 +77,16 @@ map:
         breaks:
         - 0.825
         - 0.850
-        - 0.9
-        - 0.95
+        - 0.875
+        - 0.90
   - id: county
-    title: "Housing Units/Total Employment 2018"
-    legend: balance-housjobs18-county
+    title: "Housing Units/Total Employment 2019"
+    legend: balance-housjobs19-county
     layers:
-    - id: balance-housjobs18-county
+    - id: balance-housjobs19-county
       type: choropleth
-      source: balance-housjobs18
-      source-layer: balance-housjobs18-county
+      source: balance-housjobs19
+      source-layer: balance-housjobs19-county
       paintConfig:
         opacity: 0.6
         colors:
@@ -100,7 +100,7 @@ map:
         breaks:
         - 0.4
         - 0.65
-        - 0.85
+        - 0.8
         - 0.9
         - 1.15
         - 1.75

@@ -91,10 +91,10 @@ orderings:
     - id: balance-housjobs00
       isLinearNarrative: true
       transitionPrompt: The regional housing-jobs balance has shifted...
-    - id: balance-housjobs18
+    - id: balance-housjobs19
       isLinearNarrative: true
       transitionPrompt: The regional housing-jobs balance has shifted...
-    - id: balance-housjobs0018
+    - id: balance-housjobs0019
       isLinearNarrative: true
       transitionPrompt: 20% of 4.7 million NYC workers in-commute...
 

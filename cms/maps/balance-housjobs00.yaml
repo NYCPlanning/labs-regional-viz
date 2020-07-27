@@ -32,25 +32,25 @@ map:
     type: cartovector
     source-layers:
     - id: balance-housjobs00-subregion
-      sql: SELECT the_geom_webmercator, geoid, balhj00 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v202007
     - id: balance-housjobs00-county
-      sql: SELECT the_geom_webmercator, geoid, balhj00 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: balhj
+  - id: bal_00
     title: Homes<br>per Job
     large: true
     values:
     - geomType: region
-      columnName: balhj00
+      columnName: bal_00
       cv:
       sig:
     - geomType: subregion
-      columnName: balhj00
+      columnName: bal_00
       cv:
       sig:
     - geomType: county
-      columnName: balhj00
+      columnName: bal_00
       cv:
       sig:
 
@@ -78,10 +78,10 @@ map:
         - "#ffa555"
         - "#d76523"
         breaks:
-        - 0.825
+        - 0.8
         - 0.85
         - 0.9
-        - 0.95
+        - 1.0
   - id: county
     title: "Housing Units/Total Employment 2000"
     legend: balance-housjobs00-county
@@ -103,7 +103,7 @@ map:
         breaks:
         - 0.4
         - 0.65
-        - 0.85
+        - 0.8
         - 0.9
         - 1.15
         - 1.75
