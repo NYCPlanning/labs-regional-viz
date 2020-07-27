@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: renter-owner-tract
-      sql: SELECT the_geom_webmercator, random_value FROM region_tenure_dotdensity ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_tract_houtenure_dotden_v202007 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: owner
@@ -32,120 +32,120 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: houo17
-      cv: houo17cv
+      columnName: houo_18e
+      cv: houo_18c
       sig:
     - geomType: subregion
-      columnName: houo17
-      cv: houo17cv
+      columnName: houo_18e
+      cv: houo_18c
       sig:
     - geomType: county
-      columnName: houo17
-      cv: houo17cv
+      columnName: houo_18e
+      cv: houo_18c
       sig:
     - geomType: municipality
-      columnName: houo17
-      cv: houo17cv
+      columnName: houo_18e
+      cv: houo_18c
       sig:
   - id: ownermoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: houo17moe
-      cv: houo17cv
+      columnName: houo_18m
+      cv: houo_18c
       sig:
     - geomType: subregion
-      columnName: houo17moe
-      cv: houo17cv
+      columnName: houo_18m
+      cv: houo_18c
       sig:
     - geomType: county
-      columnName: houo17moe
-      cv: houo17cv
+      columnName: houo_18m
+      cv: houo_18c
       sig:
     - geomType: municipality
-      columnName: houo17moe
-      cv: houo17cv
+      columnName: houo_18m
+      cv: houo_18c
       sig:
   - id: renter
     title: Renter
     large: true
     values:
     - geomType: region
-      columnName: hour17
-      cv: hour17cv
+      columnName: hour_18e
+      cv: hour_18c
       sig:
     - geomType: subregion
-      columnName: hour17
-      cv: hour17cv
+      columnName: hour_18e
+      cv: hour_18c
       sig:
     - geomType: county
-      columnName: hour17
-      cv: hour17cv
+      columnName: hour_18e
+      cv: hour_18c
       sig:
     - geomType: municipality
-      columnName: hour17
-      cv: hour17cv
+      columnName: hour_18e
+      cv: hour_18c
       sig:
   - id: rentermoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: hour17moe
-      cv:
+      columnName: hour_18m
+      cv: hour_18c
       sig:
     - geomType: subregion
-      columnName: hour17moe
-      cv: hour17cv
+      columnName: hour_18m
+      cv: hour_18c
       sig:
     - geomType: county
-      columnName: hour17moe
-      cv: hour17cv
+      columnName: hour_18m
+      cv: hour_18c
       sig:
     - geomType: municipality
-      columnName: hour17moe
-      cv: hour17cv
+      columnName: hour_18m
+      cv: hour_18c
       sig:
   - id: vacant
     title: Vacant
     large: true
     values:
     - geomType: region
-      columnName: houv17
-      cv: houv17cv
+      columnName: houv_18e
+      cv: houv_18c
       sig:
     - geomType: subregion
-      columnName: houv17
-      cv: houv17cv
+      columnName: houv_18e
+      cv: houv_18c
       sig:
     - geomType: county
-      columnName: houv17
-      cv: houv17cv
+      columnName: houv_18e
+      cv: houv_18c
       sig:
     - geomType: municipality
-      columnName: houv17
-      cv: houv17cv
+      columnName: houv_18e
+      cv: houv_18c
       sig:
   - id: vacantmoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: houv17moe
-      cv: houv17cv
+      columnName: houv_18m
+      cv: houv_18c
       sig:
     - geomType: subregion
-      columnName: houv17moe
-      cv: houv17cv
+      columnName: houv_18m
+      cv: houv_18c
       sig:
     - geomType: county
-      columnName: houv17moe
-      cv: houv17cv
+      columnName: houv_18m
+      cv: houv_18c
       sig:
     - geomType: municipality
-      columnName: houv17moe
-      cv: houv17cv
+      columnName: houv_18m
+      cv: houv_18c
       sig:
 
   isComNycWork: false
@@ -154,7 +154,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units by Renter vs. Owner, 2017"
+    title: "Housing Units by Renter vs. Owner, 2018"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -172,10 +172,10 @@ map:
         circle-color:
         - match
         - - get
-          - random_value
-        - "own"
+          - category
+        - "houo_18e"
         - "#fff300"
-        - "rent"
+        - "hour_18e"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:
@@ -199,7 +199,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Housing Units by Renter vs. Owner, 2017"
+    title: "Housing Units by Renter vs. Owner, 2018"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -217,10 +217,10 @@ map:
         circle-color:
         - match
         - - get
-          - random_value
-        - "own"
+          - category
+        - "houo_18e"
         - "#fff300"
-        - "rent"
+        - "hour_18e"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:
@@ -244,7 +244,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Housing Units by Renter vs. Owner, 2013-2017 Avg"
+    title: "Housing Units by Renter vs. Owner, 2014-2018 Avg"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -262,10 +262,10 @@ map:
         circle-color:
         - match
         - - get
-          - random_value
-        - "own"
+          - category
+        - "houo_18e"
         - "#fff300"
-        - "rent"
+        - "hour_18e"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:

@@ -46,10 +46,10 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
     // If this is a Permit Map
     if (isPermitMap) {
       // hide the rows that are Long Island municipalities that do not report housing permit data
-      if (rowData.houpermits === 'N') {
+      if (rowData.ishouperm === false) {
         return '';
       }
-    } else if (rowData.islitown === 'Y') {
+    } else if (rowData.islitown === true) {
       // If it's not a Permit Map, always hide the Long Island town rows
       return '';
     }

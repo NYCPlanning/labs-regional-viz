@@ -21,13 +21,13 @@ map:
     type: cartovector
     source-layers:
     - id: units-structure-size-tract
-      sql: SELECT the_geom_webmercator, category FROM region_tract_size_dotden_v20190708 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_tract_housize_dotden_v202007 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: hou1
@@ -35,127 +35,127 @@ map:
     large: true
     values:
     - geomType: municipality
-      columnName: houun1
-      cv: houun1cv
+      columnName: hou1u_18e
+      cv: hou1u_18c
       sig:
     - geomType: county
-      columnName: houun1
-      cv: houun1cv
+      columnName: hou1u_18e
+      cv: hou1u_18c
       sig:
     - geomType: subregion
-      columnName: houun1
-      cv: houun1cv
+      columnName: hou1u_18e
+      cv: hou1u_18c
       sig:
     - geomType: region
-      columnName: houun1
-      cv: houun1cv
+      columnName: hou1u_18e
+      cv: hou1u_18c
       sig:
   - id: hou1moe
     title: MOE
     isMOE: true
     values:
     - geomType: municipality
-      columnName: houun1moe
-      cv: houun1cv
+      columnName: hou1u_18m
+      cv: hou1u_18c
       sig:
     - geomType: county
-      columnName: houun1moe
-      cv: houun1cv
+      columnName: hou1u_18m
+      cv: hou1u_18c
       sig:
     - geomType: subregion
-      columnName: houun1moe
-      cv: houun1cv
+      columnName: hou1u_18m
+      cv: hou1u_18c
       sig:
     - geomType: region
-      columnName: houun1moe
-      cv: houun1cv
+      columnName: hou1u_18m
+      cv: hou1u_18c
       sig:
   - id: hou24
     title: 2-4 Unit Bldg
     large: true
     values:
     - geomType: municipality
-      columnName: houun24
-      cv: houun24cv
+      columnName: hou24u_18e
+      cv: hou24u_18c
       sig:
     - geomType: county
-      columnName: houun24
-      cv: houun24cv
+      columnName: hou24u_18e
+      cv: hou24u_18c
       sig:
     - geomType: subregion
-      columnName: houun24
-      cv: houun24cv
+      columnName: hou24u_18e
+      cv: hou24u_18c
       sig:
     - geomType: region
-      columnName: houun24
-      cv: houun24cv
+      columnName: hou24u_18e
+      cv: hou24u_18c
       sig:
   - id: hou24moe
     title: MOE
     isMOE: true
     values:
     - geomType: municipality
-      columnName: houun24moe
-      cv: houun24cv
+      columnName: hou24u_18m
+      cv: hou24u_18c
       sig:
     - geomType: county
-      columnName: houun24moe
-      cv: houun24cv
+      columnName: hou24u_18m
+      cv: hou24u_18c
       sig:
     - geomType: subregion
-      columnName: houun24moe
-      cv: houun24cv
+      columnName: hou24u_18m
+      cv: hou24u_18c
       sig:
     - geomType: region
-      columnName: houun24moe
-      cv: houun24cv
+      columnName: hou24u_18m
+      cv: hou24u_18c
       sig:
   - id: hou5
     title: 5+ Unit Bldg
     large: true
     values:
     - geomType: municipality
-      columnName: houun5
-      cv: houun5cv
+      columnName: hou5u_18e
+      cv: hou5u_18c
       sig:
     - geomType: county
-      columnName: houun5
-      cv: houun5cv
+      columnName: hou5u_18e
+      cv: hou5u_18c
       sig:
     - geomType: subregion
-      columnName: houun5
-      cv: houun5cv
+      columnName: hou5u_18e
+      cv: hou5u_18c
       sig:
     - geomType: region
-      columnName: houun5
-      cv: houun5cv
+      columnName: hou5u_18e
+      cv: hou5u_18c
       sig:
   - id: hou5moe
     title: MOE
     isMOE: true
     values:
     - geomType: municipality
-      columnName: houun5moe
-      cv: houun5cv
+      columnName: hou5u_18m
+      cv: hou5u_18c
       sig:
     - geomType: county
-      columnName: houun5moe
-      cv: houun5cv
+      columnName: hou5u_18m
+      cv: hou5u_18c
       sig:
     - geomType: subregion
-      columnName: houun5moe
-      cv: houun5cv
+      columnName: hou5u_18m
+      cv: hou5u_18c
       sig:
     - geomType: region
-      columnName: houun5moe
-      cv: houun5cv
+      columnName: hou5u_18m
+      cv: hou5u_18c
       sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Housing Units by Building Size, 2017"
+    title: "Housing Units by Building Size, 2018"
     legend-title: "1 Dot = 25 Units"
     legend:
       - label: "1 Unit Building"
@@ -177,11 +177,11 @@ map:
         - match
         - - get
           - category
-        - "houun1"
+        - "hou1u_18e"
         - "#f8f700"
-        - "houun24"
+        - "hou24u_18e"
         - "#f58924"
-        - "houun5"
+        - "hou5u_18e"
         - "#80002a"
         - "#FFFFFF"
         circle-radius:
@@ -205,7 +205,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Housing Units by Building Size, 2017"
+    title: "Housing Units by Building Size, 2018"
     legend-title: "1 Dot = 25 Units"
     legend:
       - label: "1 Unit Building"
@@ -227,11 +227,11 @@ map:
         - match
         - - get
           - category
-        - "houun1"
+        - "hou1u_18e"
         - "#f8f700"
-        - "houun24"
+        - "hou24u_18e"
         - "#f58924"
-        - "houun5"
+        - "hou5u_18e"
         - "#80002a"
         - "#FFFFFF"
         circle-radius:
@@ -255,7 +255,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Housing Units by Building Size, 2013-2017 Avg"
+    title: "Housing Units by Building Size, 2014-2018 Avg"
     legend-title: "1 Dot = 25 Units"
     legend:
       - label: "1 Unit Building"
@@ -277,11 +277,11 @@ map:
         - match
         - - get
           - category
-        - "houun1"
+        - "hou1u_18e"
         - "#f8f700"
-        - "houun24"
+        - "hou24u_18e"
         - "#f58924"
-        - "houun5"
+        - "hou5u_18e"
         - "#80002a"
         - "#FFFFFF"
         circle-radius:

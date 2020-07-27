@@ -43,7 +43,7 @@ export default function getPopupSQL(lngLat = { lng: 0, lat: 0 }, mapConfig = { p
 
   if (getPopupValue('municipality')) {
     SQLArray.push(`
-      SELECT 'municipality' as geomtype, islitown, houpermits, null as iscommap, null as iscomnycwork, null as iscomnycres, namelsad as name ${getPopupValue('municipality')}
+      SELECT 'municipality' as geomtype, islitown, ishouperm, null as iscommap, null as iscomnycwork, null as iscomnycres, namelsad as name ${getPopupValue('municipality')}
       FROM region_municipality_v202007
       WHERE ST_Intersects(the_geom, ST_SetSRID(ST_Point(${lng}, ${lat}), 4326))
     `);
