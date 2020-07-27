@@ -4,7 +4,7 @@ slug: total-nycworkerchange
 category: Commuting
 categorySlug: commuting
 title: "One million more workers are employed in NYC since 2000, 82% of whom are NYC residents."
-menuTitle: "Change in NYC Workforce, 2000 to 2017"
+menuTitle: "Change in NYC Workforce, 2000 to 2018"
 content: |
   From 2000 to 2017, the city’s workforce grew by 1 million workers, representing a 28% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2017, at their residence location (i.e. NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by +29% (+841k), while the NYC in-commuter workforce grew by +24% (+186k). As a result, in-commuters represent a slightly smaller component of the NYC workforce today than in 2000.
 
@@ -24,43 +24,43 @@ map:
     type: cartovector
     source-layers:
     - id: total-nycworkerchange-subregion
-      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, cw_0018_e as value, name FROM region_subregion_v202007
     - id: total-nycworkerchange-county
-      sql: SELECT the_geom_webmercator, geoid, cwnyc0017 as value, name FROM region_county_v20190911 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, cw_0018_e as value, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
 
   popupColumns:
-  - id: cwnyc
+  - id: cw
     title: ΔResidents Working in NYC
     large: true
     values:
     - geomType: region
-      columnName: cwnyc0017
-      cv: cwnyc0017cv
+      columnName: cw_0018_e
+      cv: cw_0018_c
       sig:
     - geomType: subregion
-      columnName: cwnyc0017
-      cv: cwnyc0017cv
+      columnName: cw_0018_e
+      cv: cw_0018_c
       sig:
     - geomType: county
-      columnName: cwnyc0017
-      cv: cwnyc0017cv
+      columnName: cw_0018_e
+      cv: cw_0018_c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: cwnyc0017moe
-      cv: cwnyc0017cv
+      columnName: cw_0018_m
+      cv: cw_0018_c
       sig:
     - geomType: subregion
-      columnName: cwnyc0017moe
-      cv: cwnyc0017cv
+      columnName: cw_0018_m
+      cv: cw_0018_c
       sig:
     - geomType: county
-      columnName: cwnyc0017moe
-      cv: cwnyc0017cv
+      columnName: cw_0018_m
+      cv: cw_0018_c
       sig:
 
   isComNycWork: true
@@ -70,7 +70,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "ΔResidents Working in NYC, 2000-2017"
+    title: "ΔResidents Working in NYC, 2000-2018"
     legend: total-nycworkerchange-subregion
     layers:
     - id: total-nycworkerchange-subregion
@@ -93,7 +93,7 @@ map:
         - 50000
         - 500000
   - id: county
-    title: "ΔResidents Working in NYC, 2000-2017"
+    title: "ΔResidents Working in NYC, 2000-2018"
     legend: total-nycworkerchange-county
     layers:
     - id: total-nycworkerchange-county

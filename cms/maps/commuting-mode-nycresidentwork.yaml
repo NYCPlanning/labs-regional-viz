@@ -24,123 +24,123 @@ map:
     - id: mode-nycresidentwork-tract
       sql: SELECT the_geom_webmercator, category FROM region_commode_nycreswork_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county-iscomnycwork
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
 
 
   popupColumns:
-  - id: crnycar
+  - id: cr_car
     title: By Car
     large: true
     values:
     - geomType: county
-      columnName: crnycar
-      cv: crnycarcv
+      columnName: cr_car_e
+      cv: cr_car_c
       sig:
     - geomType: subregion
-      columnName: crnycar
-      cv: crnycarcv
+      columnName: cr_car_e
+      cv: cr_car_c
       sig:
     - geomType: region
-      columnName: crnycar
-      cv: crnycarcv
+      columnName: cr_car_e
+      cv: cr_car_c
       sig:
-  - id: crnybus
+  - id: cr_bus
     title: By Bus
     large: true
     values:
     - geomType: county
-      columnName: crnybus
-      cv: crnybuscv
+      columnName: cr_bus_e
+      cv: cr_bus_c
       sig:
     - geomType: subregion
-      columnName: crnybus
-      cv: crnybuscv
+      columnName: cr_bus_e
+      cv: cr_bus_c
       sig:
     - geomType: region
-      columnName: crnybus
-      cv: crnybuscv
+      columnName: cr_bus_e
+      cv: cr_bus_c
       sig:
-  - id: crnyrai
+  - id: cr_rai
     title: By Commuter Rail
     large: true
     values:
       - geomType: county
-        columnName: crnyrai
-        cv: crnyraicv
+        columnName: cr_rai_e
+        cv: cr_rai_c
         sig:
       - geomType: subregion
-        columnName: crnyrai
-        cv: crnyraicv
+        columnName: cr_rai_e
+        cv: cr_rai_c
         sig:
       - geomType: region
-        columnName: crnyrai
-        cv: crnyraicv
+        columnName: cr_rai_e
+        cv: cr_rai_c
         sig:
-  - id: crnysub
+  - id: cr_sub
     title: By Subway/PATH
     large: true
     values:
     - geomType: county
-      columnName: crnysub
-      cv: crnysubcv
+      columnName: cr_sub_e
+      cv: cr_sub_c
       sig:
     - geomType: subregion
-      columnName: crnysub
-      cv: crnysubcv
+      columnName: cr_sub_e
+      cv: cr_sub_c
       sig:
     - geomType: region
-      columnName: crnysub
-      cv: crnysubcv
+      columnName: cr_sub_e
+      cv: cr_sub_c
       sig:
-  - id: crnyfer
+  - id: cr_fer
     title: By Ferry
     large: true
     values:
     - geomType: county
-      columnName: crnyfer
-      cv: crnyfercv
+      columnName: cr_fer_e
+      cv: cr_fer_c
       sig:
     - geomType: subregion
-      columnName: crnyfer
-      cv: crnyfercv
+      columnName: cr_fer_e
+      cv: cr_fer_c
       sig:
     - geomType: region
-      columnName: crnyfer
-      cv: crnyfercv
+      columnName: cr_fer_e
+      cv: cr_fer_c
       sig:
-  - id: crnybik
+  - id: cr_bw
     title: Walk/Bike
     large: true
     values:
     - geomType: county
-      columnName: crnybik
-      cv: crnybikcv
+      columnName: cr_bw_e
+      cv: cr_bw_c
       sig:
     - geomType: subregion
-      columnName: crnybik
-      cv: crnybikcv
+      columnName: cr_bw_e
+      cv: cr_bw_c
       sig:
     - geomType: region
-      columnName: crnybik
-      cv: crnybikcv
+      columnName: cr_bw_e
+      cv: cr_bw_c
       sig:
-  - id: crnyoth
+  - id: cr_oth
     title: By Taxi/Other
     large: true
     values:
     - geomType: county
-      columnName: crnyoth
-      cv: crnyothcv
+      columnName: cr_oth_e
+      cv: cr_oth_c
       sig:
     - geomType: subregion
-      columnName: crnyoth
-      cv: crnyothcv
+      columnName: cr_oth_e
+      cv: cr_oth_c
       sig:
     - geomType: region
-      columnName: crnyoth
-      cv: crnyothcv
+      columnName: cr_oth_e
+      cv: cr_oth_c
       sig:
 
   isComNycRes: true
@@ -148,7 +148,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "NYC Residents' Primary Mode of Travel to Work, 2017"
+    title: "NYC Residents' Primary Mode of Travel to Work, 2018"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Car"
@@ -218,7 +218,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "NYC Residents' Primary Mode of Travel to Work, 2017"
+    title: "NYC Residents' Primary Mode of Travel to Work, 2018"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Car"

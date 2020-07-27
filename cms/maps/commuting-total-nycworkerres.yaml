@@ -28,107 +28,107 @@ map:
     - id: total-nycworkerres-tract
       sql: SELECT the_geom_webmercator, category FROM region_comtot_nycworkerres_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
   popupColumns:
 
-  - id: cwnyctot
+  - id: cw_nyc
     title: Total <br> NYC workers
     large: true
     values:
     - geomType: county
-      columnName: cwnyctot
-      cv: cwnyctotcv
+      columnName: cw_nyc_e
+      cv: cw_nyc_c
       sig:
     - geomType: subregion
-      columnName: cwnyctot
-      cv: cwnyctotcv
+      columnName: cw_nyc_e
+      cv: cw_nyc_c
       sig:
     - geomType: region
-      columnName: cwnyctot
-      cv: cwnyctotcv
+      columnName: cw_nyc_e
+      cv: cw_nyc_c
       sig:
-  - id: cwnycbx
+  - id: cw_bx
     title: Bronx<br>workers
     large: true
     values:
     - geomType: county
-      columnName: cwnycbx
-      cv: cwnycbxcv
+      columnName: cw_bx_e
+      cv: cw_bx_c
       sig:
     - geomType: subregion
-      columnName: cwnycbx
-      cv: cwnycbxcv
+      columnName: cw_bx_e
+      cv: cw_bx_c
       sig:
     - geomType: region
-      columnName: cwnycbx
-      cv: cwnycbxcv
+      columnName: cw_bx_e
+      cv: cw_bx_c
       sig:
-  - id: cwnycbk
+  - id: cw_bk
     title: Brooklyn<br>workers
     large: true
     values:
     - geomType: county
-      columnName: cwnycbk
-      cv: cwnycbkcv
+      columnName: cw_bk_e
+      cv: cw_bk_c
       sig:
     - geomType: subregion
-      columnName: cwnycbk
-      cv: cwnycbkcv
+      columnName: cw_bk_e
+      cv: cw_bk_c
       sig:
     - geomType: region
-      columnName: cwnycbk
-      cv: cwnycbkcv
+      columnName: cw_bk_e
+      cv: cw_bk_c
       sig:
-  - id: cwnycmn
+  - id: cw_mn
     title: Manhattan<br>workers
     large: true
     values:
       - geomType: county
-        columnName: cwnycmn
-        cv: cwnycmncv
+        columnName: cw_mn_e
+        cv: cw_mn_c
         sig:
       - geomType: subregion
-        columnName: cwnycmn
-        cv: cwnycmncv
+        columnName: cw_mn_e
+        cv: cw_mn_c
         sig:
       - geomType: region
-        columnName: cwnycmn
-        cv: cwnycmncv
+        columnName: cw_mn_e
+        cv: cw_mn_c
         sig:
-  - id: cwnycqn
+  - id: cw_qn
     title: Queens<br>workers
     large: true
     values:
     - geomType: county
-      columnName: cwnycqn
-      cv: cwnycqncv
+      columnName: cw_qn_e
+      cv: cw_qn_c
       sig:
     - geomType: subregion
-      columnName: cwnycqn
-      cv: cwnycqncv
+      columnName: cw_qn_e
+      cv: cw_qn_c
       sig:
     - geomType: region
-      columnName: cwnycqn
-      cv: cwnycqncv
+      columnName: cw_qn_e
+      cv: cw_qn_c
       sig:
-  - id: cwnycsi
+  - id: cw_si
     title: Staten Island<br>workers
     large: true
     values:
     - geomType: county
-      columnName: cwnycsi
-      cv: cwnycsicv
+      columnName: cw_si_e
+      cv: cw_si_c
       sig:
     - geomType: subregion
-      columnName: cwnycsi
-      cv: cwnycsicv
+      columnName: cw_si_e
+      cv: cw_si_c
       sig:
     - geomType: region
-      columnName: cwnycsi
-      cv: cwnycsicv
+      columnName: cw_si_e
+      cv: cw_si_c
       sig:
 
 
@@ -138,7 +138,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Where NYC Workers Live, 2017"
+    title: "Where NYC Workers Live, 2018"
     legend-title: "1 dot = 25 NYC Workers, at Residence (Commute Origin)"
     legend:
     - label: "Bronx Worker"
@@ -198,7 +198,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Where NYC Workers Live, 2017"
+    title: "Where NYC Workers Live, 2018"
     legend-title: "1 dot = 25 NYC Workers, at Residence"
     legend:
     - label: "Bronx Worker"

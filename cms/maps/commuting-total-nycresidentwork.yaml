@@ -24,106 +24,106 @@ map:
     - id: total-nycresidentwork-tract
       sql: SELECT the_geom_webmercator, category FROM region_comtot_nycreswork_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county-iscomnycwork
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
 
   popupColumns:
-  - id: crnyctot
+  - id: cr_nyc
     title: Workers <br> from <br> NYC Total
     large: true
     values:
     - geomType: county
-      columnName: crnyctot
-      cv: crnyctotcv
+      columnName: cr_nyc_e
+      cv: cr_nyc_c
       sig:
     - geomType: subregion
-      columnName: crnyctot
-      cv: crnyctotcv
+      columnName: cr_nyc_e
+      cv: cr_nyc_c
       sig:
     - geomType: region
-      columnName: crnyctot
-      cv: crnyctotcv
+      columnName: cr_nyc_e
+      cv: cr_nyc_c
       sig:
-  - id: crnycbx
+  - id: cr_bx
     title: Workers <br>from <br> the Bronx
     large: true
     values:
     - geomType: county
-      columnName: crnycbx
-      cv: crnycbxcv
+      columnName: cr_bx_e
+      cv: cr_bx_c
       sig:
     - geomType: subregion
-      columnName: crnycbx
-      cv: crnycbxcv
+      columnName: cr_bx_e
+      cv: cr_bx_c
       sig:
     - geomType: region
-      columnName: crnycbx
-      cv: crnycbxcv
+      columnName: cr_bx_e
+      cv: cr_bx_c
       sig:
-  - id: crnycbk
+  - id: cr_bk
     title: Workers <br>from <br> Brooklyn
     large: true
     values:
     - geomType: county
-      columnName: crnycbk
-      cv: crnycbkcv
+      columnName: cr_bk_e
+      cv: cr_bk_c
       sig:
     - geomType: subregion
-      columnName: crnycbk
-      cv: crnycbkcv
+      columnName: cr_bk_e
+      cv: cr_bk_c
       sig:
     - geomType: region
-      columnName: crnycbk
-      cv: crnycbkcv
+      columnName: cr_bk_e
+      cv: cr_bk_c
       sig:
-  - id: crnycmn
+  - id: cr_mn
     title: Workers <br>from <br> Manhattan
     large: true
     values:
       - geomType: county
-        columnName: crnycmn
-        cv: crnycmncv
+        columnName: cr_mn_e
+        cv: cr_mn_c
         sig:
       - geomType: subregion
-        columnName: crnycmn
-        cv: crnycmncv
+        columnName: cr_mn_e
+        cv: cr_mn_c
         sig:
       - geomType: region
-        columnName: crnycmn
-        cv: crnycmncv
+        columnName: cr_mn_e
+        cv: cr_mn_c
         sig:
-  - id: crnycqn
+  - id: cr_qn
     title: Workers <br>from <br> Queens
     large: true
     values:
     - geomType: county
-      columnName: crnycqn
-      cv: crnycqncv
+      columnName: cr_qn_e
+      cv: cr_qn_c
       sig:
     - geomType: subregion
-      columnName: crnycqn
-      cv: crnycqncv
+      columnName: cr_qn_e
+      cv: cr_qn_c
       sig:
     - geomType: region
-      columnName: crnycqn
-      cv: crnycqncv
+      columnName: cr_qn_e
+      cv: cr_qn_c
       sig:
-  - id: crnycsi
+  - id: cr_si
     title: Workers <br> from <br> Staten Island
     large: true
     values:
     - geomType: county
-      columnName: crnycsi
-      cv: crnycsicv
+      columnName: cr_si_e
+      cv: cr_si_c
       sig:
     - geomType: subregion
-      columnName: crnycsi
-      cv: crnycsicv
+      columnName: cr_si_e
+      cv: cr_si_c
       sig:
     - geomType: region
-      columnName: crnycsi
-      cv: crnycsicv
+      columnName: cr_si_e
+      cv: cr_si_c
       sig:
 
   isComNycRes: true
@@ -131,7 +131,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Where NYC Residents Work, 2017"
+    title: "Where NYC Residents Work, 2018"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Bronx Resident"
@@ -191,7 +191,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Where NYC Residents Work, 2017"
+    title: "Where NYC Residents Work, 2018"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Bronx Resident"
