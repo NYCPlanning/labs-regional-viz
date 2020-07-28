@@ -45,7 +45,7 @@ map:
       sig:
 
   isPercent: false
-  #isMoney: true
+  isDollar: true
 
   layerGroups:
   - id: subregion

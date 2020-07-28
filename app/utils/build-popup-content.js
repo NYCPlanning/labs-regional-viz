@@ -1,6 +1,6 @@
 import numeral from 'numeral';
 
-export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isChangeMeasurement) {
+export default function buildPopupContent(data, geographyLevel, popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isDollar, isChangeMeasurement) {
   const reliabilityDisclaimer = '<p class="popup-footer">Grayed values are not statistically reliable.</p>';
   let popupFooter = '';
 
@@ -18,6 +18,7 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
         formattedValue = numeral(value).format('0,0');
         if (value >= 10000) formattedValue = numeral(value).format('0.0a');
         if (isPercent) formattedValue = numeral(value).format('0,0%');
+        if (isDollar) formattedValue = `$${numeral(value).format('0,0')}`;
         if (isRatio) formattedValue = numeral(value).format('0.00');
         if (isChangeMeasurement) formattedValue = numeral(value).format('+0,0');
         if (isMOE) formattedValue = `±${numeral(value).format('0,0a')}`;
