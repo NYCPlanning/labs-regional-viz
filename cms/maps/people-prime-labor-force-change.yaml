@@ -4,7 +4,7 @@ slug: prime-labor-force-change
 category: People
 categorySlug: people
 title: "Growth of the region’s labor force age 25-54 has shifted toward the center."
-menuTitle: Age 25-54 Labor Force Change, 2010 to 2017
+menuTitle: Age 25-54 Labor Force Change, 2010 to 2018
 content: |
   Since 2010, the region has gained +40k workers between the ages of 25 and 54 – a rate of +0.5% – at par with the national average of +0.4% and one-tenth of the region’s growth rate from 2000 to 2010. Nationally, this cohort grew more slowly as the larger baby-boomer population aged and was replaced by younger, smaller population cohorts.
 
@@ -22,54 +22,54 @@ map:
     type: cartovector
     source-layers:
     - id: prime-labor-force-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, lfpw1017 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, lfpw_1018e as value, name FROM region_subregion_v202007
     - id: prime-labor-force-change-county
-      sql: SELECT the_geom_webmercator, geoid, lfpw1017 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, lfpw_1018e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: prime-labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lfp1017 as value FROM region_municipality_lfpw1017_dotden_v20190708 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lfpw_1018e as value FROM region_muni_lfpwch_dotden_v202007 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
-  - id: lfprime
+  - id: lfpw
     title: Δ People Age 25-54<br>in Labor Force
     large: true
     values:
     - geomType: region
-      columnName: lfpw1017
-      cv: lfpw1017cv
+      columnName: lfpw_1018e
+      cv: lfpw_1018c
       sig:
     - geomType: subregion
-      columnName: lfpw1017
-      cv: lfpw1017cv
+      columnName: lfpw_1018e
+      cv: lfpw_1018c
       sig:
     - geomType: county
-      columnName: lfpw1017
-      cv: lfpw1017cv
+      columnName: lfpw_1018e
+      cv: lfpw_1018c
       sig:
     - geomType: municipality
-      columnName: lfpw1017
-      cv: lfpw1017cv
+      columnName: lfpw_1018e
+      cv: lfpw_1018c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: lfpw1017moe
-      cv: lfpw1017cv
+      columnName: lfpw_1018m
+      cv: lfpw_1018c
       sig:
     - geomType: subregion
-      columnName: lfpw1017moe
-      cv: lfpw1017cv
+      columnName: lfpw_1018m
+      cv: lfpw_1018c
       sig:
     - geomType: county
-      columnName: lfpw1017moe
-      cv: lfpw1017cv
+      columnName: lfpw_1018m
+      cv: lfpw_1018c
       sig:
     - geomType: municipality
-      columnName: lfpw1017moe
-      cv: lfpw1017cv
+      columnName: lfpw_1018m
+      cv: lfpw_1018c
       sig:
 
   isPercent: false
@@ -77,7 +77,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
     legend: prime-labor-force-change-subregion
     layers:
     - id: prime-labor-force-change-subregion
@@ -98,7 +98,7 @@ map:
         - 5000
         - 150000
   - id: county
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
     legend: prime-labor-force-change-county
     layers:
     - id: prime-labor-force-change-county
@@ -121,7 +121,7 @@ map:
         - 15000
         - 75000
   - id: municipality
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2017"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"

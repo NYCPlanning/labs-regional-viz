@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: foreign-born-subregion
-      sql: SELECT the_geom_webmercator, geoid, popfbp17 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_subregion_v202007
     - id: foreign-born-county
-      sql: SELECT the_geom_webmercator, geoid, popfbp17 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: foreign-born-municipality
-      sql: SELECT the_geom_webmercator, geoid, popfbp17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: forborn
@@ -31,49 +31,47 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popfbp17
-      cv: popfbp17cv
+      columnName: popfbp_18e
+      cv: popfbp_18c
       sig:
     - geomType: subregion
-      columnName: popfbp17
-      cv: popfbp17cv
+      columnName: popfbp_18e
+      cv: popfbp_18c
       sig:
     - geomType: county
-      columnName: popfbp17
-      cv: popfbp17cv
+      columnName: popfbp_18e
+      cv: popfbp_18c
       sig:
     - geomType: municipality
-      columnName: popfbp17
-      cv: popfbp17cv
+      columnName: popfbp_18e
+      cv: popfbp_18c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: popfbp17moe
-      cv: popfbp17cv
+      columnName: popfbp_18m
+      cv: popfbp_18c
       sig:
     - geomType: subregion
-      columnName: popfbp17moe
-      cv: popfbp17cv
+      columnName: popfbp_18m
+      cv: popfbp_18c
       sig:
     - geomType: county
-      columnName: popfbp17moe
-      cv: popfbp17cv
+      columnName: popfbp_18m
+      cv: popfbp_18c
       sig:
     - geomType: municipality
-      columnName: popfbp17moe
-      cv: popfbp17cv
+      columnName: popfbp_18m
+      cv: popfbp_18c
       sig:
 
   isPercent: true
-  isComNYCWork: true
-  isComNycRes: false
 
   layerGroups:
   - id: subregion
-    title: "Foreign-born as % of Population, 2013-2017 Avg"
+    title: "Foreign-born as % of Population, 2014-2018 Avg"
     layers:
     - id: foreign-born-subregion
       type: choropleth
@@ -89,7 +87,7 @@ map:
         - 0.15
         - 0.3
   - id: county
-    title: "Foreign-born as % of Population, 2013-2017 Avg"
+    title: "Foreign-born as % of Population, 2014-2018 Avg"
     layers:
     - id: foreign-born-county
       type: choropleth
@@ -105,7 +103,7 @@ map:
         - 0.15
         - 0.3
   - id: municipality
-    title: "Foreign-born as % of Population, 2013-2017 Avg"
+    title: "Foreign-born as % of Population, 2014-2018 Avg"
     legend: foreign-born-municipality
     layers:
     - id: foreign-born-municipality

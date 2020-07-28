@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, pop_19e as value, name FROM region_subregion_v202007
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, geoid, pop18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop_19e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, geoid, pop17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, pop_18e as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: pop
@@ -31,20 +31,20 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: pop18
+      columnName: pop_19e
       cv:
       sig:
     - geomType: subregion
-      columnName: pop18
+      columnName: pop_19e
       cv:
       sig:
     - geomType: county
-      columnName: pop18
+      columnName: pop_19e
       cv:
       sig:
     - geomType: municipality
-      columnName: pop17
-      cv: pop17cv
+      columnName: pop_18e
+      cv: pop_18c
       sig:
   - id: moe
     title: MOE
@@ -63,15 +63,15 @@ map:
       cv:
       sig:
     - geomType: municipality
-      columnName: pop17moe
-      cv: pop17cv
+      columnName: pop_18m
+      cv: pop_18e
       sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Total Population, 2018"
+    title: "Total Population, 2019"
     legend: total-population-subregion
     layers:
     - id: total-population-subregion
@@ -92,7 +92,7 @@ map:
         - 5000000
         - 7500000
   - id: county
-    title: "Total Population, 2018"
+    title: "Total Population, 2019"
     legend: total-population-county
     layers:
     - id: total-population-county
@@ -113,7 +113,7 @@ map:
         - 750000
         - 1500000
   - id: municipality
-    title: "Total Population, 2013-2017 Avg"
+    title: "Total Population, 2014-2018 Avg"
     legend: total-population-municipality
     layers:
     - id: total-population-municipality

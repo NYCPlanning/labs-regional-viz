@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: population-density-subregion
-      sql: SELECT the_geom_webmercator, geoid, popden18 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, popd_19e as value, name FROM region_subregion_v202007
     - id: population-density-county
-      sql: SELECT the_geom_webmercator, geoid, popden18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popd_19e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: population-density-municipality
-      sql: SELECT the_geom_webmercator, geoid, popden17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, popd_18e as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: popdens
@@ -31,27 +31,27 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popden18
+      columnName: popd_19e
       cv:
       sig:
     - geomType: subregion
-      columnName: popden18
+      columnName: popd_19e
       cv:
       sig:
     - geomType: county
-      columnName: popden18
+      columnName: popd_19e
       cv:
       sig:
     - geomType: municipality
-      columnName: popden17
-      cv: pop17cv
+      columnName: popd_18e
+      cv:
       sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Population Density (Pop/sq. mile), 2018"
+    title: "Population Density (Pop/sq. mile), 2019"
     legend: population-density-subregion
     layers:
     - id: population-density-subregion
@@ -72,7 +72,7 @@ map:
         - 2000
         - 3000
   - id: county
-    title: "Population Density (Pop/sq. mile), 2018"
+    title: "Population Density (Pop/sq. mile), 2019"
     legend: population-density-county
     layers:
     - id: population-density-county
@@ -93,7 +93,7 @@ map:
         - 5000
         - 10000
   - id: municipality
-    title: "Population Density (Pop/sq. mile), 2013-2017 Avg"
+    title: "Population Density (Pop/sq. mile), 2014-2018 Avg"
     legend: population-density-municipality
     layers:
     - id: population-density-municipality
