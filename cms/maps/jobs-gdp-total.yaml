@@ -1,10 +1,10 @@
 # Jobs
 # ----------
-slug: total-employment
+slug: gdp-total
 category: Jobs
 categorySlug: jobs
 title: "NYC is the hub of the largest metropolitan economy in the nation."
-menuTitle: "Total Employment"
+menuTitle: "Total Gross Domestic Product"
 content: |
   In 2018, our region employed 10.6 million, representing 7% of total U.S. jobs, and generated $815 billion in annual worker wages, representing 10% of total U.S. wages.
 
@@ -15,52 +15,47 @@ source: |
   Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. See [About](/about/#jobs) for more information about employment.
 
 map:
-  defaultGeographyLevel: municipality
+  defaultGeographyLevel: county
 
   sources:
-  - id: total-employment
+  - id: gdp-total
     type: cartovector
     source-layers:
-    - id: total-employment-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_subregion_v20190911
-    - id: total-employment-county
-      sql: SELECT the_geom_webmercator, geoid, emtot18 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
-    - id: total-employment-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+    - id: gdp-total-subregion
+      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_subregion_v202007
+    - id: gdp-total-county
+      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
-  - id: emptot
+  - id: gdp_18
     title: Total
     large: true
     values:
     - geomType: region
-      columnName: emtot18
+      columnName: gdp_18
       cv:
       sig:
     - geomType: subregion
-      columnName: emtot18
+      columnName: gdp_18
       cv:
       sig:
     - geomType: county
-      columnName: emtot18
-      cv:
-      sig:
-    - geomType: municipality
-      columnName: emtot17
+      columnName: gdp_18
       cv:
       sig:
 
   isPercent: false
+  #isMoney: true
 
   layerGroups:
   - id: subregion
-    title: "Total Employment, 2018"
-    legend: total-employment-subregion
+    title: "Total Gross Domestic Product ($billions 2018-dollars)"
+    legend: gdp-total-subregion
     layers:
-    - id: total-employment-subregion
+    - id: gdp-total-subregion
       type: choropleth
-      source: total-employment
-      source-layer: total-employment-subregion
+      source: gdp-total
+      source-layer: gdp-total-subregion
       paintConfig:
         opacity: 0.6
         colors:
@@ -70,18 +65,18 @@ map:
         - "#127723"
         - "#193f1f"
         breaks:
-        - 500000
-        - 750000
-        - 1000000
-        - 2500000
+        - 50
+        - 150
+        - 300
+        - 500
   - id: county
-    title: "Total Employment, 2018"
-    legend: total-employment-county
+    title: "Total Gross Domestic Product ($billions 2018-dollars)"
+    legend: gdp-total-county
     layers:
-    - id: total-employment-county
+    - id: gdp-total-county
       type: choropleth
-      source: total-employment
-      source-layer: total-employment-county
+      source: gdp-total
+      source-layer: gdp-total-county
       paintConfig:
         opacity: 0.8
         colors:
@@ -91,28 +86,7 @@ map:
         - "#127723"
         - "#193f1f"
         breaks:
-        - 100000
-        - 250000
-        - 500000
-        - 750000
-  - id: municipality
-    title: "Total Employment, 2017"
-    legend: total-employment-municipality
-    layers:
-    - id: total-employment-municipality
-      type: choropleth
-      source: total-employment
-      source-layer: total-employment-municipality
-      paintConfig:
-        opacity: 0.7
-        colors:
-        - "#ccf5df"
-        - "#89dfa4"
-        - "#64b678"
-        - "#127723"
-        - "#193f1f"
-        breaks:
-        - 5000
-        - 10000
-        - 25000
-        - 50000
+        - 10
+        - 25
+        - 50
+        - 100

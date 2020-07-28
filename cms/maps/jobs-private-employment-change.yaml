@@ -4,7 +4,7 @@ slug: private-employment-change
 category: Jobs
 categorySlug: jobs
 title: "NYC accounts for the majority of the region’s post-recession job growth."
-menuTitle: "Private Sector Employment Change, 2008 to 2018"
+menuTitle: "Private Sector Employment Change, 2008 to 2019"
 content: |
   The NYC metro region gained 924k private sector jobs since the Great Recession, increasing from 8.22 million in 2008 to 9.15 million in 2018. NYC accounted for 73% of private sector job growth, adding 675k jobs and growing at an average rate of 2.2% per year. NYC is now experiencing its highest levels of recorded employment, while many areas of the region are just now returning to pre-recession levels of employment. As a whole, the region’s post-recession rate of employment growth (+1.1% per year) was at pace with the national average (+1.0% per year), but slower than other large metropolitan regions such as San Francisco, Seattle, and Dallas.
 
@@ -23,9 +23,9 @@ map:
     type: cartovector
     source-layers:
     - id: private-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, empr_0819 as value, name FROM region_subregion_v202007
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, empr_0819 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr
@@ -33,15 +33,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: empr0818
+      columnName: empr_0819
       cv:
       sig:
     - geomType: subregion
-      columnName: empr0818
+      columnName: empr_0819
       cv:
       sig:
     - geomType: county
-      columnName: empr0818
+      columnName: empr_0819
       cv:
       sig:
 
@@ -50,7 +50,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Sector Employment Change, 2008 to 2018"
+    title: "Private Sector Employment Change, 2008 to 2019"
     legend: private-employment-change-subregion
     layers:
     - id: private-employment-change-subregion
@@ -73,7 +73,7 @@ map:
         - 100000
         - 300000
   - id: county
-    title: "Private Sector Employment Change, 2008 to 2018"
+    title: "Private Sector Employment Change, 2008 to 2019"
     legend: private-employment-change-county
     layers:
     - id: private-employment-change-county

@@ -53,10 +53,13 @@ orderings:
       transitionPrompt: NYC is the hub of the largest U.S. metro economy...
 
     # Jobs
-    - id: total-employment
+    - id: employment-total
       isLinearNarrative: true
       transitionPrompt: The region has a robust and diverse job base...
     - id: employment-by-sector
+      isLinearNarrative: true
+      transitionPrompt: NYC generates half of the region's economic output...
+    - id: gdp-total
       isLinearNarrative: true
       transitionPrompt: Half of the region's office jobs are in NYC...
     - id: office-employment
@@ -72,6 +75,9 @@ orderings:
       isLinearNarrative: true
       transitionPrompt: NYC captured most of the region's job growth...
     - id: private-employment-change
+      isLinearNarrative: true
+      transitionPrompt: NYC office job growth offset regional losses...
+    - id: gdp-pctchange
       isLinearNarrative: true
       transitionPrompt: NYC office job growth offset regional losses...
     - id: office-employment-change

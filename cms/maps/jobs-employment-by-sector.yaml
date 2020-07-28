@@ -29,11 +29,11 @@ map:
     - id: employment-by-sector-tract
       sql: SELECT the_geom_webmercator, category FROM region_tract_employment_dotden_v20190911 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: emoff
@@ -45,15 +45,15 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
     - geomType: region
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
   - id: emins
@@ -65,15 +65,15 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emins18
+      columnName: emins_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emins18
+      columnName: emins_19
       cv:
       sig:
     - geomType: region
-      columnName: emins18
+      columnName: emins_19
       cv:
       sig:
   - id: emind
@@ -85,15 +85,15 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emind18
+      columnName: emind_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emind18
+      columnName: emind_19
       cv:
       sig:
     - geomType: region
-      columnName: emind18
+      columnName: emind_19
       cv:
       sig:
   - id: emloc
@@ -105,15 +105,15 @@ map:
       cv:
       sig:
     - geomType: county
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
     - geomType: region
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
 
@@ -122,7 +122,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Sector Jobs by Macro Industry, 2018"
+    title: "Private Sector Jobs by Macro Industry, 2019"
     legend-title: "1 dot = 25 jobs"
     legend:
     - label: "Office"
@@ -177,7 +177,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Private Sector Jobs by Macro Industry, 2018"
+    title: "Private Sector Jobs by Macro Industry, 2019"
     legend-title: "1 dot = 25 jobs"
     legend:
     - label: "Office"

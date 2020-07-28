@@ -4,7 +4,7 @@ slug: industrial-employment-change
 category: Jobs
 categorySlug: jobs
 title: "Most of the region lost Industrial jobs, a continuation of pre-recession trends."
-menuTitle: "Industrial Employment Change, 2008 to 2018"
+menuTitle: "Industrial Employment Change, 2008 to 2019"
 content: |
           From 2008 to 2018, the NYC metro region lost 61k Industrial jobs (-0.3% per year), with the NYC and Outer New Jersey subregions registering modest Industrial employment gains. The Inner New Jersey subregion accounted for nearly half of metro industrial job losses, and Connecticut accounted for about one-quarter of losses. Mirroring national trends of a declining Industrial economy, the post-recession period reflects a continued trend within the NYC metro region, which lost 241k Industrial jobs from 2000 to 2008 (-1.5% per year). Industrial losses were driven mostly by declines in manufacturing employment, representing about 80% of industrial job losses, followed by job losses in the wholesale trade sectors. Slight gains in construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering Industrial job gains. The Bronx, Brooklyn, Queens, Staten Island, Middlesex and Mercer counties, NJ, are among the growing counties, areas that house port infrastructure or track major road networks (e.g., the I-95 corridor).
 source: |
@@ -18,9 +18,9 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind0818 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, emind_0819 as value, name FROM region_subregion_v202007
     - id: industrial-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emind0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emind_0819 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
   - id: empr
@@ -28,15 +28,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emind0818
+      columnName: emind_0819
       cv:
       sig:
     - geomType: subregion
-      columnName: emind0818
+      columnName: emind_0819
       cv:
       sig:
     - geomType: county
-      columnName: emind0818
+      columnName: emind_0819
       cv:
       sig:
 
@@ -45,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Industrial Employment Change, 2008 to 2018"
+    title: "Industrial Employment Change, 2008 to 2019"
     legend: industrial-employment-change-subregion
     layers:
     - id: industrial-employment-change-subregion
@@ -68,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Industrial Employment Change, 2008 to 2018"
+    title: "Industrial Employment Change, 2008 to 2019"
     legend: industrial-employment-change-county
     layers:
     - id: industrial-employment-change-county

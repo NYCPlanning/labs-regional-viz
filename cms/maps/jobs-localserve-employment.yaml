@@ -20,11 +20,11 @@ map:
     - id: localserve-employment-tract
       sql: SELECT the_geom_webmercator, emloc17 as value FROM region_tract_emloc_dotden_v20190911
     - id: localserve-employment-subregion
-      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, emser_19 as value FROM region_subregion_v202007
     - id: localserve-employment-county
-      sql: SELECT the_geom_webmercator, emloc18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emser_19 as value FROM region_county_v202007 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: emser
@@ -32,15 +32,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
     - geomType: county
-      columnName: emloc18
+      columnName: emser_19
       cv:
       sig:
     - geomType: municipality
@@ -52,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Local Services Jobs, 2018"
+    title: "Local Services Jobs, 2019"
     legend: localserve-employment-subregion
     layers:
     - id: localserve-employment-subregion
@@ -73,7 +73,7 @@ map:
         - 400000
         - 750000
   - id: county
-    title: "Local Services Jobs, 2018"
+    title: "Local Services Jobs, 2019"
     legend: localserve-employment-county
     layers:
     - id: localserve-employment-county

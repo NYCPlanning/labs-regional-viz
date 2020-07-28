@@ -4,7 +4,7 @@ slug: localserve-employment-change
 category: Jobs
 categorySlug: jobs
 title: "The region added 371k Local Services jobs post-recession."
-menuTitle: "Local Services Employment Change, 2008 to 2018"
+menuTitle: "Local Services Employment Change, 2008 to 2019"
 content: |
           Local Services employment (retail, leisure, hospitality, and other local services sectors) grew in nearly every county, representing an increase of 371k jobs and a regional growth of +1.7% per year since 2008. NYC accounted for nearly two-thirds of the region's Local Services employment growth, with Manhattan gaining the most jobs (+116k), followed by Brooklyn (+61k, growing fastest at +5.5% per year) and Queens (+37k, +3.2% per year). Growth of this sector generally occurred in areas that gained population, however, areas like Suffolk County, LI registered retail, leisure and hospitality job gains at a rate that exceeded population change post-Recession, +12% vs. -1% total, respectively. Within the Local Services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with no significant change in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding 49k retail jobs since 2008, with the largest share of retail growth experienced in Brooklyn (+20k jobs), followed by Manhattan, Queens, the Bronx, and Hudson County, NJ. Retail in those areas grew more than 5 times the rate of the national average.
 source: |
@@ -18,9 +18,9 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emloc0818 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, emser_0819 as value, name FROM region_subregion_v202007
     - id: localserve-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emloc0818 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emser_0819 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
   - id: emloc
@@ -28,15 +28,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emloc0818
+      columnName: emser_0819
       cv:
       sig:
     - geomType: subregion
-      columnName: emloc0818
+      columnName: emser_0819
       cv:
       sig:
     - geomType: county
-      columnName: emloc0818
+      columnName: emser_0819
       cv:
       sig:
 
@@ -45,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Local Services Employment Change, 2008 to 2018"
+    title: "Local Services Employment Change, 2008 to 2019"
     legend: localserve-employment-change-subregion
     layers:
     - id: localserve-employment-change-subregion
@@ -68,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Local Services Employment Change, 2008 to 2018"
+    title: "Local Services Employment Change, 2008 to 2019"
     legend: localserve-employment-change-county
     layers:
     - id: localserve-employment-change-county
