@@ -28,7 +28,7 @@ map:
 
   popupColumns:
   - id: gdp_18
-    title: Total
+    title: '2018 GDP $billions'
     large: true
     values:
     - geomType: region
