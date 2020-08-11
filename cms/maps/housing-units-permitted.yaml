@@ -6,11 +6,11 @@ categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
 menuTitle: "Housing Production (Units Permitted), 2010 to 2019"
 content: |
-  Nearly 438k new housing units were issued permits in the region from 2010 to 2018 – more than of the total housing stock of the City of San Francisco in an eight-year period. While in absolute terms a large number, these housing permits represent the equivalent of a 5% increase over the region’s existing housing supply. Permit figures may include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
+  Nearly 508k new housing units were issued permits in the region from 2010 to 2019 – more than of the total housing stock of the City of San Francisco in a nine-year period. While in absolute terms a large number, these housing permits represent the equivalent of a +6% increase over the region’s existing housing supply. Permit figures may include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
-  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 44% of new housing (191k units), and the Inner NJ subregion, which accounted for 30% (130k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of the population (respectively).
+  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 43% of new housing (220k units), and the Inner NJ subregion, which accounted for 30% (154k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of the population (respectively).
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2018 Annual; NYC Department of City Planning, Division of Housing, Economic, and Infrastructure Planning (NYC only). Please see [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2019 Annual; NYC Department of City Planning, Division of Housing & Economic Development (NYC only). Please see [About](/about/#housing) for more information about housing permits.
 
 map:
   defaultGeographyLevel: county
