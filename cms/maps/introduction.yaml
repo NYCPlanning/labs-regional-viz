@@ -5,23 +5,23 @@ title:
 content: |
   <p class="lead">The <strong><a href="http://www.nyc.gov/planning">NYC Department of City Planning</a> Metro Region Explorer</strong> enables you to explore population, housing, and employment trends within the tri-state New York City Metropolitan Region.</p>
 
-  NYC is the center of a large region that spans across city, county and state boundaries. Though we are governed independently, many of our planning challenges are interconnected, and our City’s future is intertwined with the future of our larger region. This tool was developed as part of NYC Planning’s ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
+  NYC is the center of a large metropolitan area that spans across city, county, and state boundaries. Though we are governed independently, many of our planning challenges are interconnected, and our City’s future is intertwined with the future of our larger region. This tool was developed as part of NYC Planning’s ongoing commitment to helping the public access and understand information about planning issues affecting our city and region.
+
+  Using data from a range of publicly available sources, the Metro Region Explorer allows you to view socioeconomic characteristics across 7 subregions, 31 counties, and nearly 900 cities, towns, villages, and hamlets ([more about the data and geographies](/about)). Learn more by clicking through below or by navigating directly to maps by topic area.
+
+  NYC Metro Explorer was last updated with new data on <b>August 11, 2020</b>. Because of the time lag in many sources, the information shared on the Metro Region Explorer currently reflects regional trends preceding COVID-19 and its ongoing impact on regional demographic, economic, and housing patterns.
 
   <strong>Top Trends and Key Insights:</strong>
   - [Population growth has shifted towards the region’s center.](/people/population-change)
   - [Growing areas are among the most diverse.](/people/foreign-born)
-  - [Young labor force (age 25 to 54) grew the most at the region’s center.](/people/prime-labor-force-gain)
+  - [Young labor force (age 25 to 54) grew the most at the region’s center.](/people/prime-labor-force-change)
   - [The region's rental housing is concentrated in NYC.](/housing/renter-owner)
   - [NYC and NJ are building the majority of new housing in the region.](/housing/units-permitted-size)
   - [NYC is the hub of the largest U.S. metro economy, with more jobs than employed residents.](/jobs/employment-by-sector)
   - [There are 4.7 million people working in NYC, 20% of whom commute from elsewhere in the region.](/commuting/commuting-total-nycworkerres)
   - [Post-recession, NYC experienced the majority of regional job gains.](/jobs/private-employment-change)
   - [NYC has gained 1 million workers since 2000, most of whom are NYC residents.](/commuting/commuting-total-nycworkerchange)
-  - [The patterns of employment growth and housing development have changed the jobs-housing balance throughout the region.](/balance/housjobs0018)
-
-  Using data from a range of publicly available sources, the Metro Region Explorer allows you to view socioeconomic characteristics across 7 subregions, 31 counties, and nearly 900 municipalities ([more about the data and geographies](/about)). Learn more by clicking through below or by navigating directly to maps by topic area.
-
-  NYC Metro Explorer was last updated with new data on <b>August 3, 2019</b>.
+  - [The patterns of employment growth and housing development have changed the jobs-housing balance throughout the region.](/balance/housjobs0019)
 
 source: The tri-state geography shown, representing New York City and surrounding 26 counties in portions of New York, New Jersey and Connecticut, is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed.
 
@@ -33,11 +33,11 @@ map:
       type: cartovector
       source-layers:
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v20190911
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v202007
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v20190911 WHERE iscommap = FALSE
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v202007 WHERE iscommap = FALSE
       - id: empty-polygons-municipality
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v20190911 WHERE islitown = 'N'
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   layerGroups:
   - id: subregion
@@ -56,7 +56,7 @@ map:
           type: "categorical"
           stops:
           - - "34-0"
-            - "#00c749"
+            - "#75ff9e"
           - - "34-1"
             - "#00fa5c"
           - - "34-2"

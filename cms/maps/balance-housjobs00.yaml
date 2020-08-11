@@ -1,6 +1,6 @@
 # Balance
 # ----------
-slug: balance-housjobs00
+slug: housjobs00
 category: Balance
 categorySlug: balance
 title: "Housing/jobs balance in 2000"
@@ -28,12 +28,12 @@ map:
   defaultGeographyLevel: county
 
   sources:
-  - id: balance-housjobs00
+  - id: housjobs00
     type: cartovector
     source-layers:
-    - id: balance-housjobs00-subregion
+    - id: housjobs00-subregion
       sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v202007
-    - id: balance-housjobs00-county
+    - id: housjobs00-county
       sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
@@ -63,12 +63,12 @@ map:
   layerGroups:
   - id: subregion
     title: "Housing Units/Total Employment 2000"
-    legend: balance-housjobs00-subregion
+    legend: housjobs00-subregion
     layers:
-    - id: balance-housjobs00-subregion
+    - id: housjobs00-subregion
       type: choropleth
-      source: balance-housjobs00
-      source-layer: balance-housjobs00-subregion
+      source: housjobs00
+      source-layer: housjobs00-subregion
       paintConfig:
         opacity: 0.6
         colors:
@@ -84,12 +84,12 @@ map:
         - 1.0
   - id: county
     title: "Housing Units/Total Employment 2000"
-    legend: balance-housjobs00-county
+    legend: housjobs00-county
     layers:
-    - id: balance-housjobs00-county
+    - id: housjobs00-county
       type: choropleth
-      source: balance-housjobs00
-      source-layer: balance-housjobs00-county
+      source: housjobs00
+      source-layer: housjobs00-county
       paintConfig:
         opacity: 0.6
         colors:

@@ -1,6 +1,6 @@
 # Balance
 # ----------
-slug: balance-housjobs19
+slug: housjobs19
 category: Balance
 categorySlug: balance
 title: "Housing/jobs balance in 2019"
@@ -27,12 +27,12 @@ map:
   defaultGeographyLevel: county
 
   sources:
-  - id: balance-housjobs19
+  - id: housjobs19
     type: cartovector
     source-layers:
-    - id: balance-housjobs19-subregion
+    - id: housjobs19-subregion
       sql: SELECT the_geom_webmercator, geoid, bal_19 as value, name FROM region_subregion_v202007
-    - id: balance-housjobs19-county
+    - id: housjobs19-county
       sql: SELECT the_geom_webmercator, geoid, bal_19 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
@@ -60,12 +60,12 @@ map:
   layerGroups:
   - id: subregion
     title: "Housing Units/Total Employment 2019"
-    legend: balance-housjobs19-subregion
+    legend: housjobs19-subregion
     layers:
-    - id: balance-housjobs19-subregion
+    - id: housjobs19-subregion
       type: choropleth
-      source: balance-housjobs19
-      source-layer: balance-housjobs19-subregion
+      source: housjobs19
+      source-layer: housjobs19-subregion
       paintConfig:
         opacity: 0.6
         colors:
@@ -81,12 +81,12 @@ map:
         - 0.90
   - id: county
     title: "Housing Units/Total Employment 2019"
-    legend: balance-housjobs19-county
+    legend: housjobs19-county
     layers:
-    - id: balance-housjobs19-county
+    - id: housjobs19-county
       type: choropleth
-      source: balance-housjobs19
-      source-layer: balance-housjobs19-county
+      source: housjobs19
+      source-layer: housjobs19-county
       paintConfig:
         opacity: 0.6
         colors:

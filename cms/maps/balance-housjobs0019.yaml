@@ -1,6 +1,6 @@
 # Balance
 # ----------
-slug: balance-housjobs0019
+slug: housjobs0019
 category: Balance
 categorySlug: balance
 title: "The housing/jobs balance has shifted from 2000 to 2019."
@@ -26,12 +26,12 @@ map:
   defaultGeographyLevel: county
 
   sources:
-  - id: balance-housjobs0019
+  - id: housjobs0019
     type: cartovector
     source-layers:
-    - id: balance-housjobs0019-subregion
+    - id: housjobs0019-subregion
       sql: SELECT the_geom_webmercator, geoid, bal_0019 as value, name FROM region_subregion_v202007
-    - id: balance-housjobs0019-county
+    - id: housjobs0019-county
       sql: SELECT the_geom_webmercator, geoid, bal_0019 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
@@ -60,12 +60,12 @@ map:
   layerGroups:
   - id: subregion
     title: "Shift in Housing/Jobs Balance, 2000-2019"
-    legend: balance-housjobs0019-subregion
+    legend: housjobs0019-subregion
     layers:
-    - id: balance-housjobs0019-subregion
+    - id: housjobs0019-subregion
       type: choropleth
-      source: balance-housjobs0019
-      source-layer: balance-housjobs0019-subregion
+      source: housjobs0019
+      source-layer: housjobs0019-subregion
       paintConfig:
         opacity: 0.6
         colors:
@@ -81,12 +81,12 @@ map:
         - 0.05
   - id: county
     title: "Shift in Housing/Jobs Balance, 2000-2019"
-    legend: balance-housjobs0019-county
+    legend: housjobs0019-county
     layers:
-    - id: balance-housjobs0019-county
+    - id: housjobs0019-county
       type: choropleth
-      source: balance-housjobs0019
-      source-layer: balance-housjobs0019-county
+      source: housjobs0019
+      source-layer: housjobs0019-county
       paintConfig:
         opacity: 0.6
         colors:
