@@ -3,17 +3,16 @@
 slug: private-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for the majority of the region’s post-recession job growth."
+title: "NYC accounted for the majority of the region’s post-recession job growth."
 menuTitle: "Private Sector Employment Change, 2008 to 2019"
 content: |
-  The NYC metro region gained 924k private sector jobs since the Great Recession, increasing from 8.22 million in 2008 to 9.15 million in 2018. NYC accounted for 73% of private sector job growth, adding 675k jobs and growing at an average rate of 2.2% per year. NYC is now experiencing its highest levels of recorded employment, while many areas of the region are just now returning to pre-recession levels of employment. As a whole, the region’s post-recession rate of employment growth (+1.1% per year) was at pace with the national average (+1.0% per year), but slower than other large metropolitan regions such as San Francisco, Seattle, and Dallas.
+  The NYC metro region gained +1.1 million private sector jobs from 2008 to 2019, increasing from 8.2 to 9.3 million. NYC accounted for 73% of private sector job growth, adding +787k jobs and growing at an average rate of +2.2% per year. In 2019, NYC experienced its highest levels of recorded employment, while many areas of the region were just returning to pre-recession levels of employment. As a whole, the region’s post-recession annual rate of employment growth (+1.2% per year) was slightly faster than the national average (+1.1% per year), but slower than other large metropolitan regions such as San Francisco, Seattle, and Dallas.
 
-  Nearly every county in the 31-county region lost private sector jobs from 2008 to 2009. NYC rebounded the fastest from recession losses, with all five NYC boroughs registering job gains. The rest of the region added a total of 249k jobs and grew on average at 0.5% per year from 2008 to 2018. Long Island accounted for the second largest net gain (+76k), and the Inner New Jersey subregion, which accounts for 22% of the region’s private jobs, represented just 7% of regional post-recession private sector employment growth (+65k). Within New Jersey, gains in Hudson, Middlesex, Ocean, and Somerset counties helped balance losses in Essex, Passaic, and Union counties.
+  Nearly every county in the 31-county region lost private sector jobs from 2008 to 2009. NYC rebounded the fastest from recession losses, with all five NYC boroughs registering job gains. The rest of the region added a total of +288k jobs and grew on average at +0.5% per year from 2008 to 2019. Long Island accounted for the second largest net gain (+79k), and the Inner New Jersey subregion, which accounts for 22% of the region’s private jobs, represented just 7% of regional post-recession private sector employment growth (+79k). Within New Jersey, gains in Hudson, Middlesex, Ocean, and Somerset counties helped balance losses in Essex, Passaic, Warren, and Union counties.
 
-  NYC's share of the region's employment growth represents a departure from previous economic cycles. NYC accounted for approximately one-third of the region's pre-recession job growth from 2000 to 2008, and 36% of the region's private sector job growth from 1990 to 2000.
-
+  NYC's 75% share of the region's post-recession employment growth represents a departure from previous economic cycles. NYC accounted for approximately one-third of the region's pre-recession job growth from 2000 to 2008, and 36% of the region's private sector job growth from 1990 to 2000.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2018. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2019. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county

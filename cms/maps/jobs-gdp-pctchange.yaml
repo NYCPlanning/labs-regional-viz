@@ -3,16 +3,12 @@
 slug: gdp-pctchange
 category: Jobs
 categorySlug: jobs
-title: "NYC is the hub of the largest metropolitan economy in the nation."
+title: "NYC's GDP grew nearly five times the rate of the rest of the region since the recession."
 menuTitle: "% Annual Change in Gross Domestic Product, 2008 - 2018"
 content: |
-  In 2018, our region employed 10.6 million, representing 7% of total U.S. jobs, and generated $815 billion in annual worker wages, representing 10% of total U.S. wages.
-
-  The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area.
-
-  NYC accounted for 41% of the metro region’s jobs (4.38 million) and half of the region’s annual worker wages ($406 billion). Manhattan alone represents 2.46 million jobs (23% of regional employment) and $304 billion in annual worker wages (37% of regional wages) – the highest for any county in the U.S. Outside of NYC, there are 6.22 million jobs providing employment for regional residents, including nearly 300k NYC residents who commute out of the city for work.
+  The NYC metro region grew GDP by +$382 billion from 2008 to 2018 (in 2018-dollars), representing an annual increase of +2.4%. NYC, which grew GDP by +$297 billion post-recession, accounted for 78% of the region’s net GDP growth, growing by +4.3% per year. The rest of the region combined grew GDP by +0.9% per year. Connecticut was the only subregion that experienced a loss in GDP, of -$7 billion, representing a decline of -0.4% per year. NYC and the Lower Hudson Valley (+2.3% per year) both grew GDP faster than the U.S. on average (+2.0% per year) from 2008 to 2018, while the other subregions grew GDP more slowly. Manhattan grew GDP the fastest among NYC metro region counties (+4.6% per year), followed by Brooklyn (+4.1% per year), and Queens (+3.2% per year).
 source: |
-  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) xxx.
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2018.
 
 map:
   defaultGeographyLevel: county
