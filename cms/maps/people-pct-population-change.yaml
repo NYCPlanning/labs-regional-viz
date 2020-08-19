@@ -4,12 +4,12 @@ slug: pct-population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "% Population Change, 2010 to 2018"
+menuTitle: "% Population Change, 2010 to 2019"
 content: |
-  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown 2.7% since 2010, with the Bronx (+3.4%) and Brooklyn (+3.1%) growing faster, Manhattan growing at 2.7%, and Queens (+2.2%) and Staten Island (+1.6%) growing slower. NYC accounted for 53% of regional population growth since 2010. The Inner New Jersey subregion grew at a slightly faster rate (+2.9%) than NYC and accounted for 34% of regional population growth, with Hudson County, New Jersey experiencing the fastest rate of population growth (+6.6%) of any county in the region. Hudson was followed by Rockland County, New York (+4.5%) and Ocean County, New Jersey (+4.4%). Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
+  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown +2.0% since 2010, with Manhattan (+2.7%), the Bronx (+2.4%) and Brooklyn (+2.1%) growing faster, and Staten Island (+1.6%) and Queens (+1.0%) growing slower. NYC accounted for 50% of regional population growth since 2010. The Inner New Jersey (+2.4%) and Lower Hudson Valley (+2.3%) subregions grew at a slightly faster than NYC. Hudson County, New Jersey experienced the fastest rate of population growth (+6.0%) of any county in the region, followed by Ocean County, New Jersey (+5.3%) and Rockland County, New York (+4.5%). With the exception of Ocean County, less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
 
 source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2018. See [About](/about/#people) page for additional notes on population change.
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2019. See [About](/about/#people) page for additional notes on population change.
 
 map:
   defaultGeographyLevel: county
@@ -19,9 +19,9 @@ map:
     type: cartovector
     source-layers:
     - id: pct-population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp1018 as value, name FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, geoid, popp_1019e as value, name FROM region_subregion_v202007
     - id: pct-population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp1018 as value, name FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popp_1019e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
 
   popupColumns:
   - id: pctchange
@@ -29,15 +29,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popp1018
+      columnName: popp_1019e
       cv:
       sig:
     - geomType: subregion
-      columnName: popp1018
+      columnName: popp_1019e
       cv:
       sig:
     - geomType: county
-      columnName: popp1018
+      columnName: popp_1019e
       cv:
       sig:
 
@@ -62,10 +62,10 @@ map:
         - "#0058ee"
         - "#002673"
         breaks:
-        - -0.005
+        - -0.002
+        - 0.002
         - 0.005
-        - 0.01
-        - 0.025
+        - 0.015
   - id: county
     title: "% Population Change, 2010 to 2018"
     legend: pct-population-change-county

@@ -6,12 +6,11 @@ categorySlug: jobs
 title: "NYC accounts for half of the region's 2.8 million office-based jobs."
 menuTitle: "Office Employment"
 content: |
-  There are 2.8 million Office-based jobs in the region, representing 30% of all private sector employment. The Office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors. These jobs are of the highest value to the region, generating $365 billion in employee wages, which represents 52% the region's total private sector wages.
+  There are 2.8 million office-based jobs in the region, representing 30% of all private sector employment. The office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors. These jobs are of the highest value to the region, generating $365 billion in employee wages, which represents 52% the region's total private sector wages.
 
-  NYC is home to 50% of the region's Office jobs, 1.4 million, most of which are located in Manhattan (41% of the region), as well as in the other NYC boroughs (9% of region). Other Office job clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30k-50k office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (Inner NJ).
-
+  NYC is home to nearly 51% of the region's office jobs, 1.4 million, most of which are located in Manhattan (42% of the region), as well as in the other NYC boroughs (9% of region). Other office job clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30k-50k office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (Inner NJ).
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2018; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -23,11 +22,11 @@ map:
     - id: office-employment-tract
       sql: SELECT the_geom_webmercator, emoff17 as value FROM region_tract_emoff_dotden_v20190911
     - id: office-employment-subregion
-      sql: SELECT the_geom_webmercator, emoff18 as value FROM region_subregion_v20190911
+      sql: SELECT the_geom_webmercator, emoff_19 as value FROM region_subregion_v202007
     - id: office-employment-county
-      sql: SELECT the_geom_webmercator, emoff18 as value FROM region_county_v20190911 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emoff_19 as value FROM region_county_v202007 WHERE iscommap = FALSE
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality WHERE islitown = 'N'
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
 
   popupColumns:
   - id: emoff
@@ -35,15 +34,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
     - geomType: county
-      columnName: emoff18
+      columnName: emoff_19
       cv:
       sig:
     - geomType: municipality
@@ -55,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Employment, 2018"
+    title: "Office-based Employment, 2019"
     legend: office-employment-subregion
     layers:
     - id: office-employment-subregion
@@ -76,7 +75,7 @@ map:
         - 500000
         - 1000000
   - id: county
-    title: "Office-based Employment, 2018"
+    title: "Office-based Employment, 2019"
     legend: office-employment-county
     layers:
     - id: office-employment-county
