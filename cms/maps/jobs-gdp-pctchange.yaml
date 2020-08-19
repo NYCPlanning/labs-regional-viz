@@ -1,0 +1,90 @@
+# Jobs
+# ----------
+slug: gdp-pctchange
+category: Jobs
+categorySlug: jobs
+title: "NYC's GDP grew nearly five times the rate of the rest of the region since the recession."
+menuTitle: "% Annual Change in Gross Domestic Product, 2008 - 2018"
+content: |
+  The NYC metro region grew GDP by +$382 billion from 2008 to 2018 (in 2018-dollars), representing an annual increase of +2.4%. NYC, which grew GDP by +$297 billion post-recession, accounted for 78% of the region’s net GDP growth, growing by +4.3% per year. The rest of the region combined grew GDP by +0.9% per year. Connecticut was the only subregion that experienced a loss in GDP, of -$7 billion, representing a decline of -0.4% per year. NYC and the Lower Hudson Valley (+2.3% per year) both grew GDP faster than the U.S. on average (+2.0% per year) from 2008 to 2018, while the other subregions grew GDP more slowly. Manhattan grew GDP the fastest among NYC metro region counties (+4.6% per year), followed by Brooklyn (+4.1% per year), and Queens (+3.2% per year).
+source: |
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2018.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: gdp
+    type: cartovector
+    source-layers:
+    - id: gdp-pctchange-subregion
+      sql: SELECT the_geom_webmercator, geoid, gdppa_0818 as value, name FROM region_subregion_v202007
+    - id: gdp-pctchange-county
+      sql: SELECT the_geom_webmercator, geoid, gdppa_0818 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+
+  popupColumns:
+  - id: gdppa_0818
+    title: Total
+    large: true
+    values:
+    - geomType: region
+      columnName: gdppa_0818
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: gdppa_0818
+      cv:
+      sig:
+    - geomType: county
+      columnName: gdppa_0818
+      cv:
+      sig:
+
+  isPercent: true
+  isChangeMeasurement: true
+
+  layerGroups:
+  - id: subregion
+    title: "% Annual Change in GDP, 2008 - 2018"
+    legend: gdp-pctchange-subregion
+    layers:
+    - id: gdp-pctchange-subregion
+      type: choropleth
+      source: gdp
+      source-layer: gdp-pctchange-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.005
+        - 0.005
+        - 0.01
+        - 0.03
+  - id: county
+    title: "% Annual Change in GDP, 2008 - 2018"
+    legend: gdp-pctchange-county
+    layers:
+    - id: gdp-pctchange-county
+      type: choropleth
+      source: gdp
+      source-layer: gdp-pctchange-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ffa555"
+        - "#ffffe0"
+        - "#cae7eb"
+        - "#5ab4ff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.002
+        - 0.002
+        - 0.005
+        - 0.015
+        - 0.03

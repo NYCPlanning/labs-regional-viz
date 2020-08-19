@@ -4,7 +4,7 @@ import { argument } from '@ember-decorators/argument'; // eslint-disable-line
 import numeral from 'numeral';
 
 
-function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio) {
+function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio, isDollar) {
   // return an array of objects, each with a display-ready range and color
   const { paintConfig: config = {} } = layerConfig || {};
   const { breaks = [], colors = [] } = config;
@@ -15,15 +15,16 @@ function getChoroplethRows(layerConfig, isPercent, isChangeMeasurement, isRatio)
     if (isPercent) formatter = '0,0%';
     if (isRatio) formatter = '0.00';
     if (isChangeMeasurement) formatter = '+0,0';
+    if (isDollar) formatter = '$0,0';
     if (isChangeMeasurement && isPercent) formatter = '+0.0%';
     if (isRatio && isChangeMeasurement) formatter = '+0.00';
 
     return numeral(value).format(formatter);
   };
 
-  let lowBreakPrefix = 'Under';
+  let lowBreakPrefix = 'Less than';
   let lowBreakSuffix = '';
-  let highBreakPrefix = 'Over';
+  let highBreakPrefix = 'More than';
   let highBreakSuffix = '';
 
   if (isChangeMeasurement) {
@@ -87,15 +88,16 @@ export default class LegendBox extends Component {
   // @argument
   mapConfig
 
-  @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio')
+  @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio', 'isDollar')
   get rows() {
     const layerConfig = this.get('currentLayerGroup');
     const isPercent = this.get('isPercent');
     const isChangeMeasurement = this.get('isChangeMeasurement');
     const isRatio = this.get('isRatio');
+    const isDollar = this.get('isDollar');
     const { legend } = layerConfig;
     if (typeof legend === 'string') {
-      return getChoroplethRows(layerConfig.layers.find(layer => layer.id === legend), isPercent, isChangeMeasurement, isRatio);
+      return getChoroplethRows(layerConfig.layers.find(layer => layer.id === legend), isPercent, isChangeMeasurement, isRatio, isDollar);
     }
 
     return layerConfig.legend;

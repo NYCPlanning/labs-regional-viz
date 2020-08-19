@@ -1,0 +1,88 @@
+# Jobs
+# ----------
+slug: gdp-total
+category: Jobs
+categorySlug: jobs
+title: "NYC generates half of the region’s $2 trillion in economic output."
+menuTitle: "Total Gross Domestic Product"
+content: |
+  In 2018, the NYC metro region generated $2 trillion in gross domestic product (GDP), representing approximately 10% of total U.S. economic activity, which was greater than the economic output of countries including Brazil, Canada, Russia, and South Korea. Half of that activity occurs in NYC, which captures a higher share of the region’s high-value employment, and the other half of that output is generated elsewhere in the region. Manhattan, which accounts for 23% of the region’s total employment, represents 36% of the region’s GDP, generating $712 billion in economic output in 2018. Other areas that generate significant economic activity include Queens, Brooklyn, Nassau and Suffolk counties on Long Island, Westchester County in the Lower Hudson Valley, and Fairfield County in Connecticut.
+source: |
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2018; GDP (Current $US), The World Bank [https://data.worldbank.org/](https://data.worldbank.org/).
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: gdp-total
+    type: cartovector
+    source-layers:
+    - id: gdp-total-subregion
+      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_subregion_v202007
+    - id: gdp-total-county
+      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+
+  popupColumns:
+  - id: gdp_18
+    title: '2018 GDP $billions'
+    large: true
+    values:
+    - geomType: region
+      columnName: gdp_18
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: gdp_18
+      cv:
+      sig:
+    - geomType: county
+      columnName: gdp_18
+      cv:
+      sig:
+
+  isPercent: false
+  isDollar: true
+
+  layerGroups:
+  - id: subregion
+    title: "Total Gross Domestic Product ($billions 2018-dollars)"
+    legend: gdp-total-subregion
+    layers:
+    - id: gdp-total-subregion
+      type: choropleth
+      source: gdp-total
+      source-layer: gdp-total-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#ccf5df"
+        - "#89dfa4"
+        - "#64b678"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 50
+        - 150
+        - 300
+        - 500
+  - id: county
+    title: "Total Gross Domestic Product ($billions 2018-dollars)"
+    legend: gdp-total-county
+    layers:
+    - id: gdp-total-county
+      type: choropleth
+      source: gdp-total
+      source-layer: gdp-total-county
+      paintConfig:
+        opacity: 0.8
+        colors:
+        - "#ccf5df"
+        - "#89dfa4"
+        - "#64b678"
+        - "#127723"
+        - "#193f1f"
+        breaks:
+        - 10
+        - 25
+        - 50
+        - 100
