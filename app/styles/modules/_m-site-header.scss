@@ -61,8 +61,19 @@ $logo-height-medium: rem-calc(36);
       }
     }
 
+    &.dropdown > li > a {
+      background: #fefefe;
+      padding: (rem-calc(11)+$global-margin) rem-calc(20);
+
+      &:hover {
+        background-color: $light-gray;
+      }
+    }
+
     .is-dropdown-submenu {
       box-shadow: 0 2px 0 2px rgba(0,0,0,0.1);
+      max-height: calc(100vh - 7rem);
+      overflow: auto;
 
       li:not(:first-child) {
         border-top: 1px solid lighten($medium-gray, 10%);
