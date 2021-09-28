@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop_19e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_subregion_v210924
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, geoid, pop_19e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, geoid, pop_18e as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: pop
@@ -31,47 +31,47 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: pop_19e
+      columnName: pop_20e
       cv:
       sig:
     - geomType: subregion
-      columnName: pop_19e
+      columnName: pop_20e
       cv:
       sig:
     - geomType: county
-      columnName: pop_19e
+      columnName: pop_20e
       cv:
       sig:
     - geomType: municipality
-      columnName: pop_18e
-      cv: pop_18c
-      sig:
-  - id: moe
-    title: MOE
-    isMOE: true
-    values:
-    - geomType: region
-      columnName:
+      columnName: pop_20e
       cv:
       sig:
-    - geomType: subregion
-      columnName:
-      cv:
-      sig:
-    - geomType: county
-      columnName:
-      cv:
-      sig:
-    - geomType: municipality
-      columnName: pop_18m
-      cv: pop_18e
-      sig:
+  #- id: moe
+  #  title: MOE
+  #  isMOE: true
+  #  values:
+  #  - geomType: region
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: subregion
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: county
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: municipality
+  #    columnName: pop_18m
+  #    cv: pop_18e
+  #    sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Total Population, 2019"
+    title: "Total Population, 2020"
     legend: total-population-subregion
     layers:
     - id: total-population-subregion
@@ -92,7 +92,7 @@ map:
         - 5000000
         - 7500000
   - id: county
-    title: "Total Population, 2019"
+    title: "Total Population, 2020"
     legend: total-population-county
     layers:
     - id: total-population-county
@@ -113,7 +113,7 @@ map:
         - 750000
         - 1500000
   - id: municipality
-    title: "Total Population, 2014-2018 Avg"
+    title: "Total Population, 2020"
     legend: total-population-municipality
     layers:
     - id: total-population-municipality
