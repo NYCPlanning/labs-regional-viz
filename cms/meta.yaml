@@ -28,6 +28,9 @@ orderings:
     - id: population-race-2010
       isLinearNarrative: true
       transitionPrompt: Growing areas are among the most diverse...
+    - id: population-race-2020
+      isLinearNarrative: true
+      transitionPrompt: The labor force is growing in the region...
     - id: labor-force-change
       isLinearNarrative: true
       transitionPrompt: Labor force age 25-54 grew mostly at the center...
