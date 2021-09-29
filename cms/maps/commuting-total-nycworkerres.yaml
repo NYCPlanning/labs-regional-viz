@@ -8,7 +8,7 @@ menuTitle: "Where NYC Workers Live"
 content: |
   79% of the 4.7 million people employed in New York City live within the five boroughs. The other 21% are housed outside the city and travel in to NYC ("in-commuters"), representing approximately 1 million workers. This map shows where all NYC workers live (or, the origins of their commutes), and the color indicates the borough in which those NYC workers are employed (in other words, their commuting destinations). This mobility and access to opportunity enables the city’s businesses to grow, allows NYC workers to access a wider range of housing options, and relieves pressure on NYC’s housing market by complementing city housing production with suburban markets.
 
-  The Inner New Jersey subregion is home to the largest share of NYC in-commuters (38%), followed by Long Island (31%), and the Lower Hudson Valley (18%). Areas closest to NYC house the largest concentrations of NYC in-commuters, with Nassau (LI), Westchester (Lower Hudson), and Hudson and Bergen counties (Inner NJ) combined accounting for 58% of all NYC in-commuters. As our closest neighbors, nearly one-third of all employed residents living in Nassau, Westchester, and Hudson counties work in NYC. In other words, each county is home to more than 100k residents who are employed in NYC.
+  The Inner New Jersey subregion is home to the largest share of NYC in-commuters (38%), followed by Long Island (31%), and the Lower Hudson Valley (19%). Areas closest to NYC house the largest concentrations of NYC in-commuters, with Nassau (LI), Westchester (Lower Hudson), and Hudson and Bergen counties (Inner NJ) combined accounting for 58% of all NYC in-commuters. As our closest neighbors, nearly one-third of all employed residents living in Nassau, Westchester, and Hudson counties work in NYC. In other words, each county is home to more than 100k residents who are employed in NYC.
 
   Sizeable concentrations of NYC in-commuters also live in Suffolk (LI), Essex (Inner NJ), Middlesex (Inner NJ), and Fairfield (CT) counties, which are slightly farther away but generally well-connected to NYC via commuter rail. Other parts of the metro region with smaller resident labor forces, such as Putnam and Rockland counties, send a larger share of their residents to NYC for work than counties like Suffolk and Essex, which are home to more NYC workers in absolute numbers. Because NYC is a center not just of employment, but of higher-wage jobs across a range of industry sectors, the value that commuters bring back to their counties of residence is disproportionately high. For every county in the region, NYC commuters represent a larger share of county residents’ total earnings relative to the number of county residents working in NYC.
 
@@ -16,7 +16,7 @@ content: |
 
   There are an additional 67k NYC workers residing elsewhere in the United States. About one-third of those domestic in-commuters traveled from areas just outside the NYC Metro Region in New York, New Jersey, Connecticut, and Pennsylvania. Others are likely temporarily visiting the city for work.
 source: |
-  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2018. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of NYC workers, age 16 and older, or the origin points of commuters' trips. Color indicates the NYC borough in which those workers are employed, or workers' destinations. Grayed values in the pop-up box indicate that estimates are not reliable at the 90% confidence interval. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of NYC workers, age 16 and older, or the origin points of commuters' trips. Color indicates the NYC borough in which those workers are employed, or workers' destinations. Grayed values in the pop-up box indicate that estimates are not reliable at the 90% confidence interval. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
 
 map:
   defaultGeographyLevel: county
@@ -28,9 +28,9 @@ map:
     - id: total-nycworkerres-tract
       sql: SELECT the_geom_webmercator, category FROM region_comtot_nycworkerres_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
   popupColumns:
 
@@ -138,7 +138,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Where NYC Workers Live, 2018"
+    title: "Where NYC Workers Live, 2019"
     legend-title: "1 dot = 25 NYC Workers, at Residence (Commute Origin)"
     legend:
     - label: "Bronx Worker"
@@ -198,7 +198,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Where NYC Workers Live, 2018"
+    title: "Where NYC Workers Live, 2019"
     legend-title: "1 dot = 25 NYC Workers, at Residence"
     legend:
     - label: "Bronx Worker"

@@ -32,9 +32,9 @@ map:
     type: cartovector
     source-layers:
     - id: housjobs00-subregion
-      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v210924
     - id: housjobs00-county
-      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v202007 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v210924 WHERE iscommap = 0
 
   popupColumns:
   - id: bal_00

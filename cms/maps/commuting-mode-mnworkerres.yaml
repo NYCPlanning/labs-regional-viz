@@ -12,7 +12,7 @@ content: |
 
   NYC residents working in Manhattan primarily travel by subway. This is true for residents of the Bronx, Brooklyn, and Queens in areas also served by commuter rail, which in some cases offers faster access to Manhattan at a higher cost. There are approximately 162k NYC residents commuting by car to jobs in Manhattan (including carpools), representing 9% of NYC residents who work in Manhattan. By contrast, 22% of in-commuters drive to Manhattan, but given that regional workers represent one-fifth of Manhattan workers, the total in-commuters traveling by car (149k) is slightly lower than NYC residents traveling to jobs in Manhattan by car (162k).
 source: |
-  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2018. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of people working in Manhattan, age 16 and older, or the origin of Manhattan workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the residence location of people working in Manhattan, age 16 and older, or the origin of Manhattan workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
 
 map:
     defaultGeographyLevel: county
@@ -24,9 +24,9 @@ map:
       - id: mode-mnworkerres-tract
         sql: SELECT the_geom_webmercator, category FROM region_commode_mnworkres_dotdensity ORDER BY random()
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111')
+        sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE geoid NOT IN ('3607936119', '36105','36111')
 
     popupColumns:
     - id: cmn_car
@@ -148,7 +148,7 @@ map:
 
     layerGroups:
     - id: subregion
-      title: "Primary Mode of Travel to Manhattan Jobs, 2018"
+      title: "Primary Mode of Travel to Manhattan Jobs, 2019"
       legend-title: "1 dot = 25 Manhattan Workers, at Residence"
       legend:
       - label: "Car"
@@ -218,7 +218,7 @@ map:
           line-color: rgba(131, 131, 131, 1)
           line-width: 0.5
     - id: county
-      title: "Primary Mode of Travel to Manhattan Jobs, 2018"
+      title: "Primary Mode of Travel to Manhattan Jobs, 2019"
       legend-title: "1 dot = 25 Manhattan Workers, at Residence"
       legend:
       - label: "Car"

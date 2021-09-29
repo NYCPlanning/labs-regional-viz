@@ -12,7 +12,7 @@ content: |
 
   Queens is home to the greatest number of out-commuters driving to work in the region, with more out-commuting drivers than the Bronx, Manhattan, and Brooklyn combined. Out-commuters from western Queens are more likely to use subway and rail transit, while southeast Queens residents have a higher proclivity to travel by bus transit. Manhattan residents are most likely to out-commute via transit, with more than half of Manhattan out-commuters traveling by commuter rail, bus, subway/PATH, or ferry. Bronx and Queens have high shares of bus and subway/PATH out-commuters, while Brooklyn has a high share of just subway/PATH out-commuters.
 source: |
-  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2018. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the workplace location of employed NYC residents, age 16 and older, or the commuting destination of NYC residents. Color indicates the primary mode of travel used for the longest leg of NYC residents' commutes to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties, and Putnam and Westchester counties, are combined for consistency with IPUMS-USA reporting geographies.
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019. For data visualization as dot density, U.S. Census Bureau Transportation Planning Package 2006-2010 tract-level distributions are visualized. Dots represent the workplace location of employed NYC residents, age 16 and older, or the commuting destination of NYC residents. Color indicates the primary mode of travel used for the longest leg of NYC residents' commutes to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties, and Putnam and Westchester counties, are combined for consistency with IPUMS-USA reporting geographies.
 
 map:
   defaultGeographyLevel: county
@@ -24,9 +24,9 @@ map:
     - id: mode-nycresidentwork-tract
       sql: SELECT the_geom_webmercator, category FROM region_commode_nycreswork_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
     - id: empty-polygons-county-iscomnycwork
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE geoid NOT IN ('36119', '36079', '36105', '36111') ##test "IsComNYCRes <> FALSE"
 
 
   popupColumns:
@@ -148,7 +148,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "NYC Residents' Primary Mode of Travel to Work, 2018"
+    title: "NYC Residents' Primary Mode of Travel to Work, 2019"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Car"
@@ -218,7 +218,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "NYC Residents' Primary Mode of Travel to Work, 2018"
+    title: "NYC Residents' Primary Mode of Travel to Work, 2019"
     legend-title: "1 dot = 25 NYC Residents, at Workplace"
     legend:
     - label: "Car"

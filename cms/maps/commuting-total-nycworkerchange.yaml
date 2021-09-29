@@ -4,17 +4,17 @@ slug: total-nycworkerchange
 category: Commuting
 categorySlug: commuting
 title: "One million more workers are employed in NYC since 2000, 78% of whom are NYC residents."
-menuTitle: "Change in NYC Workforce, 2000 to 2018"
+menuTitle: "Change in NYC Workforce, 2000 to 2019"
 content: |
-  From 2000 to 2018, the city’s workforce grew by 1 million workers, representing a +27% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2018, at their residence location (i.e. NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by +27% (+784k), while the NYC in-commuter workforce grew by +28% (+219k). As a result, in-commuters represent a slightly larger component of the NYC workforce today than in 2000.
+  From 2000 to 2019, the city’s workforce grew by 1 million workers, representing a +27% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2019, at their residence location (i.e. NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by +27% (+784k), while the NYC in-commuter workforce grew by +28% (+219k). As a result, in-commuters represent a slightly larger component of the NYC workforce today than in 2000.
 
   Since 2000, there has been an increase of +135k (+44%) Inner and Outer New Jersey (northern New Jersey) residents traveling to NYC for work, accounting for approximately two-thirds of total NYC in-commuter gains. Bergen, Essex and Hudson counties combined (+100k) accounted for nearly half of the total NYC in-commuter increase. In-commuting from the Hudson Valley and Connecticut increased by +42k combined (+20%), while in-commuting from Long Island grew slightly less than in-commuting to the city from the north (+41k), and at a slower rate (+15%).
 
-  Despite representing just 14% of the total Manhattan workforce in 2018, northern New Jersey residents represented 19% of the Manhattan workforce growth since 2000. The remaining in-commuters represented 11% of Manhattan’s workforce growth, disproportionately smaller than those subregions’ share of the total Manhattan workforce (12%).
+  Despite representing just 14% of the total Manhattan workforce in 2019, northern New Jersey residents represented 19% of the Manhattan workforce growth since 2000. The remaining in-commuters represented 11% of Manhattan’s workforce growth, disproportionately smaller than those subregions’ share of the total Manhattan workforce (12%).
 
   Similarly, though northern New Jersey residents represent just 27% of the in-commuter workforce employed in Non-Manhattan Boroughs today, northern New Jersey residents accounted for 48% of the growth of non-NYC residents working in those boroughs. This is primarily due to an additional +21k northern New Jersey residents commuting to work in Brooklyn.
 source: |
-  Sources & Notes: IPUMS-USA, University of Minnesota; U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2018; U.S. Census Bureau Decennial Census 2000 5% Sample. Map represents change in NYC workers at those workers' places of residence (i.e. commuters' county or subregion origin). Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+  Sources & Notes: IPUMS-USA, University of Minnesota; U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019; U.S. Census Bureau Decennial Census 2000 5% Sample. Map represents change in NYC workers at those workers' places of residence (i.e. commuters' county or subregion origin). Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
 
 map:
   defaultGeographyLevel: county
@@ -24,9 +24,9 @@ map:
     type: cartovector
     source-layers:
     - id: total-nycworkerchange-subregion
-      sql: SELECT the_geom_webmercator, geoid, cw_0018_e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_subregion_v210924
     - id: total-nycworkerchange-county
-      sql: SELECT the_geom_webmercator, geoid, cw_0018_e as value, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_county_v210924 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
 
   popupColumns:
@@ -35,32 +35,32 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: cw_0018_e
-      cv: cw_0018_c
+      columnName: cw_0019_e
+      cv: cw_0019_c
       sig:
     - geomType: subregion
-      columnName: cw_0018_e
-      cv: cw_0018_c
+      columnName: cw_0019_e
+      cv: cw_0019_c
       sig:
     - geomType: county
-      columnName: cw_0018_e
-      cv: cw_0018_c
+      columnName: cw_0019_e
+      cv: cw_0019_c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: cw_0018_m
-      cv: cw_0018_c
+      columnName: cw_0019_m
+      cv: cw_0019_c
       sig:
     - geomType: subregion
-      columnName: cw_0018_m
-      cv: cw_0018_c
+      columnName: cw_0019_m
+      cv: cw_0019_c
       sig:
     - geomType: county
-      columnName: cw_0018_m
-      cv: cw_0018_c
+      columnName: cw_0019_m
+      cv: cw_0019_c
       sig:
 
   isComNycWork: true
@@ -70,7 +70,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "ΔResidents Working in NYC, 2000-2018"
+    title: "ΔResidents Working in NYC, 2000-2019"
     legend: total-nycworkerchange-subregion
     layers:
     - id: total-nycworkerchange-subregion
@@ -93,7 +93,7 @@ map:
         - 50000
         - 500000
   - id: county
-    title: "ΔResidents Working in NYC, 2000-2018"
+    title: "ΔResidents Working in NYC, 2000-2019"
     legend: total-nycworkerchange-county
     layers:
     - id: total-nycworkerchange-county
