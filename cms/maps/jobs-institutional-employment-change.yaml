@@ -22,7 +22,7 @@ map:
     - id: institutional-employment-change-subregion
       sql: SELECT the_geom_webmercator, geoid, emins_0819 as value, name FROM region_subregion_v202007
     - id: institutional-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emins_0819 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emins_0819 as value, name FROM region_county_v202007 WHERE iscommap = 0
 
   popupColumns:
   - id: emprins

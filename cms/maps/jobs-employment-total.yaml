@@ -24,9 +24,9 @@ map:
     - id: employment-total-subregion
       sql: SELECT the_geom_webmercator, geoid, emtot_19 as value, name FROM region_subregion_v202007
     - id: employment-total-county
-      sql: SELECT the_geom_webmercator, geoid, emtot_19 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emtot_19 as value, name FROM region_county_v202007 WHERE iscommap = 0
     - id: employment-total-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v202007 WHERE islitown = 0
 
   popupColumns:
   - id: emptot

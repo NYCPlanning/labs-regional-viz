@@ -4,16 +4,11 @@ slug: aging-labor-force-change
 category: People
 categorySlug: people
 title: "The NYC metro region’s labor force is aging."
-menuTitle: Age 65+ Labor Force Change, 2010 to 2018
+menuTitle: Age 65+ Labor Force Change, 2010 to 2019
 content: |
-  Today’s regional labor force is relatively young as compared to the U.S. on average. Of the region’s 11.8 million labor force participants, 695k are over 65, comprising 5.9% of our labor force. However, like other parts of the U.S., our labor force is growing older as workers stay in the labor force longer, and as the labor force is joined by fewer younger workers.
-
-  Since 2010, the NYC metro region gained more than +209k labor force participants aged 65 and older. That growth of +43.1% was slightly lower than the national average growth of +44.4%. As a result, 5.9% of the current regional workforce is over age 65, as compared with 4.3% of the workforce age 65 and older in 2010.
-
-  In the U.S., growth of labor force participants aged 65 and older accounted for one-third of labor force gains on average. Within our region, NYC gained the largest number of labor force participants aged 65 and older (+69k) in the region, but that accounted for only 28% of NYC’s total labor force growth. In contrast, the increase in labor force participants aged 65 and older accounted for approximately 44% of net labor force gains in Inner NJ and 37% in the Lower Hudson Valley, and the vast majority of net gains in the Long Island (88%) and Connecticut (81%). In Outer NJ, the gain of older workers (+25k) exceeded that subregion’s net labor force gains (+5k), offsetting losses of younger workers.
-
+  x
 source: |
-  Sources & Notes: Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2014-2018. 2010 in this map represents a 5-year average of 2006-2010 and 2018 in this map represents a 5-year average of 2014-2018 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2015-2019. 2010 in this map represents a 5-year average of 2006-2010 and 2019 in this map represents a 5-year average of 2015-2019 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -23,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: aging-labor-force-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, lf65_1018e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, lf65_1019e as value, name FROM region_subregion_v210924
     - id: aging-labor-force-change-county
-      sql: SELECT the_geom_webmercator, geoid, lf65_1018e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, lf65_1019e as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: aging-labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lf65_1018e as value FROM region_muni_lf65ch_dotden_v202007 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lf65_1019e as value FROM region_muni_lf65ch_dotden_v210924 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: lf65
@@ -37,40 +32,40 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: lf65_1018e
-      cv: lf65_1018c
+      columnName: lf65_1019e
+      cv: lf65_1019c
       sig:
     - geomType: subregion
-      columnName: lf65_1018e
-      cv: lf65_1018c
+      columnName: lf65_1019e
+      cv: lf65_1019c
       sig:
     - geomType: county
-      columnName: lf65_1018e
-      cv: lf65_1018c
+      columnName: lf65_1019e
+      cv: lf65_1019c
       sig:
     - geomType: municipality
-      columnName: lf65_1018e
-      cv: lf65_1018c
+      columnName: lf65_1019e
+      cv: lf65_1019c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: lf65_1018m
-      cv: lf65_1018c
+      columnName: lf65_1019m
+      cv: lf65_1019c
       sig:
     - geomType: subregion
-      columnName: lf65_1018m
-      cv: lf65_1018c
+      columnName: lf65_1019m
+      cv: lf65_1019c
       sig:
     - geomType: county
-      columnName: lf65_1018m
-      cv: lf65_1018c
+      columnName: lf65_1019m
+      cv: lf65_1019c
       sig:
     - geomType: municipality
-      columnName: lf65_1018m
-      cv: lf65_1018c
+      columnName: lf65_1019m
+      cv: lf65_1019c
       sig:
 
   isPercent: false
@@ -78,7 +73,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Change in Labor Force Aged 65+, 2010 to 2018"
+    title: "Change in Labor Force Aged 65+, 2010 to 2019"
     legend: aging-labor-force-change-subregion
     layers:
     - id: aging-labor-force-change-subregion
@@ -101,7 +96,7 @@ map:
         - 30000
         - 45000
   - id: county
-    title: "Change in Labor Force Aged 65+, 2010 to 2018"
+    title: "Change in Labor Force Aged 65+, 2010 to 2019"
     legend: aging-labor-force-change-county
     layers:
     - id: aging-labor-force-change-county
@@ -124,7 +119,7 @@ map:
         - 10000
         - 15000
   - id: municipality
-    title: "Change in Labor Force Aged 65+, 2010 to 2018"
+    title: "Change in Labor Force Aged 65+, 2010 to 2019"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"

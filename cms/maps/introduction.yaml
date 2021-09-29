@@ -33,11 +33,11 @@ map:
       type: cartovector
       source-layers:
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v202007
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v210924
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v202007 WHERE iscommap = FALSE
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v210924 WHERE iscommap = 0
       - id: empty-polygons-municipality
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   layerGroups:
   - id: subregion

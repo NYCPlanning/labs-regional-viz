@@ -4,15 +4,11 @@ slug: prime-labor-force-change
 category: People
 categorySlug: people
 title: "Growth of the region’s labor force age 25-54 has shifted toward the center."
-menuTitle: Age 25-54 Labor Force Change, 2010 to 2018
+menuTitle: Age 25-54 Labor Force Change, 2010 to 2019
 content: |
-  Since 2010, the region has lost -79k workers between the ages of 25 and 54 – a rate of -1%, representing a departure from the region’s growth rate of +5% from 2000 to 2010. Nationally, this cohort grew remained relatively unchanged and registered a slight gain of +0.1% since 2010, as the larger baby-boomer population aged and was replaced by younger, smaller population cohorts.
-
-  Within our region, this cohort of workers are increasingly choosing to reside in the center of our region, particularly within NYC, which has gained over +144k (+4.9%) labor force participants aged 25 to 54 since 2010. Though most parts of the region lost labor force participants age 25-54, areas proximate to NYC or well-connected by public transit also experienced modest increases in these resident workers, slightly outpacing the U.S. growth rate.
-
-  Historically, NYC has consistently attracted large numbers of people in their 20s, with people in their 30s+ more likely to move out of than into the city ([learn about historic NYC migration characteristics](http://migration.planning.nyc.gov/#age)). Today, fewer people in their 30s have moved out of NYC. Out-migrants from the city are more likely to leave for other parts of the U.S. than for the surrounding metro region, resulting in population declines for this cohort in much of the region's suburban areas.
+  x
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2014-2018. 2010 in this map represents a 5-year average of 2006-2010 and 2018 in this map represents a 5-year average of 2014-2018 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2015-2019. 2010 in this map represents a 5-year average of 2006-2010 and 2019 in this map represents a 5-year average of 2015-2019 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -22,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: prime-labor-force-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, lfpw_1018e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, lfpw_1019e as value, name FROM region_subregion_v210924
     - id: prime-labor-force-change-county
-      sql: SELECT the_geom_webmercator, geoid, lfpw_1018e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, lfpw_1019e as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: prime-labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lfpw_1018e as value FROM region_muni_lfpwch_dotden_v202007 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lfpw_1019e as value FROM region_muni_lfpwch_dotden_v210924 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: lfpw
@@ -36,40 +32,40 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: lfpw_1018e
-      cv: lfpw_1018c
+      columnName: lfpw_1019e
+      cv: lfpw_1019c
       sig:
     - geomType: subregion
-      columnName: lfpw_1018e
-      cv: lfpw_1018c
+      columnName: lfpw_1019e
+      cv: lfpw_1019c
       sig:
     - geomType: county
-      columnName: lfpw_1018e
-      cv: lfpw_1018c
+      columnName: lfpw_1019e
+      cv: lfpw_1019c
       sig:
     - geomType: municipality
-      columnName: lfpw_1018e
-      cv: lfpw_1018c
+      columnName: lfpw_1019e
+      cv: lfpw_1019c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: lfpw_1018m
-      cv: lfpw_1018c
+      columnName: lfpw_1019m
+      cv: lfpw_1019c
       sig:
     - geomType: subregion
-      columnName: lfpw_1018m
-      cv: lfpw_1018c
+      columnName: lfpw_1019m
+      cv: lfpw_1019c
       sig:
     - geomType: county
-      columnName: lfpw_1018m
-      cv: lfpw_1018c
+      columnName: lfpw_1019m
+      cv: lfpw_1019c
       sig:
     - geomType: municipality
-      columnName: lfpw_1018m
-      cv: lfpw_1018c
+      columnName: lfpw_1019m
+      cv: lfpw_1019c
       sig:
 
   isPercent: false
@@ -77,7 +73,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2019"
     legend: prime-labor-force-change-subregion
     layers:
     - id: prime-labor-force-change-subregion
@@ -98,7 +94,7 @@ map:
         - 5000
         - 150000
   - id: county
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2019"
     legend: prime-labor-force-change-county
     layers:
     - id: prime-labor-force-change-county
@@ -121,7 +117,7 @@ map:
         - 15000
         - 75000
   - id: municipality
-    title: "Change in Labor Force Aged 25 to 54, 2010 to 2018"
+    title: "Change in Labor Force Aged 25 to 54, 2010 to 2019"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"

@@ -22,9 +22,9 @@ map:
     - id: industrial-employment-subregion
       sql: SELECT the_geom_webmercator, emind_19 as value FROM region_subregion_v202007
     - id: industrial-employment-county
-      sql: SELECT the_geom_webmercator, emind_19 as value FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emind_19 as value FROM region_county_v202007 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = 0
 
   popupColumns:
   - id: emind

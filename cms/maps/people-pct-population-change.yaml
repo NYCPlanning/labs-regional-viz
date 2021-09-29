@@ -4,12 +4,11 @@ slug: pct-population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "% Population Change, 2010 to 2019"
+menuTitle: "% Population Change, 2010 to 2020"
 content: |
-  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown +2.0% since 2010, with Manhattan (+2.7%), the Bronx (+2.4%) and Brooklyn (+2.1%) growing faster, and Staten Island (+1.6%) and Queens (+1.0%) growing slower. NYC accounted for 50% of regional population growth since 2010. The Inner New Jersey (+2.4%) and Lower Hudson Valley (+2.3%) subregions grew at a slightly faster than NYC. Hudson County, New Jersey experienced the fastest rate of population growth (+6.0%) of any county in the region, followed by Ocean County, New Jersey (+5.3%) and Rockland County, New York (+4.5%). With the exception of Ocean County, less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
-
+  x
 source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program (PEP) 2019. See [About](/about/#people) page for additional notes on population change.
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#people) page for additional notes on population change.
 
 map:
   defaultGeographyLevel: county
@@ -19,9 +18,11 @@ map:
     type: cartovector
     source-layers:
     - id: pct-population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp_1019e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_subregion_v210924
     - id: pct-population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp_1019e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_county_v210924 WHERE iscommap = 0
+    - id: pct-population-change-municipality
+      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: pctchange
@@ -29,15 +30,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popp_1019e
+      columnName: popp_1020e
       cv:
       sig:
     - geomType: subregion
-      columnName: popp_1019e
+      columnName: popp_1020e
       cv:
       sig:
     - geomType: county
-      columnName: popp_1019e
+      columnName: popp_1020e
+      cv:
+      sig:
+    - geomType: municipality
+      columnName: popp_1020e
       cv:
       sig:
 
@@ -46,7 +51,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "% Population Change, 2010 to 2018"
+    title: "% Population Change, 2010 to 2020"
     legend: pct-population-change-subregion
     layers:
     - id: pct-population-change-subregion
@@ -67,13 +72,36 @@ map:
         - 0.005
         - 0.015
   - id: county
-    title: "% Population Change, 2010 to 2018"
+    title: "% Population Change, 2010 to 2020"
     legend: pct-population-change-county
     layers:
     - id: pct-population-change-county
       type: choropleth
       source: pct-population-change
       source-layer: pct-population-change-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#d76423"
+        - "#ffa555"
+        - "#ffffe0"
+        - "#73efff"
+        - "#0058ee"
+        - "#002673"
+        breaks:
+        - -0.025
+        - -0.01
+        - 0.01
+        - 0.025
+        - 0.05
+  - id: municipality
+    title: "% Population Change, 2010 to 2020"
+    legend: pct-population-change-municipality
+    layers:
+    - id: pct-population-change-municipality
+      type: choropleth
+      source: pct-population-change
+      source-layer: pct-population-change-municipality
       paintConfig:
         opacity: 0.6
         colors:

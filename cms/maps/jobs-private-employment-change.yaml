@@ -24,7 +24,7 @@ map:
     - id: private-employment-change-subregion
       sql: SELECT the_geom_webmercator, geoid, empr_0819 as value, name FROM region_subregion_v202007
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr_0819 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, empr_0819 as value, name FROM region_county_v202007 WHERE iscommap = 0
 
   popupColumns:
   - id: empr

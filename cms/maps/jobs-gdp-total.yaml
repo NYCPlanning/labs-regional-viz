@@ -20,7 +20,7 @@ map:
     - id: gdp-total-subregion
       sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_subregion_v202007
     - id: gdp-total-county
-      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, gdp_18 as value, name FROM region_county_v202007 WHERE iscommap = 0
 
   popupColumns:
   - id: gdp_18

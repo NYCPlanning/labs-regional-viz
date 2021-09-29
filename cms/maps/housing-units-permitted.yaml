@@ -22,7 +22,7 @@ map:
     - id: units-permitted-subregion
       sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_subregion_v202007
     - id: units-permitted-county
-      sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_county_v202007 WHERE iscommap = 0
     - id: units-permitted-municipality
       sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_municipality_v202007 WHERE ishouperm = TRUE
 

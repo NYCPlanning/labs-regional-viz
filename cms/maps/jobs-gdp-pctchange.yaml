@@ -20,7 +20,7 @@ map:
     - id: gdp-pctchange-subregion
       sql: SELECT the_geom_webmercator, geoid, gdppa_0818 as value, name FROM region_subregion_v202007
     - id: gdp-pctchange-county
-      sql: SELECT the_geom_webmercator, geoid, gdppa_0818 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, gdppa_0818 as value, name FROM region_county_v202007 WHERE iscommap = 0
 
   popupColumns:
   - id: gdppa_0818

@@ -20,9 +20,9 @@ map:
     - id: total-units-subregion
       sql: SELECT the_geom_webmercator, geoid, hou_19e as value, name FROM region_subregion_v202007
     - id: total-units-county
-      sql: SELECT the_geom_webmercator, geoid, hou_19e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, hou_19e as value, name FROM region_county_v202007 WHERE iscommap = 0
     - id: total-units-municipality
-      sql: SELECT the_geom_webmercator, geoid, hou_18e as value, name FROM region_municipality_v202007 WHERE islitown = false
+      sql: SELECT the_geom_webmercator, geoid, hou_18e as value, name FROM region_municipality_v202007 WHERE islitown = 0
 
   popupColumns:
   - id: totalunits
