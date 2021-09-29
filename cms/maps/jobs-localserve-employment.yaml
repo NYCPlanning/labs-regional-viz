@@ -6,9 +6,9 @@ categorySlug: jobs
 title: "There are 2.6 million retail, leisure, hospitality and other local services jobs in the region."
 menuTitle: "Local Services Employment"
 content: |
-  The region's approximately 2.57 million private sector local services jobs - retail, leisure, food services, accommodations, and other services (e.g., laundromats and auto repair shops) sectors - represent 28% of the region's total private sector employment, the second-largest share behind the office macro sector. Local services private sector employment generated $100 billion in employee wages in 2019, averaging a lower wage per job than the other three macro sectors. 39% of the region's local services jobs are in NYC, (999k), which represent 48% of private sector wages ($48 billion). Local services employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
+  The region's approximately 2.57 million private sector local services jobs - retail, leisure, food services, accommodations, and other services (e.g., laundromats and auto repair shops) sectors - represent 28% of the region's total private sector employment, the second-largest share behind the office macro sector. Local services private sector employment generated $100 billion in employee wages in 2020, averaging a lower wage per job than the other three macro sectors. 39% of the region's local services jobs are in NYC, (999k), which represent 48% of private sector wages ($48 billion). Local services employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-tract
-      sql: SELECT the_geom_webmercator, emloc17 as value FROM region_tract_emloc_dotden_v20190911
+      sql: SELECT the_geom_webmercator, emser_18 as value FROM region_tract_emloc_dotden_v210924
     - id: localserve-employment-subregion
-      sql: SELECT the_geom_webmercator, emser_19 as value FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, emser_20 as value FROM region_subregion_v210924
     - id: localserve-employment-county
-      sql: SELECT the_geom_webmercator, emser_19 as value FROM region_county_v202007 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, emser_20 as value FROM region_county_v210924 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: emser
@@ -32,19 +32,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
     - geomType: county
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
     - geomType: municipality
-      columnName: emloc17
+      columnName: emser_18
       cv:
       sig:
 
@@ -52,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Local Services Jobs, 2019"
+    title: "Local Services Jobs, 2020"
     legend: localserve-employment-subregion
     layers:
     - id: localserve-employment-subregion
@@ -73,7 +73,7 @@ map:
         - 400000
         - 750000
   - id: county
-    title: "Local Services Jobs, 2019"
+    title: "Local Services Jobs, 2020"
     legend: localserve-employment-county
     layers:
     - id: localserve-employment-county
@@ -96,7 +96,7 @@ map:
         - 100000
         - 250000
   - id: municipality
-    title: "Local Services Employment, 2017"
+    title: "Local Services Jobs, 2018"
     legend:
     - label: "1 Dot = 25 Jobs"
       color: "#33cc33"

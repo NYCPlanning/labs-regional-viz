@@ -6,7 +6,7 @@ categorySlug: jobs
 title: "NYC is the hub of the largest metropolitan economy in the nation."
 menuTitle: "Private Sector Employment by Macro Industry"
 content: |
-  The region's <b>9.3 million private sector jobs</b> represent a diverse mix of Office-based, Institutional, Industrial, and Local Services employment, generating <b>$742 billion in employee wages</b>. The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area. In 2019, NYC accounted for 42% of the region's total private sector employment, 3.9 million jobs, and 51% of the region's total private sector wages, $383 billion. Manhattan alone represents 24% of the region's private sector employment, 2.3 million jobs, and 41% of the region's employee wages. Outside of NYC, 5.4 million private sector jobs provide employment for regional residents, including nearly 260k NYC residents who commute out of the city for work.
+  The region's <b>9.3 million private sector jobs</b> represent a diverse mix of Office-based, Institutional, Industrial, and Local Services employment, generating <b>$742 billion in employee wages</b>. The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area. In 2020, NYC accounted for 42% of the region's total private sector employment, 3.9 million jobs, and 51% of the region's total private sector wages, $383 billion. Manhattan alone represents 24% of the region's private sector employment, 2.3 million jobs, and 41% of the region's employee wages. Outside of NYC, 5.4 million private sector jobs provide employment for regional residents, including nearly 260k NYC residents who commute out of the city for work.
 
   This map illustrates the location and mix of those private sector jobs by macro industry.  <b>2.82 million office-based jobs</b>, such as those in information, financial services, and other professional services, represent 30% of our region's private sector employment. Office sector jobs are most concentrated in Midtown and Lower Manhattan, which represents 42% of the region's office jobs and averages approximately 51k office jobs per square mile. Other office clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30k-50k total office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (NJ).
 
@@ -17,7 +17,7 @@ content: |
   The region's <b>1.74 million industrial jobs</b>, including construction, manufacturing, and logistics, are most concentrated near ports, airports, and transportation facilities. Because of the Industrial sector's land-intensiveness, there is a greater share of Industrial employment outside of NYC than within (unlike all other sectors).
 
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision. Private sector employment by industry macro sector generally reflects workers covered by State unemployment insurance laws and does not include public sector or other forms of employment. Macro industry sectors represent an approximation of office, institutional, industrial, and local services employment, but are non mutually exclusive. Please refer to [About](/about/#jobs) for more information.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision. Private sector employment by industry macro sector generally reflects workers covered by State unemployment insurance laws and does not include public sector or other forms of employment. Macro industry sectors represent an approximation of office, institutional, industrial, and local services employment, but are non mutually exclusive. Please refer to [About](/about/#jobs) for more information.
 
 map:
   defaultGeographyLevel: municipality
@@ -27,13 +27,13 @@ map:
     type: cartovector
     source-layers:
     - id: employment-by-sector-tract
-      sql: SELECT the_geom_webmercator, category FROM region_tract_employment_dotden_v20190911 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_tract_employment_dotden_v210924 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: emoff
@@ -41,19 +41,19 @@ map:
     large: true
     values:
     - geomType: municipality
-      columnName: emoff17
+      columnName: emoff_18
       cv:
       sig:
     - geomType: county
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
     - geomType: region
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
   - id: emins
@@ -61,19 +61,19 @@ map:
     large: true
     values:
     - geomType: municipality
-      columnName: emins17
+      columnName: emins_18
       cv:
       sig:
     - geomType: county
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
     - geomType: region
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
   - id: emind
@@ -81,39 +81,39 @@ map:
     large: true
     values:
     - geomType: municipality
-      columnName: emind17
+      columnName: emind_18
       cv:
       sig:
     - geomType: county
-      columnName: emind_19
+      columnName: emind_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emind_19
+      columnName: emind_20
       cv:
       sig:
     - geomType: region
-      columnName: emind_19
+      columnName: emind_20
       cv:
       sig:
-  - id: emloc
+  - id: emser
     title: Local Services<br>Jobs
     large: true
     values:
     - geomType: municipality
-      columnName: emloc17
+      columnName: emser_18
       cv:
       sig:
     - geomType: county
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
     - geomType: region
-      columnName: emser_19
+      columnName: emser_20
       cv:
       sig:
 
@@ -122,7 +122,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Sector Jobs by Macro Industry, 2019"
+    title: "Private Sector Jobs by Macro Industry, 2020"
     legend-title: "1 dot = 25 jobs"
     legend:
     - label: "Office"
@@ -147,13 +147,13 @@ map:
         - match
         - - get
           - category
-        - "EmOff17"
+        - "EmOff_18"
         - "#0628d3"
-        - "EmIns17"
+        - "EmIns_18"
         - "#f2922b"
-        - "EmInd17"
+        - "EmInd_18"
         - "#ce50c4"
-        - "EmLoc17"
+        - "EmSer_18"
         - "#33cc33"
         - "#FFFFFF"
         circle-radius:
@@ -177,7 +177,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Private Sector Jobs by Macro Industry, 2019"
+    title: "Private Sector Jobs by Macro Industry, 2020"
     legend-title: "1 dot = 25 jobs"
     legend:
     - label: "Office"
@@ -202,13 +202,13 @@ map:
         - match
         - - get
           - category
-        - "EmOff17"
+        - "EmOff_18"
         - "#0628d3"
-        - "EmIns17"
+        - "EmIns_18"
         - "#f2922b"
-        - "EmInd17"
+        - "EmInd_18"
         - "#ce50c4"
-        - "EmLoc17"
+        - "EmSer_18"
         - "#33cc33"
         - "#FFFFFF"
         circle-radius:
@@ -257,13 +257,13 @@ map:
         - match
         - - get
           - category
-        - "EmOff17"
+        - "EmOff_18"
         - "#0628d3"
-        - "EmIns17"
+        - "EmIns_18"
         - "#f2922b"
-        - "EmInd17"
+        - "EmInd_18"
         - "#ce50c4"
-        - "EmLoc17"
+        - "EmSer_18"
         - "#33cc33"
         - "#FFFFFF"
         circle-radius:

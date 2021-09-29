@@ -6,13 +6,9 @@ categorySlug: jobs
 title: "NYC is the hub of the largest metropolitan economy in the nation."
 menuTitle: "Total Employment"
 content: |
-  In 2019, our region employed 10.8 million, representing 7% of total U.S. jobs, and generated $853 billion in annual worker wages, representing 10% of total U.S. wages.
-
-  The location of jobs within the region roughly mirrors population distribution, with the densest concentrations of employment in NYC (particularly in Manhattan), but also significant levels of employment spread throughout the tri-state area.
-
-  NYC accounted for 42% of the metro region’s jobs (4.49 million) and half of the region’s annual worker wages ($430 billion). Manhattan alone represented 2.53 million jobs (23% of regional employment) and $322 billion in annual worker wages (38% of regional wages) – the highest for any county in the nation. Outside of NYC, there are 6.27 million jobs providing employment for regional residents, including nearly 260k NYC residents who commute out of the city for work.
+  X
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: municipality
@@ -22,11 +18,11 @@ map:
     type: cartovector
     source-layers:
     - id: employment-total-subregion
-      sql: SELECT the_geom_webmercator, geoid, emtot_19 as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, emtot_20 as value, name FROM region_subregion_v210924
     - id: employment-total-county
-      sql: SELECT the_geom_webmercator, geoid, emtot_19 as value, name FROM region_county_v202007 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emtot_20 as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: employment-total-municipality
-      sql: SELECT the_geom_webmercator, geoid, emtot17 as value, name FROM region_municipality_v202007 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, emtot_18 as value, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: emptot
@@ -34,19 +30,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emtot_19
+      columnName: emtot_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emtot_19
+      columnName: emtot_20
       cv:
       sig:
     - geomType: county
-      columnName: emtot_19
+      columnName: emtot_20
       cv:
       sig:
     - geomType: municipality
-      columnName: emtot17
+      columnName: emtot_18
       cv:
       sig:
 
@@ -54,7 +50,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Total Employment, 2019"
+    title: "Total Employment, 2020"
     legend: employment-total-subregion
     layers:
     - id: employment-total-subregion
@@ -75,7 +71,7 @@ map:
         - 1000000
         - 2500000
   - id: county
-    title: "Total Employment, 2019"
+    title: "Total Employment, 2020"
     legend: employment-total-county
     layers:
     - id: employment-total-county
@@ -96,7 +92,7 @@ map:
         - 500000
         - 750000
   - id: municipality
-    title: "Total Employment, 2017"
+    title: "Total Employment, 2018"
     legend: employment-total-municipality
     layers:
     - id: employment-total-municipality
