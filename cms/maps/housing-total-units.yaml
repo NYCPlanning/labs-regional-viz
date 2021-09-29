@@ -6,9 +6,9 @@ categorySlug: housing
 title: "Our region is home to 9.2 million different places to live."
 menuTitle: "Total Housing Units"
 content: |
-  As of 2019, there are 9.19 million housing units in the tri-state region, 39% of which are located in NYC. Brooklyn had the highest number of housing units among counties in the region (1.07 million), followed by Manhattan (893k), Queens (869k), and Suffolk County (578k). Reflecting the historic pattern of development, the highest density housing in the region is located primarily in NYC and other historic downtowns, while post-World War II development tended to produce patterns of single-family housing further from the urban core.
+  xxx.
 source: |
-  Sources & Notes: U.S. Census Bureau Population & Housing Estimates Program (PEP) 2019; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2014-2018. See [About](/about/#housing) for more information about housing.
+  Sources & Notes: U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#housing) for more information about housing.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,11 +18,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-units-subregion
-      sql: SELECT the_geom_webmercator, geoid, hou_19e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, hou_20e as value, name FROM region_subregion_v210924
     - id: total-units-county
-      sql: SELECT the_geom_webmercator, geoid, hou_19e as value, name FROM region_county_v202007 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, hou_20e as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: total-units-municipality
-      sql: SELECT the_geom_webmercator, geoid, hou_18e as value, name FROM region_municipality_v202007 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, hou_20e as value, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: totalunits
@@ -30,47 +30,47 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hou_19e
-      cv: hou_19c
-      sig:
-    - geomType: subregion
-      columnName: hou_19e
-      cv: hou_19c
-      sig:
-    - geomType: county
-      columnName: hou_19e
-      cv: hou_19c
-      sig:
-    - geomType: municipality
-      columnName: hou_18e
-      cv: hou_18c
-      sig:
-  - id: moe
-    title: MOE
-    isMOE: true
-    values:
-    - geomType: region
-      columnName:
+      columnName: hou_20e
       cv:
       sig:
     - geomType: subregion
-      columnName:
+      columnName: hou_20e
       cv:
       sig:
     - geomType: county
-      columnName:
+      columnName: hou_20e
       cv:
       sig:
     - geomType: municipality
-      columnName: hou_18m
-      cv: hou_18c
+      columnName: hou_20e
+      cv:
       sig:
+  #- id: moe  - use only with ACS data
+  #  title: MOE
+  #  isMOE: true
+  #  values:
+  #  - geomType: region
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: subregion
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: county
+  #    columnName:
+  #    cv:
+  #    sig:
+  #  - geomType: municipality
+  #    columnName: hou_18m
+  #    cv: hou_18c
+  #    sig:
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Total Housing Units, 2019"
+    title: "Total Housing Units, 2020"
     legend: total-units-subregion
     layers:
     - id: total-units-subregion
@@ -91,7 +91,7 @@ map:
         - 1000000
         - 2000000
   - id: county
-    title: "Total Housing Units, 2019"
+    title: "Total Housing Units, 2020"
     legend: total-units-county
     layers:
     - id: total-units-county
@@ -112,7 +112,7 @@ map:
         - 250000
         - 500000
   - id: municipality
-    title: "Total Housing Units, 2014-2018 Avg"
+    title: "Total Housing Units, 2020"
     legend: total-units-municipality
     layers:
     - id: total-units-municipality
