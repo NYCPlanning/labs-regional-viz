@@ -17,12 +17,11 @@ content: |
 
   <b>It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.”</b> However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.
 
-  In 2000, Manhattan was the region’s most jobs-intensive county, with a ratio of 0.33 housing units (798k) to total jobs (2.4 million). The Bronx was the region’s most housing-intensive county, with a ratio of 2.3 housing units (491k) to jobs (213k), while Brooklyn, Queens and Staten Island all qualify as “housing-intensive,” with those boroughs’ residents commuting to Manhattan in high numbers*.
+  In 2000, Manhattan was the region’s most jobs-intensive county, with a ratio of 0.37 housing units to total jobs. The Bronx was the region’s most housing-intensive county, with a ratio of 1.88 housing units to jobs, while Brooklyn, Queens and Staten Island all qualify as “housing-intensive,” with those boroughs’ residents commuting to Manhattan in high numbers.
 
   Inner NJ counties adjacent to NYC (except Hudson) skewed more jobs-intensive in 2000, while the outer ring of the region – Suffolk County, Litchfield, CT, the upper Hudson Valley, Warren County and Sussex County, NJ – tended to be more housing-intensive.
-
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000. *NYC public sector employment (e.g., teachers, police) was not allocated to actual borough of workplace employment in 2000 and had been registered to headquarters locations. Therefore, certain NYC boroughs report lower employment and skew slightly more housing-intensive than they likely should. See [About](/about/#balance) for more information about housing-jobs balance.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000. NYC public sector employment was not reported by borough of workplace in 2000 (only headquarters location), however, data were adjusted based on current public sector employment allocations for actual workplace. See [About](/about/#balance) for more information.
 
 map:
   defaultGeographyLevel: county
