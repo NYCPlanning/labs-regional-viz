@@ -6,9 +6,9 @@ categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
 menuTitle: "% Population Change, 2010 to 2020"
 content: |
-  x
+  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown +7.7% since 2010, with Brooklyn (+9.2%) and Queens (+7.8%) growing faster, and Manhattan (+6.8%), the Bronx (+6.3%) and Staten Island (+5.8%) growing slower. NYC accounted for 47% of regional population growth since 2010. The Inner New Jersey (+7.5%) and Lower Hudson Valley (+5.9%) subregions grew at a slightly slower than NYC. Hudson County, New Jersey experienced the fastest rate of population growth (+14.3%) of any county in the region, followed by Ocean County, New Jersey (+10.5%) and Essex County, New Jersey (+10.2%). With the exception of Ocean County, New Jersey, and Orange County, New York (+7.6%), less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
 source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#people) page for additional notes on population change.
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data.
 
 map:
   defaultGeographyLevel: county
@@ -66,11 +66,13 @@ map:
         - "#73efff"
         - "#0058ee"
         - "#002673"
+        - "#00091a"
         breaks:
-        - -0.002
-        - 0.002
+        - -0.005
         - 0.005
-        - 0.015
+        - 0.025
+        - 0.050
+        - 0.075
   - id: county
     title: "% Population Change, 2010 to 2020"
     legend: pct-population-change-county
@@ -88,12 +90,14 @@ map:
         - "#73efff"
         - "#0058ee"
         - "#002673"
+        - "#00091a"
         breaks:
         - -0.025
         - -0.01
         - 0.01
         - 0.025
         - 0.05
+        - 0.075
   - id: municipality
     title: "% Population Change, 2010 to 2020"
     legend: pct-population-change-municipality
@@ -111,9 +115,11 @@ map:
         - "#73efff"
         - "#0058ee"
         - "#002673"
+        - "#00091a"
         breaks:
         - -0.025
         - -0.01
         - 0.01
         - 0.025
         - 0.05
+        - 0.075

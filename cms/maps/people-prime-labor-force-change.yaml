@@ -6,7 +6,12 @@ categorySlug: people
 title: "Growth of the region’s labor force age 25-54 has shifted toward the center."
 menuTitle: Age 25-54 Labor Force Change, 2010 to 2019
 content: |
-  x
+  Since 2010, the region has lost -107k workers between the ages of 25 and 54 – a rate of -1.4%, representing a departure from the region’s growth rate of +5% from 2000 to 2010. Nationally, this cohort registered a slight gain of +1.3% since 2010, as the larger baby-boomer population aged and was replaced by younger, smaller population cohorts.
+
+  Within our region, this cohort of workers are increasingly choosing to reside in the center of our region, particularly within NYC, which has gained over +141k (+4.8%) labor force participants aged 25 to 54 since 2010. Though most parts of the region lost labor force participants age 25-54, areas proximate to NYC or well-connected by public transit also experienced modest increases in these resident workers, slightly outpacing the U.S. growth rate.
+
+  Historically, NYC has consistently attracted large numbers of people in their 20s, with people in their 30s+ more likely to move out of than into the city ([learn about historic NYC migration characteristics](https://migration.planning.nyc.gov/#age)). Today, fewer people in their 30s are moving out of NYC. Out-migrants from the city are more likely to leave for other parts of the U.S. than for the metro region, resulting in population declines for this cohort in much of the region's suburban areas.
+
 source: |
   Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2015-2019. 2010 in this map represents a 5-year average of 2006-2010 and 2019 in this map represents a 5-year average of 2015-2019 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
@@ -84,15 +89,17 @@ map:
         opacity: 0.6
         colors:
         - "#9a4819"
-        - "#ffa555"
+        - "#d76423"
+        - "#ffbf80"
         - "#ffffe0"
         - "#b3e4ff"
         - "#002673"
         breaks:
+        - -50000
         - -25000
         - -5000
         - 5000
-        - 150000
+        - 100000
   - id: county
     title: "Change in Labor Force Aged 25 to 54, 2010 to 2019"
     legend: prime-labor-force-change-county
@@ -111,7 +118,7 @@ map:
         - "#5ab4ff"
         - "#002673"
         breaks:
-        - -15000
+        - -10000
         - -3500
         - 3500
         - 15000

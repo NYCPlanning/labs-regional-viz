@@ -3,12 +3,12 @@
 slug: population-race-2010
 category: People
 categorySlug: people
-title: "Something here."
+title: "Our region is more diverse than the U.S. overall."
 menuTitle: "Population by Race/Hispanic Origin, 2010"
 content: |
-      x
+      In 2010, the NYC Metro was 52% White non-Hispanic, compared to 64% of the U.S. population overall, and the region had larger shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic populations as compared with the U.S. overall. Yet within the NYC Metro, diverse populations were concentrated in select areas and the vast majority of municipalities had resident populations that were 50% or more White Non-Hispanic. Municipalities with more diverse populations were concentrated in the center of the region and along transit corridors.
 source: |
-  Sources & Notes: U.S. Census Bureau Decennial Census 2010. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision. Please refer to [About](/about/#population) for more information.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and the [Population](/about/#people) section for additional notes on population by race/Hispanic origin.
 
 map:
   defaultGeographyLevel: municipality
