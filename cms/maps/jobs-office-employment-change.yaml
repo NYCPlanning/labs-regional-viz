@@ -6,9 +6,13 @@ categorySlug: jobs
 title: "NYC's office employment growth had offset losses elsewhere in the region."
 menuTitle: "Office Employment Change, 2008 to 2020"
 content: |
-    The NYC metro region gained +228k office-based private sector jobs since the recession. However, NYC's gain of +241k office jobs offset losses experienced elsewhere in the region. All five NYC boroughs gained office employment post-recession, with Manhattan adding the most (+187k) and Brooklyn growing the fastest (+4.3% per year) since 2008. Though 51% of the region's private sector office jobs are located in NYC, NYC accounted for 83% of office job gains experienced by growing counties (such as Hudson and Somerset counties in New Jersey). Most NYC metro region counties lost office jobs in the finance, insurance, and real estate sectors (a total regional loss of -18k), but gained jobs in professional, administrative, and other business services sectors (a regional increase of +242k). Manhattan, Brooklyn, and Fairfield County, CT were the only three counties in the metro region that gained information sector jobs post-recession, of which Manhattan accounted for 87% (+45k).
+    In the wake of the Great Recession from 2008 to 2019, the NYC Metro gained +228k office-based private sector jobs, with NYC's gain of +241k office jobs offsetting losses experienced elsewhere in the region. All five NYC boroughs gained office employment from 2008 to 2019, with Manhattan adding the most (+187k) and Brooklyn growing the fastest (+4.3% per year). Though 51% of the region's private sector office jobs were located in NYC in 2019, NYC accounted for 83% of office job gains experienced by growing counties.
+
+    The Covid-19 pandemic and job losses in 2020 reduced the NYC Metro’s post-2008 office employment growth to +52k and NYC office sector gains +142k. Outside of NYC, Hudson County, NJ experienced office job growth (+8k), while Bergen County, NJ (-18k) and Nassau County, NY (-21k) saw the steepest declines. Notably, this macro sector employs the highest share of [telework-capable jobs]( https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253).
+
+    For more detail on the recovery of the office-based macro sector, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2020. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county

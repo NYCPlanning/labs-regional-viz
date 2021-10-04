@@ -3,12 +3,12 @@
 slug: gdp-pctchange
 category: Jobs
 categorySlug: jobs
-title: "NYC's GDP grew nearly five times the rate of the rest of the region since the recession."
+title: "Before the pandemic, NYC's GDP grew at nearly five times the rate of the rest of the region."
 menuTitle: "% Annual Change in Gross Domestic Product, 2008 - 2019"
 content: |
-  The NYC metro region grew GDP by +$382 billion from 2008 to 2019 (in 2019-dollars), representing an annual increase of +2.4%. NYC, which grew GDP by +$297 billion post-recession, accounted for 78% of the region’s net GDP growth, growing by +4.3% per year. The rest of the region combined grew GDP by +0.9% per year. Connecticut was the only subregion that experienced a loss in GDP, of -$7 billion, representing a decline of -0.4% per year. NYC and the Lower Hudson Valley (+2.3% per year) both grew GDP faster than the U.S. on average (+2.0% per year) from 2008 to 2019, while the other subregions grew GDP more slowly. Manhattan grew GDP the fastest among NYC metro region counties (+4.6% per year), followed by Brooklyn (+4.1% per year), and Queens (+3.2% per year).
+  Prior to the pandemic, the NYC Metro grew GDP by +$459 billion from 2008 to 2019 (in 2020-dollars), representing an annual increase of +2.5%. NYC, which grew GDP by +$361 billion from 2008 to 2019, accounted for 79% of the region’s net GDP growth, growing by +4.6% per year. The rest of the region combined grew GDP by +0.9% per year. Connecticut was the only subregion that experienced a loss in GDP, of -$4 billion, representing a decline of -0.2% per year. NYC and the Lower Hudson Valley (+2.3% per year) both grew GDP faster than the U.S. on average (+2.0% per year) from 2008 to 2019, while the other subregions grew GDP more slowly. Manhattan grew GDP the fastest among NYC metro region counties (+5.1% per year), followed by Brooklyn (+4.1% per year), and Queens (+3.3% per year).
 source: |
-  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2019.
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2019 (in 2020-dollars).
 
 map:
   defaultGeographyLevel: county

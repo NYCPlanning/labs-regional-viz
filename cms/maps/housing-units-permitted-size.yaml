@@ -6,9 +6,14 @@ categorySlug: housing
 title: "In recent years, NYC and New Jersey dominated housing production, especially multifamily housing."
 menuTitle: "Housing Production by Building Size, 2010 to 2020"
 content: |
-  x
+  Greater than 572k new housing units were issued permits in the region from 2010 to 2020 – more than of the total housing stock of the City of San Diego in a nine-year period. NYC accounted for 42% of new housing (241k units) and the Inner New Jersey subregion accounted for 31% (178k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units.
+
+  Approximately three-quarters of the total permitted units were in multifamily buildings, 71% in buildings with five or more units (409k), and 5% in buildings with two-to-four units (30k). 134k permits were issued for buildings with one unit, characteristic of low-density suburbs.
+
+  Today the region has 3.3 million homes in buildings with five or more units, of which NYC accounts for 66% (2.2 million units) and the Inner New Jersey subregion accounts for 16% (539k units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 54% of the region’s permitted units in buildings with five or more units (222k units), slightly lower than its regional share of existing buildings with five or more units, and the Inner New Jersey subregion accounted for 31% of the region’s permitted units in buildings with five or more units (125k units), twice its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and younger labor force growth.
+
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2020 Annual; NYC Department of City Planning, Division of Housing & Economic Development (NYC only). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits and the housing permit geography.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2020 Annual; NYC Department of City Planning Housing Database v20Q4 (NYC only). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits and the housing permit geography.
 
 map:
   defaultGeographyLevel: county

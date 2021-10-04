@@ -3,10 +3,14 @@
 slug: localserve-employment-change
 category: Jobs
 categorySlug: jobs
-title: "The region added 377k local services jobs post-recession."
+title: "Considerable job growth in the local services sector after the Great Recession was more than offset by pandemic-initiated losses."
 menuTitle: "Local Services Employment Change, 2008 to 2020"
 content: |
-          Local services employment (retail, leisure, hospitality, and other services sectors) grew in nearly every county, representing an increase of +377k jobs and a regional growth of +1.6% per year since 2008. NYC accounted for nearly two-thirds of the region's local services employment growth, with Manhattan gaining the most jobs (+121k), followed by Brooklyn (+64k, growing fastest at +5.2% per year) and Queens (+38k, +3.0% per year). Growth of this sector generally occurred in areas that gained population, however, areas like Suffolk County, LI registered a +12.8% increase in retail, leisure and hospitality job gains post-recession, but lost population since 2010. Within the local services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with minor declines in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding +48k retail jobs since 2008, with the largest share of retail growth experienced in Brooklyn (+19k jobs), followed by Manhattan, Queens, the Bronx, and Hudson County, NJ. Retail in those areas ranged in growth from five to 20 times greater than the rate of the national average (+0.2% per year).
+          Between 2008 and 2019, local services employment (retail, leisure, hospitality, and other services sectors) grew in nearly every county, representing an increase of +377k jobs and a regional growth of +1.6% per year. NYC accounted for nearly two-thirds of the region's local services employment growth, with Manhattan gaining the most jobs (+121k). Within the local services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with minor declines in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding +48k retail jobs since 2008.
+
+          The local services sector saw steep declines because of pandemic related shutdowns of many retail, leisure, and hospitality businesses. Between 2019 and 2020, the NYC Metro saw a decline of -562k local services jobs. Manhattan was especially hard-hit, registering a decline of nearly -200k local services jobs between 2019 and 2020.
+
+          To track how the NYC Metro’s local services jobs are recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
 source: |
   Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2020. See [About](/about/#jobs) for more information about employment.
 
