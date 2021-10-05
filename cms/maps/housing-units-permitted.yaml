@@ -4,13 +4,13 @@ slug: units-permitted
 category: Housing
 categorySlug: housing
 title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
-menuTitle: "Housing Production (Units Permitted), 2010 to 2019"
+menuTitle: "Housing Production (Units Permitted), 2010 to 2020"
 content: |
-  Nearly 508k new housing units were issued permits in the region from 2010 to 2019 – more than of the total housing stock of the City of San Francisco in a nine-year period. While in absolute terms a large number, these housing permits represent the equivalent of a +6% increase over the region’s existing housing supply. Permit figures may include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
+  Greater than 572k new housing units were issued permits in the region from 2010 to 2020 – more than of the total housing stock of the City of San Diego in a ten-year period. Permit figures may include significant home repairs/rebuilds following major climate events like Hurricane Irene or Superstorm Sandy, as well as other types of residential renovation.
 
-  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 43% of new housing (220k units), and the Inner NJ subregion, which accounted for 30% (154k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 32% of the population (respectively).
+  Across the region, the production of new housing was highly concentrated in NYC, which accounted for 42% of new housing (241k units), and the Inner NJ subregion, which accounted for 31% (178k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units, despite accounting for 31% of existing housing and 31% of the population (respectively).
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2019 Annual; NYC Department of City Planning, Division of Housing & Economic Development (NYC only). Please see [About](/about/#housing) for more information about housing permits.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2020 Annual; NYC Department of City Planning Housing Database v20Q4 (NYC only). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. Please see [About](/about/#housing) for more information about housing permits and the housing permit geography.
 
 map:
   defaultGeographyLevel: county
@@ -20,11 +20,11 @@ map:
     type: cartovector
     source-layers:
     - id: units-permitted-subregion
-      sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, hp_1020 as value, name FROM region_subregion_v210924
     - id: units-permitted-county
-      sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, hp_1020 as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: units-permitted-municipality
-      sql: SELECT the_geom_webmercator, geoid, hp_1019 as value, name FROM region_municipality_v202007 WHERE ishouperm = TRUE
+      sql: SELECT the_geom_webmercator, geoid, hp_1020 as value, name FROM region_municipality_v210924 WHERE ishouperm = 1
 
   popupColumns:
   - id: houp
@@ -32,19 +32,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hp_1019
+      columnName: hp_1020
       cv:
       sig:
     - geomType: subregion
-      columnName: hp_1019
+      columnName: hp_1020
       cv:
       sig:
     - geomType: county
-      columnName: hp_1019
+      columnName: hp_1020
       cv:
       sig:
     - geomType: municipality
-      columnName: hp_1019
+      columnName: hp_1020
       cv:
       sig:
 
@@ -54,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units Permitted, 2010 to 2019"
+    title: "Housing Units Permitted, 2010 to 2020"
     legend: units-permitted-subregion
     layers:
     - id: units-permitted-subregion
@@ -75,7 +75,7 @@ map:
         - 50000
         - 100000
   - id: county
-    title: "Housing Units Permitted, 2010 to 2019"
+    title: "Housing Units Permitted, 2010 to 2020"
     legend: units-permitted-county
     layers:
     - id: units-permitted-county
@@ -96,7 +96,7 @@ map:
         - 15000
         - 30000
   - id: municipality
-    title: "Housing Units Permitted, 2010 to 2019"
+    title: "Housing Units Permitted, 2010 to 2020"
     legend: units-permitted-municipality
     layers:
     - id: units-permitted-municipality

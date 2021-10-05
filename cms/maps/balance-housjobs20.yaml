@@ -1,0 +1,107 @@
+# Balance
+# ----------
+slug: housjobs20
+category: Balance
+categorySlug: balance
+title: "Housing/jobs balance in 2020"
+menuTitle: "Housing/Jobs Balance 2020"
+content: |
+  <div style="background: linear-gradient(90deg, rgba(0,38,115,0.7) 0%, rgba(0,88,238,0.7) 17%, rgba(90,180,255,0.7) 33%, rgba(255,255,224,0.7) 50%, rgba(255,185,85,0.7) 66%, rgba(215,101,35,0.7) 83%, rgba(135,57,12,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny text-center">
+    <strong class="float-left text-left" style="width:33.33%;">Jobs-intensive</strong>
+    <span class="float-left" style="width:33.33%;">Region Average: 0.85</span>
+    <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
+  </p>
+
+  One tool for considering the geographic balance of residents and workplaces in a region is to measure the relative supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. A <b>“Housing/Jobs”</b> indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. In our region, there was an overall average of 0.85 housing units per job in 2019, which increased to 0.97 in 2020 as a result of pandemic-related job losses (in other words, on average, more than one worker lived in each housing unit). Places in our region that have a housing-to-jobs ratio far lower than 0.97 are often important centers of economic activity (<b>“jobs-intensive”</b>), while areas with a higher housing-to-jobs ratio skewed toward residential (<b>“housing-intensive”</b>) uses. In this map, “jobs-intensive” counties or subregions are indicated in blue, and “housing-intensive” geographies are indicated in orange.
+
+  <b>It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.” However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.</b>
+
+  As a result of job losses sustained during the pandemic, in 2020 much of the region shifted in overall balance toward more housing per jobs. Some of the greatest shifts were in counties (e.g. Essex County, NJ) that saw significant population growth and housing development but lost employment, switched from skewing jobs-intensive (blue) in 2000 to more housing-intensive (orange).
+
+  Despite loss of employment between 2019 and 2020, four NYC boroughs other than Manhattan shifted more jobs-intensive, lowering the ratio of housing units to total employment in a period when NYC experienced widespread growth. This reflects the significant job gains in NYC boroughs outside of Manhattan, and implies improved access to employment opportunities for NYC residents without the need to commute to Manhattan. In contrast, shifts in the region towards more housing-intensive – most notably in Inner New Jersey – imply increasing reliance on commutation into NYC for employment, which increases pressure on regional transit infrastructure.
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#balance) for more information about housing-jobs balance.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: housjobs20
+    type: cartovector
+    source-layers:
+    - id: housjobs20-subregion
+      sql: SELECT the_geom_webmercator, geoid, bal_20 as value, name FROM region_subregion_v210924
+    - id: housjobs20-county
+      sql: SELECT the_geom_webmercator, geoid, bal_20 as value, name FROM region_county_v210924 WHERE iscommap = 0
+
+  popupColumns:
+  - id: bal_20
+    title: Homes<br>per Job
+    large: true
+    values:
+    - geomType: region
+      columnName: bal_20
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: bal_20
+      cv:
+      sig:
+    - geomType: county
+      columnName: bal_20
+      cv:
+      sig:
+
+  isPercent: false
+  isChangeMeasurement: false
+  isRatio: true
+
+  layerGroups:
+  - id: subregion
+    title: "Housing Units/Total Employment 2020"
+    legend: housjobs20-subregion
+    layers:
+    - id: housjobs20-subregion
+      type: choropleth
+      source: housjobs20
+      source-layer: housjobs20-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        breaks:
+        - 0.825
+        - 0.850
+        - 0.875
+        - 0.90
+  - id: county
+    title: "Housing Units/Total Employment 2020"
+    legend: housjobs20-county
+    layers:
+    - id: housjobs20-county
+      type: choropleth
+      source: housjobs20
+      source-layer: housjobs20-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#002673"
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d76523"
+        - "#87390c"
+        breaks:
+        - 0.4
+        - 0.65
+        - 0.8
+        - 0.9
+        - 1.15
+        - 1.75

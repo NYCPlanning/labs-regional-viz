@@ -3,18 +3,18 @@
 slug: institutional-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for 44% of the region's 2.2 million private sector institutional jobs in the education and healthcare sectors."
+title: "NYC accounts for 46% of the region's 2.1 million private sector institutional jobs in the education and healthcare sectors."
 menuTitle: "Institutional Employment"
 content: |
-  The region employs nearly 2.2 million people in private sector education and healthcare jobs. NYC accounted for 979k jobs, representing 45% of the region’s private sector Institutional employment.
+  The region employs approximately 2.1 million people in private sector education and healthcare jobs. NYC accounted for 937k jobs, representing 46% of the region’s private sector Institutional employment.
 
-  83% of the region's private sector institutional jobs are in healthcare, 1.7 million jobs, and 365k jobs are in education, which includes private schools and universities. Private sector institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local healthcare facilities (e.g., doctor and dentist offices), home health aide services, and social services.
+  83% of the region's private sector institutional jobs are in healthcare, with the remainder in private education, which includes private schools and universities. Private sector institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local healthcare facilities (e.g., doctor and dentist offices), home health aide services, and social services.
 
-  The institutional macro sector additionally employs more than 755,000 people in public sector jobs in the region, most notably in local and State education. Public sector institutional employment generally mirrors population distribution throughout the tri-state area.
+  The Institutional macro sector additionally employs public sector jobs in the region, most notably in local and State education. Public sector institutional employment generally mirrors population distribution throughout the tri-state area.
 
-  Among the four macro industry sectors represented on the Metro Explorer (office, institutional, industrial, local services), Institutional employment has by far the highest share of jobs in the public sector - approximately 26% of total institutional jobs are in the public sector and 74% are in the private sector. The other three macro industry sectors average below 5% of total employment in the public sector. However, due to data disclosure challenges (as well as reporting challenges for change over time), Metro Explorer solely visualizes private sector institutional employment and change over time. However, total Institutional employment estimates (inclusive of public sector jobs) are available for download on the [About](/about/) page. Please refer to notes on [public and private sector employment](/about/#publicprivatejobs) for more detail.
+  Among the four macro industry sectors represented on the Metro Explorer (office, institutional, industrial, local services), Institutional employment has by far the highest share of jobs in the public sector—approximately one-quarter of total institutional jobs are in the public sector and three-quarters are in the private sector. The other three macro industry sectors average below 5% of total employment in the public sector. However, due to data disclosure challenges (as well as reporting challenges for change over time), Metro Explorer solely visualizes private sector institutional employment and change over time. However, total Institutional employment estimates (inclusive of public sector jobs) are available for download on the [About](/about/) page. Please refer to notes on [public and private sector employment](/about/#publicprivatejobs) for more detail.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -24,13 +24,13 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-tract
-      sql: SELECT the_geom_webmercator, emins17 as value FROM region_tract_emins_dotden_v20190911
+      sql: SELECT the_geom_webmercator, emins_18 as value FROM region_tract_emins_dotden_v210924
     - id: institutional-employment-subregion
-      sql: SELECT the_geom_webmercator, emins_19 as value FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, emins_20 as value FROM region_subregion_v210924
     - id: institutional-employment-county
-      sql: SELECT the_geom_webmercator, emins_19 as value FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emins_20 as value FROM region_county_v210924 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: emins
@@ -38,19 +38,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
     - geomType: county
-      columnName: emins_19
+      columnName: emins_20
       cv:
       sig:
     - geomType: municipality
-      columnName: emins17
+      columnName: emins_18
       cv:
       sig:
 
@@ -58,7 +58,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Sector Institutional Jobs, 2019"
+    title: "Private Sector Institutional Jobs, 2020"
     legend: institutional-employment-subregion
     layers:
     - id: institutional-employment-subregion
@@ -71,15 +71,13 @@ map:
         - "#fdf3e7"
         - "#f7c187"
         - "#f2922b"
-        - "#a85c0b"
-        - "#482705"
+        - "#784208"
         breaks:
-        - 175000
-        - 350000
+        - 100000
+        - 250000
         - 500000
-        - 1000000
   - id: county
-    title: "Private Sector Institutional Jobs, 2019"
+    title: "Private Sector Institutional Jobs, 2020"
     legend: institutional-employment-county
     layers:
     - id: institutional-employment-county
@@ -102,7 +100,7 @@ map:
         - 150000
         - 300000
   - id: municipality
-    title: "Private Sector Institutional Employment, 2017"
+    title: "Private Sector Institutional Jobs, 2018"
     legend:
     - label: "1 Dot = 25 jobs"
       color: "#f2922b"

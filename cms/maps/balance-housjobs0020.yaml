@@ -1,0 +1,109 @@
+# Balance
+# ----------
+slug: housjobs0020
+category: Balance
+categorySlug: balance
+title: "The housing/jobs balance has shifted from 2000 to 2020."
+menuTitle: "Housing/Jobs Balance, 2000 to 2020"
+content: |
+  <div style="background: linear-gradient(90deg, rgba(0,38,115,0.7) 0%, rgba(0,88,238,0.7) 17%, rgba(90,200,255,0.7) 40%, rgba(255,255,224,0.7) 60%, rgba(255,205,85,0.7) 80%, rgba(215,101,35,0.7) 100%);">&nbsp;</div>
+  <p class="clearfix text-tiny">
+    <strong class="float-left" style="width:33.33%;">More job gains than housing</strong>
+    <strong class="float-right text-right" style="width:33.33%;">More housing growth than jobs</strong>
+  </p>
+
+  Examining the change from 2000 to 2020, or the housing/jobs ratio in 2000 subtracted from the ratio in 2020, sheds light on how balance is geographically shifting within the region. Areas that shifted toward a greater proportion of housing to jobs are represented in the orange spectrum, and areas with employment gains that outpaced housing change are represented in blue; areas in yellow represent marginal shifts.
+
+  From 2000 to 2020, a period of tremendous growth for NYC, all boroughs outside of Manhattan trended towards a more even balance of housing and jobs despite loss of employment sustained as a result of the Coronavirus pandemic. In Manhattan, the growth of Manhattan’s housing stock exceeded its change in employment, while historic employment growth in Bronx, Brooklyn, Queens, and Staten Island outpaced strong housing production.
+
+  Though the Inner New Jersey subregion has grown housing supply at about the same rate as NYC since 2000, making a significant contribution to meeting the housing needs of the region, this was not complemented by commensurate employment growth. This area of the region, which accounted for 22% of the region’s total employment in 2019, accounted for just 5% of the region’s employment growth since 2000. As job growth fails to keep up with housing development, northern New Jersey residents are becoming more dependent on NYC for employment opportunities, which is reflected by growth in the trans-Hudson commuter population.
+
+  As certain areas of the region gain jobs but little housing (Long Island), or gain housing but few jobs (Inner New Jersey), shifts in balance affect commuting patterns and the demands placed on regional transportation infrastructure.
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000 and 2020; U.S. Census Bureau Decennial Census 2000; U.S. Census Bureau 2020 Redistrictng Data. NYC public sector employment was not allocated to actual borough of workplace employment in 2000, but has been adjusted for comparability with 2020. See [About](/about/#balance) for more information.
+
+map:
+  defaultGeographyLevel: county
+
+  sources:
+  - id: housjobs0020
+    type: cartovector
+    source-layers:
+    - id: housjobs0020-subregion
+      sql: SELECT the_geom_webmercator, geoid, bal_0020 as value, name FROM region_subregion_v210924
+    - id: housjobs0020-county
+      sql: SELECT the_geom_webmercator, geoid, bal_0020 as value, name FROM region_county_v210924 WHERE iscommap = 0
+
+  popupColumns:
+  - id: bal_0020
+    title: "Δ Home/Job Balance"
+    large: true
+    values:
+    - geomType: region
+      columnName: bal_0020
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: bal_0020
+      cv:
+      sig:
+    - geomType: county
+      columnName: bal_0020
+      cv:
+      sig:
+
+  isPercent: false
+  isRatio: true
+  isChangeMeasurement: true
+
+
+  layerGroups:
+  - id: subregion
+    title: "Shift in Housing/Jobs Balance, 2000-2020"
+    legend: housjobs0020-subregion
+    layers:
+    - id: housjobs0020-subregion
+      type: choropleth
+      source: housjobs0020
+      source-layer: housjobs0020-subregion
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d4733b"
+        - "#7a3c06"
+        breaks:
+        - -0.10
+        - -0.02
+        - 0.02
+        - 0.10
+        - 0.15
+  - id: county
+    title: "Shift in Housing/Jobs Balance, 2000-2020"
+    legend: housjobs0020-county
+    layers:
+    - id: housjobs0020-county
+      type: choropleth
+      source: housjobs0020
+      source-layer: housjobs0020-county
+      paintConfig:
+        opacity: 0.6
+        colors:
+        - "#002673"
+        - "#0058ee"
+        - "#5ab4ff"
+        - "#ffffe0"
+        - "#ffa555"
+        - "#d4733b"
+        - "#7a3c06"
+        breaks:
+        - -0.25
+        - -0.10
+        - -0.02
+        - 0.02
+        - 0.10
+        - 0.25

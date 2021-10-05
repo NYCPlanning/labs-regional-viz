@@ -9,7 +9,7 @@ content: |
 
   Using data from a range of publicly available sources, the Metro Region Explorer allows you to view socioeconomic characteristics across 7 subregions, 31 counties, and nearly 900 cities, towns, villages, and hamlets ([more about the data and geographies](/about)). Learn more by clicking through below or by navigating directly to maps by topic area.
 
-  NYC Metro Explorer was last updated with new data on <b>August 13, 2020</b>. Because of the time lag in many sources, the information shared on the Metro Region Explorer currently reflects regional trends preceding COVID-19 and its ongoing impact on regional demographic, economic, and housing patterns.
+  NYC Metro Explorer was last updated with new data on <b>October 4, 2021</b>. Because of the time lag in many sources, much of the information shared on the Metro Region Explorer currently reflects regional trends preceding COVID-19 and its ongoing impact on regional demographic, economic, and housing patterns.
 
   <strong>Top Trends and Key Insights:</strong>
   - [Population growth has shifted towards the region’s center.](/people/population-change)
@@ -18,8 +18,8 @@ content: |
   - [The region's rental housing is concentrated in NYC.](/housing/renter-owner)
   - [NYC and NJ are building the majority of new housing in the region.](/housing/units-permitted-size)
   - [NYC is the hub of the largest U.S. metro economy, with more jobs than employed residents.](/jobs/employment-by-sector)
-  - [There are 4.7 million people working in NYC, 20% of whom commute from elsewhere in the region.](/commuting/commuting-total-nycworkerres)
-  - [Post-recession, NYC experienced the majority of regional job gains.](/jobs/private-employment-change)
+  - [There are 4.8 million people working in NYC, 21% of whom commute from elsewhere in the region.](/commuting/commuting-total-nycworkerres)
+  - [Pre-pandemic, NYC experienced the majority of regional job gains.](/jobs/private-employment-change)
   - [NYC has gained 1 million workers since 2000, most of whom are NYC residents.](/commuting/commuting-total-nycworkerchange)
   - [The patterns of employment growth and housing development have changed the jobs-housing balance throughout the region.](/balance/housjobs0019)
 
@@ -33,11 +33,11 @@ map:
       type: cartovector
       source-layers:
       - id: empty-polygons-subregion
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v202007
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_subregion_v210924
       - id: empty-polygons-county
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v202007 WHERE iscommap = FALSE
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_county_v210924 WHERE iscommap = 0
       - id: empty-polygons-municipality
-        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+        sql: SELECT the_geom_webmercator, geoid, statefp || '-' || (cartodb_id % 5) AS styleid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   layerGroups:
   - id: subregion
