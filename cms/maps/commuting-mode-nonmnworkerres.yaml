@@ -6,13 +6,13 @@ categorySlug: commuting
 title: "Most regional in-commuters working in Non-Manhattan Boroughs drive. Many NYC residents also drive, but a greater share use transit."
 menuTitle: "Primary Mode of Travel to Work in Non-Manhattan Boroughs"
 content: |
-  39% of NYC residents working in Non-Manhattan Boroughs use transit to commute to work (709k), which is a lower share than Manhattan’s transit commuters, but nearly twice the rate of regional in-commuters who use transit. Only 22% of in-commuters to Non-Manhattan Boroughs are commuting by rail, subway/PATH, bus, or ferry transit.
+  39% of NYC residents working in Non-Manhattan Boroughs use transit to commute to work (1.1M), which is a lower share than Manhattan’s transit commuters, but nearly twice the rate of regional in-commuters who use transit. Only 22% of in-commuters to Non-Manhattan Boroughs are commuting by rail, subway/PATH, bus, or ferry transit.
 
   Though the highest share of NYC residents commuting to Non-Manhattan Borough jobs by transit use subway, the bus network enables city residents to commute to many Non-Manhattan Borough jobs in areas not serviced by subways. Though bus is not as prominent for supporting regional in-commuters' jobs access, a few bus markets exist where Nassau Inter-County Express (NICE) bus serves portions of Queens, or where Bee-Line bus serves the Bronx.
 
-  317k regional in-commuters work in Non-Manhattan boroughs, representing 15% of the non-Manhattan NYC workforce. Despite the presence of regional rail and residents' ability to access NYC business districts outside Manhattan (e.g., Jamaica, Downtown Brooklyn), commuter rail represents a small portion of the in-commuters' primary mode choice. Today, 76% of in-commuters are driving, the largest number of which are from Long Island (128k). Sizeable driving populations also commute from other subregions. 77k regional in-commuters travel by transit to non-Manhattan workplaces. Inner New Jersey is home to the greatest number of Non-Manhattan Borough workers commuting by rail, bus, and subway/PATH transit. Since most transit services from New Jersey terminate in Manhattan, it is likely that transit in-commuters are also using the NYC subway for a portion of their trip to access Non-Manhattan Borough jobs. Long Island also had 23k regional rail, bus and subway in-commuters, primarily accessing jobs in Queens or Downtown Brooklyn. The Lower Hudson Valley is also home to in-commuters accessing jobs in Bronx by transit.
+  323k regional in-commuters work in Non-Manhattan boroughs, representing 18% of the non-Manhattan NYC workforce. Despite the presence of regional rail and residents' ability to access NYC business districts outside Manhattan (e.g., Jamaica, Downtown Brooklyn), commuter rail represents a small portion of the in-commuters' primary mode choice. Today, 77% of in-commuters are driving, the largest number of which are from Long Island (129k). Sizeable driving populations also commute from other subregions. 75k regional in-commuters travel by transit to non-Manhattan workplaces. Inner New Jersey is home to the greatest number of Non-Manhattan Borough workers commuting by rail, bus, and subway/PATH transit. Since most transit services from New Jersey terminate in Manhattan, it is likely that transit in-commuters are also using the NYC subway for a portion of their trip to access Non-Manhattan Borough jobs. Long Island also had 25k regional rail, bus and subway in-commuters, primarily accessing jobs in Queens or Downtown Brooklyn. The Lower Hudson Valley is also home to in-commuters accessing jobs in Bronx by transit.
 source: |
-  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2018. Dots represent the residence location of people working in Non-Manhattan Boroughs (i.e. Bronx, Brooklyn, Queens, and Staten Island combined), age 16 and older, or the origin of Non-Manhattan NYC workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
+  Sources & Notes: IPUMS-USA, University of Minnesota; For tabulations at county and subregional level - U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019. Dots represent the residence location of people working in Non-Manhattan Boroughs (i.e. Bronx, Brooklyn, Queens, and Staten Island combined), age 16 and older, or the origin of Non-Manhattan NYC workers' commutes. Color indicates the primary mode of travel used for the longest leg of commuters' trips to work. For margins of error and coefficients of variation associated with published estimates, please download the data on the [About page](/about/). Dot density maps are illustrative only, please see [About](/about/#commuting) and [Data Reliability](/about/#data-reliability) for additional notes. Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
 
 map:
   defaultGeographyLevel: county
@@ -24,9 +24,9 @@ map:
     - id: mode-nonmnworkerres-tract
       sql: SELECT the_geom_webmercator, category FROM region_commode_nonmnworkres_dotdensity ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v202007 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
 
   popupColumns:
@@ -149,7 +149,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2018"
+    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2019"
     legend-title: "1 dot = 25 Non-Manhattan NYC Workers, at Residence"
     legend:
     - label: "Car"
@@ -219,7 +219,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2018"
+    title: "Primary Mode of Travel to Non-Manhattan NYC Jobs, 2019"
     legend-title: "1 dot = 25 Non-Manhattan NYC Workers, at Residence"
     legend:
     - label: "Car"

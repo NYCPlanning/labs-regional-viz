@@ -3,14 +3,14 @@
 slug: office-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for half of the region's 2.8 million office-based jobs."
+title: "NYC accounts for half of the region's 2.6 million office-based jobs."
 menuTitle: "Office Employment"
 content: |
-  There are 2.8 million office-based jobs in the region, representing 30% of all private sector employment. The office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors. These jobs are of the highest value to the region, generating $365 billion in employee wages, which represents 52% the region's total private sector wages.
+  There are 2.6 million office-based jobs in the region, representing 32% of all private sector employment. The office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors. These jobs are of the highest value to the region, generating $397 billion in employee wages, which represents 53% the region's total private sector wages.
 
-  NYC is home to nearly 51% of the region's office jobs, 1.4 million, most of which are located in Manhattan (42% of the region), as well as in the other NYC boroughs (9% of region). Other office job clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford (between 30k-50k office jobs each), or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (Inner NJ).
+  NYC is home to nearly 51% of the region's office jobs, 1.3 million, most of which are located in Manhattan (42% of the region), as well as in the other NYC boroughs (9% of region). Other office job clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford, or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (Inner NJ).
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2019; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2017 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 
 map:
   defaultGeographyLevel: municipality
@@ -20,13 +20,13 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-tract
-      sql: SELECT the_geom_webmercator, emoff17 as value FROM region_tract_emoff_dotden_v20190911
+      sql: SELECT the_geom_webmercator, emoff_18 as value FROM region_tract_emoff_dotden_v210924
     - id: office-employment-subregion
-      sql: SELECT the_geom_webmercator, emoff_19 as value FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_subregion_v210924
     - id: office-employment-county
-      sql: SELECT the_geom_webmercator, emoff_19 as value FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_county_v210924 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: emoff
@@ -34,19 +34,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
     - geomType: county
-      columnName: emoff_19
+      columnName: emoff_20
       cv:
       sig:
     - geomType: municipality
-      columnName: emoff17
+      columnName: emoff_18
       cv:
       sig:
 
@@ -54,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Employment, 2019"
+    title: "Office-based Jobs, 2020"
     legend: office-employment-subregion
     layers:
     - id: office-employment-subregion
@@ -75,7 +75,7 @@ map:
         - 500000
         - 1000000
   - id: county
-    title: "Office-based Employment, 2019"
+    title: "Office-based Jobs, 2020"
     legend: office-employment-county
     layers:
     - id: office-employment-county
@@ -98,7 +98,7 @@ map:
         - 125000
         - 1000000
   - id: municipality
-    title: "Office-based Employment, 2017"
+    title: "Office-based Jobs, 2018"
     legend:
     - label: "1 Dot = 25 jobs"
       color: "#0628d3"
