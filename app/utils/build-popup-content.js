@@ -47,29 +47,29 @@ export default function buildPopupContent(data, geographyLevel, popupColumns, is
     // If this is a Permit Map
     if (isPermitMap) {
       // hide the rows that are Long Island municipalities that do not report housing permit data
-      if (rowData.ishouperm === false) {
+      if (rowData.ishouperm === 0) {
         return '';
       }
-    } else if (rowData.islitown === true) {
+    } else if (rowData.islitown === 1) {
       // If it's not a Permit Map, always hide the Long Island town rows
       return '';
     }
 
     if (isComNycWork) {
-      // If this is a NYC Workers county commuting map (isComNycWork===true) indicated in yaml
-      if (rowData.iscomnycwork === false) {
+      // If this is a NYC Workers county commuting map (isComNycWork===1) indicated in yaml
+      if (rowData.iscomwork === 0) {
         // hide the individual county rows that are instead shown as part of combined geographies
         return '';
       }
     } else if (isComNycRes) {
-      // If this is a NYC Residents county commuting map (isComNycRes===true) indicated in yaml
-      if (rowData.iscomnycres === false) {
+      // If this is a NYC Residents county commuting map (isComNycRes===1) indicated in yaml
+      if (rowData.iscomres === 0) {
         // hide the individual county rows that are instead shown as part of combined geographies
         return '';
       }
-    } else if (rowData.iscommap === true) {
+    } else if (rowData.iscommap === 1) {
       // If this isn't a commuting map (neither isComNycRes nor isComNycWork)
-      // hide the combined geography rows (rows where rowData.iscommap === true)
+      // hide the combined geography rows (rows where rowData.iscommap === 1)
       return '';
     }
 

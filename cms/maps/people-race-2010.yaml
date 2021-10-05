@@ -1,0 +1,314 @@
+# People
+# ----------
+slug: population-race-2010
+category: People
+categorySlug: people
+title: "Our region is more diverse than the U.S. overall."
+menuTitle: "Population by Race/Hispanic Origin, 2010"
+content: |
+      In 2010, the NYC Metro was 52% White non-Hispanic, compared to 64% of the U.S. population overall, and the region had larger shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic populations as compared with the U.S. overall. Yet within the NYC Metro, diverse populations were concentrated in select areas and the vast majority of municipalities had resident populations that were 50% or more White Non-Hispanic. Municipalities with more diverse populations were concentrated in the center of the region and along transit corridors.
+source: |
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and the [Population](/about/#people) section for additional notes on population by race/Hispanic origin.
+
+map:
+  defaultGeographyLevel: municipality
+
+  sources:
+  - id: population-race-2010
+    type: cartovector
+    source-layers:
+    - id: race-2010-tract
+      sql: SELECT the_geom_webmercator, category FROM region_tract_race10_dotden_v210924 ORDER BY random()
+    - id: empty-polygons-subregion
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
+    - id: empty-polygons-county
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE iscommap = 0
+    - id: empty-polygons-municipality
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
+
+  popupColumns:
+  - id: white
+    title: White<br>Non-Hispanic
+    large: true
+    values:
+    - geomType: municipality
+      columnName: p_wh_10e
+      cv:
+      sig:
+    - geomType: county
+      columnName: p_wh_10e
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: p_wh_10e
+      cv:
+      sig:
+    - geomType: region
+      columnName: p_wh_10e
+      cv:
+      sig:
+  - id: black
+    title: Black<br>Non-Hispanic
+    large: true
+    values:
+    - geomType: municipality
+      columnName: p_bl_10e
+      cv:
+      sig:
+    - geomType: county
+      columnName: p_bl_10e
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: p_bl_10e
+      cv:
+      sig:
+    - geomType: region
+      columnName: p_bl_10e
+      cv:
+      sig:
+  - id: asian
+    title: Asian<br>Non-Hispanic
+    large: true
+    values:
+    - geomType: municipality
+      columnName: p_as_10e
+      cv:
+      sig:
+    - geomType: county
+      columnName: p_as_10e
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: p_as_10e
+      cv:
+      sig:
+    - geomType: region
+      columnName: p_as_10e
+      cv:
+      sig:
+  - id: hispanic
+    title: Hispanic
+    large: true
+    values:
+    - geomType: municipality
+      columnName: p_hi_10e
+      cv:
+      sig:
+    - geomType: county
+      columnName: p_hi_10e
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: p_hi_10e
+      cv:
+      sig:
+    - geomType: region
+      columnName: p_hi_10e
+      cv:
+      sig:
+  - id: other
+    title: Other<br>Non-Hispanic
+    large: true
+    values:
+    - geomType: municipality
+      columnName: p_ot_10e
+      cv:
+      sig:
+    - geomType: county
+      columnName: p_ot_10e
+      cv:
+      sig:
+    - geomType: subregion
+      columnName: p_ot_10e
+      cv:
+      sig:
+    - geomType: region
+      columnName: p_ot_10e
+      cv:
+      sig:
+
+
+  isPercent: false
+
+  layerGroups:
+  - id: subregion
+    title: "Population by Race/Hispanic Origin, 2010"
+    legend-title: "1 dot = 100 people"
+    legend:
+    - label: "White Non-Hispanic"
+      color: "#60D2C5"
+      type: circle
+    - label: "Black Non-Hispanic"
+      color: "#EEEB44"
+      type: circle
+    - label: "Asian Non-Hispanic"
+      color: "#FA6044"
+      type: circle
+    - label: "Hispanic"
+      color: "#AE8198"
+      type: circle
+    - label: "Other Non-Hispanic"
+      color: "#d6d6d6"
+      type: circle
+    layers:
+    - id: race-2010-tract
+      type: circle
+      source: population-race-2010
+      source-layer: race-2010-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "P_Wh_10E"
+        - "#60D2C5"
+        - "P_Bl_10E"
+        - "#EEEB44"
+        - "P_As_10E"
+        - "#FA6044"
+        - "P_Hi_10E"
+        - "#AE8198"
+        - "P_Ot_10E"
+        - "#d6d6d6"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 0.75
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-subregion-polygons
+      type: fill
+      source: population-race-2010
+      source-layer: empty-polygons-subregion
+      paint:
+        fill-opacity: 0
+    - id: empty-subregion-line
+      type: line
+      source: population-race-2010
+      source-layer: empty-polygons-subregion
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: county
+    title: "Population by Race/Hispanic Origin, 2010"
+    legend-title: "1 dot = 100 people"
+    legend:
+    - label: "White Non-Hispanic"
+      color: "#60D2C5"
+      type: circle
+    - label: "Black Non-Hispanic"
+      color: "#EEEB44"
+      type: circle
+    - label: "Asian Non-Hispanic"
+      color: "#FA6044"
+      type: circle
+    - label: "Hispanic"
+      color: "#AE8198"
+      type: circle
+    - label: "Other Non-Hispanic"
+      color: "#d6d6d6"
+      type: circle
+    layers:
+    - id: race-2010-tract
+      type: circle
+      source: population-race-2010
+      source-layer: race-2010-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "P_Wh_10E"
+        - "#60D2C5"
+        - "P_Bl_10E"
+        - "#EEEB44"
+        - "P_As_10E"
+        - "#FA6044"
+        - "P_Hi_10E"
+        - "#AE8198"
+        - "P_Ot_10E"
+        - "#d6d6d6"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 0.75
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-county-polygons
+      type: fill
+      source: population-race-2010
+      source-layer: empty-polygons-county
+      paint:
+        fill-opacity: 0
+    - id: empty-county-line
+      type: line
+      source: population-race-2010
+      source-layer: empty-polygons-county
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5
+  - id: municipality
+    title: "Population by Race/Hispanic Origin, 2010"
+    legend-title: "1 dot = 100 people"
+    legend:
+    - label: "White Non-Hispanic"
+      color: "#60D2C5"
+      type: circle
+    - label: "Black Non-Hispanic"
+      color: "#EEEB44"
+      type: circle
+    - label: "Asian Non-Hispanic"
+      color: "#FA6044"
+      type: circle
+    - label: "Hispanic"
+      color: "#AE8198"
+      type: circle
+    - label: "Other Non-Hispanic"
+      color: "#d6d6d6"
+      type: circle
+    layers:
+    - id: race-2010-tract
+      type: circle
+      source: population-race-2010
+      source-layer: race-2010-tract
+      paint:
+        circle-color:
+        - match
+        - - get
+          - category
+        - "P_Wh_10E"
+        - "#60D2C5"
+        - "P_Bl_10E"
+        - "#EEEB44"
+        - "P_As_10E"
+        - "#FA6044"
+        - "P_Hi_10E"
+        - "#AE8198"
+        - "P_Ot_10E"
+        - "#d6d6d6"
+        - "#FFFFFF"
+        circle-radius:
+          stops:
+          - - 7
+            - 0.75
+          - - 11
+            - 2
+        circle-opacity: 0.7
+    - id: empty-municipality-polygons
+      type: fill
+      source: population-race-2010
+      source-layer: empty-polygons-municipality
+      paint:
+        fill-opacity: 0
+    - id: empty-municipality-line
+      type: line
+      source: population-race-2010
+      source-layer: empty-polygons-municipality
+      paint:
+        line-color: rgba(131, 131, 131, 1)
+        line-width: 0.5

@@ -6,10 +6,10 @@ categorySlug: people
 title: "Our region has the largest foreign-born population in the nation."
 menuTitle: "% Foreign Born"
 content: |
-  With 6.2 million foreign-born residents from 110 countries, the region’s immigrants are an integral part of our communities and workforce, representing 27% of our total population and 34% of our resident labor force. Of the total regional foreign-born population, about half reside in NYC and half outside the city, with high concentrations in northern New Jersey, Rockland County, southern Westchester County, and select areas in Long Island and coastal Connecticut. Foreign-born residents represent a significant share of the population and workforce in growing areas, while areas without significant foreign-born population are often shrinking as the baby-boomer generation ages and reaches retirement.
+  In 2019, the NYC Metro was home to 6.2 million foreign-born residents from 110 countries. The region’s immigrants are an integral part of our communities and workforce, representing 26% of our total population and one-third of our resident labor force. Of the total regional foreign-born population, about half reside in NYC and half outside the city, with high concentrations in northern New Jersey, Rockland County, southern Westchester County, and select areas in Long Island and coastal Connecticut. Foreign-born residents represent a significant share of the population and workforce in growing areas, while areas without significant foreign-born population are often shrinking as the baby-boomer generation ages and reaches retirement.
 
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2014-2018. See [About](/about/#people) page for additional notes on foreign-born population.
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2015-2019. See [About](/about/#people) page for additional notes on foreign-born population.
 
 map:
   defaultGeographyLevel: municipality
@@ -19,11 +19,11 @@ map:
     type: cartovector
     source-layers:
     - id: foreign-born-subregion
-      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_subregion_v202007
+      sql: SELECT the_geom_webmercator, geoid, popfbp_19e as value, name FROM region_subregion_v210924
     - id: foreign-born-county
-      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_county_v202007 WHERE iscommap = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popfbp_19e as value, name FROM region_county_v210924 WHERE iscommap = 0
     - id: foreign-born-municipality
-      sql: SELECT the_geom_webmercator, geoid, popfbp_18e as value, name FROM region_municipality_v202007 WHERE islitown = FALSE
+      sql: SELECT the_geom_webmercator, geoid, popfbp_19e as value, name FROM region_municipality_v210924 WHERE islitown = 0
 
   popupColumns:
   - id: forborn
@@ -31,47 +31,47 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: popfbp_18e
-      cv: popfbp_18c
+      columnName: popfbp_19e
+      cv: popfbp_19c
       sig:
     - geomType: subregion
-      columnName: popfbp_18e
-      cv: popfbp_18c
+      columnName: popfbp_19e
+      cv: popfbp_19c
       sig:
     - geomType: county
-      columnName: popfbp_18e
-      cv: popfbp_18c
+      columnName: popfbp_19e
+      cv: popfbp_19c
       sig:
     - geomType: municipality
-      columnName: popfbp_18e
-      cv: popfbp_18c
+      columnName: popfbp_19e
+      cv: popfbp_19c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: popfbp_18m
-      cv: popfbp_18c
+      columnName: popfbp_19m
+      cv: popfbp_19c
       sig:
     - geomType: subregion
-      columnName: popfbp_18m
-      cv: popfbp_18c
+      columnName: popfbp_19m
+      cv: popfbp_19c
       sig:
     - geomType: county
-      columnName: popfbp_18m
-      cv: popfbp_18c
+      columnName: popfbp_19m
+      cv: popfbp_19c
       sig:
     - geomType: municipality
-      columnName: popfbp_18m
-      cv: popfbp_18c
+      columnName: popfbp_19m
+      cv: popfbp_19c
       sig:
 
   isPercent: true
 
   layerGroups:
   - id: subregion
-    title: "Foreign-born as % of Population, 2014-2018 Avg"
+    title: "Foreign-born as % of Population, 2015-2019 Avg"
     layers:
     - id: foreign-born-subregion
       type: choropleth
@@ -87,7 +87,7 @@ map:
         - 0.15
         - 0.3
   - id: county
-    title: "Foreign-born as % of Population, 2014-2018 Avg"
+    title: "Foreign-born as % of Population, 2015-2019 Avg"
     layers:
     - id: foreign-born-county
       type: choropleth
@@ -103,7 +103,7 @@ map:
         - 0.15
         - 0.3
   - id: municipality
-    title: "Foreign-born as % of Population, 2014-2018 Avg"
+    title: "Foreign-born as % of Population, 2015-2019 Avg"
     legend: foreign-born-municipality
     layers:
     - id: foreign-born-municipality
