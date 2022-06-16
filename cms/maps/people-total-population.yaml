@@ -6,9 +6,9 @@ categorySlug: people
 title: "NYC is the nation’s largest city, within an even larger tri-state metropolitan area."
 menuTitle: "Total Population"
 content: |
-  Today’s tri-state region is home to 23.5 million residents, the largest in the United States. New York City’s 8.8 million residents in 2020 represented 37% of the metro region’s population. The next largest city in our region is Newark, which has a population of 312k. There are nearly 900 villages, towns, and cities in our region, nearly 500 of which have populations smaller than 10k residents. Excluding NYC, the region has an average municipal population size of 4.2k residents.
+  NEW TEXT GOES HERE.
 source: |
-  Sources: U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#people) page for additional notes on population.
+  Sources: U.S. Census Bureau Population Estimates Program 2021; U.S. Census Bureau 2020 Redistricting Data. See [About](/about/#people) page for additional notes on population.
 
 map:
   defaultGeographyLevel: county
@@ -18,11 +18,11 @@ map:
     type: cartovector
     source-layers:
     - id: total-population-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, pop_21e as value, name FROM region_subregion_v220615
     - id: total-population-county
-      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, pop_21e as value, name FROM region_county_v220615 WHERE iscommap = 0
     - id: total-population-municipality
-      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, pop_20e as value, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
   - id: pop
@@ -30,15 +30,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: pop_20e
+      columnName: pop_21e
       cv:
       sig:
     - geomType: subregion
-      columnName: pop_20e
+      columnName: pop_21e
       cv:
       sig:
     - geomType: county
-      columnName: pop_20e
+      columnName: pop_21e
       cv:
       sig:
     - geomType: municipality
@@ -63,14 +63,14 @@ map:
   #    sig:
   #  - geomType: municipality
   #    columnName: pop_18m
-  #    cv: pop_18e
+  #    cv: pop_18c
   #    sig: NOT USED FOR DECENNIAL CENSUS YEAR - UPDATE AS NEEDED
 
   isPercent: false
 
   layerGroups:
   - id: subregion
-    title: "Total Population, 2020"
+    title: "Total Population, 2021"
     legend: total-population-subregion
     layers:
     - id: total-population-subregion
@@ -91,7 +91,7 @@ map:
         - 5000000
         - 7500000
   - id: county
-    title: "Total Population, 2020"
+    title: "Total Population, 2021"
     legend: total-population-county
     layers:
     - id: total-population-county
@@ -112,7 +112,7 @@ map:
         - 750000
         - 1500000
   - id: municipality
-    title: "Total Population, 2020"
+    title: "Total Population, 2021"
     legend: total-population-municipality
     layers:
     - id: total-population-municipality

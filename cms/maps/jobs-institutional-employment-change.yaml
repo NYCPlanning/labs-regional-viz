@@ -25,9 +25,9 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_subregion_v220615
     - id: institutional-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: emprins

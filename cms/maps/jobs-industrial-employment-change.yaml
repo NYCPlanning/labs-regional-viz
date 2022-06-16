@@ -22,9 +22,9 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_subregion_v220615
     - id: industrial-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: empr

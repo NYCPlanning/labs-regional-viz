@@ -22,11 +22,11 @@ map:
     - id: office-employment-tract
       sql: SELECT the_geom_webmercator, emoff_18 as value FROM region_tract_emoff_dotden_v210924
     - id: office-employment-subregion
-      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_subregion_v220615
     - id: office-employment-county
-      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_county_v220615 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
   - id: emoff
