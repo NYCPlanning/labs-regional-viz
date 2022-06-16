@@ -4,16 +4,11 @@ slug: units-permitted-size
 category: Housing
 categorySlug: housing
 title: "In recent years, NYC and New Jersey dominated housing production, especially multifamily housing."
-menuTitle: "Housing Production by Building Size, 2010 to 2020"
+menuTitle: "Housing Production by Building Size, 2010 to 2021"
 content: |
-  Greater than 572k new housing units were issued permits in the region from 2010 to 2020 – more than of the total housing stock of the City of San Diego in a nine-year period. NYC accounted for 42% of new housing (241k units) and the Inner New Jersey subregion accounted for 31% (178k units). Housing development in Long Island, Connecticut and the Hudson Valley subregions combined accounted for just 17% of new permitted units.
-
-  Approximately three-quarters of the total permitted units were in multifamily buildings, 71% in buildings with five or more units (409k), and 5% in buildings with two-to-four units (30k). 134k permits were issued for buildings with one unit, characteristic of low-density suburbs.
-
-  Today the region has 3.3 million homes in buildings with five or more units, of which NYC accounts for 66% (2.2 million units) and the Inner New Jersey subregion accounts for 16% (539k units). Areas in New Jersey proximate to NYC, especially those well connected by regional rail transit, are adding significant amounts of multifamily housing. Since 2010, NYC accounted for 54% of the region’s permitted units in buildings with five or more units (222k units), slightly lower than its regional share of existing buildings with five or more units, and the Inner New Jersey subregion accounted for 31% of the region’s permitted units in buildings with five or more units (125k units), twice its regional share of units in such buildings. These areas coincide with those that are also experiencing considerable population and younger labor force growth.
-
+  NEW TEXT HERE
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2020 Annual; NYC Department of City Planning Housing Database v20Q4 (NYC only). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits and the housing permit geography.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2021 Annual; NYC Department of City Planning Housing Database v20Q4 (used for NYC only in 2010 through 2020). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. For NYC sub-borough area on the municipality layer, data were only available through 2020. 2021 data were not available below the county (i.e., borough) level at the time of this update. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing permits and the housing permit geography.
 
 map:
   defaultGeographyLevel: county
@@ -23,7 +18,7 @@ map:
     type: cartovector
     source-layers:
     - id: units-permitted-size-municipality
-      sql: SELECT the_geom_webmercator, category FROM region_muni_permits_dotden_v210924 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_muni_permits_dotden_v220615 ORDER BY random()
     - id: empty-polygons-subregion
       sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v220615
     - id: empty-polygons-county
@@ -37,19 +32,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hp_1020
+      columnName: hp_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: hp_1020
+      columnName: hp_1021
       cv:
       sig:
     - geomType: county
-      columnName: hp_1020
+      columnName: hp_1021
       cv:
       sig:
     - geomType: municipality
-      columnName: hp_1020
+      columnName: hp_1021
       cv:
       sig:
   - id: houp1
@@ -57,19 +52,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hp1_1020
+      columnName: hp1_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: hp1_1020
+      columnName: hp1_1021
       cv:
       sig:
     - geomType: county
-      columnName: hp1_1020
+      columnName: hp1_1021
       cv:
       sig:
     - geomType: municipality
-      columnName: hp1_1020
+      columnName: hp1_1021
       cv:
       sig:
   - id: houp24
@@ -77,19 +72,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hp24_1020
+      columnName: hp24_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: hp24_1020
+      columnName: hp24_1021
       cv:
       sig:
     - geomType: county
-      columnName: hp24_1020
+      columnName: hp24_1021
       cv:
       sig:
     - geomType: municipality
-      columnName: hp24_1020
+      columnName: hp24_1021
       cv:
       sig:
   - id: houp5
@@ -97,19 +92,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: hp5_1020
+      columnName: hp5_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: hp5_1020
+      columnName: hp5_1021
       cv:
       sig:
     - geomType: county
-      columnName: hp5_1020
+      columnName: hp5_1021
       cv:
       sig:
     - geomType: municipality
-      columnName: hp5_1020
+      columnName: hp5_1021
       cv:
       sig:
 
@@ -119,7 +114,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Permitted Housing Units by Building Size, 2010 to 2020"
+    title: "Permitted Housing Units by Building Size, 2010 to 2021"
     legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
@@ -141,11 +136,11 @@ map:
         - match
         - - get
           - category
-        - "HP1_1020"
+        - "HP1_1021"
         - "#f8f700"
-        - "HP24_1020"
+        - "HP24_1021"
         - "#f47c0b"
-        - "HP5_1020"
+        - "HP5_1021"
         - "#9c0022"
         - "#FFFFFF"
         circle-radius:
@@ -169,7 +164,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Permitted Housing Units by Building Size, 2010 to 2020"
+    title: "Permitted Housing Units by Building Size, 2010 to 2021"
     legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
@@ -191,11 +186,11 @@ map:
         - match
         - - get
           - category
-        - "HP1_1020"
+        - "HP1_1021"
         - "#f8f700"
-        - "HP24_1020"
+        - "HP24_1021"
         - "#f47c0b"
-        - "HP5_1020"
+        - "HP5_1021"
         - "#9c0022"
         - "#FFFFFF"
         circle-radius:
@@ -220,7 +215,7 @@ map:
         line-width: 0.5
 
   - id: municipality
-    title: "Permitted Housing Units by Building Size, 2010 to 2020"
+    title: "Permitted Housing Units by Building Size, 2010 to 2021"
     legend-title: "1 Dot = 5 Units"
     legend:
     - label: "1 Unit Building"
@@ -242,11 +237,11 @@ map:
         - match
         - - get
           - category
-        - "HP1_1020"
+        - "HP1_1021"
         - "#f8f700"
-        - "HP24_1020"
+        - "HP24_1021"
         - "#f47c0b"
-        - "HP5_1020"
+        - "HP5_1021"
         - "#9c0022"
         - "#FFFFFF"
         circle-radius:

@@ -4,11 +4,11 @@ slug: population-change
 category: People
 categorySlug: people
 title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "Population Change, 2010 to 2020"
+menuTitle: "Population Change since 2010"
 content: |
-  Recent growth patterns suggest that more people moved to and stayed in our region, with a focus on the urban core and in areas well-connected to transit. This is especially true for NYC, which accounted for 47% of regional population growth since 2010, despite housing just 37% of the region’s population. Brooklyn (+231k), Queens (+175k), Manhattan (+108k) saw the largest population gains in the region, followed by Hudson County, New Jersey (+91k) and the Bronx (+88k). Hudson County saw the fastest rate of population growth (+14.3%) of any county in the region, and every municipality within Hudson County saw population increases. Within suburban counties closest to NYC, population growth concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Rochelle, Paterson, and Stamford, and in other areas proximate to NYC – notably southern Westchester County and western Nassau County. Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today, with the exception of Ocean County, New Jersey. Ocean County is the only county in the region where population growth was driven by positive domestic migration over the last decade, meaning that more people moved to Ocean County from elsewhere in the U.S. (including the region) than left the county for elsewhere in the U.S. since 2010.
+  NEW TEXT HERE
 source: |
-  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision.
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau 2020 Redistricting Data (municipality only). 2020 data represent the most current year available for municipalities. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision.
 
 map:
   defaultGeographyLevel: municipality
@@ -17,29 +17,29 @@ map:
     type: cartovector
     source-layers:
     - id: population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, pop_1020e as value, name FROM region_subregion_v220615
+      sql: SELECT the_geom_webmercator, geoid, pop_1021e as value, name FROM region_subregion_v220615
     - id: population-change-county
-      sql: SELECT the_geom_webmercator, geoid, pop_1020e as value, name FROM region_county_v220615 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, pop_1021e as value, name FROM region_county_v220615 WHERE iscommap = 0
     - id: population-change-municipality-dotdensity
       sql: SELECT the_geom_webmercator, pop_1020e as value FROM region_muni_popch_dotden_v210924 ORDER BY random()
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
-  - id: popchange
+  - id: popch
     title: Δ Population
     large: true
     values:
     - geomType: region
-      columnName: pop_1020e
+      columnName: pop_1021e
       cv:
       sig:
     - geomType: subregion
-      columnName: pop_1020e
+      columnName: pop_1021e
       cv:
       sig:
     - geomType: county
-      columnName: pop_1020e
+      columnName: pop_1021e
       cv:
       sig:
     - geomType: municipality
@@ -73,7 +73,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Population Change, 2010 to 2020"
+    title: "Population Change, 2010 to 2021"
     legend: population-change-subregion
     layers:
     - id: population-change-subregion
@@ -96,7 +96,7 @@ map:
         - 100000
         - 350000
   - id: county
-    title: "Population Change, 2010 to 2020"
+    title: "Population Change, 2010 to 2021"
     legend: population-change-county
     layers:
     - id: population-change-county
