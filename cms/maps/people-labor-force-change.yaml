@@ -22,7 +22,7 @@ map:
     - id: labor-force-change-county
       sql: SELECT the_geom_webmercator, geoid, lf_1020e as value, name FROM region_county_v220615 WHERE iscommap = 0
     - id: labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lf_1020e as value FROM region_muni_lfch_dotden_v220615 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lf_1020 as value FROM region_muni_lfch_dotden_v220615 ORDER BY random()
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
