@@ -20,11 +20,11 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-tract
-      sql: SELECT the_geom_webmercator, emoff_18 as value FROM region_tract_emoff_dotden_v210924
+      sql: SELECT the_geom_webmercator, emoff_19 as value FROM region_tract_emoff_dotden_v220615
     - id: office-employment-subregion
-      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_subregion_v220615
+      sql: SELECT the_geom_webmercator, emoff_21 as value FROM region_subregion_v220615
     - id: office-employment-county
-      sql: SELECT the_geom_webmercator, emoff_20 as value FROM region_county_v220615 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, emoff_21 as value FROM region_county_v220615 WHERE iscommap = 0
     - id: empty-polygons-municipality
       sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
@@ -34,19 +34,19 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff_20
+      columnName: emoff_21
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff_20
+      columnName: emoff_21
       cv:
       sig:
     - geomType: county
-      columnName: emoff_20
+      columnName: emoff_21
       cv:
       sig:
     - geomType: municipality
-      columnName: emoff_18
+      columnName: emoff_19
       cv:
       sig:
 
@@ -54,7 +54,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Jobs, 2020"
+    title: "Office-based Jobs, 2021"
     legend: office-employment-subregion
     layers:
     - id: office-employment-subregion
@@ -75,7 +75,7 @@ map:
         - 500000
         - 1000000
   - id: county
-    title: "Office-based Jobs, 2020"
+    title: "Office-based Jobs, 2021"
     legend: office-employment-county
     layers:
     - id: office-employment-county
@@ -98,7 +98,7 @@ map:
         - 125000
         - 1000000
   - id: municipality
-    title: "Office-based Jobs, 2018"
+    title: "Office-based Jobs, 2019"
     legend:
     - label: "1 Dot = 25 jobs"
       color: "#0628d3"
