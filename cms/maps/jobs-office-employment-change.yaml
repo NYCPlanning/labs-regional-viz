@@ -4,15 +4,11 @@ slug: office-employment-change
 category: Jobs
 categorySlug: jobs
 title: "NYC's office employment growth had offset losses elsewhere in the region."
-menuTitle: "Office Employment Change, 2008 to 2020"
+menuTitle: "Office Employment Change, 2010 to 2021"
 content: |
-    In the wake of the Great Recession from 2008 to 2019, the NYC Metro gained +228k office-based private sector jobs, with NYC's gain of +241k office jobs offsetting losses experienced elsewhere in the region. All five NYC boroughs gained office employment from 2008 to 2019, with Manhattan adding the most (+187k) and Brooklyn growing the fastest (+4.3% per year). Though 51% of the region's private sector office jobs were located in NYC in 2019, NYC accounted for 83% of office job gains experienced by growing counties.
-
-    The Covid-19 pandemic and job losses in 2020 reduced the NYC Metro’s post-2008 office employment growth to +52k and NYC office sector gains +142k. Outside of NYC, Hudson County, NJ experienced office job growth (+8k), while Bergen County, NJ (-18k) and Nassau County, NY (-21k) saw the steepest declines. Notably, this macro sector employs the highest share of [telework-capable jobs]( https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253).
-
-    For more detail on the recovery of the office-based macro sector, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+    NEW TEXT HERE.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -22,9 +18,9 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emoff_0820 as value, name FROM region_subregion_v220615
+      sql: SELECT the_geom_webmercator, geoid, emoff_1021 as value, name FROM region_subregion_v220615
     - id: office-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emoff_0820 as value, name FROM region_county_v220615 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emoff_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: emoff
@@ -32,15 +28,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
     - geomType: county
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
 
@@ -49,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Job Change, 2008 to 2020"
+    title: "Office-based Job Change, 2010 to 2021"
     legend: office-employment-change-subregion
     layers:
     - id: office-employment-change-subregion
@@ -72,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Office-based Job Change, 2008 to 2020"
+    title: "Office-based Job Change, 2010 to 2021"
     legend: office-employment-change-county
     layers:
     - id: office-employment-change-county

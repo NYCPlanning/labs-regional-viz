@@ -3,19 +3,12 @@
 slug: institutional-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Private sector institutional employment has increased region-wide since 2008."
-menuTitle: "Institutional Employment Change, 2008 to 2020"
+title: "Private sector institutional employment has increased region-wide since 2010."
+menuTitle: "Institutional Employment Change, 2010 to 2021"
 content: |
-        From 2008 to 2019, private sector institutional employment (jobs in the education and healthcare sectors) grew by +2.8% per year in the region (+510k jobs), slightly faster than the national average (+2.6%), with every county in the region adding jobs. Healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, home health aides, and other local medical services), drove Institutional macro sector job gains. In NYC, the majority of that growth was attributed to increases in home health care jobs. The growth of this industry has been influenced by public policy decisions, including expanded access to insurance, as well as broader population changes.
-
-        Though institutional jobs consistently represented about one-quarter of NYC metro subregions' 2019 private sector employment, institutional job growth accounted for more than three quarters of jobs gains across non-NYC subregions, helping to offset job losses in other sectors. Institutional jobs also grew the fastest for all subregions, averaging a +31% increase from 2008 to 2019. These gains show the importance of Institutional sectors in supporting the region's economy, especially in areas outside of NYC.
-
-        Inclusive of jobs losses resulting from the pandemic, the NYC Metro added +389k private institutional sector jobs between 2008 and 2020. NYC represented 64% of the region’s job gains despite being 46% of private sector institutional jobs in 2020. Brooklyn added the most private sector institutional jobs between 2008 and 2020 (+123k), followed by Manhattan (+52k) and Queens (+50k).
-
-        To track how the NYC Metro’s institutional jobs are recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
-
+    NEW TEXT HERE.
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector emplpyment only due to public sector data disclosure challenges. See [About](/about/#publicprivatejobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector emplpyment only due to public sector data disclosure challenges. See [About](/about/#publicprivatejobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -25,9 +18,9 @@ map:
     type: cartovector
     source-layers:
     - id: institutional-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_subregion_v220615
+      sql: SELECT the_geom_webmercator, geoid, emins_1021 as value, name FROM region_subregion_v220615
     - id: institutional-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emins_0820 as value, name FROM region_county_v220615 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emins_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: emprins
@@ -35,15 +28,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emins_0820
+      columnName: emins_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: emins_0820
+      columnName: emins_1021
       cv:
       sig:
     - geomType: county
-      columnName: emins_0820
+      columnName: emins_1021
       cv:
       sig:
 
@@ -52,7 +45,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Institutional Job Change, 2008 to 2020"
+    title: "Institutional Job Change, 2010 to 2021"
     legend: institutional-employment-change-subregion
     layers:
     - id: institutional-employment-change-subregion
@@ -75,7 +68,7 @@ map:
         - 25000
         - 50000
   - id: county
-    title: "Institutional Job Change, 2008 to 2020"
+    title: "Institutional Job Change, 2010 to 2021"
     legend: institutional-employment-change-county
     layers:
     - id: institutional-employment-change-county

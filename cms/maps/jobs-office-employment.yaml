@@ -6,11 +6,9 @@ categorySlug: jobs
 title: "NYC accounts for half of the region's 2.6 million office-based jobs."
 menuTitle: "Office Employment"
 content: |
-  There are 2.6 million office-based jobs in the region, representing 32% of all private sector employment. The office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technical and other business services sectors. These jobs are of the highest value to the region, generating $397 billion in employee wages, which represents 53% the region's total private sector wages.
-
-  NYC is home to nearly 51% of the region's office jobs, 1.3 million, most of which are located in Manhattan (42% of the region), as well as in the other NYC boroughs (9% of region). Other office job clusters are found in the region’s downtown centers, like Jersey City, Newark, and Stamford, or are found in more linear concentrations in the region’s suburban areas, as in Melville (Long Island) and Parsippany-Troy Hills (Inner NJ).
+  NEW TEXT HERE.
 source: |
-  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
+  Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2021; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2019 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 
 map:
   defaultGeographyLevel: municipality
