@@ -3,10 +3,13 @@
 slug: gdp-pctchange
 category: Jobs
 categorySlug: jobs
-title: "Before the pandemic, NYC's GDP grew at nearly five times the rate of the rest of the region."
+title: "From 2010 to 2020, NYC's GDP grew at twice the rate of the region as a whole."
 menuTitle: "% Annual Change in Gross Domestic Product, 2010 - 2020"
 content: |
-  NEW TEXT HERE
+  Despite the Covid-19 pandemic, the NYC Metro grew its GDP by $285 billion from 2010 to 2020 (in 2020-dollars), representing an increase of 1.6% per year. NYC, which grew its GDP by $240 billion from 2010 to 2020, accounted for 84% of the region’s net GDP growth, growing by 3.1% per year. NYC’s rate of growth was faster than the U.S. on average (+2.0% per year).
+
+  Brooklyn grew GDP the fastest among NYC metro region counties (+3.8% per year), followed by Manhattan (+3.3% per year). Southwest Connecticut was the only subregion that experienced a loss in GDP, of $2.2 billion, while the other subregions all grew in GDP but more slowly than the city.
+
 source: |
   Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2020 (in 2020-dollars).
 

@@ -3,12 +3,17 @@
 slug: private-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NEW TITLE HERE"
+title: "NYC accounted for the majority of the region’s job growth last decade, but the city is recovering from Covid-19 more slowly than some of its surrounding areas."
 menuTitle: "Private Sector Employment Change, 2010 to 2021"
 content: |
-  NEW TEXT HERE
+  Prior to the Covid-19 pandemic, the NYC Metro gained 1.4 million private sector jobs from 2010 to 2019, increasing from 7.9 to 9.3 million. NYC accounted for 61% of private sector job growth over this time period, adding 873k jobs. In 2019, NYC experienced its highest levels of recorded employment, while many areas of the region were just returning to pre-Great Recession levels of employment.
 
-  For more information on how the NYC Metro’s economy is recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+  Covid-19 and resulting shutdowns initiated an unprecedented employment loss for the NYC Metro. Annual employment figures showed the region losing 1.0 million private sector jobs from 2019 to 2020, with half of those losses in NYC. Local services jobs took the hardest hit, losing 567k jobs across the region from 2019 to 2020, and 200k of these losses coming from Manhattan alone.
+
+  Gains since the height of Covid-19 have driven a modest rebound in employment, with 293k jobs coming back to the region from 2020 to 2021, rebounding the private sector total to 8.6 million. The Outer New Jersey (+5.3% from 2020), Long Island (+5.3%) and Inner New Jersey (+4.0%) subregions have recovered at faster paces than NYC (+2.4%) and other surrounding areas. While the pandemic caused employment declines in every county in the region from 2019 to 2020, each county also saw gains in employment from 2020 to 2021.
+
+  For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
   Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. See [About](/about/#jobs) for more information about employment.
 

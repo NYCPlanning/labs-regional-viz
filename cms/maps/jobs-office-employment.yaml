@@ -3,10 +3,14 @@
 slug: office-employment
 category: Jobs
 categorySlug: jobs
-title: "NYC accounts for half of the region's 2.6 million office-based jobs."
+title: "NYC accounts for half of the region's 2.7 million office-based jobs."
 menuTitle: "Office Employment"
 content: |
-  NEW TEXT HERE.
+  There are 2.7 million office-based jobs in the region, representing 27% of all private sector employment. The office macro sector includes employment in finance and insurance, real estate, information, administration, professional, technological and other business services sectors. These jobs are of the highest value to the region, generating $431 billion in employee wages, which represents 54% the region's total private sector wages.
+
+  NYC is home to nearly half the region's office jobs (1.3 million), most of which are located in Manhattan (41% of the region). Other office job clusters are found in the other NYC boroughs, the region’s other downtown centers – places such as Jersey City, Newark, and Stamford – or in more linear concentrations in suburban areas, like Melville (Long Island) and Parsippany-Troy Hills (Inner NJ subregion).
+
+  For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
 source: |
   Sources & Notes: U.S. BLS Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2021; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2019 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 

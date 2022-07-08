@@ -6,10 +6,18 @@ categorySlug: jobs
 title: "NYC accounts for 46% of the region's 2.1 million private sector institutional jobs in the education and healthcare sectors."
 menuTitle: "Institutional Employment"
 content: |
-  NEW TEXT HERE.
-source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2020; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2018 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
+  The region employs approximately 2.1 million people in private sector education and healthcare jobs. NYC accounted for 964k jobs, representing 46% of the region’s private sector Institutional employment.
 
+  84% of the region's private sector institutional jobs are in healthcare, with the remainder in private education, which includes private schools and universities. Private sector institutional employment is most concentrated at the region’s large academic institutions and hospitals, but are also found in proportion to population size, as this category includes local healthcare facilities (e.g., doctor and dentist offices), home health aide services, and social services.
+
+  The institutional macro sector additionally employs public sector jobs in the region, most notably in state and local education. Public sector institutional employment generally mirrors population distribution throughout the tri-state area.
+
+  Among the four macro industry sectors represented on the Metro Explorer (office, institutional, industrial, local services), institutional employment has by far the highest share of jobs in the public sector—approximately one-quarter of total institutional jobs are in the public sector and three-quarters are in the private sector. The other three macro industry sectors average below 5% of total employment in the public sector. However, due to data disclosure challenges (as well as reporting challenges for change over time), Metro Explorer solely visualizes private sector institutional employment and change over time. However, total institutional employment estimates (inclusive of public sector jobs) are available for download on the [About](/about) page. Please refer to notes on [public and private sector employment](/about/#publicprivatejobs) for more detail.
+
+  For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
+source: |
+  Sources & Notes: U.S. Bureau of Labor Statistics (BLS) Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2021; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2019 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about private sector employment by macro industry sector.
 map:
   defaultGeographyLevel: municipality
 

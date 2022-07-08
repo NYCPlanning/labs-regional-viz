@@ -3,12 +3,19 @@
 slug: office-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NYC's office employment growth had offset losses elsewhere in the region."
+title: "NYC’s post-Great Recession office recovery was strong enough to offset losses elsewhere in the region and withstand the impact of Covid-19."
 menuTitle: "Office Employment Change, 2010 to 2021"
 content: |
-    NEW TEXT HERE.
+    From 2010 to 2019, the NYC Metro gained 398k office-based private sector jobs, 79% of which were in NYC (+313k). All five NYC boroughs gained office employment from 2010 to 2019, and Manhattan (+258k) accounted for 82% of the city’s gains and 65% of the region’s. These gains were more than enough to offset office job losses in smaller Long Island, Inner New Jersey and Southwest Connecticut subregion counties.
+
+    The Covid-19 pandemic resulted in job losses in every major industry in 2020, and the NYC Metro’s post-2010 office employment growth was reduced to 229k. In 2021, office sector employment recovered from the pandemic more quickly than some other sectors, boosting the region’s gains from 2010 to 266k.
+
+    Many office-based workers were able to continue their jobs remotely during the height of the pandemic, which contributed to fewer employment losses in office-based industries. To learn more about where telework-capable jobs are located, as well as where workers in telework-capable jobs live throughout the NYC Metro, visit our [interactive platform](https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253).
+
+    For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010, 2019, 2020 and 2021. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county

@@ -3,12 +3,17 @@
 slug: industrial-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Most of the region has lost industrial jobs, a continuation of historic trends."
+title: "The region saw some concentrated gains in industrial jobs, reversing previous downward trends."
 menuTitle: "Industrial Employment Change, 2010 to 2021"
 content: |
-    NEW TEXT HERE.
+  From 2010 to 2021, the NYC Metro gained 74k industrial jobs (0.4% per year), most of which were located in just a few counties: Middlesex, NJ (+23k), Staten Island, NY (+15k), Mercer, NJ (+10k), Suffolk, NY (+9k) and Somerset, NJ (+9k).
+
+  Mirroring national trends of a declining industrial economy, the slight gains in industrial jobs since 2010 follow a loss of 241k industrial jobs in the NYC Metro region from 2000 to 2008. These industrial losses were driven mostly by declines in manufacturing employment, representing about 80% of losses, followed by the wholesale trade sectors.
+
+  Construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering industrial job gains. The Bronx, Brooklyn, Queens, Staten Island, Middlesex and Mercer counties, NJ, are among the growing counties, with areas that house port infrastructure or are situated in proximity to major road networks (e.g., the I-95 corridor).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities. Therefore, losses registered in places such as Manhattan more likely reflect loss of office-based, rather than traditional manufacturing facility-based, employment. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000, 2008, 2010, 2019 and 2021. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities. Therefore, losses registered in places such as Manhattan more likely reflect loss of office-based, rather than traditional manufacturing facility-based, employment. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
