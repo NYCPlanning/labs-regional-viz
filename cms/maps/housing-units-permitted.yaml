@@ -3,12 +3,12 @@
 slug: units-permitted
 category: Housing
 categorySlug: housing
-title: "NYC and New Jersey accounted for over 80% of housing units permitted in the region since 2010."
+title: "NYC and New Jersey accounted for 83% of housing units permitted in the region since 2010."
 menuTitle: "Housing Production (Units Permitted), 2010 to 2021"
 content: |
-  NEW TEXT HERE
+  More than 635k new housing units were issued permits in the region from 2010 to 2021 – about the size of the total housing stock of New Hampshire. The production of new housing has been highly concentrated in NYC, which accounted for 41% of new housing (261k units) over the last decade, and the Inner NJ subregion, which accounted for 32% (201k units). Housing development in the Long Island, Southwest Connecticut, and Hudson Valley subregions combined to account for just 18% of new permitted units, despite being home to 30% of existing housing and 32% of the population (respectively).
 source: |
-  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2021 Annual; NYC Department of City Planning Housing Database v20Q4 (used for NYC only in 2010 through 2020). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. For NYC sub-borough area on the municipality layer, data were only available through 2020. 2021 data were not available below the county (i.e., borough) level at the time of this update. Please see [About](/about/#housing) for more information about housing permits and the housing permit geography.
+  Sources & Notes: U.S. Census Bureau Building Permits Survey, 2010-2021 Annual; NYC Department of City Planning Housing Database v2020Q4 (used for NYC only in 2010 through 2020). For municipalities, housing permit data reflect U.S. Census Bureau building permitting geographies, a different boundary than the municipality boundary represented in other maps. For NYC sub-borough area on the municipality layer, data were only available through 2020. 2021 data were not available below the county (i.e., borough) level at the time of this update. Please see [About](/about/#housing) for more information about housing permits and the housing permit geography.
 
 map:
   defaultGeographyLevel: county

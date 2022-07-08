@@ -6,9 +6,9 @@ categorySlug: housing
 title: "NYC provides more than half of the region’s rental housing."
 menuTitle: "Housing Units, Owner- vs. Renter-Occupied"
 content: |
-  NEW TEXT HERE
+  Of the region’s 8.3 million occupied homes in 2020, 3.8 million were renter-occupied and 4.5 million were owner-occupied. Our region’s 46% rental share of total housing is an important feature of our region’s success in accommodating a dynamic population. NYC’s 3.64 million homes represent 39% of the region’s housing, and NYC’s 2.14 million renter-occupied units represent 56% of the region’s renter households. Other concentrations of rental housing are found in the metro’s historically denser cities – Newark, Bridgeport, Elizabeth, Jersey City, New Haven, Paterson, and Yonkers – as well as in newer Transit-Oriented Development (TOD) centers like Harrison, NJ, and New Rochelle, NY. As has been the case nationally, there has been an increase in the construction of multifamily housing, including rental housing, in locations throughout the region since the Great Recession.
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates 2016-2020. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing tenure.
+  Sources & Notes: U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates 2016-2020. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing tenure.
 
 map:
   defaultGeographyLevel: municipality
