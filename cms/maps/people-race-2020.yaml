@@ -6,10 +6,11 @@ categorySlug: people
 title: "The NYC Metro has become more diverse."
 menuTitle: "Population by Race/Hispanic Origin, 2020"
 content: |
-      Over the last decade, the NYC Metro’s population has become more diverse, shifting from 52% White non-Hispanic in 2010 to 46% White non-Hispanic in 2020. This shift mirrors the national trend, with U.S.’s share of White non-Hispanic population decreasing from 64% in 2010 to 58% in 2020. The White non-Hispanic population was the dominant group in most NYC Metro municipalities in 2010 and 2020; however, that share declined slightly over the decade. 82% of NYC Metro municipalities had populations that were 50% or more White non-Hispanic in 2020 as compared to 88% in 2010. The Hispanic population followed White non-Hispanic as the largest group in 6% of NYC Metro municipalities and the second largest group in 71% of NYC Metro municipalities in 2020. The geography of villages, towns, and cities with diverse populations did not shift dramatically over the decade, with more diverse populations concentrated in the center of the region and along transit corridors. NYC remains the most diverse area in the NYC Metro, with the highest shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic resident populations.
+      Over the last decade, the NYC Metro population has become more diverse, as suggested in its shift from 52% White non-Hispanic in 2010 to 46% White non-Hispanic in 2020. This shift mirrors the national trend, with the U.S. share of White non-Hispanic population decreasing from 64% in 2010 to 58% in 2020. The White non-Hispanic population was the dominant group in most NYC Metro municipalities in 2010 and 2020, and that share declined slightly over the decade. 82% of NYC Metro municipalities had populations that were 50% or more White non-Hispanic in 2020 as compared to 88% in 2010.
+
+      The Hispanic population was the largest group in 6% of NYC Metro municipalities and the second largest group in 71% of NYC Metro municipalities in 2020. The geography of villages, towns, and cities with diverse populations did not shift dramatically over the decade, with more diverse populations concentrated in the center of the region and along transit corridors. NYC remains the most diverse area in the NYC Metro, with the highest shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic resident populations.
 source: |
   Sources & Notes: U.S. Census Bureau 2020 Redistricting Data. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and the [Population](/about/#people) section for additional notes on population by race/Hispanic origin.
-
 map:
   defaultGeographyLevel: municipality
 

@@ -3,13 +3,16 @@
 slug: population-change
 category: People
 categorySlug: people
-title: "In recent years, population growth has shifted toward the region’s center."
+title: "In recent years, population growth has been strongest at the region’s center."
 menuTitle: "Population Change since 2010"
 content: |
-  NEW TEXT HERE
-source: |
-  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau 2020 Redistricting Data (municipality only). 2020 data represent the most current year available for municipalities. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision.
+  Recent growth patterns suggest that more people moved to and stayed in our region, with a focus on the urban core and in areas well-connected to transit. This is especially true for NYC and the Inner New Jersey subregion, which together accounted for 65% of the region’s population growth since 2010, despite housing 59% of the region’s population. Brooklyn (+136k) and Queens (+100k) saw the largest population gains in the region, while the Bronx (+40k) and Staten Island (+25k) had sizeable gains as well.
+  Within suburban counties closest to NYC, Essex and Hudson in New Jersey had the strongest growth (+70k and +68k, respectively), reflecting strong housing development in cities like Hoboken and Jersey City, as well as towns like Weehawken and Secaucus. Population growth also concentrated in urban centers along rail corridors, such as Bridgeport, Elizabeth, Hempstead, Newark, New Rochelle, Paterson, and Stamford, and in other areas proximate to NYC – notably southern Westchester County and western Nassau County.
+  Though historically international in-migration has been an important factor in NYC’s growth, this is now increasingly true elsewhere in the region. Less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today, with the exception of Ocean County, New Jersey (+72k).
+  Changes between the 2020 U.S. Census Redistricting data and the 2021 Census PEP estimates showed significant population loss in Manhattan in 2021. Demographers believe that these figures reflect temporary changes at the height of the pandemic that have likely recovered since. See for more detail: [latest report on the 2021 population estimates](https://www1.nyc.gov/assets/planning/download/pdf/planning-level/nyc-population/new-population/current-population-estimates-2021.pdf).
 
+source: |
+  Sources & Notes: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data (municipality only); U.S. Census Bureau Population Estimates Program 2021 Vintage (county-level and above). Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision.
 map:
   defaultGeographyLevel: municipality
   sources:

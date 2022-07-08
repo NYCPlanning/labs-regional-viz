@@ -3,13 +3,12 @@
 slug: total-population
 category: People
 categorySlug: people
-title: "NYC is the nation’s largest city, within an even larger tri-state metropolitan area."
+title: "NYC is the nation’s largest city, and the surrounding tri-state region is the nation’s largest metropolitan area."
 menuTitle: "Total Population"
 content: |
-  NEW TEXT GOES HERE.
+  Today’s tri-state region is home to 23.2 million residents, the largest metro in the United States. New York City’s 8.5 million residents in 2021 represented 37% of the metro region’s population. The next largest city in our region is Newark, which has a population of 312k. There are nearly 900 villages, towns, and cities in our region, many of which are much smaller in population than the dense center of the region. In fact, excluding NYC, the average municipality in the region has 4.2k residents.
 source: |
-  Sources: U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau 2020 Redistricting Data (municipalities). 2020 data represent the most current year available for municipalities. See [About](/about/#people) page for additional notes on population.
-
+  Sources: U.S. Census Bureau 2020 Redistricting Data (municipality only); U.S. Census Bureau Population Estimates Program 2021 Vintage (county-level and above). See [About](/about/#people) page for additional notes on population.
 map:
   defaultGeographyLevel: county
 

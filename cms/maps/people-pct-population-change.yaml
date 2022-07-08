@@ -3,13 +3,15 @@
 slug: pct-population-change
 category: People
 categorySlug: people
-title: "In recent years, population growth has shifted toward the region’s center."
+title: "In recent years, population growth has been strongest at the region’s center."
 menuTitle: "% Population Change since 2010"
 content: |
-  NEW TEXT HERE
-source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau 2020 Redistricting Data (municipality only). 2020 data represent the most current year available for municipalities.
+  Since 2010, the region has continued to grow at faster rates in NYC and areas close to the city. NYC and the Inner NJ subregion accounted for 65% of regional population growth since 2010. The city grew at a rate of 3.6% over the decade. Brooklyn (+5.4%) was the fastest growing borough, while Staten Island (+5.3%) and Queens (+4.5%) had sizeable population gains as well.
+  Inner NJ (+6.7%) and the Lower Hudson Valley (+5.5%) were the fastest growing subregions from 2010 to 2021. Hudson County (+10.8%) and Essex County (+9.0%) in the Inner NJ subregion experienced some of the fastest rates of population growth in the region, which can be attributed to strong housing development and their proximity to the region’s core. With the exception of Ocean County, New Jersey (+12.6%), and Orange County, New York (+8.5%), less central parts of the region that led growth during the second half of the 20th century are not growing as quickly today.
+  Changes between the 2020 U.S. Census Redistricting data and the 2021 Census PEP estimates showed significant population loss in Manhattan in 2021. Demographers believe that these figures reflect temporary changes at the height of the pandemic that have likely recovered since. See for more detail: [latest report on the 2021 population estimates](https://www1.nyc.gov/assets/planning/download/pdf/planning-level/nyc-population/new-population/current-population-estimates-2021.pdf).
 
+source: |
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data; U.S. Census Bureau Population Estimates Program 2021 Vintage.
 map:
   defaultGeographyLevel: county
 
