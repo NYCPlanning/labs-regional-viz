@@ -6,9 +6,16 @@ categorySlug: jobs
 title: "Private sector institutional employment has increased region-wide since 2010."
 menuTitle: "Institutional Employment Change, 2010 to 2021"
 content: |
-    NEW TEXT HERE.
+    From 2010 to 2019, private sector institutional employment (jobs in the education and healthcare sectors) went up by 448k, with every county in the region adding jobs. Healthcare job gains, most notably in private ambulatory sectors (e.g., physicians, dentists, home health aides, and other local medical services), drove Institutional macro sector job gains. In NYC, the majority of that growth was attributed to increases in home health care jobs. The growth of this industry has been influenced by public policy decisions, including expanded access to insurance, as well as broader population changes.
+
+    Though institutional jobs consistently represented about one-quarter of NYC metro subregions' 2019 private sector employment, institutional job growth accounted for more than three quarters of jobs gains across non-NYC subregions, helping to offset pandemic-related job losses in other macro sectors.
+
+    Inclusive of job losses resulting from the pandemic, the NYC Metro added 384k private institutional sector jobs between 2010 and 2021. NYC represented 65% of the region’s job gains despite being 46% of private sector institutional jobs in 2021. Brooklyn added the most private sector institutional jobs between 2010 and 2020 (+126k), followed by Queens (+58k) and Manhattan (+50k).
+
+    For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector emplpyment only due to public sector data disclosure challenges. See [About](/about/#publicprivatejobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010, 2019, 2020 and 2021. Institutional jobs change, or change in education and healthcare sector jobs, is mapped for private sector emplpyment only due to public sector data disclosure challenges. See [About](/about/#publicprivatejobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county

@@ -3,12 +3,15 @@
 slug: localserve-employment
 category: Jobs
 categorySlug: jobs
-title: "There are 2.0 million retail, leisure, hospitality and other local services jobs in the region."
+title: "There are 2.2 million retail, leisure, hospitality and other local services jobs in the region."
 menuTitle: "Local Services Employment"
 content: |
-      NEW TEXT HERE.
+  The region's approximately 2.2 million private sector local services jobs - retail, leisure, food services, accommodations, and other services (e.g., laundromats and auto repair shops) sectors - represent 22% of the region's total private sector employment, the second-largest share behind the office macro sector. Local services private sector employment generated $96 billion in employee wages in 2021, averaging a lower wage per job than the other three macro sectors. 35% of the region's local services jobs are in NYC, (754k), which represent only 10% of private sector wages ($42 billion). Local services employment exists throughout the region, with the highest concentrations in densely populated areas or at regional malls. Employment in this macro sector was especially hard-hit during the Covid-19 pandemic.
+
+  For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2021; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2019 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#jobs) for more information about employment by sector.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2021; U.S. Census Bureau LEHD Origin-Destination Employment Statistics (LODES) 2019 [municipality only]. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about) for more information about employment by sector.
 
 map:
   defaultGeographyLevel: municipality
