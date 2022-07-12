@@ -3,12 +3,12 @@
 slug: labor-force-change
 category: People
 categorySlug: people
-title: "The region's labor force grew more slowly than the national average."
-menuTitle: "Total Labor Force Change, 2010 to 2019"
+title: "The region's labor force grew at a slower rate than the national average."
+menuTitle: "Total Labor Force Change, 2010 to 2020"
 content: |
-  Since 2010, the NYC metropolitan region grew labor force participants by +451k, representing an increase of +4.0% - more slowly than the national average labor force growth (+6.1%). NYC accounted for 56% of the region's growth in labor force (+252k), representing an increase of +6.1% since 2010, equal to the national average. Most counties in the region experienced an increase of people participating in the labor force, averaging a regional gain of +2.7% outside of NYC. The Lower Hudson Valley gained +35k labor force participants, representing an increase of +5.1%, followed by Inner NJ, which grew its labor force by +3.9%.
+  Since 2010, our metropolitan region has gained 442k labor force participants. This represents a growth rate of 3.9%, below the national average of 6.1%. NYC accounted for 50% of the region's growth in labor force (+222k), an increase of 5.4% since 2010. The rest of the region experienced less labor force growth, averaging a regional gain of 3.0% outside of NYC. The Lower Hudson Valley gained 34k labor force participants, representing an increase of 5.0%, followed by the Inner NJ subregion, which grew its labor force by 4.7%. These figures represent 5-year averages from 2016 to 2020 and only partially incorporate the effect of the Covid-19 pandemic.
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2015-2019. 2010 in this map represents a 5-year average of 2006-2010 and 2019 in this map represents a 5-year average of 2015-2019 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
+  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates, 2006-2010 and 2016-2020. 2010 in this map represents a 5-year average of 2006-2010 and 2020 in this map represents a 5-year average of 2016-2020 to improve the statistical reliability of calculated change. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#people) page for additional notes on labor force change.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,54 +18,54 @@ map:
     type: cartovector
     source-layers:
     - id: labor-force-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, lf_1019e as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, lf_1020e as value, name FROM region_subregion_v220615
     - id: labor-force-change-county
-      sql: SELECT the_geom_webmercator, geoid, lf_1019e as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, lf_1020e as value, name FROM region_county_v220615 WHERE iscommap = 0
     - id: labor-force-change-municipality
-      sql: SELECT the_geom_webmercator, lf_1019e as value FROM region_muni_lfch_dotden_v210924 ORDER BY random()
+      sql: SELECT the_geom_webmercator, lf_1020 as value FROM region_muni_lfch_dotden_v220615 ORDER BY random()
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
-  - id: lf1017
+  - id: lf
     title: Δ Labor Force
     large: true
     values:
     - geomType: region
-      columnName: lf_1019e
-      cv:  lf_1019c
+      columnName: lf_1020e
+      cv:  lf_1020c
       sig:
     - geomType: subregion
-      columnName: lf_1019e
-      cv: lf_1019c
+      columnName: lf_1020e
+      cv: lf_1020c
       sig:
     - geomType: county
-      columnName: lf_1019e
-      cv: lf_1019c
+      columnName: lf_1020e
+      cv: lf_1020c
       sig:
     - geomType: municipality
-      columnName: lf_1019e
-      cv: lf_1019c
+      columnName: lf_1020e
+      cv: lf_1020c
       sig:
   - id: moe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: lf_1019m
-      cv:  lf_1019c
+      columnName: lf_1020m
+      cv:  lf_1020c
       sig:
     - geomType: subregion
-      columnName: lf_1019m
-      cv:  lf_1019c
+      columnName: lf_1020m
+      cv:  lf_1020c
       sig:
     - geomType: county
-      columnName: lf_1019m
-      cv:  lf_1019c
+      columnName: lf_1020m
+      cv:  lf_1020c
       sig:
     - geomType: municipality
-      columnName: lf_1019m
-      cv:  lf_1019c
+      columnName: lf_1020m
+      cv:  lf_1020c
       sig:
 
   isPercent: false
@@ -73,7 +73,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Labor Force Change, 2010 to 2019"
+    title: "Labor Force Change, 2010 to 2020"
     legend: labor-force-change-subregion
     layers:
     - id: labor-force-change-subregion
@@ -96,7 +96,7 @@ map:
         - 50000
         - 150000
   - id: county
-    title: "Labor Force Change, 2010 to 2019"
+    title: "Labor Force Change, 2010 to 2020"
     legend: labor-force-change-county
     layers:
     - id: labor-force-change-county
@@ -119,7 +119,7 @@ map:
         - 20000
         - 45000
   - id: municipality
-    title: "Labor Force Change, 2010 to 2019"
+    title: "Labor Force Change, 2010 to 2020"
     legend-title: "1 dot = 50 people"
     legend:
     - color: "#00aacc"

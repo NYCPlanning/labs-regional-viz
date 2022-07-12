@@ -3,16 +3,17 @@
 slug: industrial-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Most of the region has lost industrial jobs, a continuation of historic trends."
-menuTitle: "Industrial Employment Change, 2008 to 2020"
+title: "The region saw some concentrated gains in industrial jobs, reversing previous downward trends."
+menuTitle: "Industrial Employment Change, 2010 to 2021"
 content: |
-          From 2008 to 2019, the NYC Metro lost -41k Industrial jobs (-0.2% per year), with the NYC and Outer New Jersey subregions registering modest industrial employment gains. The Inner New Jersey subregion accounted for nearly half of metro industrial job losses, and Connecticut accounted for about one-quarter of losses. Mirroring national trends of a declining industrial economy, the post-recession period reflects a continued trend within the NYC metro region, which lost -241k industrial jobs from 2000 to 2008 (-1.5% per year). Industrial losses were driven mostly by declines in manufacturing employment, representing about 80% of industrial job losses, followed by job losses in the wholesale trade sectors. Slight gains in construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering industrial job gains. The Bronx, Brooklyn, Queens, Staten Island, Middlesex and Mercer counties, NJ, are among the growing counties, with areas that house port infrastructure or track major road networks (e.g., the I-95 corridor).
+  From 2010 to 2021, the NYC Metro gained 74k industrial jobs (0.4% per year), most of which were located in just a few counties: Middlesex, NJ (+23k), Staten Island, NY (+15k), Mercer, NJ (+10k), Suffolk, NY (+9k) and Somerset, NJ (+9k).
 
-          Declines in the Industrial sector continued amid the Covid-19 pandemic, with the NYC Metro experiencing an additional loss of 150k jobs between 2019 and 2020. The only subregion within the NYC Metro to register an increase in Industrial jobs between 2008 and 2020 was Outer New Jersey, which gained over 1k jobs.
+  Mirroring national trends of a declining industrial economy, the slight gains in industrial jobs since 2010 follow a loss of 241k industrial jobs in the NYC Metro region from 2000 to 2008. These industrial losses were driven mostly by declines in manufacturing employment, representing about 80% of losses, followed by the wholesale trade sectors.
 
-          To track how the NYC Metro’s industrial jobs are recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+  Construction, transportation and warehousing sectors (mostly in NYC and the Outer New Jersey subregions) drove growth among the few counties registering industrial job gains. The Bronx, Brooklyn, Queens, Staten Island, Middlesex and Mercer counties, NJ, are among the growing counties, with areas that house port infrastructure or are situated in proximity to major road networks (e.g., the I-95 corridor).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities. Therefore, losses registered in places such as Manhattan more likely reflect loss of office-based, rather than traditional manufacturing facility-based, employment. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000, 2008, 2010, 2019 and 2021. Industrial sectors might include headquarters employment or businesses classified as industrial occupying more traditional office-type facilities. Therefore, losses registered in places such as Manhattan more likely reflect loss of office-based, rather than traditional manufacturing facility-based, employment. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -22,9 +23,9 @@ map:
     type: cartovector
     source-layers:
     - id: industrial-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, emind_1021 as value, name FROM region_subregion_v220615
     - id: industrial-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emind_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emind_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: empr
@@ -32,15 +33,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emind_0820
+      columnName: emind_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: emind_0820
+      columnName: emind_1021
       cv:
       sig:
     - geomType: county
-      columnName: emind_0820
+      columnName: emind_1021
       cv:
       sig:
 
@@ -49,7 +50,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Industrial Job Change, 2008 to 2020"
+    title: "Industrial Job Change, 2010 to 2021"
     legend: industrial-employment-change-subregion
     layers:
     - id: industrial-employment-change-subregion
@@ -62,17 +63,19 @@ map:
         - "#871a0e"
         - "#d6584a"
         - "#ffffe0"
+        - "#b3e4ff"
         - "#5ab4ff"
         - "#0058ee"
         - "#002673"
         breaks:
-        - -25000
+        - -10000
         - -5000
         - 5000
+        - 10000
         - 25000
         - 50000
   - id: county
-    title: "Industrial Job Change, 2008 to 2020"
+    title: "Industrial Job Change, 2010 to 2021"
     legend: industrial-employment-change-county
     layers:
     - id: industrial-employment-change-county

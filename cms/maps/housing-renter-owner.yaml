@@ -6,9 +6,9 @@ categorySlug: housing
 title: "NYC provides more than half of the region’s rental housing."
 menuTitle: "Housing Units, Owner- vs. Renter-Occupied"
 content: |
-  Of the region’s 8.3 million occupied homes in 2019, 3.9 million are renter-occupied and 4.4 million are owner-occupied. Among large U.S. metropolitan areas, our region’s 47% rental share of total housing is an important feature of our region’s success in accommodating a dynamic population. NYC’s 3.62 million homes represent 39% of the region’s housing, and NYC’s 2.19 million renter-occupied units represent 56% of the region’s renter households. Other concentrations of rental housing are found in the metro’s historically denser cities – Newark, Bridgeport, Elizabeth, Jersey City, New Haven, Paterson, and Yonkers – as well as in newer Transit-Oriented Development (TOD) centers like Harrison, NJ, and New Rochelle, NY. As has been the case nationally, there has been an increase in the construction of multifamily housing, including rental housing, in locations throughout the region since the Great Recession.
+  Of the region’s 8.3 million occupied homes in 2020, 3.8 million were renter-occupied and 4.5 million were owner-occupied. Our region’s 46% rental share of total housing is an important feature of our region’s success in accommodating a dynamic population. NYC’s 3.64 million homes represent 39% of the region’s housing, and NYC’s 2.14 million renter-occupied units represent 56% of the region’s renter households. Other concentrations of rental housing are found in the metro’s historically denser cities – Newark, Bridgeport, Elizabeth, Jersey City, New Haven, Paterson, and Yonkers – as well as in newer Transit-Oriented Development (TOD) centers like Harrison, NJ, and New Rochelle, NY. As has been the case nationally, there has been an increase in the construction of multifamily housing, including rental housing, in locations throughout the region since the Great Recession.
 source: |
-  Sources & Notes: U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019 and 5-Year Estimates 2015-2019. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing tenure.
+  Sources & Notes: U.S. Census Bureau Population Estimates Program 2021 Vintage; U.S. Census Bureau American Community Survey (ACS) 5-Year Estimates 2016-2020. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and [About](/about/#housing) for more information about housing tenure.
 
 map:
   defaultGeographyLevel: municipality
@@ -18,13 +18,13 @@ map:
     type: cartovector
     source-layers:
     - id: renter-owner-tract
-      sql: SELECT the_geom_webmercator, category FROM region_tract_houtenure_dotden_v210924 ORDER BY random()
+      sql: SELECT the_geom_webmercator, category FROM region_tract_houtenure_dotden_v220615 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v220615
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v220615 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
   - id: owner
@@ -32,120 +32,120 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: houo_19e
-      cv: houo_19c
+      columnName: houo_20e
+      cv: houo_20c
       sig:
     - geomType: subregion
-      columnName: houo_19e
-      cv: houo_19c
+      columnName: houo_20e
+      cv: houo_20c
       sig:
     - geomType: county
-      columnName: houo_19e
-      cv: houo_19c
+      columnName: houo_20e
+      cv: houo_20c
       sig:
     - geomType: municipality
-      columnName: houo_19e
-      cv: houo_19c
+      columnName: houo_20e
+      cv: houo_20c
       sig:
   - id: ownermoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: houo_19m
-      cv: houo_19c
+      columnName: houo_20m
+      cv: houo_20c
       sig:
     - geomType: subregion
-      columnName: houo_19m
-      cv: houo_19c
+      columnName: houo_20m
+      cv: houo_20c
       sig:
     - geomType: county
-      columnName: houo_19m
-      cv: houo_19c
+      columnName: houo_20m
+      cv: houo_20c
       sig:
     - geomType: municipality
-      columnName: houo_19m
-      cv: houo_19c
+      columnName: houo_20m
+      cv: houo_20c
       sig:
   - id: renter
     title: Renter
     large: true
     values:
     - geomType: region
-      columnName: hour_19e
-      cv: hour_19c
+      columnName: hour_20e
+      cv: hour_20c
       sig:
     - geomType: subregion
-      columnName: hour_19e
-      cv: hour_19c
+      columnName: hour_20e
+      cv: hour_20c
       sig:
     - geomType: county
-      columnName: hour_19e
-      cv: hour_19c
+      columnName: hour_20e
+      cv: hour_20c
       sig:
     - geomType: municipality
-      columnName: hour_19e
-      cv: hour_19c
+      columnName: hour_20e
+      cv: hour_20c
       sig:
   - id: rentermoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: hour_19m
-      cv: hour_19c
+      columnName: hour_20m
+      cv: hour_20c
       sig:
     - geomType: subregion
-      columnName: hour_19m
-      cv: hour_19c
+      columnName: hour_20m
+      cv: hour_20c
       sig:
     - geomType: county
-      columnName: hour_19m
-      cv: hour_19c
+      columnName: hour_20m
+      cv: hour_20c
       sig:
     - geomType: municipality
-      columnName: hour_19m
-      cv: hour_19c
+      columnName: hour_20m
+      cv: hour_20c
       sig:
   - id: vacant
     title: Vacant
     large: true
     values:
     - geomType: region
-      columnName: houv_19e
-      cv: houv_19c
+      columnName: houv_20e
+      cv: houv_20c
       sig:
     - geomType: subregion
-      columnName: houv_19e
-      cv: houv_19c
+      columnName: houv_20e
+      cv: houv_20c
       sig:
     - geomType: county
-      columnName: houv_19e
-      cv: houv_19c
+      columnName: houv_20e
+      cv: houv_20c
       sig:
     - geomType: municipality
-      columnName: houv_19e
-      cv: houv_19c
+      columnName: houv_20e
+      cv: houv_20c
       sig:
   - id: vacantmoe
     title: MOE
     isMOE: true
     values:
     - geomType: region
-      columnName: houv_19m
-      cv: houv_19c
+      columnName: houv_20m
+      cv: houv_20c
       sig:
     - geomType: subregion
-      columnName: houv_19m
-      cv: houv_19c
+      columnName: houv_20m
+      cv: houv_20c
       sig:
     - geomType: county
-      columnName: houv_19m
-      cv: houv_19c
+      columnName: houv_20m
+      cv: houv_20c
       sig:
     - geomType: municipality
-      columnName: houv_19m
-      cv: houv_19c
+      columnName: houv_20m
+      cv: houv_20c
       sig:
 
   isComNycWork: false
@@ -154,7 +154,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Housing Units by Renter vs. Owner, 2019"
+    title: "Housing Units by Renter vs. Owner, 2016-2020 Avg"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -173,9 +173,9 @@ map:
         - match
         - - get
           - category
-        - "HouO_19E"
+        - "HouO_20E"
         - "#fff300"
-        - "HouR_19E"
+        - "HouR_20E"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:
@@ -199,7 +199,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: county
-    title: "Housing Units by Renter vs. Owner, 2019"
+    title: "Housing Units by Renter vs. Owner, 2016-2020 Avg"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -218,9 +218,9 @@ map:
         - match
         - - get
           - category
-        - "HouO_19E"
+        - "HouO_20E"
         - "#fff300"
-        - "HouR_19E"
+        - "HouR_20E"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:
@@ -244,7 +244,7 @@ map:
         line-color: rgba(131, 131, 131, 1)
         line-width: 0.5
   - id: municipality
-    title: "Housing Units by Renter vs. Owner, 2015-2019 Avg"
+    title: "Housing Units by Renter vs. Owner, 2016-2020 Avg"
     legend-title: "1 Dot = 50 Units"
     legend:
     - color: "#fff300"
@@ -263,9 +263,9 @@ map:
         - match
         - - get
           - category
-        - "HouO_19E"
+        - "HouO_20E"
         - "#fff300"
-        - "HouR_19E"
+        - "HouR_20E"
         - "#ff471a"
         - "#FFFFFF"
         circle-radius:

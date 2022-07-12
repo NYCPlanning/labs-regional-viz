@@ -12,14 +12,14 @@ content: |
     <span class="float-left" style="width:33.33%;">Region Average: 0.88</span>
     <strong class="float-right text-right" style="width:33.33%;">Housing-intensive</strong>
   </p>
-
-  One tool for considering the geographic balance of residents and workplaces in a region is to measure the relative supply of housing and jobs – or the ratio of total housing units to total employment – for a given area. A <b>“Housing/Jobs”</b> ” indicator helps us understand and evaluate jobs access, or how effectively the resident labor force can access employment. In our region, there was an overall average of 0.87 housing units per job in 2000 (in other words, on average, more than one worker lived in each household). Places in our region that had a housing-to-jobs ratio far lower than 0.87 were often important centers of economic activity (<b>“jobs-intensive”</b>), while areas with a higher housing-to-jobs ratio skewed toward residential (<b>“housing-intensive”</b>) uses. In this map, “jobs-intensive” counties or subregions are indicated in blue, and “housing-intensive” geographies are indicated in orange.
+  One metric of the geographic balance of residents and workplaces in a region is the relative supply of housing and jobs or ratio of total housing units to total employment in that area. A <b>“Housing/Jobs”</b> indicator helps us understand and evaluate how effectively the resident labor force can access employment. In our region, there was an average of 0.87 housing units per job in 2000 (in other words, on average, more than one worker lived in each household). Places in our region that had a housing-to-jobs ratio far lower than 0.87 were often important centers of economic activity (<b>“jobs-intensive”</b>), while areas with a higher housing-to-jobs ratio skewed toward residential (<b>“housing-intensive”</b>) uses. In this map, “jobs-intensive” counties or subregions are indicated in blue, and “housing-intensive” geographies are indicated in orange.
 
   <b>It is not intrinsically good or bad for an area to be “jobs-intensive” or “housing-intensive.”</b> However, the relationships between these areas have implications for our shared transit infrastructure, the fiscal condition of communities, and other aspects of how we live.
 
-  In 2000, Manhattan was the region’s most jobs-intensive county, with a ratio of 0.37 housing units to total jobs. The Bronx was the region’s most housing-intensive county, with a ratio of 1.88 housing units to jobs, while Brooklyn, Queens and Staten Island all qualify as “housing-intensive,” with those boroughs’ residents commuting to Manhattan in high numbers.
+  In 2000, Manhattan was the region’s most jobs-intensive county, with a ratio of 0.37 housing units to total jobs. The Bronx was the region’s most housing-intensive county, with a ratio of 1.88 housing units to jobs, while Brooklyn, Queens and Staten Island also qualify as “housing-intensive,” with those boroughs’ residents commuting to Manhattan in high numbers.
 
   Inner NJ counties adjacent to NYC (except Hudson) skewed more jobs-intensive in 2000, while the outer ring of the region – Suffolk County, Litchfield, CT, the upper Hudson Valley, Warren County and Sussex County, NJ – tended to be more housing-intensive.
+
 source: |
   Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2000; U.S. Census Bureau Decennial Census 2000. NYC public sector employment was not reported by borough of workplace in 2000 (only headquarters location), however, data were adjusted based on current public sector employment allocations for actual workplace. See [About](/about/#balance) for more information.
 
@@ -31,9 +31,9 @@ map:
     type: cartovector
     source-layers:
     - id: housjobs00-subregion
-      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_subregion_v220615
     - id: housjobs00-county
-      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, bal_00 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: bal_00

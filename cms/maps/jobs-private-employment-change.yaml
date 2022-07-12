@@ -3,16 +3,19 @@
 slug: private-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NYC accounted for the majority of the region’s job growth since 2008."
-menuTitle: "Private Sector Employment Change, 2008 to 2020"
+title: "NYC accounted for the majority of the region’s job growth last decade, but the city is recovering from Covid-19 more slowly than some of its surrounding areas."
+menuTitle: "Private Sector Employment Change, 2010 to 2021"
 content: |
-  Prior to the Covid-19 pandemic, the NYC Metro gained +1.1 million private sector jobs from 2008 to 2019, increasing from 8.2 to 9.3 million. NYC accounted for 73% of private sector job growth in the years after the Great Recession, adding +787k jobs and growing at an average rate of +2.2% per year. In 2019, NYC experienced its highest levels of recorded employment, while many areas of the region were just returning to pre-Great Recession levels of employment.
+  Prior to the Covid-19 pandemic, the NYC Metro gained 1.4 million private sector jobs from 2010 to 2019, increasing from 7.9 to 9.3 million. NYC accounted for 61% of private sector job growth over this time period, adding 873k jobs. In 2019, NYC experienced its highest levels of recorded employment, while many areas of the region were just returning to pre-Great Recession levels of employment.
 
-  Covid-19 and resulting shutdowns initiated an unprecedented employment loss for the NYC Metro. From January to August 2020, the NYC Metro’s private sector employment base shrank from 9.52M to 8.46M jobs, a loss of 11%. Over the same period, NYC lost 602k jobs (-15%), northern New Jersey lost 233k jobs (-8%), Long Island lost 103k jobs (-9%), the Hudson Valley lost 71k jobs (-9%), and southwest Connecticut lost 53k jobs (-7%).  Gains since August 2020 have driven a modest rebound in employment.
+  Covid-19 and resulting shutdowns initiated an unprecedented employment loss for the NYC Metro. Annual employment figures showed the region losing 1.0 million private sector jobs from 2019 to 2020, with half of those losses in NYC. Local services jobs took the hardest hit, losing 567k jobs across the region from 2019 to 2020, and 200k of these losses coming from Manhattan alone.
 
-  For more information on how the NYC Metro’s economy is recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+  Gains since the height of Covid-19 have driven a modest rebound in employment, with 293k jobs coming back to the region from 2020 to 2021, rebounding the private sector total to 8.6 million. The Outer New Jersey (+5.3% from 2020), Long Island (+5.3%) and Inner New Jersey (+4.0%) subregions have recovered at faster paces than NYC (+2.4%) and other surrounding areas. While the pandemic caused employment declines in every county in the region from 2019 to 2020, each county also saw gains in employment from 2020 to 2021.
+
+  For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020; U.S. Bureau of Labor Statistics Current Employment Statistics, August 2021 (narrative only). See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010 and 2021. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -22,9 +25,9 @@ map:
     type: cartovector
     source-layers:
     - id: private-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, empr_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, empr_1021 as value, name FROM region_subregion_v220615
     - id: private-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, empr_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, empr_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: empr
@@ -32,15 +35,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: empr_0820
+      columnName: empr_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: empr_0820
+      columnName: empr_1021
       cv:
       sig:
     - geomType: county
-      columnName: empr_0820
+      columnName: empr_1021
       cv:
       sig:
 
@@ -49,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Private Sector Employment Change, 2008 to 2020"
+    title: "Private Sector Employment Change, 2010 to 2021"
     legend: private-employment-change-subregion
     layers:
     - id: private-employment-change-subregion
@@ -72,7 +75,7 @@ map:
         - 7500
         - 100000
   - id: county
-    title: "Private Sector Employment Change, 2008 to 2020"
+    title: "Private Sector Employment Change, 2010 to 2021"
     legend: private-employment-change-county
     layers:
     - id: private-employment-change-county

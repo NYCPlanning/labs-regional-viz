@@ -3,16 +3,19 @@
 slug: office-employment-change
 category: Jobs
 categorySlug: jobs
-title: "NYC's office employment growth had offset losses elsewhere in the region."
-menuTitle: "Office Employment Change, 2008 to 2020"
+title: "NYC’s post-Great Recession office recovery was strong enough to offset losses elsewhere in the region and withstand the impact of Covid-19."
+menuTitle: "Office Employment Change, 2010 to 2021"
 content: |
-    In the wake of the Great Recession from 2008 to 2019, the NYC Metro gained +228k office-based private sector jobs, with NYC's gain of +241k office jobs offsetting losses experienced elsewhere in the region. All five NYC boroughs gained office employment from 2008 to 2019, with Manhattan adding the most (+187k) and Brooklyn growing the fastest (+4.3% per year). Though 51% of the region's private sector office jobs were located in NYC in 2019, NYC accounted for 83% of office job gains experienced by growing counties.
+    From 2010 to 2019, the NYC Metro gained 398k office-based private sector jobs, 79% of which were in NYC (+313k). All five NYC boroughs gained office employment from 2010 to 2019, and Manhattan (+258k) accounted for 82% of the city’s gains and 65% of the region’s. These gains were more than enough to offset office job losses in smaller Long Island, Inner New Jersey and Southwest Connecticut subregion counties.
 
-    The Covid-19 pandemic and job losses in 2020 reduced the NYC Metro’s post-2008 office employment growth to +52k and NYC office sector gains +142k. Outside of NYC, Hudson County, NJ experienced office job growth (+8k), while Bergen County, NJ (-18k) and Nassau County, NY (-21k) saw the steepest declines. Notably, this macro sector employs the highest share of [telework-capable jobs]( https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253).
+    The Covid-19 pandemic resulted in job losses in every major industry in 2020, and the NYC Metro’s post-2010 office employment growth was reduced to 229k. In 2021, office sector employment recovered from the pandemic more quickly than some other sectors, boosting the region’s gains from 2010 to 266k.
 
-    For more detail on the recovery of the office-based macro sector, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+    Many office-based workers were able to continue their jobs remotely during the height of the pandemic, which contributed to fewer employment losses in office-based industries. To learn more about where telework-capable jobs are located, as well as where workers in telework-capable jobs live throughout the NYC Metro, visit our [interactive platform](https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253).
+
+    For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 and 2020. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010, 2019, 2020 and 2021. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -22,9 +25,9 @@ map:
     type: cartovector
     source-layers:
     - id: office-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emoff_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, emoff_1021 as value, name FROM region_subregion_v220615
     - id: office-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emoff_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emoff_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: emoff
@@ -32,15 +35,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
     - geomType: county
-      columnName: emoff_0820
+      columnName: emoff_1021
       cv:
       sig:
 
@@ -49,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Office-based Job Change, 2008 to 2020"
+    title: "Office-based Job Change, 2010 to 2021"
     legend: office-employment-change-subregion
     layers:
     - id: office-employment-change-subregion
@@ -62,17 +65,19 @@ map:
         - "#871a0e"
         - "#d6584a"
         - "#ffffe0"
+        - "#b3e4ff"
         - "#5ab4ff"
         - "#0058ee"
         - "#002673"
         breaks:
-        - -25000
+        - -10000
         - -5000
         - 5000
+        - 10000
         - 25000
         - 50000
   - id: county
-    title: "Office-based Job Change, 2008 to 2020"
+    title: "Office-based Job Change, 2010 to 2021"
     legend: office-employment-change-county
     layers:
     - id: office-employment-change-county

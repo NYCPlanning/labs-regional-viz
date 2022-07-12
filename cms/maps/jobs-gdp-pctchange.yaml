@@ -3,12 +3,15 @@
 slug: gdp-pctchange
 category: Jobs
 categorySlug: jobs
-title: "Before the pandemic, NYC's GDP grew at nearly five times the rate of the rest of the region."
-menuTitle: "% Annual Change in Gross Domestic Product, 2008 - 2019"
+title: "From 2010 to 2020, NYC's GDP grew at twice the rate of the region as a whole."
+menuTitle: "% Annual Change in Gross Domestic Product, 2010 - 2020"
 content: |
-  Prior to the pandemic, the NYC Metro grew GDP by +$459 billion from 2008 to 2019 (in 2020-dollars), representing an annual increase of +2.5%. NYC, which grew GDP by +$361 billion from 2008 to 2019, accounted for 79% of the region’s net GDP growth, growing by +4.6% per year. The rest of the region combined grew GDP by +0.9% per year. Connecticut was the only subregion that experienced a loss in GDP, of -$4 billion, representing a decline of -0.2% per year. NYC and the Lower Hudson Valley (+2.3% per year) both grew GDP faster than the U.S. on average (+2.0% per year) from 2008 to 2019, while the other subregions grew GDP more slowly. Manhattan grew GDP the fastest among NYC metro region counties (+5.1% per year), followed by Brooklyn (+4.1% per year), and Queens (+3.3% per year).
+  Despite the Covid-19 pandemic, the NYC Metro grew its GDP by $285 billion from 2010 to 2020 (in 2020-dollars), representing an increase of 1.6% per year. NYC, which grew its GDP by $240 billion from 2010 to 2020, accounted for 84% of the region’s net GDP growth, growing by 3.1% per year. NYC’s rate of growth was faster than the U.S. on average (+2.0% per year).
+
+  Brooklyn grew GDP the fastest among NYC metro region counties (+3.8% per year), followed by Manhattan (+3.3% per year). Southwest Connecticut was the only subregion that experienced a loss in GDP, of $2.2 billion, while the other subregions all grew in GDP but more slowly than the city.
+
 source: |
-  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2019 (in 2020-dollars).
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2020 (in 2020-dollars).
 
 map:
   defaultGeographyLevel: county
@@ -18,25 +21,25 @@ map:
     type: cartovector
     source-layers:
     - id: gdp-pctchange-subregion
-      sql: SELECT the_geom_webmercator, geoid, gdpa_0819 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, gdpa_1020 as value, name FROM region_subregion_v220615
     - id: gdp-pctchange-county
-      sql: SELECT the_geom_webmercator, geoid, gdpa_0819 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, gdpa_1020 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
-  - id: gdppa_0819
+  - id: gdppa_1020
     title: Total
     large: true
     values:
     - geomType: region
-      columnName: gdpa_0819
+      columnName: gdpa_1020
       cv:
       sig:
     - geomType: subregion
-      columnName: gdpa_0819
+      columnName: gdpa_1020
       cv:
       sig:
     - geomType: county
-      columnName: gdpa_0819
+      columnName: gdpa_1020
       cv:
       sig:
 
@@ -45,7 +48,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "% Annual Change in GDP, 2008 - 2019"
+    title: "% Annual Change in GDP, 2010 - 2020"
     legend: gdp-pctchange-subregion
     layers:
     - id: gdp-pctchange-subregion
@@ -66,7 +69,7 @@ map:
         - 0.01
         - 0.03
   - id: county
-    title: "% Annual Change in GDP, 2008 - 2019"
+    title: "% Annual Change in GDP, 2010 - 2020"
     legend: gdp-pctchange-county
     layers:
     - id: gdp-pctchange-county
