@@ -6,9 +6,10 @@ categorySlug: commuting
 title: "One million more workers were employed in NYC since 2000, 78% of whom are NYC residents."
 menuTitle: "Change in NYC Workforce, 2000 to 2019"
 content: |
-  From 2000 to 2019, the city’s workforce grew by 1.1 million workers, representing a 29% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2019, at their residence location (i.e. NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by +29% (+843k), while the NYC in-commuter workforce grew by +31% (+243k). As a result, in-commuters represent a slightly larger component of the NYC workforce today than in 2000.
+  From 2000 to 2019, the city’s workforce grew by 1.1 million workers, representing a 29% increase. This map shows the change in the number of people who are employed in NYC from 2000 to 2019, at their residence location (i.e., NYC commuters' county or subregion of origin). Over that time period, the NYC resident workforce grew by 29% (+843k), while the NYC in-commuter workforce grew by 31% (+243k). As a result, in-commuters represented a slightly larger component of the NYC workforce in 2019 than in 2000.
 
-  Since 2000, there has been an increase of +150k (+49%) Inner and Outer New Jersey (northern New Jersey) residents traveling to NYC for work, accounting for approximately two-thirds of total NYC in-commuter gains. Bergen, Essex and Hudson counties combined (+107k) accounted for 44% of the total NYC in-commuter increase. In-commuting from the Hudson Valley and Connecticut increased by +54k combined (+26%), while in-commuting from Long Island grew slightly less than in-commuting to the city from the north (+39k), and at a slower rate (+14%).
+  From 2000 to 2019, there was an increase of 150k (+49%) northern New Jersey residents traveling to NYC for work, accounting for approximately two-thirds of total NYC in-commuter gains. Bergen, Essex and Hudson counties combined accounted for 44% of the total NYC in-commuter increase (+107k). In-commuting from the Hudson Valley and Southwest Connecticut increased by 54k combined (+26%), while in-commuting from Long Island grew slightly less than in-commuting to the city from the north (+39k), and at a slower rate (+14%).
+
 source: |
   Sources & Notes: IPUMS-USA, University of Minnesota; U.S. Census Bureau American Community Survey (ACS) 1-Year Estimates 2019; U.S. Census Bureau Decennial Census 2000 5% Sample. Map represents change in NYC workers at those workers' places of residence (i.e., commuters' county or subregion origin). Sullivan and Ulster counties are combined for consistency with IPUMS-USA reporting geographies.
 
@@ -20,9 +21,9 @@ map:
     type: cartovector
     source-layers:
     - id: total-nycworkerchange-subregion
-      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_subregion_v220615
     - id: total-nycworkerchange-county
-      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_county_v210924 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
+      sql: SELECT the_geom_webmercator, geoid, cw_0019_e as value, name FROM region_county_v220615 WHERE geoid NOT IN ('3607936119', '36105','36111') ##test "IsComNYCWork <> FALSE"
 
 
   popupColumns:

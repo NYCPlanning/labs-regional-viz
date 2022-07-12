@@ -3,13 +3,15 @@
 slug: pct-population-change
 category: People
 categorySlug: people
-title: "In recent years, population growth has shifted toward the region’s center."
-menuTitle: "% Population Change, 2010 to 2020"
+title: "In recent years, population growth has been strongest at the region’s center."
+menuTitle: "% Population Change since 2010"
 content: |
-  Since 2010, the region has continued to grow at faster rates in the center of the region, in NYC and areas close to the city. NYC’s population has grown +7.7% since 2010, with Brooklyn (+9.2%) and Queens (+7.8%) growing faster, and Manhattan (+6.8%), the Bronx (+6.3%) and Staten Island (+5.8%) growing slower. NYC accounted for 47% of regional population growth since 2010. The Inner New Jersey (+7.5%) and Lower Hudson Valley (+5.9%) subregions grew at a slightly slower than NYC. Hudson County, New Jersey experienced the fastest rate of population growth (+14.3%) of any county in the region, followed by Ocean County, New Jersey (+10.5%) and Essex County, New Jersey (+10.2%). With the exception of Ocean County, New Jersey, and Orange County, New York (+7.6%), less central parts of the region, which led growth during the second half of the 20th century, are generally not growing today.
-source: |
-  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data.
+  Since 2010, the region has continued to grow at faster rates in NYC and areas close to the city. NYC and the Inner NJ subregion accounted for 65% of regional population growth since 2010. The city grew at a rate of 3.6% over the decade. Brooklyn (+5.4%) was the fastest growing borough, while Staten Island (+5.3%) and Queens (+4.5%) had sizeable population gains as well.
+  Inner NJ (+6.7%) and the Lower Hudson Valley (+5.5%) were the fastest growing subregions from 2010 to 2021. Hudson County (+10.8%) and Essex County (+9.0%) in the Inner NJ subregion experienced some of the fastest rates of population growth in the region, which can be attributed to strong housing development and their proximity to the region’s core. With the exception of Ocean County, New Jersey (+12.6%), and Orange County, New York (+8.5%), less central parts of the region that led growth during the second half of the 20th century are not growing as quickly today.
+  Changes between the 2020 U.S. Census Redistricting data and the 2021 Census PEP estimates showed significant population loss in Manhattan in 2021. Demographers believe that these figures reflect temporary changes at the height of the pandemic that have likely recovered since. See for more detail: [latest report on the 2021 population estimates](https://www1.nyc.gov/assets/planning/download/pdf/planning-level/nyc-population/new-population/current-population-estimates-2021.pdf).
 
+source: |
+  Sources: U.S. Census Bureau Decennial Census 2010; U.S. Census Bureau 2020 Redistricting Data; U.S. Census Bureau Population Estimates Program 2021 Vintage.
 map:
   defaultGeographyLevel: county
 
@@ -18,27 +20,27 @@ map:
     type: cartovector
     source-layers:
     - id: pct-population-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, popp_1021e as value, name FROM region_subregion_v220615
     - id: pct-population-change-county
-      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, popp_1021e as value, name FROM region_county_v220615 WHERE iscommap = 0
     - id: pct-population-change-municipality
-      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, popp_1020e as value, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
-  - id: pctchange
+  - id: poppctch
     title: "% Change"
     large: true
     values:
     - geomType: region
-      columnName: popp_1020e
+      columnName: popp_1021e
       cv:
       sig:
     - geomType: subregion
-      columnName: popp_1020e
+      columnName: popp_1021e
       cv:
       sig:
     - geomType: county
-      columnName: popp_1020e
+      columnName: popp_1021e
       cv:
       sig:
     - geomType: municipality
@@ -51,7 +53,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "% Population Change, 2010 to 2020"
+    title: "% Population Change, 2010 to 2021"
     legend: pct-population-change-subregion
     layers:
     - id: pct-population-change-subregion
@@ -74,7 +76,7 @@ map:
         - 0.050
         - 0.075
   - id: county
-    title: "% Population Change, 2010 to 2020"
+    title: "% Population Change, 2010 to 2021"
     legend: pct-population-change-county
     layers:
     - id: pct-population-change-county

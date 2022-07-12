@@ -3,16 +3,19 @@
 slug: localserve-employment-change
 category: Jobs
 categorySlug: jobs
-title: "Considerable job growth in the local services sector after the Great Recession was more than offset by pandemic-initiated losses."
-menuTitle: "Local Services Employment Change, 2008 to 2020"
+title: "Considerable post-Great Recession job growth in the local services was more than offset by pandemic-initiated losses."
+menuTitle: "Local Services Employment Change, 2010 to 2021"
 content: |
-          Between 2008 and 2019, local services employment (retail, leisure, hospitality, and other services sectors) grew in nearly every county, representing an increase of +377k jobs and a regional growth of +1.6% per year. NYC accounted for nearly two-thirds of the region's local services employment growth, with Manhattan gaining the most jobs (+121k). Within the local services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with minor declines in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding +48k retail jobs since 2008.
+    Between 2010 and 2019, local services employment (retail, leisure, hospitality, and other services sectors) grew in nearly every county, representing an increase of 402k jobs. NYC accounted for nearly two-thirds of the region's local services employment growth, with Manhattan gaining the most jobs (+120k). Within the local services macro sector, growth outside of NYC was mostly attributable to gains in food services and accommodations, with minor declines in the number of retail jobs. NYC was the only subregion to significantly gain retail jobs, adding 45k retail jobs since 2010.
 
-          The local services sector saw steep declines because of pandemic related shutdowns of many retail, leisure, and hospitality businesses. Between 2019 and 2020, the NYC Metro saw a decline of -562k local services jobs. Manhattan was especially hard-hit, registering a decline of nearly -200k local services jobs between 2019 and 2020.
+    The local services sector saw steep declines because of pandemic-related shutdowns of many retail, leisure, and hospitality businesses. Between 2019 and 2020, the NYC Metro saw a decline of 567k local services jobs. Manhattan was especially hard-hit, registering a decline of nearly 199k local services jobs between 2019 and 2020.
 
-          To track how the NYC Metro’s local services jobs are recovering from the pandemic, please visit our interactive visualization and data tool, [NYC Metro Region: Tracking the Recovery] (/https://public.tableau.com/app/profile/matthew.waskiewicz/viz/NYCMetroRegionTrackingtheRecovery/MonthlyChangesinceCovid?publish=yes/).
+    From 2020 to 2021, the region’s local services regained 153k jobs. This came mostly from leisure and hospitality services (+96k), but also from a sizeable rebound in retail jobs (+29k). Manhattan, on the other hand, has only regained about 5k local services jobs, held back by a 5k loss in retail employment over the last year. Some experts attribute this to a lack of activity in central business districts due to a high percentage of [telework-capable](https://dcp.maps.arcgis.com/apps/opsdashboard/index.html#/fa7934157342468c92ffec2f2cdeb253) jobs in the office sector, as well as a slower rebound in tourism.
+
+    For more information on NYC Metro employment and wages, please visit our interactive visualization and data platform, [NYC Metro Employment & Wage Trends](https://public.tableau.com/app/profile/michael.carper/viz/NYCMetroEmploymentWageTrends/MacroSectorDashboard).
+
 source: |
-  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2008 & 2020. See [About](/about/#jobs) for more information about employment.
+  Sources & Notes: U.S. Bureau of Labor Statistics Quarterly Census of Employment and Wages (QCEW) NAICS-Based Data Files, Annual Average 2010, 2019, 2020 and 2021. See [About](/about/#jobs) for more information about employment.
 
 map:
   defaultGeographyLevel: county
@@ -22,9 +25,9 @@ map:
     type: cartovector
     source-layers:
     - id: localserve-employment-change-subregion
-      sql: SELECT the_geom_webmercator, geoid, emser_0820 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, emser_1021 as value, name FROM region_subregion_v220615
     - id: localserve-employment-change-county
-      sql: SELECT the_geom_webmercator, geoid, emser_0820 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, emser_1021 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
   - id: emloc
@@ -32,15 +35,15 @@ map:
     large: true
     values:
     - geomType: region
-      columnName: emser_0820
+      columnName: emser_1021
       cv:
       sig:
     - geomType: subregion
-      columnName: emser_0820
+      columnName: emser_1021
       cv:
       sig:
     - geomType: county
-      columnName: emser_0820
+      columnName: emser_1021
       cv:
       sig:
 
@@ -49,7 +52,7 @@ map:
 
   layerGroups:
   - id: subregion
-    title: "Local Services Employment Change, 2008 to 2020"
+    title: "Local Services Employment Change, 2010 to 2021"
     legend: localserve-employment-change-subregion
     layers:
     - id: localserve-employment-change-subregion
@@ -62,17 +65,19 @@ map:
         - "#871a0e"
         - "#d6584a"
         - "#ffffe0"
+        - "#b3e4ff"
         - "#5ab4ff"
         - "#0058ee"
         - "#002673"
         breaks:
-        - -25000
+        - -10000
         - -5000
         - 5000
+        - 10000
         - 25000
         - 50000
   - id: county
-    title: "Local Services Employment Change, 2008 to 2020"
+    title: "Local Services Employment Change, 2010 to 2021"
     legend: localserve-employment-change-county
     layers:
     - id: localserve-employment-change-county

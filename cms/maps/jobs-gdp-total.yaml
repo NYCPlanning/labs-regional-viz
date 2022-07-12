@@ -6,9 +6,9 @@ categorySlug: jobs
 title: "NYC generates half of the region’s $2 trillion in economic output."
 menuTitle: "Total Gross Domestic Product"
 content: |
-  In 2019, the NYC Metro generated $2.1 trillion in gross domestic product (GDP), representing approximately 10% of total U.S. economic activity, which was greater than the economic output of countries including Brazil, Canada, Russia, and South Korea. Half of that activity occurs in NYC, which captures a higher share of the region’s high-value employment, and the other half of that output is generated elsewhere in the region. Manhattan, which accounts for 23% of the region’s total employment, represents 37% of the region’s GDP, generating $779 billion in economic output in 2019. Other areas that generate significant economic activity include Queens, Brooklyn, Nassau and Suffolk counties on Long Island, Westchester County in the Lower Hudson Valley, and Fairfield County in Connecticut.
+  In 2020, the NYC Metro generated $2.1 trillion in gross domestic product (GDP), representing approximately 10% of total U.S. economic activity, which was greater than the economic output of countries including Brazil, Canada, Russia, and South Korea. Half of that activity occurs in NYC, which captures a higher share of the region’s high-value employment, and the other half of that output is generated elsewhere in the region. Manhattan, which accounts for 22% of the region’s total employment, represents 37% of the region’s GDP, generating $754 billion in economic output in 2020. Other areas that generate significant economic activity include Queens, Brooklyn, Nassau and Suffolk counties on Long Island, Westchester County in the Lower Hudson Valley, and Fairfield County in Connecticut.
 source: |
-  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2019 (reported in 2020-dollars); GDP (Current $US), The World Bank [https://data.worldbank.org/](https://data.worldbank.org/).
+  Sources & Notes: U.S. Bureau of Economic Analysis (BEA) Local Area Gross Domestic Product, 2020 (reported in 2020-dollars); GDP (Current $US), The World Bank [https://data.worldbank.org/](https://data.worldbank.org/).
 
 map:
   defaultGeographyLevel: county
@@ -18,25 +18,25 @@ map:
     type: cartovector
     source-layers:
     - id: gdp-total-subregion
-      sql: SELECT the_geom_webmercator, geoid, gdp_19 as value, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, gdp_20 as value, name FROM region_subregion_v220615
     - id: gdp-total-county
-      sql: SELECT the_geom_webmercator, geoid, gdp_19 as value, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, gdp_20 as value, name FROM region_county_v220615 WHERE iscommap = 0
 
   popupColumns:
-  - id: gdp_19
-    title: '2019 GDP $billions'
+  - id: gdp_20
+    title: '2020 GDP $billions'
     large: true
     values:
     - geomType: region
-      columnName: gdp_19
+      columnName: gdp_20
       cv:
       sig:
     - geomType: subregion
-      columnName: gdp_19
+      columnName: gdp_20
       cv:
       sig:
     - geomType: county
-      columnName: gdp_19
+      columnName: gdp_20
       cv:
       sig:
 

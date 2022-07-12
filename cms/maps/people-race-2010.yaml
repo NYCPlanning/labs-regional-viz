@@ -6,7 +6,7 @@ categorySlug: people
 title: "Our region is more diverse than the U.S. overall."
 menuTitle: "Population by Race/Hispanic Origin, 2010"
 content: |
-      In 2010, the NYC Metro was 52% White non-Hispanic, compared to 64% of the U.S. population overall, and the region had larger shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic populations as compared with the U.S. overall. Yet within the NYC Metro, diverse populations were concentrated in select areas and the vast majority of municipalities had resident populations that were 50% or more White Non-Hispanic. Municipalities with more diverse populations were concentrated in the center of the region and along transit corridors.
+      In 2010, the NYC Metro had larger shares of Black non-Hispanic, Asian non-Hispanic, and Hispanic populations than the U.S. population overall. The metro population was 52% White non-Hispanic, compared to 64% of the U.S. overall. Yet within the NYC Metro, diverse populations were concentrated in select areas and 88% of municipalities had majority White Non-Hispanic resident populations. Municipalities with more diverse populations were concentrated in the center of the region and along transit corridors.
 source: |
   Sources & Notes: U.S. Census Bureau Decennial Census 2010. Dot density maps are illustrative only, please see [Data Reliability](/about/#data-reliability) for additional notes on geographic accuracy and precision, and the [Population](/about/#people) section for additional notes on population by race/Hispanic origin.
 
@@ -20,11 +20,11 @@ map:
     - id: race-2010-tract
       sql: SELECT the_geom_webmercator, category FROM region_tract_race10_dotden_v210924 ORDER BY random()
     - id: empty-polygons-subregion
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v210924
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_subregion_v220615
     - id: empty-polygons-county
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v210924 WHERE iscommap = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_county_v220615 WHERE iscommap = 0
     - id: empty-polygons-municipality
-      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v210924 WHERE islitown = 0
+      sql: SELECT the_geom_webmercator, geoid, name FROM region_municipality_v220615 WHERE islitown = 0
 
   popupColumns:
   - id: white
