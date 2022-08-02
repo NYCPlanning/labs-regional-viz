@@ -16,13 +16,13 @@ content: |
   <strong>Top Trends and Key Insights:</strong>
   - [Population growth has shifted towards the region’s center.](/people/population-change)
   - [Higher growth areas are among the most diverse.](/people/foreign-born)
-  - [Prime labor force cohort (age 25 to 54) grew the most at the region’s center.](/people/prime-labor-force)
-  - [65-and-older labor force cohort has grown by 56% since 2010.](/people/aging-labor-force)
+  - [Prime labor force cohort (age 25 to 54) grew the most at the region’s center.](/people/prime-labor-force-change)
+  - [65-and-older labor force cohort has grown by 56% since 2010.](/people/aging-labor-force-change)
   - [The region's rental housing is concentrated in NYC.](/housing/renter-owner)
   - [NJ and NYC are building the majority of new housing in the region.](/housing/units-permitted-size)
   - [NYC is the hub of the largest U.S. metro economy, with more jobs than employed residents.](/jobs/employment-by-sector)
-  - [There are 4.8 million people working in NYC; before the pandemic, 21% of them commuted from elsewhere in the region.](/commuting/commuting-total-nycworkerres)
-  - [NYC has gained 1 million workers since 2000, most of whom are NYC residents.](/commuting/commuting-total-nycworkerchange)
+  - [There are 4.8 million people working in NYC; before the pandemic, 21% of them commuted from elsewhere in the region.](/commuting/total-nycworkerres)
+  - [NYC has gained 1 million workers since 2000, most of whom are NYC residents.](/commuting/total-nycworkerchange)
   - [Patterns of employment growth and housing development have changed the jobs-housing balance throughout the region.](/balance/housjobs0021)
 
 source: The tri-state geography shown, representing New York City and surrounding 26 counties in portions of New York, New Jersey and Connecticut, is a generally accepted modification of the U.S. Census Bureau combined statistical area (CSA) for New York-Newark-Bridgeport and roughly represents the NYC commuter shed.
