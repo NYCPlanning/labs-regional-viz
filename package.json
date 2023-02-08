@@ -52,7 +52,7 @@
     "ember-load-initializers": "^1.1.0",
     "ember-mapbox-gl": "0.10.0",
     "ember-maybe-import-regenerator": "^0.1.6",
-    "ember-metrics": "0.12.1",
+    "ember-metrics": "^2.0.0-beta.2",
     "ember-qunit": "^4.4.1",
     "ember-resolver": "^5.0.1",
     "ember-scroll-to": "0.6.5",
@@ -70,7 +70,7 @@
     "qunit-dom": "^0.8.0"
   },
   "engines": {
-    "node": "6.* || 8.* || >= 10.*"
+    "node": "12.*"
   },
   "dependencies": {
     "mapbox-gl": "^0.45.0",
