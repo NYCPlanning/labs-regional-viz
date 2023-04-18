@@ -30,7 +30,7 @@ module.exports = function(environment) {
       accessToken: '',
       map: {
         style: 'https://layers-api-staging.planninglabs.nyc/v1/base/style.json',
-      }
+      },
     },
 
     metricsAdapters: [

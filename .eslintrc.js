@@ -2,7 +2,7 @@ module.exports = {
   root: true,
   parser: 'babel-eslint',
   parserOptions: {
-    ecmaVersion: 2017,
+    ecmaVersion: 2018,
     sourceType: 'module'
   },
   plugins: [
@@ -47,7 +47,9 @@ module.exports = {
       env: {
         browser: false,
         node: true
-      }
+      },
+      plugins: ['node'],
+      rules: {}
     }
   ]
 };
