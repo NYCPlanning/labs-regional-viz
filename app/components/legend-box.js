@@ -1,6 +1,5 @@
 import Component from '@ember/component';
-import { computed } from '@ember-decorators/object'; // eslint-disable-line
-import { argument } from '@ember-decorators/argument'; // eslint-disable-line
+import { computed } from '@ember/object'; // eslint-disable-line
 import numeral from 'numeral';
 
 

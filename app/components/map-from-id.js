@@ -1,9 +1,7 @@
 import Component from '@ember/component';
 import mapboxgl from 'mapbox-gl';
-import { action, computed } from '@ember-decorators/object'; // eslint-disable-line
-import { get } from '@ember/object';
+import { action, computed, get} from '@ember/object'; // eslint-disable-line
 import carto from 'cartobox-promises-utility/utils/carto';
-import { argument } from '@ember-decorators/argument'; // eslint-disable-line
 
 import getPopupSQL from '../utils/get-popup-sql';
 import buildPopupContent from '../utils/build-popup-content';
