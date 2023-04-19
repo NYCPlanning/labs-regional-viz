@@ -82,6 +82,9 @@
   },
   "resolutions": {
     "ember-cli-sass": "^11.0.1",
-    "whatwg-fetch": "3.3.1"
+    "whatwg-fetch": "3.3.1",
+    "broccoli-source": "^1.1.0",
+    "broccoli-sass-source-maps": "^2.0.0",
+    "broccoli-merge-trees": "^4.2.0"
   }
 }
