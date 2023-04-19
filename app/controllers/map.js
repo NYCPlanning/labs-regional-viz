@@ -1,7 +1,6 @@
 import { next } from '@ember/runloop';
-import Controller from '@ember/controller';
-import { action, computed } from '@ember-decorators/object';
-import { inject } from '@ember-decorators/controller';
+import Controller, { inject } from '@ember/controller';
+import { action, computed } from '@ember/object';
 
 export default class MapController extends Controller {
   queryParams = [
