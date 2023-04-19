@@ -30,6 +30,7 @@ module.exports = {
     'camelcase': 0,
     'max-len': 0,
     'no-param-reassign': 0,
+    'ember/no-jquery': 'warn'
   },
   overrides: [
     // node files
