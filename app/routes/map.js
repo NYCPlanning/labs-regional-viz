@@ -94,7 +94,7 @@ export default Route.extend({
 
   actions: {
     didTransition() {
-      const scroller = this.get('scroller');
+      const { scroller } = this;
 
       next(this, () => {
         scroller.scrollVertical('#top', {

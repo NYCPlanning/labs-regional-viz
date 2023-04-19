@@ -2,7 +2,7 @@ import Ember from 'ember';
 import Scroller from 'ember-scroll-to/services/scroller';
 
 export default Scroller.extend({
-  getJQueryElement (target) {
+  getJQueryElement(target) {
     const jQueryElement = Ember.$(target);
 
     if (Ember.isEmpty(jQueryElement)) {
@@ -12,7 +12,5 @@ export default Scroller.extend({
     return jQueryElement;
   },
 
-  scrollable: Ember.computed(function() {
-    return Ember.$('#scrollable-content');
-  }),
+  scrollable: Ember.computed(() => Ember.$('#scrollable-content')),
 });

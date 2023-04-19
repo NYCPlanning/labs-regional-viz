@@ -15,7 +15,7 @@ export default Route.extend({
 
   actions: {
     didTransition() {
-      const scroller = this.get('scroller');
+      const { scroller } = this;
       const section = window.location.hash.substr(1);
 
       // add defensive condition for special mapbox hash,

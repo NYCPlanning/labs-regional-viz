@@ -89,11 +89,11 @@ export default class LegendBox extends Component {
 
   @computed('currentLayerGroup', 'isPercent', 'isChangeMeasurement', 'isRatio', 'isDollar')
   get rows() {
-    const layerConfig = this.get('currentLayerGroup');
-    const isPercent = this.get('isPercent');
-    const isChangeMeasurement = this.get('isChangeMeasurement');
-    const isRatio = this.get('isRatio');
-    const isDollar = this.get('isDollar');
+    const layerConfig = this.currentLayerGroup;
+    const { isPercent } = this;
+    const { isChangeMeasurement } = this;
+    const { isRatio } = this;
+    const { isDollar } = this;
     const { legend } = layerConfig;
     if (typeof legend === 'string') {
       return getChoroplethRows(layerConfig.layers.find(layer => layer.id === legend), isPercent, isChangeMeasurement, isRatio, isDollar);

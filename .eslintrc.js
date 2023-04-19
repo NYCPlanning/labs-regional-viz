@@ -1,3 +1,5 @@
+'use strict';
+
 module.exports = {
   root: true,
   parser: 'babel-eslint',
@@ -5,20 +7,20 @@ module.exports = {
     ecmaVersion: 2018,
     sourceType: 'module',
     ecmaFeatures: {
-      legacyDecorators: true
-    }
+      legacyDecorators: true,
+    },
   },
-  plugins: [
-    'ember'
-  ],
+  plugins: ['ember'],
   extends: [
-    'airbnb-base'
+    'airbnb-base',
+    'eslint:recommended',
+    'plugin:ember/recommended',
   ],
   env: {
     browser: true,
   },
-  globals:{
-    '$': true,
+  globals: {
+    $: true,
     d3: true,
   },
   rules: {
@@ -30,29 +32,43 @@ module.exports = {
     'space-before-function-paren': 0,
     'prefer-arrow-callback': 0,
     'no-underscore-dangle': 0,
-    'camelcase': 0,
+    camelcase: 0,
     'max-len': 0,
     'no-param-reassign': 0,
-    'ember/no-jquery': 'warn'
+    'ember/no-jquery': 'warn',
   },
   overrides: [
     // node files
     {
       files: [
-        'testem.js',
-        'ember-cli-build.js',
-        'config/**/*.js',
-        'lib/*/index.js'
+        './.eslintrc.js',
+        './.template-lintrc.js',
+        './ember-cli-build.js',
+        './testem.js',
+        './blueprints/*/index.js',
+        './config/**/*.js',
+        './lib/*/index.js',
+        './server/**/*.js',
       ],
       parserOptions: {
-        sourceType: 'script'
+        sourceType: 'script',
       },
       env: {
         browser: false,
-        node: true
+        node: true,
       },
       plugins: ['node'],
-      rules: {}
-    }
-  ]
+      extends: ['plugin:node/recommended'],
+      rules: {
+        // this can be removed once the following is fixed
+        // https://github.com/mysticatea/eslint-plugin-node/issues/77
+        'node/no-unpublished-require': 'off',
+      },
+    },
+    {
+      // Test files:
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
+    },
+  ],
 };

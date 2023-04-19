@@ -9,18 +9,18 @@ import buildPopupContent from '../utils/build-popup-content';
 export default class MapFromID extends Component {
   @computed('mapConfig', 'toggledGeographyLevel')
   get geographyLevel() {
-    const mapConfig = this.get('mapConfig') || 'county';
-    const toggledGeographyLevel = this.get('toggledGeographyLevel') || null;
+    const mapConfig = this.mapConfig || 'county';
+    const toggledGeographyLevel = this.toggledGeographyLevel || null;
     if (toggledGeographyLevel) {
       return toggledGeographyLevel;
     }
-    return get(mapConfig, 'defaultGeographyLevel');
+    return mapConfig.defaultGeographyLevel;
   }
 
   @computed('mapConfig', 'geographyLevel')
   get currentLayerGroup() {
-    const mapConfig = this.get('mapConfig');
-    const geographyLevel = this.get('geographyLevel');
+    const { mapConfig } = this;
+    const { geographyLevel } = this;
     const { layerGroups = [] } = mapConfig;
     const foundLayerGroup = layerGroups.find(d => d.id === geographyLevel) || {};
 
@@ -29,13 +29,13 @@ export default class MapFromID extends Component {
 
   @computed('currentLayerGroup')
   get mapTitle() {
-    const currentLayerGroup = this.get('currentLayerGroup');
+    const { currentLayerGroup } = this;
     return currentLayerGroup ? currentLayerGroup.title : '';
   }
 
   @computed('highlightedFeature')
   get highlightedFeatureSource() {
-    const feature = this.get('highlightedFeature');
+    const feature = this.highlightedFeature;
     return {
       type: 'geojson',
       data: feature,
@@ -44,14 +44,14 @@ export default class MapFromID extends Component {
 
   @computed('highlightedFeature')
   get popupData() {
-    const feature = this.get('highlightedFeature');
+    const feature = this.highlightedFeature;
     return feature.properties;
   }
 
   @computed('mapConfig', 'geographyLevel')
   get visibleLayers() {
-    const { mapboxLayers = [] } = this.get('mapConfig');
-    const selectedGeographyLevel = this.get('geographyLevel');
+    const { mapboxLayers = [] } = this.mapConfig;
+    const selectedGeographyLevel = this.geographyLevel;
     return mapboxLayers
       .find(layerGroup => layerGroup.id === selectedGeographyLevel)
       .layers;
@@ -111,8 +111,9 @@ export default class MapFromID extends Component {
   }
 
   didReceiveAttrs() {
-    const previousNarrativeVisible = this.get('previousNarrativeVisible');
-    const narrativeVisible = this.get('narrativeVisible');
+    super.didReceiveAttrs();
+    const { previousNarrativeVisible } = this;
+    const { narrativeVisible } = this;
 
     if (previousNarrativeVisible === narrativeVisible) {
       this.set('toggledGeographyLevel', null);
@@ -122,10 +123,11 @@ export default class MapFromID extends Component {
   }
 
   didUpdateAttrs() {
-    const map = this.get('map');
+    super.didUpdateAttrs();
+    const { map } = this;
     if (!map) return;
     const sources = this.get('mapConfig.sources');
-    const popup = this.get('popup');
+    const { popup } = this;
 
     sources.forEach((source) => {
       if (!map.getSource(source.id)) {
@@ -152,10 +154,10 @@ export default class MapFromID extends Component {
       map.addSource(source.id, source);
     });
 
-    map.addSource('highlighted-feature', this.get('highlightedFeatureSource'));
+    map.addSource('highlighted-feature', this.highlightedFeatureSource);
 
     // This is repeated in didUpdateAttrs(), maybe move to service
-    const regionBounds = this.get('regionBounds');
+    const { regionBounds } = this;
     map.fitBounds(regionBounds, {
       padding: {
         top: 20,
@@ -168,9 +170,9 @@ export default class MapFromID extends Component {
 
   @action
   handleMouseMove(e) {
-    const layers = this.get('visibleLayers').map(d => d.id);
+    const layers = this.visibleLayers.map(d => d.id);
     const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
-    const map = this.get('map');
+    const { map } = this;
 
     if (feature) {
       // set the highlighted feature
@@ -184,31 +186,31 @@ export default class MapFromID extends Component {
       this.set('highlightedFeature', null);
     }
 
-    const { popupColumns } = this.get('mapConfig');
+    const { popupColumns } = this.mapConfig;
 
     map.getCanvas().style.cursor = (feature && popupColumns) ? 'pointer' : '';
   }
 
   @action
   handleMouseClick(e) {
-    const layers = this.get('visibleLayers')
+    const layers = this.visibleLayers
       .filter(d => d.type !== 'circle') // exclude dot density maps
       .map(d => d.id);
     const feature = e.target.queryRenderedFeatures(e.point, { layers })[0];
-    const popup = this.get('popup');
+    const { popup } = this;
     const {
       popupColumns, isPermitMap, isComNycWork, isComNycRes, isPercent, isRatio, isDollar, isChangeMeasurement,
-    } = this.get('mapConfig');
+    } = this.mapConfig;
 
     // Add the popup with a spinner before loading its data
     popup.setLngLat(e.lngLat)
       .setHTML('<i aria-hidden="true" class="fa fa-spinner fa-spin medium-gray fa-3x fa-fw"></i>')
-      .addTo(this.get('map'));
+      .addTo(this.map);
 
     // Add data to the popup
     if (feature) {
-      const SQL = getPopupSQL(e.lngLat, this.get('mapConfig'), this.get('geographyLevel'));
-      const geographyLevel = this.get('geographyLevel');
+      const SQL = getPopupSQL(e.lngLat, this.mapConfig, this.geographyLevel);
+      const { geographyLevel } = this;
 
       carto.SQL(SQL)
         .then((data) => {
@@ -221,12 +223,12 @@ export default class MapFromID extends Component {
 
   @action
   handleGeographyLevelToggle(geog) {
-    this.get('popup').remove();
+    this.popup.remove();
     this.set('toggledGeographyLevel', geog);
 
-    if (this.get('toggledGeographyLevel') !== 'municipality') {
-      const map = this.get('map');
-      const regionBounds = this.get('regionBounds');
+    if (this.toggledGeographyLevel !== 'municipality') {
+      const { map } = this;
+      const { regionBounds } = this;
 
       map.fitBounds(regionBounds, {
         padding: {
@@ -242,7 +244,7 @@ export default class MapFromID extends Component {
   @action
   mapLoading(data) {
     // Create array of local source IDs from the config (not e.g. basemap sources)
-    const localConfig = this.get('mapConfig');
+    const localConfig = this.mapConfig;
     const sourceIds = localConfig.sources.mapBy('id');
 
     // Is this data event's source ID in the array of local source IDs?

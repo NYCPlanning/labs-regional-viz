@@ -1,20 +1,20 @@
 import EmberRouter from '@ember/routing/router';
 import { inject as service } from '@ember/service';
 import { scheduleOnce } from '@ember/runloop';
-import config from './config/environment';
+import config from 'labs-regional-viz/config/environment';
 
 export default class Router extends EmberRouter {
   @service metrics;
 
   didTransition(...args) {
-    this._super(...args);
+    super.didTransition(...args);
     this._trackPage();
   }
 
   _trackPage() {
     scheduleOnce('afterRender', this, () => {
-      const page = this.get('url');
-      const title = this.getWithDefault('currentRouteName', 'unknown');
+      const page = this.url;
+      const title = (this.currentRouteName === undefined ? 'unknown' : this.currentRouteName);
       this.metrics.trackPage({ page, title });
     });
   }

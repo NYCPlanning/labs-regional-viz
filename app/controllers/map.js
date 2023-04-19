@@ -41,7 +41,7 @@ export default class MapController extends Controller {
   toggleNarrative() {
     this.toggleProperty('narrativeVisible');
 
-    next(function() {
+    next(() => {
       window.dispatchEvent(new Event('resize'));
     });
   }

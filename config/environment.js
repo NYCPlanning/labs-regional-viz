@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function(environment) {
+module.exports = function (environment) {
   const ENV = {
     modulePrefix: 'labs-regional-viz',
     environment,
@@ -20,52 +20,6 @@ module.exports = function(environment) {
     APP: {
       // Here you can pass flags/options to your application instance
       // when it is created
-    },
-
-    remarkable: {
-      excludeHighlightJs: true,
-    },
-
-    'mapbox-gl': {
-      accessToken: '',
-      map: {
-        style: 'https://layers-api-staging.planninglabs.nyc/v1/base/style.json',
-      },
-    },
-
-    metricsAdapters: [
-      {
-        name: 'GoogleAnalytics',
-        environments: ['development', 'production'],
-        config: {
-          id: 'UA-84250233-11',
-          // Use `analytics_debug.js` in development
-          debug: environment === 'ga-development',
-          // Use verbose tracing of GA events
-          trace: environment === 'development',
-          // Ensure development env hits aren't sent to GA
-          sendHitTask: environment !== 'development',
-        },
-      },
-      {
-        name: 'GoogleAnalyticsFour',
-        environments: ['development', 'production'],
-        config: {
-          id: 'G-JF3D6WYT1G',
-          options: {
-            debug_mode: environment === 'development',
-          },
-        },
-      },
-    ],
-
-    contentSecurityPolicy: {
-      'default-src': "'none'",
-      'script-src': "'self' www.google-analytics.com",
-    },
-
-    'ember-cli-string-helpers': {
-      only: ['capitalize'],
     },
   };
 

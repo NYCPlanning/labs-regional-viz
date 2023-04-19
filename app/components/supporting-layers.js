@@ -14,7 +14,7 @@ export default Component.extend({
   actions: {
     toggleRail() {
       // set railSource if user is toggling rails on.
-      if (!this.get('railVisible')) {
+      if (!this.railVisible) {
         const source = this.get('railConfig.source');
         carto.getVectorTileTemplate(source['source-layers'])
           .then(template => ({
