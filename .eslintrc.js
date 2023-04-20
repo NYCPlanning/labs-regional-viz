@@ -3,7 +3,10 @@ module.exports = {
   parser: 'babel-eslint',
   parserOptions: {
     ecmaVersion: 2018,
-    sourceType: 'module'
+    sourceType: 'module',
+    ecmaFeatures: {
+      legacyDecorators: true
+    }
   },
   plugins: [
     'ember'
@@ -30,6 +33,7 @@ module.exports = {
     'camelcase': 0,
     'max-len': 0,
     'no-param-reassign': 0,
+    'ember/no-jquery': 'warn'
   },
   overrides: [
     // node files
@@ -41,8 +45,7 @@ module.exports = {
         'lib/*/index.js'
       ],
       parserOptions: {
-        sourceType: 'script',
-        ecmaVersion: 2015
+        sourceType: 'script'
       },
       env: {
         browser: false,
