@@ -60,7 +60,7 @@
     "ember-source": "~3.15.0",
     "ember-truth-helpers": "^2.0.0",
     "ember-welcome-page": "^4.0.0",
-    "ember-yaml-cms": "1.0.0",
+    "ember-yaml-cms": "../ember-yaml-cms",
     "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^13.0.0",
     "eslint-plugin-ember": "^7.7.1",

@@ -6695,10 +6695,8 @@ ember-wormhole@^0.5.1:
     ember-cli-babel "^6.10.0"
     ember-cli-htmlbars "^2.0.1"
 
-ember-yaml-cms@1.0.0:
+ember-yaml-cms@../ember-yaml-cms:
   version "1.0.0"
-  resolved "https://registry.yarnpkg.com/ember-yaml-cms/-/ember-yaml-cms-1.0.0.tgz#7573353f5196a7cd7855bc373199f4a8b8eed221"
-  integrity sha512-FVuxdxvIzZLDh+VFf2bgz5YswhAzzEqutjb8mK9v80SsM/TqoXVZBdS+zr8iB85RWfmq1eMqaW15lAqPePZYfw==
   dependencies:
     broccoli-funnel "^2.0.1"
     broccoli-merge-json "0.0.2"
